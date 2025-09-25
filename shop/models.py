@@ -40,6 +40,20 @@ class Category(models.Model):
     def __str__(self):
         return self.title
     
+# Theme Model
+class Theme(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    description = models.TextField(blank=True)
+    slug = models.SlugField(unique=True)
+    icon = models.ImageField(upload_to='theme_icons/', blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
 
 # Print product Model
 class Print(models.Model):
@@ -133,17 +147,3 @@ class Order(models.Model):
     def __str__(self):
         return f"Order #{self.id} - {self.customer_name}"
     
-# Theme Model
-class Theme(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    description = models.TextField(blank=True)
-    slug = models.SlugField(unique=True)
-    icon = models.ImageField(upload_to='theme_icons/', blank=True, null=True)
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.name
