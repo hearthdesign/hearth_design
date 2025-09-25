@@ -54,7 +54,7 @@ class Print(models.Model):
     date = models.DateField()
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='prints/%Y/%m%d', blank=True)
-    theme = models.ForeignKey('Theme', on_delete=models.SET_NULL, null=True)
+    themes = models.ManyToManyField(Theme, blank=True)    
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     in_stock = models.BooleanField(default=True)
 
@@ -105,7 +105,7 @@ class Product(models.Model):
     def __str__(self):
         return f"{self.print.title} - {self.sku}"
     
-
+# Photography Model
 class Photography(models.Model):
     title = models.CharField(max_length=200)
     quantity = models.PositiveIntegerField()
@@ -132,4 +132,18 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Order #{self.id} - {self.customer_name}"
+    
+# Theme Model
+class Theme(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    description = models.TextField(blank=True)
+    slug = models.SlugField(unique=True)
+    icon = models.ImageField(upload_to='theme_icons/', blank=True, null=True)
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
