@@ -19,4 +19,6 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('gallery/illustrations/', views.illustration_gallery, name='illustration_gallery'),
+    path('gallery/photographies/', views.photography_gallery, name='photography_gallery'),
 ]
