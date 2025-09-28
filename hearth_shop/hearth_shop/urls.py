@@ -20,6 +20,7 @@ from shop import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.homepage, name='homepage'),  # ✅ This handles "/"
     path('gallery/illustrations/', views.illustration_gallery, name='illustration_gallery'),
     path('gallery/photographies/', views.photography_gallery, name='photography_gallery'),
 ]

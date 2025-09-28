@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import Print
 
+def homepage(request):
+    return render(request, 'shop/homepage.html')
+
 # Illustration gallery view
 def illustration_gallery(request):
     prints = Print.objects.filter(type='illustration', is_active=True)
