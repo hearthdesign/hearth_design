@@ -1,0 +1,27 @@
+{% load static %}
+
+<!-- hearth_shop/templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}HEARTH SHOP{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'shop/js/main.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Hearth Shop</h1>
+        {% include 'includes/navbar.html' %}
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 HEARTH Shop</p>
+    </footer>
+</body>
+</html>
+                                        

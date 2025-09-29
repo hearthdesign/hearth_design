@@ -9,4 +9,16 @@
 {% block content %}
     <h2>Discover Our Art</h2>
     <p>Browse themed prints, illustrations, and photographs curated for every taste.</p>
+
+<div class="gallery-grid">
+  {% for print in prints %}
+    <div class="thumbnail">
+      <a href="#" data-image="{{ print.image.url }}" data-id="{{ print.id }}">
+        <img src="{{ print.image.url }}" alt="{{ print.title }}" loading="lazy">
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
 {% endblock %}
+
