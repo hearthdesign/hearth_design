@@ -7,7 +7,7 @@
 {% block title %}Welcome to HEARTH Shop{% endblock %}
 
 {% block content %}
-    <h2>Discover Our Art</h2>
+    {% comment %} <h2>Discover Our Art</h2>
     <p>Browse themed prints, illustrations, and photographs curated for every taste.</p>
 
 <div class="gallery-grid">
@@ -18,6 +18,32 @@
       </a>
     </div>
   {% endfor %}
-</div>
+</div> {% endcomment %}
+{% comment %} {% endblock %} {% endcomment %}
 
+  <h1>{{ category|title }} Gallery</h1>
+
+  <div class="gallery-grid">
+    {% for print in page_obj %}
+      <div class="thumbnail">
+        <a href="#" data-image="{{ print.image.url }}" data-id="{{ print.id }}" data-title="{{ print.title }}" >
+          <img src="{{ print.image.url }}" alt="{{ print.title }}" loading="lazy">
+        </a>
+      </div>
+    {% empty %}
+      <p>No prints found.</p>
+    {% endfor %}
+  </div>
+
+  <div class="pagination">
+    {% if page_obj.has_previous %}
+      <a href="?theme={{ theme.slug }}&type={{ category }}&page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+    <span>Page {{ page_obj.number }}</span>
+    {% if page_obj.has_next %}
+      <a href="?theme={{ theme.slug }}&type={{ category }}&page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+  </div>
 {% endblock %}
+
+

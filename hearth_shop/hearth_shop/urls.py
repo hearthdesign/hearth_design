@@ -28,5 +28,9 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('theme-filter/', views.theme_filter, name='theme_filter'), # Theme filter view
-    path('gallery/filter/', views.theme_filter, name='theme_filter')
+    path('gallery/filter/', views.theme_filter, name='theme_filter'),
+    path('cart/add/', views.add_to_cart, name='add_to_cart'),
+    path('cart/', views.cart_view, name='cart_view'),
+    path('checkout/<int:product_id>/', views.create_checkout_session, name='checkout'),
+
 ]

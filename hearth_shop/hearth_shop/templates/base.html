@@ -18,7 +18,18 @@
     <main>
         {% block content %}{% endblock %}
     </main>
-
+    <div id="image-modal" style="display:none;" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <img src="" alt="" id="modal-image">
+        <h3 id="modal-title"></h3>
+        <form method="post" action="{% url 'add_to_cart' %}">
+          {% csrf_token %}
+          <input type="hidden" name="product_id" id="modal-product-id">
+          <button type="submit">Add to Cart</button>
+        </form>
+      </div>
+    </div>
     <footer>
         <p>&copy; 2025 HEARTH Shop</p>
     </footer>

@@ -4,6 +4,10 @@ from .models import Print, Theme
 from django.urls import reverse
 from django.http import JsonResponse
 from django.core.paginator import Paginator # For pagination
+import stripe
+from django.conf import settings
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 #Homepage view
 def homepage(request):
@@ -60,3 +64,26 @@ def add_to_cart(request):
     cart.append(product_id)
     request.session['cart'] = cart
     return JsonResponse({'status': 'added'})
+
+def cart_view(request):
+    cart_ids = request.session.get('cart', [])
+    items = Print.objects.filter(id__in=cart_ids)
+    return render(request, 'shop/cart.html', {'items': items})
+
+def create_checkout_session(request, product_id):
+    product = get_object_or_404(Print, id=product_id)
+    session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=[{
+            'price_data': {
+                'currency': 'eur',
+                'product_data': {'name': product.title},
+                'unit_amount': int(product.price * 100),
+            },
+            'quantity': 1,
+        }],
+        mode='payment',
+        success_url='http://127.0.0.1:8000/success/',
+        cancel_url='http://127.0.0.1:8000/cancel/',
+    )
+    return redirect(session.url)
