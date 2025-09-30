@@ -10,6 +10,8 @@
             <li><a href="{% url 'login' %}">Login</a></li>
         {% endif %}
     </ul>
+    <a href="{% url 'cart_view' %}" class="cart-link">🛒 Cart</a>
+
 
     <form method="get" action="{% url 'theme_filter' %}">
         <select name="theme">
@@ -19,4 +21,5 @@
         </select>
         <button type="submit">Filter</button>
     </form>
+    
 </nav>
