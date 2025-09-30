@@ -23,11 +23,18 @@
         <span class="close">&times;</span>
         <img src="" alt="" id="modal-image">
         <h3 id="modal-title"></h3>
-        <form method="post" action="{% url 'add_to_cart' %}">
-          {% csrf_token %}
-          <input type="hidden" name="product_id" id="modal-product-id">
-          <button type="submit">Add to Cart</button>
-        </form>
+        
+<!-- Modal form for adding product to cart -->
+<form method="post" action="{% url 'add_to_cart' %}">
+  {% csrf_token %}
+  <!-- Hidden input for product ID -->
+  <input type="hidden" name="product_id" id="modal-product-id">
+  <!-- Quantity selector -->
+  <label for="quantity">Quantity:</label>
+  <input type="number" name="quantity" id="modal-quantity" value="1" min="1">
+  <!-- Submit button -->
+  <button type="submit">Add to Cart</button>
+</form>
       </div>
     </div>
     <footer>
