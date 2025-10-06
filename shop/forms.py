@@ -13,7 +13,14 @@ class ContactForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea, required=True)
 
 class ContactForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    message = forms.CharField(widget=forms.Textarea)
-    website = forms.CharField(required=False, widget=forms.HiddenInput)
+    name = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your name'})
+    )
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your email'})
+    )
+    message = forms.CharField(
+        widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Your message', 'rows': 5})
+    )
+    website = forms.CharField(required=False, widget=forms.HiddenInput)  # Honeypot

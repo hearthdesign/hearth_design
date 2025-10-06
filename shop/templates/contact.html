@@ -1,6 +1,26 @@
 <form method="POST" class="contact-form">
   {% csrf_token %}
-  {{ form.as_p }}
+  <form method="POST" class="contact-form">
+  {% csrf_token %}
+
+  <label for="id_name">Name:</label>
+  {{ form.name }}
+  {% if form.name.errors %}
+    <div class="error">{{ form.name.errors.0 }}</div>
+  {% endif %}
+
+  <label for="id_email">Email:</label>
+  {{ form.email }}
+  {% if form.email.errors %}
+    <div class="error">{{ form.email.errors.0 }}</div>
+  {% endif %}
+
+  <label for="id_message">Message:</label>
+  {{ form.message }}
+  {% if form.message.errors %}
+    <div class="error">{{ form.message.errors.0 }}</div>
+  {% endif %}
+
   <button type="submit">Send Message</button>
 </form>
 

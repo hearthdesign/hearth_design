@@ -173,3 +173,15 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f"{self.quantity} x {self.product.title} in {self.cart.user.username}'s cart"
+
+# Contact submission Model
+class ContactSubmission(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    ip_hash = models.CharField(max_length=64, null=True, blank=True)
+    user_agent = models.TextField(null=True, blank=True)
+    submitted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} ({self.email}) at {self.submitted_at.strftime('%Y-%m-%d %H:%M')}"

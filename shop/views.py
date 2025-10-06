@@ -11,6 +11,8 @@ from .forms import PrintForm, ContactForm
 from django.core.mail import send_mail  # For sending emails
 from .forms import ContactForm
 from .models import ContactSubmission
+import hashlib
+from django.utils import timezone
 
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -139,15 +141,22 @@ def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Honeypot check (optional)
-            if form.cleaned_data.get('website'):  # if using honeypot
+            # Honeypot check
+            if form.cleaned_data.get('website'):
                 return redirect('thank_you')
+            # Metadata
+            ip = request.META.get('REMOTE_ADDR', '')
+            user_agent = request.META.get('HTTP_USER_AGENT', '')
+            ip_hash = hashlib.sha256(ip.encode()).hexdigest()
 
             # Save to database
             ContactSubmission.objects.create(
                 name=form.cleaned_data['name'],
                 email=form.cleaned_data['email'],
-                message=form.cleaned_data['message']
+                message=form.cleaned_data['message'],
+                ip_hash=ip_hash,
+                user_agent=user_agent,
+                submitted_at=timezone.now()
             )
 
             # Send email

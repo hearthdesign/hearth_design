@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Theme, Print, Photography, Category, Cart, CartItem, Product, Order
+from .models import Theme, Print, Photography, Category, Cart, CartItem, Product, Order, ContactSubmission
 
 # Register the Theme Model with the admin site
 @admin.register(Theme)
@@ -58,5 +58,10 @@ class CartAdmin(admin.ModelAdmin):
 class CartItemAdmin(admin.ModelAdmin):
     list_display = ('cart', 'product', 'quantity')
 
-
+# Register the ContactSubmission Model with the Admin site
+@admin.register(ContactSubmission)
+class ContactSubmissionAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'submitted_at')
+    readonly_fields = ('submitted_at', 'ip_hash', 'user_agent')
+    search_fields = ('name', 'email', 'message')
 
