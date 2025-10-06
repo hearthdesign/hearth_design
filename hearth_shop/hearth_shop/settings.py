@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # For i18n
 ]
 
 ROOT_URLCONF = 'hearth_shop.urls'
@@ -147,4 +148,17 @@ STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media', ) 
 
+# Enable i18n
+USE_I18N = True
+LANGUAGES = [
+    ('en', 'English'),
+    ('de', 'Deutsch'),
+    ('fr', 'Français'),
+    ('es', 'Español'),
+    ('it', 'Italiano'),
+    ('pt', 'Português'),
+    ('zh-hans', '简体中文'),
+    ('ja', '日本語'),
+]
+LOCALE_PATHS = [BASE_DIR / 'locale']
 

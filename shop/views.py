@@ -13,6 +13,7 @@ from .forms import ContactForm
 from .models import ContactSubmission
 import hashlib
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -159,13 +160,29 @@ def contact_view(request):
                 submitted_at=timezone.now()
             )
 
-            # Send email
+            # Send email to admin
             send_mail(
-                subject=f"New Contact Form Submission from {form.cleaned_data['name']}",
+                subject=_("New Contact Form Submission from %(name)s") % {'name': form.cleaned_data['name']},
                 message=form.cleaned_data['message'],
                 from_email=form.cleaned_data['email'],
                 recipient_list=['1.space.channel.1@gmail.com'],
             )
+
+            # Translatable confirmation email to user
+            subject = _("New Contact Form Submission from %(name)s") % {'name': form.cleaned_data['name']},
+            message = _(
+                f"Hi {form.cleaned_data['name']},\n\n"
+                "Thank you for reaching out to us. We've received your message and will get back to you shortly.\n\n"
+                "Best regards,\nHearth Design Team"
+            )
+
+            send_mail(
+                subject=subject,
+                message=message,
+                from_email='noreply@hearth.design',  # Use a verified sender
+                recipient_list=[form.cleaned_data['email']],
+            )
+
 
             return redirect('thank_you')
     else:

@@ -3,25 +3,25 @@
   <form method="POST" class="contact-form">
   {% csrf_token %}
 
-  <label for="id_name">Name:</label>
+  <label for="id_name">{% trans "Name:" %}</label>
   {{ form.name }}
   {% if form.name.errors %}
     <div class="error">{{ form.name.errors.0 }}</div>
   {% endif %}
 
-  <label for="id_email">Email:</label>
+  <label for="id_email">{% trans "Email:" %}</label>
   {{ form.email }}
   {% if form.email.errors %}
     <div class="error">{{ form.email.errors.0 }}</div>
   {% endif %}
 
-  <label for="id_message">Message:</label>
+  <label for="id_message">{% trans "Message:" %}</label>
   {{ form.message }}
   {% if form.message.errors %}
     <div class="error">{{ form.message.errors.0 }}</div>
   {% endif %}
 
-  <button type="submit">Send Message</button>
+  <button type="submit">{% trans "Send Message" %}</button>
 </form>
 
 {% if success_message %}

@@ -1,9 +1,9 @@
 <!-- includes/navbar.html -->
 <nav>
   <ul class="nav_links">
-    <li><a href="{% url 'homepage' %}" class="nav_btn">HOME</a></li>
-    <li><a href="{% url 'illustration_gallery' %}" class="nav_btn">ILLUSTRATIONS</a></li>
-    <li><a href="{% url 'photography_gallery' %}" class="nav_btn">PHOTOGRAPHIES</a></li>
+    <li><a href="{% url 'homepage' %}" class="nav_btn">{% trans "HOME" %}</a></li>
+    <li><a href="{% url 'illustration_gallery' %}" class="nav_btn">{% trans "ILLUSTARTIONS" %}</a></li>
+    <li><a href="{% url 'photography_gallery' %}" class="nav_btn">{% trans "PHOTOGRAPHY" %}</a></li>
 
     {% if user.is_authenticated %}
       {% if user.is_staff %}
@@ -11,7 +11,7 @@
       {% else %}
         <li>
           <a href="{% url 'cart_view' %}" class="nav_btn">
-            🛒 Cart ({{ cart_count }}) — {{ cart_total }}{{ currency }}
+            🛒{% trans "Cart" %} ({{ cart_count }}) — {{ cart_total }}{{ currency }}
           </a>
         </li>
       {% endif %}
@@ -21,12 +21,12 @@
         <form method="post" action="{% url 'logout' %}" style="display:inline;">
           {% csrf_token %}
           <button type="submit" class="nav_btn">
-            Logout
+            {% trans "Logout" %}
           </button>
         </form>
       </li>
     {% else %}
-      <li><a href="{% url 'login' %}" class="nav_btn">Login</a></li>
+      <li><a href="{% url 'login' %}" class="nav_btn">{% trans "Login" %}</a></li>
     {% endif %}
   </ul>
 
@@ -37,6 +37,6 @@
         <option value="{{ theme.slug }}">{{ theme.name }}</option>
       {% endfor %}
     </select>
-    <button type="submit" class="nav_btn">THEME</button>
+    <button type="submit" class="nav_btn">{% trans "THEME" %}</button>
   </form>
 </nav>

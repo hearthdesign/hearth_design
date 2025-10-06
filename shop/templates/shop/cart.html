@@ -4,5 +4,5 @@
 {% endblock %}
 {% for item in items %}
   <p>{{ item.title }} - €{{ item.price }}</p>
-  <a href="{% url 'checkout' item.id %}">Buy with Stripe</a>
+  <a href="{% url 'checkout' item.id %}">{% trans "Buy with Stripe" %}</a>
 {% endfor %}

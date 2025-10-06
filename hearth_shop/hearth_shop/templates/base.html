@@ -1,21 +1,40 @@
+{% load static i18n %}
 <!-- hearth_shop/templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     {% load static %}
     <meta charset="UTF-8">
-    <title>{% block title %}Hearth Shop{% endblock %}</title>
+    <title>{% block title %}{% trans "Hearth Shop"%}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="{% static 'js/main.js' %}" defer></script>
 </head>
 <body>
     <header>
-        <h1 class='Hearth_title'>HEARTH SHOP</h1>
+        <h1 class='Hearth_title'>{% trans "HEARTH SHOP" %}</h1>
         {% include 'includes/navbar.html' %}
         <!-- Show welcome message if user is logged in -->
         {% if user_profile %}
-            <p>Welcome back, {{ user_profile.first_name }}!</p>
+            {% blocktrans with name=user_profile.first_name %}
+                Welcome back, {{ name }}!
+            {% endblocktrans %}
         {% endif %}
+
+        <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <select name="language">
+          <option value="en">{% trans "English" %}</option>
+          <option value="de">{% trans "Deutsch" %}</option>
+          <option value="fr">{% trans "Français" %}</option>
+          <option value="es">{% trans "Español" %}</option>
+          <option value="it">{% trans "Italiano" %}</option>
+          <option value="pt">{% trans "Português" %}</option>
+          <option value="zh-hans">{% trans " 简体中文" %}</option>
+          <option value="ja">{% trans "日本語" %}</option>
+
+        </select>
+        <button type="submit">{% trans "Switch" %}</button>
+        <form>
 
     </header>
 
@@ -35,10 +54,10 @@
     <!-- Hidden input for product ID -->
     <input type="hidden" name="product_id" id="modal-product-id">
     <!-- Quantity selector -->
-    <label for="quantity">Quantity:</label>
+    <label for="quantity">{% trans "Quantity:" %}</label>
     <input type="number" name="quantity" id="modal-quantity" value="1" min="1">
     <!-- Submit button -->
-    <button type="submit">Add to Cart</button>
+    <button type="submit">{% trans "Add to Cart" %}</button>
   </form>
 {% endif %}
 <!-- Modal navigation and close controls -->
