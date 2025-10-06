@@ -1,32 +1,19 @@
 {% extends 'base.html' %}
-{% include 'includes/navbar.html' %}
-
-<DOCTYPE html>
 
 <!-- shop/templates/shop/homepage.html -->
 {% block title %}Welcome to HEARTH Shop{% endblock %}
 
 {% block content %}
-    {% comment %} <h2>Discover Our Art</h2>
-    <p>Browse themed prints, illustrations, and photographs curated for every taste.</p>
-
-<div class="gallery-grid">
-  {% for print in prints %}
-    <div class="thumbnail">
-      <a href="#" data-image="{{ print.image.url }}" data-id="{{ print.id }}">
-        <img src="{{ print.image.url }}" alt="{{ print.title }}" loading="lazy">
-      </a>
-    </div>
-  {% endfor %}
-</div> {% endcomment %}
-{% comment %} {% endblock %} {% endcomment %}
 
   <h1>{{ category|title }} Gallery</h1>
 
   <div class="gallery-grid">
     {% for print in page_obj %}
       <div class="thumbnail">
-        <a href="#" data-image="{{ print.image.url }}" data-id="{{ print.id }}" data-title="{{ print.title }}" >
+        <a href="#" 
+           data-image="{{ print.image.url }}" 
+           data-id="{{ print.id }}" 
+           data-title="{{ print.title }}">
           <img src="{{ print.image.url }}" alt="{{ print.title }}" loading="lazy">
         </a>
       </div>

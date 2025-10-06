@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from shop import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,11 +27,16 @@ urlpatterns = [
     path('gallery/illustrations/', views.illustration_gallery, name='illustration_gallery'),
     path('gallery/photographies/', views.photography_gallery, name='photography_gallery'),
     path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
+    path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('theme-filter/', views.theme_filter, name='theme_filter'), # Theme filter view
     path('gallery/filter/', views.theme_filter, name='theme_filter'),
     path('cart/add/', views.add_to_cart, name='add_to_cart'),
     path('cart/', views.cart_view, name='cart_view'),
     path('checkout/<int:product_id>/', views.create_checkout_session, name='checkout'),
-
+    path('static/', include('django.contrib.staticfiles.urls')),
+    path('upload/', views.upload_print, name='upload_print'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

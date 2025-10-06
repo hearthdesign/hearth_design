@@ -68,8 +68,14 @@ class Print(models.Model):
     date = models.DateField()
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='prints/%Y/%m%d', blank=True)
-    themes = models.ManyToManyField(Theme, blank=True)    
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2, default=50.00)
+    themes = models.ManyToManyField(Theme, blank=True)
+    CATEGORY_CHOICES = [
+         ('info', 'Info'),
+        ('product', 'Product'),
+        ('blog', 'Blog'),
+    ]
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     in_stock = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
@@ -126,9 +132,13 @@ class Photography(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     image = models.ImageField(upload_to='photographies/', blank=True)
     print = models.ForeignKey(Print, on_delete=models.CASCADE, related_name='photographies')
-
+    in_stock = models.BooleanField(default=True)
+    description = models.TextField(blank=True)
+    slug = models.SlugField(unique=True, blank=True, max_length=200)
+    themes = models.ManyToManyField(Theme, blank=True)
     def __str__(self):
         return self.title
+
 
 # Order Model   
 class Order(models.Model):
@@ -147,3 +157,17 @@ class Order(models.Model):
     def __str__(self):
         return f"Order #{self.id} - {self.customer_name}"
     
+class Cart(models.Model):
+    user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product, through='CartItem')
+
+    def __str__(self):
+        return f"Cart of {self.user.username}"
+    
+class CartItem(models.Model):
+    cart = models.ForeignKey('Cart', on_delete=models.CASCADE)
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.quantity} x {self.product.title} in {self.cart.user.username}'s cart"

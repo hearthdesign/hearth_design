@@ -1,25 +1,42 @@
 <!-- includes/navbar.html -->
 <nav>
-    <ul>
-        <li><a href="{% url 'homepage' %}">Home</a></li>
-        <li><a href="{% url 'illustration_gallery' %}">Illustrations</a></li>
-        <li><a href="{% url 'photography_gallery' %}">Photographies</a></li>
-        {% if user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-        {% else %}
-            <li><a href="{% url 'login' %}">Login</a></li>
-        {% endif %}
-    </ul>
-    <a href="{% url 'cart_view' %}" class="cart-link">🛒 Cart</a>
+  <ul class="nav_links">
+    <li><a href="{% url 'homepage' %}" class="nav_btn">HOME</a></li>
+    <li><a href="{% url 'illustration_gallery' %}" class="nav_btn">ILLUSTRATIONS</a></li>
+    <li><a href="{% url 'photography_gallery' %}" class="nav_btn">PHOTOGRAPHIES</a></li>
 
+    {% if user.is_authenticated %}
+      {% if user.is_staff %}
+        <li><a href="{% url 'upload_print' %}" class="nav_btn">Upload</a></li>
+      {% else %}
+        <li>
+          <a href="{% url 'cart_view' %}" class="nav_btn">
+            🛒 Cart ({{ cart_count }}) — {{ cart_total }}{{ currency }}
+          </a>
+        </li>
+      {% endif %}
 
-    <form method="get" action="{% url 'theme_filter' %}">
-        <select name="theme">
-            {% for theme in themes %}
-                <option value="{{ theme.slug }}">{{ theme.name }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit">Filter</button>
-    </form>
-    
+      <!-- Logout button for all logged-in users -->
+      <li>
+        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+          {% csrf_token %}
+          <button type="submit" class="nav_btn">
+            Logout
+          </button>
+        </form>
+      </li>
+    {% else %}
+      <li><a href="{% url 'login' %}" class="nav_btn">Login</a></li>
+    {% endif %}
+  </ul>
+
+  <!-- Theme filter -->
+  <form method="get" action="{% url 'theme_filter' %}">
+    <select name="theme">
+      {% for theme in themes %}
+        <option value="{{ theme.slug }}">{{ theme.name }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" class="nav_btn">THEME</button>
+  </form>
 </nav>

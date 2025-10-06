@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 
 from decouple import config
@@ -57,14 +59,21 @@ ROOT_URLCONF = 'hearth_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'hearth_shop' / 'templates'],
+        'DIRS': [BASE_DIR / 'hearth_shop' / 'templates' ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Injects cart item count
                 'shop.context_processors.cart_count',
+                # Injects cart total price
+                'shop.context_processors.cart_total',
+                # Injects user info if logged in
+                'shop.context_processors.user_profile',
+                # Injects site-wide settings like name and currency
+                'shop.context_processors.site_settings',
             ],
         },
     },
@@ -123,7 +132,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static'
+    BASE_DIR / 'hearth_shop' / 'static',
     ]
 
 # Default primary key field type
@@ -133,3 +142,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media', ) 
+
+

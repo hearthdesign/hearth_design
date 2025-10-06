@@ -7,6 +7,7 @@ from django.core.paginator import Paginator # For pagination
 import stripe
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from .forms import PrintForm
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -14,6 +15,18 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 def homepage(request):
     login_url = reverse('login')  # URL for the login page
     return render(request, 'shop/homepage.html', {'login_url': login_url})
+
+# Form for uploading prints
+@login_required
+def upload_print(request):
+    if request.method == 'POST':
+        form = PrintForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('illustration_gallery')  
+    else:
+        form = PrintForm()
+    return render(request, 'shop/upload.html', {'form': form})
 
 # Illustration gallery view
 def illustration_gallery(request):
