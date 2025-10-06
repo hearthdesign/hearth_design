@@ -1,0 +1,9 @@
+<form method="POST" class="contact-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Send Message</button>
+</form>
+
+{% if success_message %}
+    <p class="success_message">{{success_message}}<p>
+{% endif %}

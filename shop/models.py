@@ -105,6 +105,7 @@ class Product(models.Model):
         ('metal', 'Metal Print'),
         ('wood', 'Wood Print'),
     ]
+    
     format = models.CharField(max_length=50, choices=FORMAT_CHOICES)
     size = models.CharField(max_length=50, blank=True)
     print = models.ForeignKey(Print, on_delete=models.CASCADE, related_name='products')
@@ -156,14 +157,15 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Order #{self.id} - {self.customer_name}"
-    
+ # Cart Model
 class Cart(models.Model):
     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
     products = models.ManyToManyField(Product, through='CartItem')
 
     def __str__(self):
         return f"Cart of {self.user.username}"
-    
+
+# Intermediate model to link Cart and Products with quantity
 class CartItem(models.Model):
     cart = models.ForeignKey('Cart', on_delete=models.CASCADE)
     product = models.ForeignKey('Product', on_delete=models.CASCADE)

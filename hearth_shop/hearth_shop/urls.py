@@ -20,6 +20,9 @@ from django.urls import path, include
 from shop import views
 from django.conf import settings
 from django.conf.urls.static import static
+from . import views
+from shop.views import contact_view
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,6 +39,8 @@ urlpatterns = [
     path('checkout/<int:product_id>/', views.create_checkout_session, name='checkout'),
     path('static/', include('django.contrib.staticfiles.urls')),
     path('upload/', views.upload_print, name='upload_print'),
+    path('contact/', contact_view, name='contact'),
+    path('thank-you/', TemplateView.as_view(template_name='thank_you.html'), name='thank_you'),
 ]
 
 if settings.DEBUG:

@@ -1,13 +1,17 @@
 # shop views
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Print, Theme
 from django.urls import reverse
-from django.shortcuts import redirect
 from django.core.paginator import Paginator # For pagination
 import stripe
 from django.conf import settings
-from django.contrib.auth.decorators import login_required
-from .forms import PrintForm
+# To restrict access to logged-in users
+from django.contrib.auth.decorators import login_required  
+from .forms import PrintForm, ContactForm
+from django.core.mail import send_mail  # For sending emails
+from .forms import ContactForm
+from .models import ContactSubmission
+
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -111,7 +115,7 @@ def cart_view(request):
     # Render the cart template with the cart_items context
     return render(request, 'shop/cart.html', {'cart_items': cart_items})
 
-
+# Require user to be logged-in to proceed to checkout
 @login_required
 def create_checkout_session(request, product_id):
     product = get_object_or_404(Print, id=product_id)
@@ -130,3 +134,31 @@ def create_checkout_session(request, product_id):
         cancel_url='http://127.0.0.1:8000/cancel/',
     )
     return redirect(session.url)
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Honeypot check (optional)
+            if form.cleaned_data.get('website'):  # if using honeypot
+                return redirect('thank_you')
+
+            # Save to database
+            ContactSubmission.objects.create(
+                name=form.cleaned_data['name'],
+                email=form.cleaned_data['email'],
+                message=form.cleaned_data['message']
+            )
+
+            # Send email
+            send_mail(
+                subject=f"New Contact Form Submission from {form.cleaned_data['name']}",
+                message=form.cleaned_data['message'],
+                from_email=form.cleaned_data['email'],
+                recipient_list=['1.space.channel.1@gmail.com'],
+            )
+
+            return redirect('thank_you')
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})
