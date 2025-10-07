@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-07 03:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\shop\templates\contact.html:9
+msgid "Name:"
+msgstr ""
+
+#: .\shop\templates\contact.html:15
+msgid "Email:"
+msgstr ""
+
+#: .\shop\templates\contact.html:21
+msgid "Message:"
+msgstr ""
+
+#: .\shop\templates\contact.html:27
+msgid "Send Message"
+msgstr ""
+
+#: .\shop\templates\registration\login.html:4
+#: .\shop\templates\registration\login.html:8
+msgid "Login"
+msgstr ""
+
+#: .\shop\templates\shop\cart.html:8
+msgid "Buy with Stripe"
+msgstr ""
+
+#: .\shop\templates\shop\homepage.html:7
+msgid "Discover Our Art"
+msgstr ""
+
+#: .\shop\templates\shop\homepage.html:8
+msgid ""
+"Browse themed prints, illustrations, and photographs curated for every taste."
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:4
+#: .\shop\templates\shop\photography_gallery.html:4
+msgid "Welcome to HEARTH Shop"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:29
+msgid "Page"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:31
+msgid "Next"
+msgstr ""
+
+#: .\shop\templates\shop\photography_gallery.html:8
+msgid "Gallery"
+msgstr ""
+
+#: .\shop\templates\shop\photography_gallery.html:21
+msgid "No prints found."
+msgstr ""
+
+#: .\shop\templates\shop\upload.html:4 .\shop\templates\shop\upload.html:7
+msgid "Upload a New Print"
+msgstr ""
+
+#: .\shop\templates\shop\upload.html:11
+msgid "Upload"
+msgstr ""
+
+#: .\shop\templates\thank_you.html:4
+msgid "Thank you for your message!"
+msgstr ""
+
+#: .\shop\templates\thank_you.html:5
+msgid "We'll get back to you as soon as possible."
+msgstr ""
+
+#: .\shop\views.py:165 .\shop\views.py:172
+#, python-format
+msgid "New Contact Form Submission from %(name)s"
+msgstr ""
+
+#: .\shop\views.py:175
+msgid ""
+"Thank you for reaching out to us. We've received your message and will get "
+"back to you shortly.\n"
+"\n"
+"Best regards,\n"
+"Hearth Design Team"
+msgstr ""

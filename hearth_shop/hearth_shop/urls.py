@@ -22,6 +22,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from shop.views import contact_view
 from django.views.generic import TemplateView
+from django.conf.urls.i18n import i18n_patterns
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,6 +42,7 @@ urlpatterns = [
     path('upload/', views.upload_print, name='upload_print'),
     path('contact/', contact_view, name='contact'),
     path('thank-you/', TemplateView.as_view(template_name='thank_you.html'), name='thank_you'),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
 
 if settings.DEBUG:
