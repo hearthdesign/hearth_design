@@ -157,7 +157,7 @@ LANGUAGES = [
     ('es', 'Español'),
     ('it', 'Italiano'),
     ('pt', 'Português'),
-    ('zh_Hans', '简体中文'),
+    ('zh-hans', '简体中文'),
     ('ja', '日本語'),
 ]
 LOCALE_PATHS = [BASE_DIR / 'locale',]

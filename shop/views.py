@@ -1,6 +1,6 @@
 # shop views
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Print, Theme
+from .models import Print, Theme, ContactSubmission
 from django.urls import reverse
 from django.core.paginator import Paginator # For pagination
 import stripe
@@ -9,12 +9,11 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required  
 from .forms import PrintForm, ContactForm
 from django.core.mail import send_mail  # For sending emails
-from .forms import ContactForm
-from .models import ContactSubmission
 import hashlib
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-
+from datetime import datetime
+from .forms import CustomSignupForm
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -24,13 +23,45 @@ def homepage(request):
     return render(request, 'shop/homepage.html', {'login_url': login_url})
 
 # Form for uploading prints
+# @login_required
+# def upload_print(request):
+#     if request.method == 'POST':
+#         form = PrintForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('illustration_gallery')  
+#     else:
+#         form = PrintForm()
+#     return render(request, 'shop/upload.html', {'form': form})
+
 @login_required
 def upload_print(request):
     if request.method == 'POST':
         form = PrintForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('illustration_gallery')  
+            print_obj = form.save(commit=False)
+            # Handle the date field manually
+            raw_date = request.POST.get('date')
+            try:
+                if raw_date:
+                    print_obj.date = datetime.strptime(raw_date, "%Y-%m-%d").date()
+                else:
+                    return render(request, 'shop/upload.html', {
+                        'form': form,
+                        'error': "Date is required."
+                    })
+            except ValueError:
+                return render(request, 'shop/upload.html', {
+                    'form': form,
+                    'error': "Invalid date format. Use YYYY-MM-DD."
+                })
+            print_obj.save()
+            form.save_m2m()
+            # Redirect based on type
+            if print_obj.type == 'photography':
+                return redirect('photography_gallery')
+            else:
+                return redirect('illustration_gallery')
     else:
         form = PrintForm()
     return render(request, 'shop/upload.html', {'form': form})
@@ -188,3 +219,20 @@ def contact_view(request):
     else:
         form = ContactForm()
     return render(request, 'contact.html', {'form': form})
+
+def signup(request):
+    if request.method == 'POST':
+        form = CustomSignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            send_mail(
+                subject="Welcome to Hearth Shop!",
+                message="Thank you for signing up, {}.".format(user.username),
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[user.email],
+                fail_silently=False,
+            )
+            return redirect('login')
+    else:
+        form = CustomSignupForm()
+    return render(request, 'registration/signup.html', {'form': form})

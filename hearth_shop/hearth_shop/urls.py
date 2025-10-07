@@ -20,9 +20,10 @@ from django.urls import path, include
 from shop import views
 from django.conf import settings
 from django.conf.urls.static import static
-from shop.views import contact_view
+from shop.views import contact_view, signup
 from django.views.generic import TemplateView
 from django.conf.urls.i18n import i18n_patterns
+
 
 
 urlpatterns = [
@@ -43,6 +44,8 @@ urlpatterns = [
     path('contact/', contact_view, name='contact'),
     path('thank-you/', TemplateView.as_view(template_name='thank_you.html'), name='thank_you'),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('signup/', signup, name='signup'),
+    path('accounts/', include('shop.accounts.urls')),
 ]
 
 if settings.DEBUG:

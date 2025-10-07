@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+
 <!-- shop/templates/shop/homepage.html -->
 {% block title %}{% trans "Welcome to HEARTH Shop" %}{% endblock %}
 
@@ -24,11 +25,11 @@
 
   <div class="pagination">
     {% if page_obj.has_previous %}
-      <a href="?theme={{ theme.slug }}&type={{ category }}&page={{ page_obj.previous_page_number }}">Previous</a>
+      <a href="?theme={{ theme.slug }}&type={{ category }}&page={{ page_obj.previous_page_number }}">{% trans "Previous" %}</a>
     {% endif %}
     <span>Page {{ page_obj.number }}</span>
     {% if page_obj.has_next %}
-      <a href="?theme={{ theme.slug }}&type={{ category }}&page={{ page_obj.next_page_number }}">Next</a>
+      <a href="?theme={{ theme.slug }}&type={{ category }}&page={{ page_obj.next_page_number }}">{% trans "Next" %}</a>
     {% endif %}
   </div>
 {% endblock %}

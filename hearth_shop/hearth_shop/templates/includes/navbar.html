@@ -8,12 +8,12 @@
 <nav>
   <ul class="nav_links">
     <li><a href="{% url 'homepage' %}" class="nav_btn">{% trans "HOME" %}</a></li>
-    <li><a href="{% url 'illustration_gallery' %}" class="nav_btn">{% trans "ILLUSTARTIONS" %}</a></li>
+    <li><a href="{% url 'illustration_gallery' %}" class="nav_btn">{% trans "ILLUSTRATIONS" %}</a></li>
     <li><a href="{% url 'photography_gallery' %}" class="nav_btn">{% trans "PHOTOGRAPHY" %}</a></li>
 
     {% if user.is_authenticated %}
       {% if user.is_staff %}
-        <li><a href="{% url 'upload_print' %}" class="nav_btn">Upload</a></li>
+        <li><a href="{% url 'upload_print' %}" class="nav_btn">{% trans "Upload" %}</a></li>
       {% else %}
         <li>
           <a href="{% url 'cart_view' %}" class="nav_btn">
