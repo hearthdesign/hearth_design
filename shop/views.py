@@ -40,21 +40,10 @@ def upload_print(request):
         form = PrintForm(request.POST, request.FILES)
         if form.is_valid():
             print_obj = form.save(commit=False)
-            # Handle the date field manually
-            raw_date = request.POST.get('date')
-            try:
-                if raw_date:
-                    print_obj.date = datetime.strptime(raw_date, "%Y-%m-%d").date()
-                else:
-                    return render(request, 'shop/upload.html', {
-                        'form': form,
-                        'error': "Date is required."
-                    })
-            except ValueError:
-                return render(request, 'shop/upload.html', {
-                    'form': form,
-                    'error': "Invalid date format. Use YYYY-MM-DD."
-                })
+
+            # Automatically set today's date
+            print_obj.date = datetime.today().date()
+
             print_obj.save()
             form.save_m2m()
             # Redirect based on type
