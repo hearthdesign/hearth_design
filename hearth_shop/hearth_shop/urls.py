@@ -43,11 +43,24 @@ urlpatterns = [
     path('upload/', views.upload_print, name='upload_print'),
     path('contact/', contact_view, name='contact'),
     path('thank-you/', TemplateView.as_view(template_name='thank_you.html'), name='thank_you'),
-    path('i18n/', include('django.conf.urls.i18n')),
-    path('signup/', signup, name='signup'),  # User signup views
-    path('', include('shop.urls')),
+    path('i18n/', include('django.conf.urls.i18n')), # enables set_language
+    path('signup/', signup, name='signup'),  # User signup view
     path('accounts/', include('django.contrib.auth.urls')), # for login/logout/password reset
 ]
+
+urlpatterns += i18n_patterns(
+    path('', views.homepage, name='homepage'),
+    path('gallery/illustrations/', views.illustration_gallery, name='illustration_gallery'),
+    path('gallery/photographies/', views.photography_gallery, name='photography_gallery'),
+    path('upload/', views.upload_print, name='upload_print'),
+    # path('login/', views.login, name='login'),
+    # path('password_reset/', views.password_reset, name='password_reset'),
+    path('signup/', views.signup, name='signup'),
+    path('cart/', views.cart, name='cart'),
+    path('thank_you/', views.thank_you, name='thank_you'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('contact/', views.contact, name='contact'),
+)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
