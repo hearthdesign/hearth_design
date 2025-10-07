@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% trans "Hearth Shop"%}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <script src="{% static 'js/main.js' %}" defer></script>
 </head>
 <body>
@@ -22,20 +23,20 @@
         {% endif %}
 
         <form action="{% url 'set_language' %}" method="post">
-        {% csrf_token %}
-        <select name="language">
-          <option value="en">{% trans "English" %}</option>
-          <option value="de">{% trans "Deutsch" %}</option>
-          <option value="fr">{% trans "Français" %}</option>
-          <option value="es">{% trans "Español" %}</option>
-          <option value="it">{% trans "Italiano" %}</option>
-          <option value="pt">{% trans "Português" %}</option>
-          <option value="zh-hans">{% trans "简体中文" %}</option>
-          <option value="ja">{% trans "日本語" %}</option>
-        </select>
-
-        <button type="submit">{% trans "Switch" %}</button>
-    </form>
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ request.path }}">
+          <select name="language">
+            <option value="en">{% trans "English" %}</option>
+            <option value="de">{% trans "Deutsch" %}</option>
+            <option value="fr">{% trans "Français" %}</option>
+            <option value="es">{% trans "Español" %}</option>
+            <option value="it">{% trans "Italiano" %}</option>
+            <option value="pt">{% trans "Português" %}</option>
+            <option value="zh-hans">{% trans "简体中文" %}</option>
+            <option value="ja">{% trans "日本語" %}</option>
+          </select>
+          <button type="submit">{% trans "Switch" %}</button>
+        </form>
 
     </header>
 

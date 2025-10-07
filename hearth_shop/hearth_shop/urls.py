@@ -56,10 +56,10 @@ urlpatterns += i18n_patterns(
     # path('login/', views.login, name='login'),
     # path('password_reset/', views.password_reset, name='password_reset'),
     path('signup/', views.signup, name='signup'),
-    path('cart/', views.cart, name='cart'),
-    path('thank_you/', views.thank_you, name='thank_you'),
+    path('cart/', views.cart_view, name='cart_view'),
+    path('thank_you/', TemplateView.as_view(template_name='shop/thank_you.html'), name='thank_you'),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('contact/', views.contact, name='contact'),
+    path('contact/', views.contact_view, name='contact_view'),
 )
 
 if settings.DEBUG:

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-07 03:57+0200\n"
+"POT-Creation-Date: 2025-10-07 21:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
-#: .\hearth_shop\hearth_shop\templates\base.html:9
+
+#: .\hearth_shop\templates\base.html:9
 msgid "Hearth Shop"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:15
+#: .\hearth_shop\templates\base.html:15
 msgid "HEARTH SHOP"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:19
+#: .\hearth_shop\templates\base.html:19
 #, python-format
 msgid ""
 "\n"
@@ -34,74 +35,82 @@ msgid ""
 "            "
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:27
+#: .\hearth_shop\templates\base.html:27
 msgid "English"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:28
+#: .\hearth_shop\templates\base.html:28
 msgid "Deutsch"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:29
+#: .\hearth_shop\templates\base.html:29
 msgid "Français"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:30
+#: .\hearth_shop\templates\base.html:30
 msgid "Español"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:31
+#: .\hearth_shop\templates\base.html:31
 msgid "Italiano"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:32
+#: .\hearth_shop\templates\base.html:32
 msgid "Português"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:33
+#: .\hearth_shop\templates\base.html:33
 msgid "简体中文"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:34
+#: .\hearth_shop\templates\base.html:34
 msgid "日本語"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:37
+#: .\hearth_shop\templates\base.html:37
 msgid "Switch"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:58
+#: .\hearth_shop\templates\base.html:58
 msgid "Quantity:"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\base.html:61
+#: .\hearth_shop\templates\base.html:61
 msgid "Add to Cart"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\includes\navbar.html:10
+#: .\hearth_shop\templates\includes\navbar.html:10
 msgid "HOME"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\includes\navbar.html:11
-msgid "ILLUSTARTIONS"
+#: .\hearth_shop\templates\includes\navbar.html:11
+msgid "ILLUSTRATIONS"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\includes\navbar.html:12
+#: .\hearth_shop\templates\includes\navbar.html:12
 msgid "PHOTOGRAPHY"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\includes\navbar.html:20
+#: .\hearth_shop\templates\includes\navbar.html:16
+msgid "Upload"
+msgstr ""
+
+#: .\hearth_shop\templates\includes\navbar.html:20
 msgid "Cart"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\includes\navbar.html:30
+#: .\hearth_shop\templates\includes\navbar.html:31
 msgid "Logout"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\includes\navbar.html:35
+#: .\hearth_shop\templates\includes\navbar.html:36
 msgid "Login"
 msgstr ""
 
-#: .\hearth_shop\hearth_shop\templates\includes\navbar.html:46
+#: .\hearth_shop\templates\includes\navbar.html:37
+msgid "Sign Up"
+msgstr ""
+
+#: .\hearth_shop\templates\includes\navbar.html:47
 msgid "THEME"
 msgstr ""
