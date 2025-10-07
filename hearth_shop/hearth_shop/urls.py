@@ -44,8 +44,9 @@ urlpatterns = [
     path('contact/', contact_view, name='contact'),
     path('thank-you/', TemplateView.as_view(template_name='thank_you.html'), name='thank_you'),
     path('i18n/', include('django.conf.urls.i18n')),
-    path('signup/', signup, name='signup'),
-    path('accounts/', include('shop.accounts.urls')),
+    path('signup/', signup, name='signup'),  # User signup views
+    path('', include('shop.urls')),
+    path('accounts/', include('django.contrib.auth.urls')), # for login/logout/password reset
 ]
 
 if settings.DEBUG:

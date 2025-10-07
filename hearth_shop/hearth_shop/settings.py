@@ -44,6 +44,10 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
 ]
 
+# Authentication redirects
+LOGIN_REDIRECT_URL = 'illustration_gallery'
+LOGOUT_REDIRECT_URL = 'login'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -60,7 +64,10 @@ ROOT_URLCONF = 'hearth_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'hearth_shop' / 'templates' ],
+        'DIRS': [BASE_DIR / 'hearth_shop' / 'templates',
+                 BASE_DIR / 'shop' / 'templates',
+                 ],
+        
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
