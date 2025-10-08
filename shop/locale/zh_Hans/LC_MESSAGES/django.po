@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-07 04:01+0200\n"
+"POT-Creation-Date: 2025-10-08 17:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,108 +16,180 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-#: .\shop\templates\contact.html:9
+
+#: .\templates\contact.html:7
 msgid "Name:"
-msgstr ""
-"姓名"
+msgstr "姓名"
 
-#: .\shop\templates\contact.html:15
+#: .\templates\contact.html:13 .\templates\registration\signup.html:14
 msgid "Email:"
-msgstr ""
-"电子邮件"
+msgstr "电子邮件"
 
-#: .\shop\templates\contact.html:21
+#: .\templates\contact.html:19
 msgid "Message:"
-msgstr ""
-"消息"
+msgstr "消息"
 
-#: .\shop\templates\contact.html:27
+#: .\templates\contact.html:25
 msgid "Send Message"
-msgstr ""
-"发送"
+msgstr "发送消息"
 
-#: .\shop\templates\registration\login.html:4
-#: .\shop\templates\registration\login.html:8
+#: .\templates\registration\login.html:5 .\templates\registration\login.html:9
 msgid "Login"
-msgstr ""
-"登录"
+msgstr "登录"
 
-#: .\shop\templates\shop\cart.html:8
+#: .\templates\registration\signup.html:4
+msgid "Sign Up"
+msgstr "注册"
+
+#: .\templates\registration\signup.html:8
+msgid "Username:"
+msgstr "用户名:"
+
+#: .\templates\registration\signup.html:20
+msgid "Password:"
+msgstr "密码："
+
+#: .\templates\registration\signup.html:26
+msgid "Confirm Password:"
+msgstr "确认密码："
+
+#: .\templates\registration\signup.html:32
+msgid "Create Account"
+msgstr "创建账户"
+
+#: .\templates\shop\cart.html:8
 msgid "Buy with Stripe"
-msgstr ""
-"使用 Stripe 购买"
+msgstr "使用 Stripe 购买"
 
-#: .\shop\templates\shop\homepage.html:7
+#: .\templates\shop\homepage.html:8
 msgid "Discover Our Art"
-msgstr ""
-"探索我们的艺术"
+msgstr "探索我们的艺术"
 
-#: .\shop\templates\shop\homepage.html:8
-msgid "Browse themed prints, illustrations, and photographs curated for every taste."
-msgstr ""
-"浏览为各种口味精心挑选的主题印刷品、插图和照片。"
+#: .\templates\shop\homepage.html:9
+msgid ""
+"Browse themed prints, illustrations, and photographs curated for every taste."
+msgstr "浏览为各种品味精心挑选的主题印刷品、插图和照片。"
 
-#: .\shop\templates\shop\illustration_gallery.html:4
-#: .\shop\templates\shop\photography_gallery.html:4
+#: .\templates\shop\illustration_gallery.html:5
+#: .\templates\shop\photography_gallery.html:5
 msgid "Welcome to HEARTH Shop"
-msgstr ""
-"欢迎来到 HEARTH 商店"
+msgstr "欢迎来到 HEARTH 商店"
 
-#: .\shop\templates\shop\illustration_gallery.html:29
-msgid "Page"
-msgstr ""
-"页面"
-
-#: .\shop\templates\shop\illustration_gallery.html:31
-msgid "Next"
-msgstr ""
-"下一个"
-
-#: .\shop\templates\shop\photography_gallery.html:8
+#: .\templates\shop\illustration_gallery.html:9
+#: .\templates\shop\photography_gallery.html:9
 msgid "Gallery"
-msgstr ""
-"画廊"
+msgstr "画廊"
 
-#: .\shop\templates\shop\photography_gallery.html:21
+#: .\templates\shop\illustration_gallery.html:22
+#: .\templates\shop\photography_gallery.html:22
 msgid "No prints found."
-msgstr ""
-"未找到打印记录。"
+msgstr "未找到打印记录。"
 
-#: .\shop\templates\shop\upload.html:4 .\shop\templates\shop\upload.html:7
+#: .\templates\shop\illustration_gallery.html:29
+#: .\templates\shop\photography_gallery.html:28
+msgid "Previous"
+msgstr "上一个"
+
+#: .\templates\shop\illustration_gallery.html:32
+#: .\templates\shop\photography_gallery.html:30
+msgid "Page"
+msgstr "页面"
+
+#: .\templates\shop\illustration_gallery.html:35
+#: .\templates\shop\photography_gallery.html:32
+msgid "Next"
+msgstr "下一个"
+
+#: .\templates\shop\upload.html:4 .\templates\shop\upload.html:7
 msgid "Upload a New Print"
-msgstr ""
-"上传新打印"
+msgstr "上传新打印"
 
-#: .\shop\templates\shop\upload.html:11
+#: .\templates\shop\upload.html:11
 msgid "Upload"
-msgstr ""
-"上传"
+msgstr "上传"
 
-#: .\shop\templates\thank_you.html:4
+#: .\templates\thank_you.html:4
 msgid "Thank you for your message!"
-msgstr ""
-"感谢你的留言！"
+msgstr "感谢你的留言！"
 
-#: .\shop\templates\thank_you.html:5
+#: .\templates\thank_you.html:5
 msgid "We'll get back to you as soon as possible."
-msgstr ""
-"我们会尽快回复您。"
+msgstr "我们会尽快回复您。"
 
-#: .\shop\views.py:165 .\shop\views.py:172
+#: .\views.py:185 .\views.py:192
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
-msgstr ""
-"来自 %(name)s 的新联系表单提交"
+msgstr "来自 %(name)s 的新联系人表单提交"
 
-#: .\shop\views.py:175
+#: .\views.py:195
 msgid "Thank you for reaching out to us. We've received your message and will get "
 "back to you shortly.\n"
 "\n"
 "Best regards,\n"
 "Hearth Design Team"
-msgstr ""
-"感谢您联系我们"
-"我们已收到您的留言，\n"
+msgstr "感谢您联系我们。"
+"我们已收到您的消息，将尽快回复您。"
 "\n"
-"会尽快回复您。此致，\n"
-"Hearth 设计团队"
+"此致敬礼，\n"
+"Hearth Design 团队"
+
+#~ msgid "Hearth Shop"
+#~ msgstr "HEARTH 商店"
+
+#~ msgid "HEARTH SHOP"
+#~ msgstr "HEARTH 商店"
+
+#, python-format
+#~ msgid "Welcome back, %(name)s!\n"
+#~ msgstr "欢迎回来， %(name)s!\n"
+
+#~ msgid "English"
+#~ msgstr "English"
+
+#~ msgid "Deutsch"
+#~ msgstr "Deutsch"
+
+#~ msgid "Français"
+#~ msgstr "Français"
+
+#~ msgid "Español"
+#~ msgstr "Español"
+
+#~ msgid "Italiano"
+#~ msgstr "Italiano"
+
+#~ msgid "Português"
+#~ msgstr "Português"
+
+#~ msgid "简体中文"
+#~ msgstr "简体中文"
+
+#~ msgid "日本語"
+#~ msgstr "日本語"
+
+#~ msgid "Switch"
+#~ msgstr "切换语言"
+
+#~ msgid "Quantity:"
+#~ msgstr "数量："
+
+#~ msgid "Add to Cart"
+#~ msgstr "加入购物车"
+
+#~ msgid "HOME"
+#~ msgstr "主页"
+
+#~ msgid "ILLUSTRATIONS"
+#~ msgstr "插图"
+
+#~ msgid "PHOTOGRAPHY"
+#~ msgstr "摄影"
+
+#~ msgid "Cart"
+#~ msgstr "推车 "
+
+#~ msgid "Logout"
+#~ msgstr "登出"
+
+#~ msgid "THEME"
+#~ msgstr "主题"

@@ -167,7 +167,7 @@ LANGUAGES = [
     ('zh-hans', '简体中文'),
     ('ja', '日本語'),
 ]
-LOCALE_PATHS = [BASE_DIR / 'locale',]
+# LOCALE_PATHS = [BASE_DIR / 'locale',]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.environ.get('EMAIL_HOST')

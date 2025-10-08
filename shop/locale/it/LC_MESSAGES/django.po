@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-07 03:58+0200\n"
+"POT-Creation-Date: 2025-10-08 17:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,108 +16,181 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\shop\templates\contact.html:9
+
+#: .\templates\contact.html:7
 msgid "Name:"
-msgstr ""
-"Nome:"
+msgstr "Nome:"
 
-#: .\shop\templates\contact.html:15
+#: .\templates\contact.html:13 .\templates\registration\signup.html:14
 msgid "Email:"
-msgstr ""
-"Email"
+msgstr "Email:"
 
-#: .\shop\templates\contact.html:21
+#: .\templates\contact.html:19
 msgid "Message:"
-msgstr ""
-"Messaggio"
+msgstr "Messaggio:"
 
-#: .\shop\templates\contact.html:27
+#: .\templates\contact.html:25
 msgid "Send Message"
-msgstr ""
-"Invia"
+msgstr "Invia un Messaggio"
 
-#: .\shop\templates\registration\login.html:4
-#: .\shop\templates\registration\login.html:8
+#: .\templates\registration\login.html:5 .\templates\registration\login.html:9
 msgid "Login"
-msgstr ""
-"Accedi"
+msgstr "ACCESSO"
 
-#: .\shop\templates\shop\cart.html:8
+#: .\templates\registration\signup.html:4
+msgid "Sign Up"
+msgstr "Registrati"
+
+#: .\templates\registration\signup.html:8
+msgid "Username:"
+msgstr "Nome:"
+
+#: .\templates\registration\signup.html:20
+msgid "Password:"
+msgstr "Password:"
+
+#: .\templates\registration\signup.html:26
+msgid "Confirm Password:"
+msgstr "Conferma la Password:"
+
+#: .\templates\registration\signup.html:32
+msgid "Create Account"
+msgstr "Crea un Conto"
+
+#: .\templates\shop\cart.html:8
 msgid "Buy with Stripe"
-msgstr ""
-"Acquista con Stripe"
+msgstr "Acquista con Stripe"
 
-#: .\shop\templates\shop\homepage.html:7
+#: .\templates\shop\homepage.html:8
 msgid "Discover Our Art"
-msgstr "Scopri la nostra arte"
+msgstr "Scopri la nostra Arte"
 
-#: .\shop\templates\shop\homepage.html:8
-msgid ""
-"Browse themed prints, illustrations, and photographs curated for every taste."
-msgstr ""
-"Sfoglia stampe tematiche, illustrazioni e fotografie selezionate per ogni gusto."
+#: .\templates\shop\homepage.html:9
+msgid "Browse themed prints, illustrations, and photographs curated for every taste."
+msgstr "Sfoglia stampe, illustrazioni e fotografie a tema selezionate per tutti i gusti."
 
-#: .\shop\templates\shop\illustration_gallery.html:4
-#: .\shop\templates\shop\photography_gallery.html:4
+#: .\templates\shop\illustration_gallery.html:5
+#: .\templates\shop\photography_gallery.html:5
 msgid "Welcome to HEARTH Shop"
-msgstr ""
-"Benvenuto in HEARTH Shop"
+msgstr "Benvenuto al HEARTH Shop"
 
-#: .\shop\templates\shop\illustration_gallery.html:29
-msgid "Page"
-msgstr ""
-"Pagina"
-
-#: .\shop\templates\shop\illustration_gallery.html:31
-msgid "Next"
-msgstr ""
-"Seguente"
-
-#: .\shop\templates\shop\photography_gallery.html:8
+#: .\templates\shop\illustration_gallery.html:9
+#: .\templates\shop\photography_gallery.html:9
 msgid "Gallery"
-msgstr ""
-"Galleria"
+msgstr "Galleria"
 
-#: .\shop\templates\shop\photography_gallery.html:21
+#: .\templates\shop\illustration_gallery.html:22
+#: .\templates\shop\photography_gallery.html:22
 msgid "No prints found."
-msgstr ""
-"Nessuna stampa trovata."
+msgstr "Nessuna stampa trovata."
 
-#: .\shop\templates\shop\upload.html:4 .\shop\templates\shop\upload.html:7
+#: .\templates\shop\illustration_gallery.html:29
+#: .\templates\shop\photography_gallery.html:28
+msgid "Previous"
+msgstr "Precedente"
+
+#: .\templates\shop\illustration_gallery.html:32
+#: .\templates\shop\photography_gallery.html:30
+msgid "Page"
+msgstr "Pagina"
+
+#: .\templates\shop\illustration_gallery.html:35
+#: .\templates\shop\photography_gallery.html:32
+msgid "Next"
+msgstr "Seguente"
+
+#: .\templates\shop\upload.html:4 .\templates\shop\upload.html:7
 msgid "Upload a New Print"
-msgstr ""
-"Aggiungi una nuova stampa"
+msgstr "Carica una nuova stampa"
 
-#: .\shop\templates\shop\upload.html:11
+#: .\templates\shop\upload.html:11
 msgid "Upload"
-msgstr ""
-"Carica"
+msgstr "Upload"
 
-#: .\shop\templates\thank_you.html:4
+#: .\templates\thank_you.html:4
 msgid "Thank you for your message!"
-msgstr ""
-"Grazie per il tuo messaggio!"
+msgstr "Grazie per il messaggio!"
 
-#: .\shop\templates\thank_you.html:5
+#: .\templates\thank_you.html:5
 msgid "We'll get back to you as soon as possible."
-msgstr ""
-"Ti risponderemo il prima possibile."
+msgstr "Ti risponderemo il prima possibile."
 
-#: .\shop\views.py:165 .\shop\views.py:172
+#: .\views.py:185 .\views.py:192
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
-msgstr ""
-"Nuovo invio del modulo di contatto da %(name)s"
+msgstr "Nuovo modulo di contatto inviato da %(name)s"
 
-#: .\shop\views.py:175
-msgid "Thank you for reaching out to us. We've received your message and will get "
+#: .\views.py:195
+msgid ""
+"Thank you for reaching out to us. We've received your message and will get "
 "back to you shortly.\n"
 "\n"
 "Best regards,\n"
 "Hearth Design Team"
-msgstr ""
-"Grazie per averci contattato."
-"Abbiamo ricevuto il tuo messaggio e ti risponderemo a breve.\n"
+msgstr "Grazie per averci contattato."
+"Abbiamo ricevuto il tuo messaggio e ti risponderemo al più presto.\n"
 "\n"
-"Cordiali saluti,\n"
-"Il team di Hearth Design"
+"Felici saluti!"
+"Il Team HEARTH Design"
+
+
+#~ msgid "Hearth Shop"
+#~ msgstr "Hearth Shop"
+
+#~ msgid "HEARTH SHOP"
+#~ msgstr "HEARTH SHOP"
+
+#, python-format
+#~ msgid "Welcome back, %(name)s!\n"
+#~ msgstr "Betnornato, %(name)s!\n"
+
+#~ msgid "English"
+#~ msgstr "English"
+
+#~ msgid "Deutsch"
+#~ msgstr "Deutsch"
+
+#~ msgid "Français"
+#~ msgstr "Français"
+
+#~ msgid "Español"
+#~ msgstr "Español"
+
+#~ msgid "Italiano"
+#~ msgstr "Italiano"
+
+#~ msgid "Português"
+#~ msgstr "Português"
+
+#~ msgid "简体中文"
+#~ msgstr "简体中文"
+
+#~ msgid "日本語"
+#~ msgstr "日本語"
+
+#~ msgid "Switch"
+#~ msgstr "Cambia"
+
+#~ msgid "Quantity:"
+#~ msgstr "Quantità"
+
+#~ msgid "Add to Cart"
+#~ msgstr "Aggiungi al carrello"
+
+#~ msgid "HOME"
+#~ msgstr "INIZIO"
+
+#~ msgid "ILLUSTRATIONS"
+#~ msgstr "ILLUSTRAZIONI"
+
+#~ msgid "PHOTOGRAPHY"
+#~ msgstr "FOTOGRAFIA"
+
+#~ msgid "Cart"
+#~ msgstr "CARRELLO"
+
+#~ msgid "Logout"
+#~ msgstr "Disconnetti"
+
+#~ msgid "THEME"
+#~ msgstr "TEMA"
