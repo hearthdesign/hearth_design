@@ -3,8 +3,6 @@
 
 <form method="POST" class="contact-form">
   {% csrf_token %}
-  <form method="POST" class="contact-form">
-  {% csrf_token %}
 
   <label for="id_name">{% trans "Name:" %}</label>
   {{ form.name }}
@@ -28,5 +26,5 @@
 </form>
 
 {% if success_message %}
-    <p class="success_message">{{success_message}}<p>
+  <p class="success_message">{{ success_message }}</p>
 {% endif %}

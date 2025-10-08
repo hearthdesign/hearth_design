@@ -25,6 +25,7 @@
       <!-- Logout button for all logged-in users -->
       {% if user.is_authenticated %}
       <li>
+        
         <form method="post" action="{% url 'logout' %}" style="display:inline;">
           {% csrf_token %}
           <button type="submit" class="nav_btn">
@@ -36,7 +37,7 @@
       <li><a href="{% url 'login' %}" class="nav_btn">{% trans "Login" %}</a></li>
       <li><a href="{% url 'signup' %}" class="nav_btn">{% trans "Sign Up" %}</a></li>
 {% endif %}
-<ul>
+    </ul>
   <!-- Theme filter -->
   <form method="get" action="{% url 'theme_filter' %}">
     <select name="theme">
