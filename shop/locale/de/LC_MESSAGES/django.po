@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -12,7 +11,7 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,79 +19,94 @@ msgstr ""
 #: .\shop\templates\contact.html:9
 msgid "Name:"
 msgstr ""
+"Name"
 
 #: .\shop\templates\contact.html:15
 msgid "Email:"
-msgstr "Email"
+msgstr ""
+"Email"
 
 #: .\shop\templates\contact.html:21
 msgid "Message:"
-msgstr "Nachricht"
+msgstr ""
+"Nachricht"
 
 #: .\shop\templates\contact.html:27
 msgid "Send Message"
-msgstr "Nachricht senden"
+msgstr ""
+"Nachricht senden"
 
 #: .\shop\templates\registration\login.html:4
 #: .\shop\templates\registration\login.html:8
 msgid "Login"
-msgstr "Login"
+msgstr ""
+"Login"
 
 #: .\shop\templates\shop\cart.html:8
 msgid "Buy with Stripe"
-msgstr "Mit Stripe kaufen
-"
+msgstr ""
+"Mit Stripe kaufen"
 
 #: .\shop\templates\shop\homepage.html:7
-msgid "Entdecken Sie unsere Kunst"
+msgid "Discover Our Art"
 msgstr ""
+"Entdecken Sie unsere Kunst"
 
 #: .\shop\templates\shop\homepage.html:8
 msgid ""
 "Browse themed prints, illustrations, and photographs curated for every taste."
-msgstr "Durchstöbern Sie thematische Drucke, Illustrationen und Fotografien, die für jeden Geschmack kuratiert wurden"
-
+msgstr ""
+"Durchstöbern Sie thematische Drucke, Illustrationen und Fotografien, die für jeden Geschmack kuratiert wurden."
 #: .\shop\templates\shop\illustration_gallery.html:4
 #: .\shop\templates\shop\photography_gallery.html:4
 msgid "Welcome to HEARTH Shop"
-msgstr "Willkommen im HEARTH Shop"
+msgstr ""
+"Willkommen im HEARTH Shop"
 
 #: .\shop\templates\shop\illustration_gallery.html:29
 msgid "Page"
-msgstr "Seite"
-
+msgstr ""
+"Seite"
 #: .\shop\templates\shop\illustration_gallery.html:31
 msgid "Next"
-msgstr "Weiter"
+msgstr ""
+"Weiter"
 
 #: .\shop\templates\shop\photography_gallery.html:8
 msgid "Gallery"
-msgstr "Galerie"
+msgstr ""
+"Galerie"
 
 #: .\shop\templates\shop\photography_gallery.html:21
 msgid "No data found."
-msgstr "Keine Daten gefunden."
+msgstr ""
+"Keine Daten gefunden."
 
 #: .\shop\templates\shop\upload.html:4 .\shop\templates\shop\upload.html:7
 msgid "Upload a New Print"
-msgstr "Eine neue Druckdatei hochladen"
+msgstr ""
+"Eine neue Druckdatei hochladen"
 
 #: .\shop\templates\shop\upload.html:11
 msgid "Upload"
-msgstr "Hochladen"
+msgstr ""
+"Hochladen"
 
 #: .\shop\templates\thank_you.html:4
 msgid "Thank you for your message!"
-msgstr "Danke für Ihre Nachricht!"
+msgstr ""
+"Danke für Ihre Nachricht!"
 
 #: .\shop\templates\thank_you.html:5
 msgid "We'll get back to you as soon as possible."
-msgstr "Wir werden uns so schnell wie möglich bei Ihnen melden."
+msgstr ""
+"Wir werden uns so schnell wie möglich bei Ihnen melden."
 
 #: .\shop\views.py:165 .\shop\views.py:172
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
-msgstr "Neue Kontaktformular-Einreichung von %(name)s"
+msgstr ""
+"Neue Kontaktformular-Einreichung von %(name)s"
 
 #: .\shop\views.py:175
 msgid ""
@@ -101,7 +115,8 @@ msgid ""
 "\n"
 "Best regards,\n"
 "Hearth Design Team"
-msgstr "Vielen Dank, dass Sie uns kontaktiert haben.\n"
+msgstr ""
+"Vielen Dank, dass Sie uns kontaktiert haben.\n"
 "Wir haben Ihre Nachricht erhalten und werden uns in Kürze bei Ihnen melden.\n"
 "\n"
 "Mit freundlichen Grüßen,\n"
