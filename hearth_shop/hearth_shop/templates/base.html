@@ -22,22 +22,6 @@
             {% endblocktrans %}
         {% endif %}
 
-        <form action="{% url 'set_language' %}" method="post">
-          {% csrf_token %}
-          <input name="next" type="hidden" value="{{ request.path }}">
-          <select name="language">
-            <option value="en">{% trans "English" %}</option>
-            <option value="de">{% trans "Deutsch" %}</option>
-            <option value="fr">{% trans "Français" %}</option>
-            <option value="es">{% trans "Español" %}</option>
-            <option value="it">{% trans "Italiano" %}</option>
-            <option value="pt">{% trans "Português" %}</option>
-            <option value="zh-hans">{% trans "简体中文" %}</option>
-            <option value="ja">{% trans "日本語" %}</option>
-          </select>
-          <button type="submit">{% trans "Switch" %}</button>
-        </form>
-
     </header>
 
     <main>

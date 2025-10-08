@@ -38,13 +38,37 @@
       <li><a href="{% url 'signup' %}" class="nav_btn">{% trans "Sign Up" %}</a></li>
 {% endif %}
     </ul>
+
+  <!-- Combined dropdown menu for language and theme -->
+<div class="dropdown-menu">
+  <form action="{% url 'set_language' %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <input name="next" type="hidden" value="{{ request.path }}">
+
+    <label for="language-select">{% trans "Language" %}:</label>
+    <select name="language" id="language-select">
+      <option value="en">{% trans "English" %}</option>
+      <option value="de">{% trans "Deutsch" %}</option>
+      <option value="fr">{% trans "Français" %}</option>
+      <option value="es">{% trans "Español" %}</option>
+      <option value="it">{% trans "Italiano" %}</option>
+      <option value="pt">{% trans "Português" %}</option>
+      <option value="zh-hans">{% trans "简体中文" %}</option>
+      <option value="ja">{% trans "日本語" %}</option>
+    </select>
+
+    <button type="submit" class="nav_btn">{% trans "Switch Language" %}</button>
+  </form>
   <!-- Theme filter -->
-  <form method="get" action="{% url 'theme_filter' %}">
-    <select name="theme">
+  <form method="get" action="{% url 'theme_filter' %}" style="display:inline;">
+    <label for="theme-select">{% trans "Theme" %}:</label>
+    <select name="theme" id="theme-select">
       {% for theme in themes %}
-        <option value="{{ theme.slug }}">{{ theme.name }}</option>
+        <option value="{{ theme.slug }}">{% trans theme.name %}</option>
       {% endfor %}
     </select>
+
     <button type="submit" class="nav_btn">{% trans "THEME" %}</button>
   </form>
-</nav>
+</div>
+

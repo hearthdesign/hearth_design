@@ -65,6 +65,14 @@ nav {
   }
 
 /* ===========================
+   DROPDOWN MENU
+   =========================== */
+dropdown-menu {
+  position: relative;
+  display: inline-block;
+}
+
+/* ===========================
    GALLERY GRID
 =========================== */
 .gallery-grid {
