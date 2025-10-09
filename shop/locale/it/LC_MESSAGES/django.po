@@ -35,7 +35,7 @@ msgstr "Invia un Messaggio"
 
 #: .\templates\registration\login.html:5 .\templates\registration\login.html:9
 msgid "Login"
-msgstr "ACCESSO"
+msgstr "LOGIN"
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
