@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-10 04:05+0200\n"
+"POT-Creation-Date: 2025-10-10 10:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,12 +38,10 @@ msgid "Login"
 msgstr "登录"
 
 #: .\templates\registration\password_reset.html:5
-#: .\templates\registration\password_reset_confirm.html:9
 msgid "Reset your password"
 msgstr "请重置您的密码"
 
 #: .\templates\registration\password_reset.html:6
-#: .\templates\registration\password_reset_done.html:6
 msgid ""
 "Enter your email address and we'll send you a link to reset your password."
 msgstr "请输入您的电子邮箱地址，我们将向您发送重置密码的链接。"
@@ -68,9 +66,22 @@ msgstr "请前往登录页面"
 msgid "Enter new password"
 msgstr "请输入新密码"
 
+#: .\templates\registration\password_reset_confirm.html:9
+#, fuzzy
+#| msgid "Reset your password"
+msgid "Reset password"
+msgstr "请重置您的密码"
+
 #: .\templates\registration\password_reset_done.html:5
 msgid "Password reset email sent"
 msgstr "重置密码的邮件已发送"
+
+#: .\templates\registration\password_reset_done.html:6
+#, fuzzy
+#| msgid ""
+#| "Enter your email address and we'll send you a link to reset your password."
+msgid "Check your inbox for a link to reset your password."
+msgstr "请输入您的电子邮箱地址，我们将向您发送重置密码的链接。"
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"

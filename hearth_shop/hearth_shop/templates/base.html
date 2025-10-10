@@ -64,9 +64,9 @@
 
     <!-- NAVIGATION AND CLOSE CONTROLS (must be inside .modal-content) -->
     <div class="modal-controls">
-      <button id="prev-btn" class="nav_btn">←</button>
-      <button id="next-btn" class="nav_btn">→</button>
-      <button id="close-btn" class="nav_btn">x</button>
+      <button id="prev-btn" class="modal_btn">←</button>
+      <button id="next-btn" class="modal_btn">→</button>
+      <button id="close-btn" class="modal_btn">x</button>
     </div>
 
   </div> <!-- END OF .modal-content -->
@@ -76,6 +76,7 @@
 <!-- FOOTER -->
 <footer>
   <p>&copy; 2025 HEARTH SHOP</p>
+  <a href="{% url 'contact' %}">{% trans "Contact Us" %}</a>
 </footer>
 </body>
 </html>

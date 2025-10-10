@@ -5,25 +5,26 @@
 </head>
 
 <!-- includes/navbar.html -->
-<nav>
-  <ul class="nav_links">
+<nav class="nav_links">
+  <ul class="nav_group">
     <li><a href="{% url 'homepage' %}" class="nav_btn">{% trans "HOME" %}</a></li>
     <li><a href="{% url 'illustration_gallery' %}" class="nav_btn">{% trans "ILLUSTRATIONS" %}</a></li>
     <li><a href="{% url 'photography_gallery' %}" class="nav_btn">{% trans "PHOTOGRAPHY" %}</a></li>
-  </ul> 
-  <div class="dropdown-menu">
-  <!-- Theme filter -->
-  <form method="get" action="{% url 'theme_filter' %}" style="display:inline;">
-    <label for="theme-select">{% trans "Theme" %}:</label>
-    <select name="theme" id="theme-select">
-      {% for theme in themes %}
-        <option value="{{ theme.slug }}">{% trans theme.name %}</option>
-      {% endfor %}
-    </select>
-
+   
+    <!-- Theme button stacked above dropdown -->
+    </li class="nav_stack">
     <button type="submit" class="nav_btn" id="theme-btn">{% trans "THEME" %}</button>
-  </div>
-  <ul class="nav_links">
+    <form method="get" action="{% url 'theme_filter' %}">
+      <select name="theme" id="theme-select">
+        {% for theme in themes %}
+          <option value="{{ theme.slug }}">{% trans theme.name %}</option>
+        {% endfor %}
+      </select>
+    </form>
+  </li>
+</ul>  
+  <!-- Right-side group: Cart, Auth, Language -->
+  <ul class="nav_group">
     <!-- Conditional links based on user-admin -->
       {% if user.is_staff %}
         <li><a href="{% url 'upload_print' %}" class="nav_btn">{% trans "Upload" %}</a></li>
@@ -38,7 +39,6 @@
       <!-- Logout button for all logged-in users -->
       {% if user.is_authenticated %}
       <li>
-        
         <form method="post" action="{% url 'logout' %}" style="display:inline;">
           {% csrf_token %}
           <button type="submit" class="nav_btn">
@@ -51,28 +51,25 @@
       <li><a href="{% url 'signup' %}" class="nav_btn">{% trans "Sign Up" %}</a></li>
 {% endif %}
     </ul>
-<div class="language">
-  <!-- Combined dropdown menu for language and theme -->
-<div class="dropdown-menu">
-  <form action="{% url 'set_language' %}" method="post" style="display:inline;">
-    {% csrf_token %}
-    <input name="next" type="hidden" value="{{ request.path }}">
-
-    <label for="language-select">{% trans "Language" %}:</label>
-    <select name="language" id="language-select">
-      <option value="en">{% trans "English" %}</option>
-      <option value="de">{% trans "Deutsch" %}</option>
-      <option value="fr">{% trans "Français" %}</option>
-      <option value="es">{% trans "Español" %}</option>
-      <option value="it">{% trans "Italiano" %}</option>
-      <option value="pt">{% trans "Português" %}</option>
-      <option value="zh-hans">{% trans "简体中文" %}</option>
-      <option value="ja">{% trans "日本語" %}</option>
-    </select>
-
-    <button type="submit" class="nav_btn" id="switch-btn">{% trans "Switch Language" %}</button>
-  </form>
-  </div>
-</div>
+<!-- Switch Language button stacked above dropdown -->
+      <li class="nav_stack">
+      <button type="submit" class="nav_btn" id="switch-btn">{% trans "Switch Language" %}</button>
+        <form action="{% url 'set_language' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path }}">
+        <label for="language-select">{% trans "Language" %}:</label>
+        <select name="language" id="language-select">
+          <option value="en">{% trans "English" %}</option>
+          <option value="de">{% trans "Deutsch" %}</option>
+          <option value="fr">{% trans "Français" %}</option>
+          <option value="es">{% trans "Español" %}</option>
+          <option value="it">{% trans "Italiano" %}</option>
+          <option value="pt">{% trans "Português" %}</option>
+          <option value="zh-hans">{% trans "简体中文" %}</option>
+          <option value="ja">{% trans "日本語" %}</option>
+        </select>
+      </form>
+    </li>
+  </ul>
 </nav>
 

@@ -20,18 +20,6 @@ button {
 /* ===========================
    HEADER & NAVIGATION
 =========================== */
-/* header {
-  height: 10%;
-  width: 98%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: rgb(74, 156, 177);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-} */
 
 header {
   background-image: url('../images/header-bg.jpg'); /* Replace with your actual image path */
@@ -43,9 +31,14 @@ header {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: justify;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+  margin-left: 2%;
+  color: rgb(20, 90, 120);
 }
 
 .Hearth_title {
@@ -60,7 +53,7 @@ header {
 .logo {
   max-width: 14rem;
   height: auto;
-  margin-right: 1rem;
+  margin: 1rem;
 }
 
 nav {
@@ -73,26 +66,38 @@ nav {
 .nav_links {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
-  margin-left: 0;
-  align-items: center;
-  gap: 1rem;
+  align-items: flex-start;
+  gap: 2rem;
 }
- /* .nav_links {
-  flex-wrap: wrap;
-  justify-content: center;
+
+.nav_group {
+  display: flex;
   gap: 1rem;
-  padding: 1rem 0;
- } */
+  align-items: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav_stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
 .nav_btn {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   border: 2px solid rgb(20, 90, 120);
   color:rgb(74, 156, 177);
   padding: 0.5rem 0.7rem;
   border-radius: 0.5rem;
   font-weight: bold;
   text-decoration: none;
+  cursor: pointer;
   transition: background-color 0.3sec, color0.3sec ease;
 }
 
@@ -100,19 +105,44 @@ nav {
     text-decoration: underline;
   }
 
+  select {
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+}
+
+.modal_btn {
+  background-color: white;
+  color: rgb(20, 90, 120);
+  border: 2px solid rgb(74, 156, 177);
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: large;
+}
+
   #theme-btn {
     padding: 0.15rem 0.5rem;
   }
 
   #switch-btn {
     padding: 0.15rem 0.5rem;
+    margin-right: 3rem; 
   }
+
+  #language-select {
+    margin-right: 4rem;
+  }
+    
+  
 /* ===========================
    DROPDOWN MENU
    =========================== */
 dropdown-menu {
   position: relative;
   display: inline-block;
+  margin-right: 4rem;
 }
 
 /* ===========================
@@ -120,7 +150,7 @@ dropdown-menu {
 =========================== */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   gap: 1rem;
   padding: 2rem;
 }
@@ -138,14 +168,7 @@ dropdown-menu {
   box-shadow: 0 0 4px rgba(0,0,0,0.2);
 }
 
-/* .thumbnail img {
-  width: 100%;
-  max-width: 16rem;
-  object-fit: cover;
-  border-radius: 0.25rem;
-  box-shadow: 0 0 4px rgba(0,0,0,0.2);
-  /* helps prevent right-click 
-} */
+
 .thumbnail img {
   width: 100%;
   height: 100%;
@@ -164,7 +187,6 @@ img {
 /* ===========================
    MODAL STYLING
 =========================== */
- /* Centered look with a dark overlay */
 .modal {
   display: none;
   position: fixed;
@@ -225,12 +247,15 @@ img {
 }
 
 .modal-content button {
-  background-color: #333;
-  color: rgb(74, 156, 177);
+  background-color: white;
+  color: rgb(20, 90, 120);
+  border: 2px solid rgb(74, 156, 177);
+  font-weight: bold;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: large;
 }
 
 .close {
@@ -311,15 +336,24 @@ img {
 /* MAX-WIDTH 600PX */
 @media (max-width: 600px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
   }
 
+  header {
+    display: block;
+    box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
     .logo {
-    max-width: 4rem;}
+    MIN-width: 8rem;}
 
   .modal-content {
-    margin: 20% auto;
+    margin: 10% auto;
     padding: 1rem;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -338,3 +372,30 @@ img {
     margin-top: 0.5rem;
   }
   }
+/* ======================
+        MAIN STYLING
+  ====================== */ 
+main {
+  min-height: 70vh;
+}
+
+/* ======================
+      FOOTER STYLING
+  ====================== */
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  color: rgb(20, 90, 120);;
+  margin-bottom: 0;
+  position: relative;
+}
+
+footer a {
+  color: rgb(20, 90, 120);;
+  text-decoration: underline;
+  margin-left: 1rem;
+}
+
+  
