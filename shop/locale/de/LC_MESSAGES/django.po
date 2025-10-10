@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 17:08+0200\n"
+"POT-Creation-Date: 2025-10-10 00:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,6 +36,38 @@ msgstr "Nachricht senden"
 #: .\templates\registration\login.html:5 .\templates\registration\login.html:9
 msgid "Login"
 msgstr "Anmelden"
+
+#: .\templates\registration\password_reset.html:5
+msgid "Reset your password"
+msgstr "Passwort zurücksetzen"
+
+#: .\templates\registration\password_reset.html:6
+msgid "Enter your email address and we'll send you a link to reset your password."
+msgstr "Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen einen Link zum Zurücksetzen Ihres Passworts."
+
+#: .\templates\registration\password_reset.html:10
+msgid "Send reset link"
+msgstr "Link zum Zurücksetzen senden"
+
+#: .\templates\registration\password_reset_complete.html:5
+msgid "Password reset complete"
+msgstr "Passwort zurücksetzen abgeschlossen"
+
+#: .\templates\registration\password_reset_complete.html:6
+msgid "Your password has been successfully reset. You may now log in."
+msgstr "Ihr Passwort wurde erfolgreich zurückgesetzt. Sie können sich nun anmelden."
+
+#: .\templates\registration\password_reset_complete.html:7
+msgid "Go to login page"
+msgstr "Zur Anmeldeseite gehen"
+
+#: .\templates\registration\password_reset_confirm.html:5
+msgid "Enter new password"
+msgstr "Neues Passwort eingeben"
+
+#: .\templates\registration\password_reset_confirm.html:9
+msgid "Password:"
+msgstr "Passwort:"
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
@@ -67,7 +99,8 @@ msgstr "Entdecken Sie unsere Kunst"
 
 #: .\templates\shop\homepage.html:9
 msgid "Browse themed prints, illustrations, and photographs curated for every taste."
-msgstr "Stöbern Sie in thematischen Drucken, Illustrationen und Fotografien, die für jeden Geschmack kuratiert wurden."
+msgstr "Stöbern Sie in thematischen Drucken, Illustrationen und Fotografien, die für "
+"jeden Geschmack kuratiert wurden."
 
 #: .\templates\shop\illustration_gallery.html:5
 #: .\templates\shop\photography_gallery.html:5
@@ -121,14 +154,13 @@ msgid "New Contact Form Submission from %(name)s"
 msgstr "Neues Kontaktformular von %(name)s"
 
 #: .\views.py:195
-msgid ""
-"Thank you for reaching out to us. We've received your message and will get "
+msgid "Thank you for reaching out to us. We've received your message and will get "
 "back to you shortly.\n"
 "\n"
 "Best regards,\n"
 "Hearth Design Team"
-msgstr "Vielen Dank für Ihre Kontaktaufnahme."
-"Wir haben Ihre Nachricht erhalten und werden uns in Kürze bei Ihnen melden.\n"
+msgstr "Vielen Dank für Ihre Kontaktaufnahme.Wir haben Ihre Nachricht erhalten und "
+"werden uns in Kürze bei Ihnen melden.\n"
 "Mit freundlichen Grüßen,\n"
 "Hearth Design Team"
 

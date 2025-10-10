@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 17:08+0200\n"
+"POT-Creation-Date: 2025-10-10 00:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,6 +36,38 @@ msgstr "メッセージを送る"
 #: .\templates\registration\login.html:5 .\templates\registration\login.html:9
 msgid "Login"
 msgstr "ログイン"
+
+#: .\templates\registration\password_reset.html:5
+msgid "Reset your password"
+msgstr "パスワードをリセットしてください"
+
+#: .\templates\registration\password_reset.html:6
+msgid "Enter your email address and we'll send you a link to reset your password."
+msgstr "メールアドレスを入力してください。パスワードをリセットするためのリンクをお送りします。"
+
+#: .\templates\registration\password_reset.html:10
+msgid "Send reset link"
+msgstr "リセットリンクを送信"
+
+#: .\templates\registration\password_reset_complete.html:5
+msgid "Password reset complete"
+msgstr "パスワードリセット完了"
+
+#: .\templates\registration\password_reset_complete.html:6
+msgid "Your password has been successfully reset. You may now log in."
+msgstr "パスワードは正常にリセットされました。ログインできます。"
+
+#: .\templates\registration\password_reset_complete.html:7
+msgid "Go to login page"
+msgstr "ログインページへ移動してください"
+
+#: .\templates\registration\password_reset_confirm.html:5
+msgid "Enter new password"
+msgstr "新しいパスワードを入力してください"
+
+#: .\templates\registration\password_reset_confirm.html:9
+#| msgid "Password:"
+msgstr "パスワード："
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
@@ -67,7 +99,8 @@ msgstr "私たちのアートを発見する"
 
 #: .\templates\shop\homepage.html:9
 msgid "Browse themed prints, illustrations, and photographs curated for every taste."
-msgstr "あらゆる好みに合わせてキュレーションされたテーマ別のプリント、イラスト、写真を閲覧してください。"
+msgstr "あらゆる好みに合わせてキュレーションされたテーマ別のプリント、イラスト、写真"
+"を閲覧してください。"
 
 #: .\templates\shop\illustration_gallery.html:5
 #: .\templates\shop\photography_gallery.html:5
@@ -126,12 +159,11 @@ msgid "Thank you for reaching out to us. We've received your message and will ge
 "\n"
 "Best regards,\n"
 "Hearth Design Team"
-msgstr "ご連絡いただきありがとうございます。"
-"メッセージを受け取りました。折り返しご連絡いたします。\n"
+msgstr "ご連絡いただきありがとうございます。メッセージを受け取りました。折り返しご連"
+"絡いたします。\n"
 "\n"
 "敬具,\n"
 "HEARTH デザインチーム"
-
 
 #~ msgid "Hearth Shop"
 #~ msgstr "HEARTH ウェブショップ"

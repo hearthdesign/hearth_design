@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 17:08+0200\n"
+"POT-Creation-Date: 2025-10-10 00:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,6 +36,38 @@ msgstr "Envoyer un message"
 #: .\templates\registration\login.html:5 .\templates\registration\login.html:9
 msgid "Login"
 msgstr "Connexion"
+
+#: .\templates\registration\password_reset.html:5
+msgid "Reset your password"
+msgstr "Réinitialisez votre mot de passe"
+
+#: .\templates\registration\password_reset.html:6
+msgid "Enter your email address and we'll send you a link to reset your password."
+msgstr "Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe."
+
+#: .\templates\registration\password_reset.html:10
+msgid "Send reset link"
+msgstr "Envoyer le lien de réinitialisation"
+
+#: .\templates\registration\password_reset_complete.html:5
+msgid "Password reset complete"
+msgstr "Réinitialisation du mot de passe terminée"
+
+#: .\templates\registration\password_reset_complete.html:6
+msgid "Your password has been successfully reset. You may now log in."
+msgstr "Votre mot de passe a été réinitialisé avec succès. Vous pouvez maintenant vous connecter."
+
+#: .\templates\registration\password_reset_complete.html:7
+msgid "Go to login page"
+msgstr "Aller à la page de connexion"
+
+#: .\templates\registration\password_reset_confirm.html:5
+msgid "Enter new password"
+msgstr "Entrez un nouveau mot de passe"
+
+#: .\templates\registration\password_reset_confirm.html:9
+msgid "Password:"
+msgstr "Mot de passe:"
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
@@ -66,8 +98,11 @@ msgid "Discover Our Art"
 msgstr "Découvrez notre art"
 
 #: .\templates\shop\homepage.html:9
-msgid "Browse themed prints, illustrations, and photographs curated for every taste."
-msgstr "Parcourez des gravures, illustrations et photographies thématiques sélectionnées pour tous les goûts."
+msgid ""
+"Browse themed prints, illustrations, and photographs curated for every taste."
+msgstr ""
+"Parcourez des gravures, illustrations et photographies thématiques "
+"sélectionnées pour tous les goûts."
 
 #: .\templates\shop\illustration_gallery.html:5
 #: .\templates\shop\photography_gallery.html:5
@@ -126,11 +161,10 @@ msgid "Thank you for reaching out to us. We've received your message and will ge
 "\n"
 "Best regards,\n"
 "Hearth Design Team"
-msgstr "Merci de nous avoir contactés."
-"Nous avons bien reçu votre message et vous répondrons dans les plus brefs délais.\n"
+msgstr "Merci de nous avoir contactés.Nous avons bien reçu votre message et vous "
+"répondrons dans les plus brefs délais.\n"
 "Cordialement,\n"
 "Équipe de conception Hearth"
-
 
 #~ msgid "Hearth Shop"
 #~ msgstr "Hearth Shop"

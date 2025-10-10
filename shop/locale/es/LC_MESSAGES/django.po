@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 16:51+0200\n"
+"POT-Creation-Date: 2025-10-10 00:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,6 +37,38 @@ msgstr "Envía un mensaje"
 #: .\templates\registration\login.html:5 .\templates\registration\login.html:9
 msgid "Login"
 msgstr "Inicia sesión"
+
+#: .\templates\registration\password_reset.html:5
+msgid "Reset your password"
+msgstr "Restablezca su contraseña"
+
+#: .\templates\registration\password_reset.html:6
+msgid "Enter your email address and we'll send you a link to reset your password."
+msgstr "Introduce tu dirección de correo electrónico y te enviaremos un enlace para restablecer tu contraseña."
+
+#: .\templates\registration\password_reset.html:10
+msgid "Send reset link"
+msgstr "Enviar enlace de restablecimiento"
+
+#: .\templates\registration\password_reset_complete.html:5
+msgid "Password reset complete"
+msgstr "La contraseña ha sido cambiada"
+
+#: .\templates\registration\password_reset_complete.html:6
+msgid "Your password has been successfully reset. You may now log in."
+msgstr "Tu contraseña ha sido restablecida con éxito. Ahora puedes iniciar sesión."
+
+#: .\templates\registration\password_reset_complete.html:7
+msgid "Go to login page"
+msgstr "Ve a la página de inicio"
+
+#: .\templates\registration\password_reset_confirm.html:5
+msgid "Enter new password"
+msgstr "Introducir nueva contraseña"
+
+#: .\templates\registration\password_reset_confirm.html:9
+msgid "Password:"
+msgstr "Contraseña:"
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
@@ -68,7 +100,8 @@ msgstr "Descubre nuestro Arte"
 
 #: .\templates\shop\homepage.html:9
 msgid "Browse themed prints, illustrations, and photographs curated for every taste."
-msgstr "Explora impresiones, ilustraciones y fotografías temáticas seleccionadas para todos los gustos."
+msgstr "Explora impresiones, ilustraciones y fotografías temáticas seleccionadas "
+"para todos los gustos."
 
 #: .\templates\shop\illustration_gallery.html:5
 #: .\templates\shop\photography_gallery.html:5
@@ -122,17 +155,17 @@ msgid "New Contact Form Submission from %(name)s"
 msgstr "Nuevo formulario de contacto enviado por %(name)s"
 
 #: .\views.py:195
-msgid ""
-"Thank you for reaching out to us. We've received your message and will get "
+msgid "Thank you for reaching out to us. We've received your message and will get "
 "back to you shortly.\n"
 "\n"
 "Best regards,\n"
 "Hearth Design Team"
-msgstr "Gracias por ponerse en contacto con nosotros."
-"Hemos recibido su mensaje y le responderemos en breve.\n"
+msgstr "Gracias por ponerse en contacto con nosotros.Hemos recibido su mensaje y le "
+"responderemos en breve.\n"
 "\n"
 "Atentamente,\n"
 "Equipo de diseño de Hearth"
+
 #~ msgid "Hearth Shop"
 #~ msgstr "Hearth Shop"
 
