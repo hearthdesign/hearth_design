@@ -64,30 +64,21 @@ msgid "Go to login page"
 msgstr "Go to login page"
 
 #: .\templates\registration\password_reset_confirm.html:5
-#, fuzzy
 #| msgid "Enter a new password"
-msgid "Enter new password"
 msgstr "Enter a new password"
 
 #: .\templates\registration\password_reset_confirm.html:9
-#, fuzzy
-#| msgid "Reset your password"
-msgid "Reset password"
+msgid "Reset your password"
 msgstr "Reset your password"
 
 #: .\templates\registration\password_reset_done.html:5
-#, fuzzy
-#| msgid "Password reset complete"
-msgid "Password reset email sent"
+msgid "Password reset complete"
 msgstr "Password reset complete"
 
 #: .\templates\registration\password_reset_done.html:6
-#, fuzzy
-#| msgid ""
-#| "Enter your email address and we'll send you a link to reset your password."
+msgid "Enter your email address and we'll send you a link to reset your password."
 msgid "Check your inbox for a link to reset your password."
-msgstr ""
-"Enter your email address and we'll send you a link to reset your password."
+msgstr "Enter your email address and we'll send you a link to reset your password."
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
