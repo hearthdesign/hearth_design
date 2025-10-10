@@ -20,7 +20,7 @@ button {
 /* ===========================
    HEADER & NAVIGATION
 =========================== */
-header {
+/* header {
   height: 10%;
   width: 98%;
   display: flex;
@@ -31,6 +31,37 @@ header {
   padding: 1rem 2rem;
   background-color: rgb(74, 156, 177);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+} */
+
+header {
+  background-image: url('../images/header-bg.jpg'); /* Replace with your actual image path */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 2rem;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.Hearth_title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+/* Logo styling */
+.logo {
+  width: 15%;
+  max-width: 6rem;
+  height: auto;
+  margin-right: 1rem;
 }
 
 nav {
@@ -39,7 +70,7 @@ nav {
   height: auto;
 }
 
-.nav_links {
+/* .nav_links {
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -47,8 +78,13 @@ nav {
   margin-left: 0;
   align-items: center;
   gap: 1rem;
-}
-
+} */
+ .nav_links {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+ }
 .nav_btn {
   background-color: rgb(255, 255, 255);
   border: 2px solid cadetblue;
@@ -57,7 +93,7 @@ nav {
   border-radius: 0.5rem;
   font-weight: bold;
   text-decoration: none;
-  transition: background-color 0.3sec, color0.3sec;
+  transition: background-color 0.3sec, color0.3sec ease;
 }
 
   .nav_btn:hover {
@@ -77,14 +113,22 @@ dropdown-menu {
 =========================== */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: 1rem;
   padding: 2rem;
 }
 
+.thumbnail {
+  width: 100%;
+  max-width: 16rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .thumbnail img {
-  width: 4rem;
-  height: 4rem;
+  width: 100%;
+  max-width: 16rem;
   object-fit: cover;
   border-radius: 0.25rem;
   box-shadow: 0 0 4px rgba(0,0,0,0.2);
@@ -130,7 +174,8 @@ img {
 }
 
 .modal-content img {
-  max-width: 100%;
+  width: 150%;
+  max-width: none;
   height: auto;
   margin-bottom: 1rem;
 }
@@ -213,9 +258,35 @@ img {
 /* ===========================
    RESPONSIVE DESIGN
 =========================== */
+
+/* MAX-WIDTH 768PX */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .Hearth_title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .logo {
+    max-width: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .nav_links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* MAX-WIDTH 600PX */
 @media (max-width: 600px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(3rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
   }
 
   .modal-content {

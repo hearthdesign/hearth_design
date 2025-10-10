@@ -21,7 +21,8 @@
 </head>
 <body>
     <header>
-        <h1 class='Hearth_title'>{% trans "HEARTH SHOP" %}</h1>
+        <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+        <h1 class='Hearth_title'>{% trans "SHOP" %}</h1>
         {% include 'includes/navbar.html' %}
         <!-- Show welcome message if user is logged in -->
         {% if user_profile %}
