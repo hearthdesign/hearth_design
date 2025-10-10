@@ -7,156 +7,156 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-10 10:37+0200\n"
+"POT-Creation-Date: 2025-10-10 10:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: pt\n"
+"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: .\templates\contact.html:7
 msgid "Name:"
-msgstr "Nome:"
+msgstr "姓名"
 
 #: .\templates\contact.html:13 .\templates\registration\signup.html:14
 msgid "Email:"
-msgstr "Email:"
+msgstr "电子邮件"
 
 #: .\templates\contact.html:19
 msgid "Message:"
-msgstr "Mensagem:"
+msgstr "消息"
 
 #: .\templates\contact.html:25
 msgid "Send Message"
-msgstr "Enviar Mensagem"
+msgstr "发送消息"
 
 #: .\templates\registration\login.html:5 .\templates\registration\login.html:9
 msgid "Login"
-msgstr "Iniciar sessão"
+msgstr "登录"
 
 #: .\templates\registration\password_reset.html:5
 #: .\templates\registration\password_reset_confirm.html:9
 msgid "Reset your password"
-msgstr "Redefina a sua palavra-passe"
+msgstr "请重置您的密码"
 
 #: .\templates\registration\password_reset.html:6
-#: .\templates\registration\password_reset_done.html:6
-msgid ""
-"Enter your email address and we'll send you a link to reset your password."
-msgstr ""
-"Insira o seu endereço de e-mail e enviaremos um link para redefinir a sua "
-"palavra-passe."
+msgid "Enter your email address and we'll send you a link to reset your password."
+msgstr "请输入您的电子邮箱地址，我们将向您发送重置密码的链接。"
 
 #: .\templates\registration\password_reset.html:10
 msgid "Send reset link"
-msgstr "Enviar link de redefinição"
+msgstr "密码重置完成"
 
 #: .\templates\registration\password_reset_complete.html:5
-#: .\templates\registration\password_reset_done.html:5
 msgid "Password reset complete"
-msgstr "Reinicialização da palavra-passe concluída"
+msgstr "密码重置完成"
 
 #: .\templates\registration\password_reset_complete.html:6
 msgid "Your password has been successfully reset. You may now log in."
-msgstr ""
-"A sua palavra-passe foi redefinida com sucesso. Agora pode iniciar sessão."
+msgstr "您的密码已成功重置。现在您可以登录了。"
 
 #: .\templates\registration\password_reset_complete.html:7
 msgid "Go to login page"
-msgstr "Vá para a página de login"
+msgstr "请前往登录页面"
 
 #: .\templates\registration\password_reset_confirm.html:5
 msgid "Enter new password"
-msgstr "Digite uma nova palavra-passe"
+msgstr "请输入新密码"
+
+
+#: .\templates\registration\password_reset_done.html:5
+msgid "Password reset email sent"
+msgstr "重置密码的邮件已发送"
+
+#: .\templates\registration\password_reset_done.html:6
+msgid "Enter your email address and we'll send you a link to reset your password."
+msgstr "请输入您的电子邮箱地址，我们将向您发送重置密码的链接。"
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
-msgstr "Registar"
+msgstr "注册"
 
 #: .\templates\registration\signup.html:8
 msgid "Username:"
-msgstr "Nome de utilizador:"
+msgstr "用户名:"
 
 #: .\templates\registration\signup.html:20
 msgid "Password:"
-msgstr "Senha:"
+msgstr "密码："
 
 #: .\templates\registration\signup.html:26
 msgid "Confirm Password:"
-msgstr "Confirmar Senha:"
+msgstr "确认密码："
 
 #: .\templates\registration\signup.html:32
 msgid "Create Account"
-msgstr "Criar Conta"
+msgstr "创建账户"
 
 #: .\templates\shop\cart.html:8
 msgid "Buy with Stripe"
-msgstr "Compra com Stripe"
+msgstr "使用 Stripe 购买"
 
 #: .\templates\shop\homepage.html:8
 msgid "Discover Our Art"
-msgstr "Descubra a Nossa Arte"
+msgstr "探索我们的艺术"
 
 #: .\templates\shop\homepage.html:9
-msgid ""
-"Browse themed prints, illustrations, and photographs curated for every taste."
-msgstr ""
-"Navegue por estampas, ilustrações e fotografias temáticas selecionadas para "
-"todos os gostos."
+msgid "Browse themed prints, illustrations, and photographs curated for every taste."
+msgstr "浏览为各种品味精心挑选的主题印刷品、插图和照片。"
 
 #: .\templates\shop\illustration_gallery.html:5
 #: .\templates\shop\photography_gallery.html:5
 msgid "Welcome to HEARTH Shop"
-msgstr "Bem-vindo à Loja HEARTH"
+msgstr "欢迎来到 HEARTH 商店"
 
 #: .\templates\shop\illustration_gallery.html:9
 #: .\templates\shop\photography_gallery.html:9
 msgid "Gallery"
-msgstr "Galeria"
+msgstr "画廊"
 
 #: .\templates\shop\illustration_gallery.html:22
 #: .\templates\shop\photography_gallery.html:22
 msgid "No prints found."
-msgstr "Nenhuma impressão encontrada."
+msgstr "未找到打印记录。"
 
 #: .\templates\shop\illustration_gallery.html:29
 #: .\templates\shop\photography_gallery.html:28
 msgid "Previous"
-msgstr "Anterior"
+msgstr "上一个"
 
 #: .\templates\shop\illustration_gallery.html:32
 #: .\templates\shop\photography_gallery.html:30
 msgid "Page"
-msgstr "Página"
+msgstr "页面"
 
 #: .\templates\shop\illustration_gallery.html:35
 #: .\templates\shop\photography_gallery.html:32
 msgid "Next"
-msgstr "Seguinte"
+msgstr "下一个"
 
 #: .\templates\shop\upload.html:4 .\templates\shop\upload.html:7
 msgid "Upload a New Print"
-msgstr "Carregar uma Nova Impressão"
+msgstr "上传新打印"
 
 #: .\templates\shop\upload.html:11
 msgid "Upload"
-msgstr "Carregar"
+msgstr "上传"
 
 #: .\templates\thank_you.html:4
 msgid "Thank you for your message!"
-msgstr "Obrigado pela sua mensagem!"
+msgstr "感谢你的留言！"
 
 #: .\templates\thank_you.html:5
 msgid "We'll get back to you as soon as possible."
-msgstr "Responderemos assim que possível."
+msgstr "我们会尽快回复您。"
 
 #: .\views.py:185 .\views.py:192
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
-msgstr "Nova Submissão de Formulário de Contacto de %(name)s"
+msgstr "来自 %(name)s 的新联系人表单提交"
 
 #: .\views.py:195
 msgid ""
@@ -166,18 +166,19 @@ msgid ""
 "Best regards,\n"
 "Hearth Design Team"
 msgstr ""
-"Obrigado por entrar em contacto connosco. Recebemos a sua mensagem e "
-"responderemos em breve.\n"
-"\n"
-"Com os melhores cumprimentos,\n"
-"Equipa de Design Hearth"
+"感谢您联系我们。我们已收到您的消息，将尽快回复您。\n"
+"此致敬礼，\n"
+"Hearth Design 团队"
+
+#~ msgid "Hearth Shop"
+#~ msgstr "HEARTH 商店"
 
 #~ msgid "HEARTH SHOP"
-#~ msgstr "HEARTH SHOP"
+#~ msgstr "HEARTH 商店"
 
 #, python-format
 #~ msgid "Welcome back, %(name)s!\n"
-#~ msgstr "Bem-vindo de volta, %(name)s!\n"
+#~ msgstr "欢迎回来， %(name)s!\n"
 
 #~ msgid "English"
 #~ msgstr "English"
@@ -204,28 +205,28 @@ msgstr ""
 #~ msgstr "日本語"
 
 #~ msgid "Switch"
-#~ msgstr "Alterar"
+#~ msgstr "切换语言"
 
 #~ msgid "Quantity:"
-#~ msgstr "Quantidade"
+#~ msgstr "数量："
 
 #~ msgid "Add to Cart"
-#~ msgstr "Adicionar ao Carrinho"
+#~ msgstr "加入购物车"
 
 #~ msgid "HOME"
-#~ msgstr "INÍCIO"
+#~ msgstr "主页"
 
 #~ msgid "ILLUSTRATIONS"
-#~ msgstr "ILUSTRAÇÕES"
+#~ msgstr "插图"
 
 #~ msgid "PHOTOGRAPHY"
-#~ msgstr "FOTOGRAFIA"
+#~ msgstr "摄影"
 
 #~ msgid "Cart"
-#~ msgstr "Carrinho"
+#~ msgstr "推车 "
 
 #~ msgid "Logout"
-#~ msgstr "Terminar sessão"
+#~ msgstr "登出"
 
 #~ msgid "THEME"
-#~ msgstr "TEMA"
+#~ msgstr "主题"

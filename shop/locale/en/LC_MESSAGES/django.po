@@ -31,17 +31,19 @@ msgstr "Message:"
 
 #: .\templates\contact.html:25
 msgid "Send Message"
-msgstr "Send Messag"
+msgstr "Send Message"
 
 #: .\templates\registration\login.html:5 .\templates\registration\login.html:9
 msgid "Login"
 msgstr "Login"
 
 #: .\templates\registration\password_reset.html:5
+#: .\templates\registration\password_reset_confirm.html:9
 msgid "Reset your password"
 msgstr "Reset your password"
 
 #: .\templates\registration\password_reset.html:6
+#: .\templates\registration\password_reset_done.html:6
 msgid ""
 "Enter your email address and we'll send you a link to reset your password."
 msgstr ""
@@ -52,6 +54,7 @@ msgid "Send reset link"
 msgstr "Send reset link"
 
 #: .\templates\registration\password_reset_complete.html:5
+#: .\templates\registration\password_reset_done.html:5
 msgid "Password reset complete"
 msgstr "Password reset complete"
 
@@ -64,21 +67,8 @@ msgid "Go to login page"
 msgstr "Go to login page"
 
 #: .\templates\registration\password_reset_confirm.html:5
-#| msgid "Enter a new password"
+msgid "Enter a new password"
 msgstr "Enter a new password"
-
-#: .\templates\registration\password_reset_confirm.html:9
-msgid "Reset your password"
-msgstr "Reset your password"
-
-#: .\templates\registration\password_reset_done.html:5
-msgid "Password reset complete"
-msgstr "Password reset complete"
-
-#: .\templates\registration\password_reset_done.html:6
-msgid "Enter your email address and we'll send you a link to reset your password."
-msgid "Check your inbox for a link to reset your password."
-msgstr "Enter your email address and we'll send you a link to reset your password."
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
@@ -89,9 +79,6 @@ msgid "Username:"
 msgstr "Username:"
 
 #: .\templates\registration\signup.html:20
-msgid "Password:"
-msgstr "Password:"
-
 #: .\templates\registration\signup.html:26
 msgid "Confirm Password:"
 msgstr "Confirm Password:"

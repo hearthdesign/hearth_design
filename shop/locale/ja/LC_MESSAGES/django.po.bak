@@ -7,156 +7,155 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-10 10:37+0200\n"
+"POT-Creation-Date: 2025-10-10 10:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: pt\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: .\templates\contact.html:7
 msgid "Name:"
-msgstr "Nome:"
+msgstr "名前:"
 
 #: .\templates\contact.html:13 .\templates\registration\signup.html:14
 msgid "Email:"
-msgstr "Email:"
+msgstr "メール:"
 
 #: .\templates\contact.html:19
 msgid "Message:"
-msgstr "Mensagem:"
+msgstr "メッセージ："
 
 #: .\templates\contact.html:25
 msgid "Send Message"
-msgstr "Enviar Mensagem"
+msgstr "メッセージを送る"
 
 #: .\templates\registration\login.html:5 .\templates\registration\login.html:9
 msgid "Login"
-msgstr "Iniciar sessão"
+msgstr "ログイン"
 
 #: .\templates\registration\password_reset.html:5
 #: .\templates\registration\password_reset_confirm.html:9
 msgid "Reset your password"
-msgstr "Redefina a sua palavra-passe"
+msgstr "パスワードをリセットしてください"
 
 #: .\templates\registration\password_reset.html:6
 #: .\templates\registration\password_reset_done.html:6
 msgid ""
 "Enter your email address and we'll send you a link to reset your password."
 msgstr ""
-"Insira o seu endereço de e-mail e enviaremos um link para redefinir a sua "
-"palavra-passe."
+"メールアドレスを入力してください。パスワードをリセットするためのリンクをお送"
+"りします。"
 
 #: .\templates\registration\password_reset.html:10
 msgid "Send reset link"
-msgstr "Enviar link de redefinição"
+msgstr "リセットリンクを送信"
 
 #: .\templates\registration\password_reset_complete.html:5
 #: .\templates\registration\password_reset_done.html:5
 msgid "Password reset complete"
-msgstr "Reinicialização da palavra-passe concluída"
+msgstr "パスワードリセット完了"
 
 #: .\templates\registration\password_reset_complete.html:6
 msgid "Your password has been successfully reset. You may now log in."
-msgstr ""
-"A sua palavra-passe foi redefinida com sucesso. Agora pode iniciar sessão."
+msgstr "パスワードは正常にリセットされました。ログインできます。"
 
 #: .\templates\registration\password_reset_complete.html:7
 msgid "Go to login page"
-msgstr "Vá para a página de login"
+msgstr "ログインページへ移動してください"
 
 #: .\templates\registration\password_reset_confirm.html:5
 msgid "Enter new password"
-msgstr "Digite uma nova palavra-passe"
+msgstr "新しいパスワードを入力してください"
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
-msgstr "Registar"
+msgstr "サインアップ"
 
 #: .\templates\registration\signup.html:8
 msgid "Username:"
-msgstr "Nome de utilizador:"
+msgstr "ユーザー名:"
 
 #: .\templates\registration\signup.html:20
 msgid "Password:"
-msgstr "Senha:"
+msgstr "パスワード："
 
 #: .\templates\registration\signup.html:26
 msgid "Confirm Password:"
-msgstr "Confirmar Senha:"
+msgstr "パスワードを確認:"
 
 #: .\templates\registration\signup.html:32
 msgid "Create Account"
-msgstr "Criar Conta"
+msgstr "アカウントを作成"
 
 #: .\templates\shop\cart.html:8
 msgid "Buy with Stripe"
-msgstr "Compra com Stripe"
+msgstr "Stripeで購入"
 
 #: .\templates\shop\homepage.html:8
 msgid "Discover Our Art"
-msgstr "Descubra a Nossa Arte"
+msgstr "私たちのアートを発見する"
 
 #: .\templates\shop\homepage.html:9
 msgid ""
 "Browse themed prints, illustrations, and photographs curated for every taste."
 msgstr ""
-"Navegue por estampas, ilustrações e fotografias temáticas selecionadas para "
-"todos os gostos."
+"あらゆる好みに合わせてキュレーションされたテーマ別のプリント、イラスト、写真"
+"を閲覧してください。"
 
 #: .\templates\shop\illustration_gallery.html:5
 #: .\templates\shop\photography_gallery.html:5
 msgid "Welcome to HEARTH Shop"
-msgstr "Bem-vindo à Loja HEARTH"
+msgstr "HEARTHショップへようこそ"
 
 #: .\templates\shop\illustration_gallery.html:9
 #: .\templates\shop\photography_gallery.html:9
 msgid "Gallery"
-msgstr "Galeria"
+msgstr "ギャラリー"
 
 #: .\templates\shop\illustration_gallery.html:22
 #: .\templates\shop\photography_gallery.html:22
 msgid "No prints found."
-msgstr "Nenhuma impressão encontrada."
+msgstr "プリントが見つかりません。"
 
 #: .\templates\shop\illustration_gallery.html:29
 #: .\templates\shop\photography_gallery.html:28
 msgid "Previous"
-msgstr "Anterior"
+msgstr "前"
 
 #: .\templates\shop\illustration_gallery.html:32
 #: .\templates\shop\photography_gallery.html:30
 msgid "Page"
-msgstr "Página"
+msgstr "ページ"
 
 #: .\templates\shop\illustration_gallery.html:35
 #: .\templates\shop\photography_gallery.html:32
 msgid "Next"
-msgstr "Seguinte"
+msgstr "次"
 
 #: .\templates\shop\upload.html:4 .\templates\shop\upload.html:7
 msgid "Upload a New Print"
-msgstr "Carregar uma Nova Impressão"
+msgstr "新しいプリントをアップロード"
 
 #: .\templates\shop\upload.html:11
 msgid "Upload"
-msgstr "Carregar"
+msgstr "アップロード"
 
 #: .\templates\thank_you.html:4
 msgid "Thank you for your message!"
-msgstr "Obrigado pela sua mensagem!"
+msgstr "メッセージをありがとうございます！"
 
 #: .\templates\thank_you.html:5
 msgid "We'll get back to you as soon as possible."
-msgstr "Responderemos assim que possível."
+msgstr "できるだけ早くご連絡いたします。"
 
 #: .\views.py:185 .\views.py:192
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
-msgstr "Nova Submissão de Formulário de Contacto de %(name)s"
+msgstr "%(name)s からの新しいお問い合わせフォームの送信"
 
 #: .\views.py:195
 msgid ""
@@ -166,18 +165,21 @@ msgid ""
 "Best regards,\n"
 "Hearth Design Team"
 msgstr ""
-"Obrigado por entrar em contacto connosco. Recebemos a sua mensagem e "
-"responderemos em breve.\n"
+"ご連絡いただきありがとうございます。メッセージを受け取りました。折り返しご連"
+"絡いたします。\n"
 "\n"
-"Com os melhores cumprimentos,\n"
-"Equipa de Design Hearth"
+"敬具,\n"
+"HEARTH デザインチーム"
+
+#~ msgid "Hearth Shop"
+#~ msgstr "HEARTH ウェブショップ"
 
 #~ msgid "HEARTH SHOP"
-#~ msgstr "HEARTH SHOP"
+#~ msgstr "HEARTH ウェブショップ"
 
 #, python-format
 #~ msgid "Welcome back, %(name)s!\n"
-#~ msgstr "Bem-vindo de volta, %(name)s!\n"
+#~ msgstr "お帰りなさい、 %(name)s!\n"
 
 #~ msgid "English"
 #~ msgstr "English"
@@ -204,28 +206,28 @@ msgstr ""
 #~ msgstr "日本語"
 
 #~ msgid "Switch"
-#~ msgstr "Alterar"
+#~ msgstr "言語を変更"
 
 #~ msgid "Quantity:"
-#~ msgstr "Quantidade"
+#~ msgstr "数量"
 
 #~ msgid "Add to Cart"
-#~ msgstr "Adicionar ao Carrinho"
+#~ msgstr "カートに追加"
 
 #~ msgid "HOME"
-#~ msgstr "INÍCIO"
+#~ msgstr "ホーム"
 
 #~ msgid "ILLUSTRATIONS"
-#~ msgstr "ILUSTRAÇÕES"
+#~ msgstr "実例"
 
 #~ msgid "PHOTOGRAPHY"
-#~ msgstr "FOTOGRAFIA"
+#~ msgstr "写真"
 
 #~ msgid "Cart"
-#~ msgstr "Carrinho"
+#~ msgstr "カート"
 
 #~ msgid "Logout"
-#~ msgstr "Terminar sessão"
+#~ msgstr "ログアウト"
 
 #~ msgid "THEME"
-#~ msgstr "TEMA"
+#~ msgstr "テーマ"

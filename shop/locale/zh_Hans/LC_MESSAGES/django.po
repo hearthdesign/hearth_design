@@ -38,11 +38,14 @@ msgid "Login"
 msgstr "登录"
 
 #: .\templates\registration\password_reset.html:5
+#: .\templates\registration\password_reset_confirm.html:9
 msgid "Reset your password"
 msgstr "请重置您的密码"
 
 #: .\templates\registration\password_reset.html:6
-msgid "Enter your email address and we'll send you a link to reset your password."
+#: .\templates\registration\password_reset_done.html:6
+msgid ""
+"Enter your email address and we'll send you a link to reset your password."
 msgstr "请输入您的电子邮箱地址，我们将向您发送重置密码的链接。"
 
 #: .\templates\registration\password_reset.html:10
@@ -65,17 +68,9 @@ msgstr "请前往登录页面"
 msgid "Enter new password"
 msgstr "请输入新密码"
 
-#: .\templates\registration\password_reset_confirm.html:9
-msgid "Reset your password"
-msgstr "请重置您的密码"
-
 #: .\templates\registration\password_reset_done.html:5
 msgid "Password reset email sent"
 msgstr "重置密码的邮件已发送"
-
-#: .\templates\registration\password_reset_done.html:6
-msgid "Enter your email address and we'll send you a link to reset your password."
-msgstr "请输入您的电子邮箱地址，我们将向您发送重置密码的链接。"
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
@@ -106,7 +101,8 @@ msgid "Discover Our Art"
 msgstr "探索我们的艺术"
 
 #: .\templates\shop\homepage.html:9
-msgid "Browse themed prints, illustrations, and photographs curated for every taste."
+msgid ""
+"Browse themed prints, illustrations, and photographs curated for every taste."
 msgstr "浏览为各种品味精心挑选的主题印刷品、插图和照片。"
 
 #: .\templates\shop\illustration_gallery.html:5
@@ -161,12 +157,14 @@ msgid "New Contact Form Submission from %(name)s"
 msgstr "来自 %(name)s 的新联系人表单提交"
 
 #: .\views.py:195
-msgid "Thank you for reaching out to us. We've received your message and will get "
+msgid ""
+"Thank you for reaching out to us. We've received your message and will get "
 "back to you shortly.\n"
 "\n"
 "Best regards,\n"
 "Hearth Design Team"
-msgstr "感谢您联系我们。我们已收到您的消息，将尽快回复您。\n"
+msgstr ""
+"感谢您联系我们。我们已收到您的消息，将尽快回复您。\n"
 "此致敬礼，\n"
 "Hearth Design 团队"
 

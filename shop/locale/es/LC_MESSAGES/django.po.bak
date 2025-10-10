@@ -11,116 +11,117 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: pt\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
 
 #: .\templates\contact.html:7
 msgid "Name:"
-msgstr "Nome:"
+msgstr "Nombre"
 
 #: .\templates\contact.html:13 .\templates\registration\signup.html:14
 msgid "Email:"
-msgstr "Email:"
+msgstr "Correo"
 
 #: .\templates\contact.html:19
 msgid "Message:"
-msgstr "Mensagem:"
+msgstr "Mensaje"
 
 #: .\templates\contact.html:25
 msgid "Send Message"
-msgstr "Enviar Mensagem"
+msgstr "Envía un mensaje"
 
 #: .\templates\registration\login.html:5 .\templates\registration\login.html:9
 msgid "Login"
-msgstr "Iniciar sessão"
+msgstr "Inicia sesión"
 
 #: .\templates\registration\password_reset.html:5
 #: .\templates\registration\password_reset_confirm.html:9
 msgid "Reset your password"
-msgstr "Redefina a sua palavra-passe"
+msgstr "Restablezca su contraseña"
 
 #: .\templates\registration\password_reset.html:6
 #: .\templates\registration\password_reset_done.html:6
 msgid ""
 "Enter your email address and we'll send you a link to reset your password."
 msgstr ""
-"Insira o seu endereço de e-mail e enviaremos um link para redefinir a sua "
-"palavra-passe."
+"Introduce tu dirección de correo electrónico y te enviaremos un enlace para "
+"restablecer tu contraseña."
 
 #: .\templates\registration\password_reset.html:10
 msgid "Send reset link"
-msgstr "Enviar link de redefinição"
+msgstr "Enviar enlace de restablecimiento"
 
 #: .\templates\registration\password_reset_complete.html:5
 #: .\templates\registration\password_reset_done.html:5
 msgid "Password reset complete"
-msgstr "Reinicialização da palavra-passe concluída"
+msgstr "La contraseña ha sido cambiada"
 
 #: .\templates\registration\password_reset_complete.html:6
 msgid "Your password has been successfully reset. You may now log in."
 msgstr ""
-"A sua palavra-passe foi redefinida com sucesso. Agora pode iniciar sessão."
+"Tu contraseña ha sido restablecida con éxito. Ahora puedes iniciar sesión."
 
 #: .\templates\registration\password_reset_complete.html:7
 msgid "Go to login page"
-msgstr "Vá para a página de login"
+msgstr "Ve a la página de inicio"
 
 #: .\templates\registration\password_reset_confirm.html:5
 msgid "Enter new password"
-msgstr "Digite uma nova palavra-passe"
+msgstr "Introducir nueva contraseña"
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
-msgstr "Registar"
+msgstr "Registrate"
 
 #: .\templates\registration\signup.html:8
 msgid "Username:"
-msgstr "Nome de utilizador:"
+msgstr "Nombre:"
 
 #: .\templates\registration\signup.html:20
 msgid "Password:"
-msgstr "Senha:"
+msgstr "Contraseña:"
 
 #: .\templates\registration\signup.html:26
 msgid "Confirm Password:"
-msgstr "Confirmar Senha:"
+msgstr "Confirma la contraseña:"
 
 #: .\templates\registration\signup.html:32
 msgid "Create Account"
-msgstr "Criar Conta"
+msgstr "Crea una cuenta"
 
 #: .\templates\shop\cart.html:8
 msgid "Buy with Stripe"
-msgstr "Compra com Stripe"
+msgstr "Compra con Stripe"
 
 #: .\templates\shop\homepage.html:8
 msgid "Discover Our Art"
-msgstr "Descubra a Nossa Arte"
+msgstr "Descubre nuestro Arte"
 
 #: .\templates\shop\homepage.html:9
 msgid ""
 "Browse themed prints, illustrations, and photographs curated for every taste."
 msgstr ""
-"Navegue por estampas, ilustrações e fotografias temáticas selecionadas para "
-"todos os gostos."
+"Explora impresiones, ilustraciones y fotografías temáticas seleccionadas "
+"para todos los gustos."
 
 #: .\templates\shop\illustration_gallery.html:5
 #: .\templates\shop\photography_gallery.html:5
 msgid "Welcome to HEARTH Shop"
-msgstr "Bem-vindo à Loja HEARTH"
+msgstr "Bienvenido a la tienda HEARTH"
 
 #: .\templates\shop\illustration_gallery.html:9
 #: .\templates\shop\photography_gallery.html:9
 msgid "Gallery"
-msgstr "Galeria"
+msgstr "Galería"
 
 #: .\templates\shop\illustration_gallery.html:22
 #: .\templates\shop\photography_gallery.html:22
 msgid "No prints found."
-msgstr "Nenhuma impressão encontrada."
+msgstr "No se han encontrado impresiones."
 
 #: .\templates\shop\illustration_gallery.html:29
 #: .\templates\shop\photography_gallery.html:28
@@ -135,28 +136,28 @@ msgstr "Página"
 #: .\templates\shop\illustration_gallery.html:35
 #: .\templates\shop\photography_gallery.html:32
 msgid "Next"
-msgstr "Seguinte"
+msgstr "Siguiente"
 
 #: .\templates\shop\upload.html:4 .\templates\shop\upload.html:7
 msgid "Upload a New Print"
-msgstr "Carregar uma Nova Impressão"
+msgstr "Subir una nueva Impresión"
 
 #: .\templates\shop\upload.html:11
 msgid "Upload"
-msgstr "Carregar"
+msgstr "Subir"
 
 #: .\templates\thank_you.html:4
 msgid "Thank you for your message!"
-msgstr "Obrigado pela sua mensagem!"
+msgstr "¡Gracias por tu mensaje!"
 
 #: .\templates\thank_you.html:5
 msgid "We'll get back to you as soon as possible."
-msgstr "Responderemos assim que possível."
+msgstr "Nos pondremos en contacto con usted lo antes posible."
 
 #: .\views.py:185 .\views.py:192
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
-msgstr "Nova Submissão de Formulário de Contacto de %(name)s"
+msgstr "Nuevo formulario de contacto enviado por %(name)s"
 
 #: .\views.py:195
 msgid ""
@@ -166,18 +167,21 @@ msgid ""
 "Best regards,\n"
 "Hearth Design Team"
 msgstr ""
-"Obrigado por entrar em contacto connosco. Recebemos a sua mensagem e "
-"responderemos em breve.\n"
+"Gracias por ponerse en contacto con nosotros.Hemos recibido su mensaje y le "
+"responderemos en breve.\n"
 "\n"
-"Com os melhores cumprimentos,\n"
-"Equipa de Design Hearth"
+"Atentamente,\n"
+"Equipo de diseño de Hearth"
+
+#~ msgid "Hearth Shop"
+#~ msgstr "Hearth Shop"
 
 #~ msgid "HEARTH SHOP"
 #~ msgstr "HEARTH SHOP"
 
 #, python-format
 #~ msgid "Welcome back, %(name)s!\n"
-#~ msgstr "Bem-vindo de volta, %(name)s!\n"
+#~ msgstr "Bienvenido de nuevo, %(name)s!\n"
 
 #~ msgid "English"
 #~ msgstr "English"
@@ -204,28 +208,28 @@ msgstr ""
 #~ msgstr "日本語"
 
 #~ msgid "Switch"
-#~ msgstr "Alterar"
+#~ msgstr "Cambiar idioma"
 
 #~ msgid "Quantity:"
-#~ msgstr "Quantidade"
+#~ msgstr "Cantidad"
 
 #~ msgid "Add to Cart"
-#~ msgstr "Adicionar ao Carrinho"
+#~ msgstr "Añadir al carrito"
 
 #~ msgid "HOME"
-#~ msgstr "INÍCIO"
+#~ msgstr "INICIO"
 
 #~ msgid "ILLUSTRATIONS"
-#~ msgstr "ILUSTRAÇÕES"
+#~ msgstr "ILUSTRACIONES"
 
 #~ msgid "PHOTOGRAPHY"
-#~ msgstr "FOTOGRAFIA"
+#~ msgstr "FOTOGRAFÍA"
 
 #~ msgid "Cart"
-#~ msgstr "Carrinho"
+#~ msgstr "Carrito"
 
 #~ msgid "Logout"
-#~ msgstr "Terminar sessão"
+#~ msgstr "Cerrar sesión"
 
 #~ msgid "THEME"
 #~ msgstr "TEMA"

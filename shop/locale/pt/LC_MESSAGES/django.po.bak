@@ -38,7 +38,6 @@ msgid "Login"
 msgstr "Iniciar sessão"
 
 #: .\templates\registration\password_reset.html:5
-#: .\templates\registration\password_reset_confirm.html:9
 msgid "Reset your password"
 msgstr "Redefina a sua palavra-passe"
 
@@ -71,6 +70,10 @@ msgstr "Vá para a página de login"
 #: .\templates\registration\password_reset_confirm.html:5
 msgid "Enter new password"
 msgstr "Digite uma nova palavra-passe"
+
+#: .\templates\registration\password_reset_confirm.html:9
+msgid "Reset your password"
+msgstr "Redefina a sua palavra-passe"
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"

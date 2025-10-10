@@ -11,152 +11,153 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: pt\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: .\templates\contact.html:7
 msgid "Name:"
-msgstr "Nome:"
+msgstr "Nom:"
 
 #: .\templates\contact.html:13 .\templates\registration\signup.html:14
 msgid "Email:"
-msgstr "Email:"
+msgstr "Courriel:"
 
 #: .\templates\contact.html:19
 msgid "Message:"
-msgstr "Mensagem:"
+msgstr "Message:"
 
 #: .\templates\contact.html:25
 msgid "Send Message"
-msgstr "Enviar Mensagem"
+msgstr "Envoyer un message"
 
 #: .\templates\registration\login.html:5 .\templates\registration\login.html:9
 msgid "Login"
-msgstr "Iniciar sessão"
+msgstr "Connexion"
 
 #: .\templates\registration\password_reset.html:5
 #: .\templates\registration\password_reset_confirm.html:9
 msgid "Reset your password"
-msgstr "Redefina a sua palavra-passe"
+msgstr "Réinitialisez votre mot de passe"
 
 #: .\templates\registration\password_reset.html:6
 #: .\templates\registration\password_reset_done.html:6
 msgid ""
 "Enter your email address and we'll send you a link to reset your password."
 msgstr ""
-"Insira o seu endereço de e-mail e enviaremos um link para redefinir a sua "
-"palavra-passe."
+"Entrez votre adresse e-mail et nous vous enverrons un lien pour "
+"réinitialiser votre mot de passe."
 
 #: .\templates\registration\password_reset.html:10
 msgid "Send reset link"
-msgstr "Enviar link de redefinição"
+msgstr "Envoyer le lien de réinitialisation"
 
 #: .\templates\registration\password_reset_complete.html:5
 #: .\templates\registration\password_reset_done.html:5
 msgid "Password reset complete"
-msgstr "Reinicialização da palavra-passe concluída"
+msgstr "Réinitialisation du mot de passe terminée"
 
 #: .\templates\registration\password_reset_complete.html:6
 msgid "Your password has been successfully reset. You may now log in."
 msgstr ""
-"A sua palavra-passe foi redefinida com sucesso. Agora pode iniciar sessão."
+"Votre mot de passe a été réinitialisé avec succès. Vous pouvez maintenant "
+"vous connecter."
 
 #: .\templates\registration\password_reset_complete.html:7
 msgid "Go to login page"
-msgstr "Vá para a página de login"
+msgstr "Aller à la page de connexion"
 
 #: .\templates\registration\password_reset_confirm.html:5
 msgid "Enter new password"
-msgstr "Digite uma nova palavra-passe"
+msgstr "Entrez un nouveau mot de passe"
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
-msgstr "Registar"
+msgstr "Inscrivez-vous"
 
 #: .\templates\registration\signup.html:8
 msgid "Username:"
-msgstr "Nome de utilizador:"
+msgstr "Nom:"
 
 #: .\templates\registration\signup.html:20
 msgid "Password:"
-msgstr "Senha:"
+msgstr "Mot de passe:"
 
 #: .\templates\registration\signup.html:26
 msgid "Confirm Password:"
-msgstr "Confirmar Senha:"
+msgstr "Confirmer le mot de passe:"
 
 #: .\templates\registration\signup.html:32
 msgid "Create Account"
-msgstr "Criar Conta"
+msgstr "Créer un compte"
 
 #: .\templates\shop\cart.html:8
 msgid "Buy with Stripe"
-msgstr "Compra com Stripe"
+msgstr "Acheter avec Stripe"
 
 #: .\templates\shop\homepage.html:8
 msgid "Discover Our Art"
-msgstr "Descubra a Nossa Arte"
+msgstr "Découvrez notre art"
 
 #: .\templates\shop\homepage.html:9
 msgid ""
 "Browse themed prints, illustrations, and photographs curated for every taste."
 msgstr ""
-"Navegue por estampas, ilustrações e fotografias temáticas selecionadas para "
-"todos os gostos."
+"Parcourez des gravures, illustrations et photographies thématiques "
+"sélectionnées pour tous les goûts."
 
 #: .\templates\shop\illustration_gallery.html:5
 #: .\templates\shop\photography_gallery.html:5
 msgid "Welcome to HEARTH Shop"
-msgstr "Bem-vindo à Loja HEARTH"
+msgstr "Bienvenue dans la boutique HEARTH"
 
 #: .\templates\shop\illustration_gallery.html:9
 #: .\templates\shop\photography_gallery.html:9
 msgid "Gallery"
-msgstr "Galeria"
+msgstr "Galerie"
 
 #: .\templates\shop\illustration_gallery.html:22
 #: .\templates\shop\photography_gallery.html:22
 msgid "No prints found."
-msgstr "Nenhuma impressão encontrada."
+msgstr "Aucune empreinte trouvée."
 
 #: .\templates\shop\illustration_gallery.html:29
 #: .\templates\shop\photography_gallery.html:28
 msgid "Previous"
-msgstr "Anterior"
+msgstr "Précédent"
 
 #: .\templates\shop\illustration_gallery.html:32
 #: .\templates\shop\photography_gallery.html:30
 msgid "Page"
-msgstr "Página"
+msgstr "Page"
 
 #: .\templates\shop\illustration_gallery.html:35
 #: .\templates\shop\photography_gallery.html:32
 msgid "Next"
-msgstr "Seguinte"
+msgstr "Suivant"
 
 #: .\templates\shop\upload.html:4 .\templates\shop\upload.html:7
 msgid "Upload a New Print"
-msgstr "Carregar uma Nova Impressão"
+msgstr "Télécharger une nouvelle impression"
 
 #: .\templates\shop\upload.html:11
 msgid "Upload"
-msgstr "Carregar"
+msgstr "Télécharger"
 
 #: .\templates\thank_you.html:4
 msgid "Thank you for your message!"
-msgstr "Obrigado pela sua mensagem!"
+msgstr "Merci pour votre message!"
 
 #: .\templates\thank_you.html:5
 msgid "We'll get back to you as soon as possible."
-msgstr "Responderemos assim que possível."
+msgstr "Nous vous répondrons dans les plus brefs délais."
 
 #: .\views.py:185 .\views.py:192
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
-msgstr "Nova Submissão de Formulário de Contacto de %(name)s"
+msgstr "Nouveau formulaire de contact envoyé par %(name)s"
 
 #: .\views.py:195
 msgid ""
@@ -166,18 +167,20 @@ msgid ""
 "Best regards,\n"
 "Hearth Design Team"
 msgstr ""
-"Obrigado por entrar em contacto connosco. Recebemos a sua mensagem e "
-"responderemos em breve.\n"
-"\n"
-"Com os melhores cumprimentos,\n"
-"Equipa de Design Hearth"
+"Merci de nous avoir contactés.Nous avons bien reçu votre message et vous "
+"répondrons dans les plus brefs délais.\n"
+"Cordialement,\n"
+"Équipe de conception Hearth"
+
+#~ msgid "Hearth Shop"
+#~ msgstr "Hearth Shop"
 
 #~ msgid "HEARTH SHOP"
 #~ msgstr "HEARTH SHOP"
 
 #, python-format
 #~ msgid "Welcome back, %(name)s!\n"
-#~ msgstr "Bem-vindo de volta, %(name)s!\n"
+#~ msgstr "Bon retour,%(name)s!\n"
 
 #~ msgid "English"
 #~ msgstr "English"
@@ -204,28 +207,25 @@ msgstr ""
 #~ msgstr "日本語"
 
 #~ msgid "Switch"
-#~ msgstr "Alterar"
+#~ msgstr "Changer"
 
 #~ msgid "Quantity:"
-#~ msgstr "Quantidade"
+#~ msgstr "Quantité"
 
 #~ msgid "Add to Cart"
-#~ msgstr "Adicionar ao Carrinho"
+#~ msgstr "Ajouter au panier"
 
 #~ msgid "HOME"
-#~ msgstr "INÍCIO"
-
-#~ msgid "ILLUSTRATIONS"
-#~ msgstr "ILUSTRAÇÕES"
+#~ msgstr "ACCUEIL"
 
 #~ msgid "PHOTOGRAPHY"
-#~ msgstr "FOTOGRAFIA"
+#~ msgstr "PHOTOGRAPHIE"
 
 #~ msgid "Cart"
-#~ msgstr "Carrinho"
+#~ msgstr "Panier"
 
 #~ msgid "Logout"
-#~ msgstr "Terminar sessão"
+#~ msgstr "Se déconnecter"
 
 #~ msgid "THEME"
-#~ msgstr "TEMA"
+#~ msgstr "THEME"
