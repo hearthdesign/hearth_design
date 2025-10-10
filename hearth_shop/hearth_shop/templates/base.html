@@ -32,42 +32,50 @@
         {% endif %}
 
     </header>
+<main>
+  {% block content %}{% endblock %}
+</main>
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-    <div id="image-modal" style="display:none;" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <img src="" alt="" id="modal-image">
-        <h3 id="modal-title"></h3>
+<!--  MODAL OVERLAY -->
+<div id="image-modal" class="modal" style="display: none;">
+  
+  <!-- MODAL CONTENT BOX -->
+  <div class="modal-content">
+    
+    <!-- CLOSE BUTTON (top-right corner) -->
+    <span class="close">&times;</span>
 
-<!-- Modal form for adding product to cart -->
-{% if not user.is_staff %}
-  <form method="post" action="{% url 'add_to_cart' %}">
-    {% csrf_token %}
-    <!-- Hidden input for product ID -->
-    <input type="hidden" name="product_id" id="modal-product-id">
-    <!-- Quantity selector -->
-    <label for="quantity">{% trans "Quantity:" %}</label>
-    <input type="number" name="quantity" id="modal-quantity" value="1" min="1">
-    <!-- Submit button -->
-    <button type="submit">{% trans "Add to Cart" %}</button>
-  </form>
-{% endif %}
-<!-- Modal navigation and close controls -->
-<div class="modal-controls">
-  <button id="prev-btn" class="nav_btn">←</button>
-  <button id="next-btn" class="nav_btn">→</button>
-  <button id="close-btn" class="nav_btn">x</button>
-</div>
+    <!--  IMAGE PREVIEW -->
+    <img src="" alt="" id="modal-image">
 
+    <!-- TITLE -->
+    <h3 id="modal-title"></h3>
 
-      </div>
+    <!-- ADD TO CART FORM (only for non-staff users) -->
+    {% if not user.is_staff %}
+      <form method="post" action="{% url 'add_to_cart' %}">
+        {% csrf_token %}
+        <input type="hidden" name="product_id" id="modal-product-id">
+        <label for="quantity">{% trans "Quantity:" %}</label>
+        <input type="number" name="quantity" id="modal-quantity" value="1" min="1">
+        <button type="submit">{% trans "Add to Cart" %}</button>
+      </form>
+    {% endif %}
+
+    <!-- NAVIGATION AND CLOSE CONTROLS (must be inside .modal-content) -->
+    <div class="modal-controls">
+      <button id="prev-btn" class="nav_btn">←</button>
+      <button id="next-btn" class="nav_btn">→</button>
+      <button id="close-btn" class="nav_btn">x</button>
     </div>
-    <footer>
-        <p>&copy; 2025 HEARTH SHOP</p>
-    </footer>
+
+  </div> <!-- END OF .modal-content -->
+
+</div> <!--  END OF #image-modal -->
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 HEARTH SHOP</p>
+</footer>
 </body>
 </html>
-                                        

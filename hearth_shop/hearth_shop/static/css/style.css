@@ -49,17 +49,16 @@ header {
 }
 
 .Hearth_title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: white;
+  color: rgb(20, 90, 120);
   margin: 0;
   flex: 1 1 auto;
 }
 
 /* Logo styling */
 .logo {
-  width: 15%;
-  max-width: 6rem;
+  max-width: 14rem;
   height: auto;
   margin-right: 1rem;
 }
@@ -68,9 +67,10 @@ nav {
   display:flex;
   flex-wrap: wrap;
   height: auto;
+  flex-direction: row;
 }
 
-/* .nav_links {
+.nav_links {
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -78,18 +78,18 @@ nav {
   margin-left: 0;
   align-items: center;
   gap: 1rem;
-} */
- .nav_links {
+}
+ /* .nav_links {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
   padding: 1rem 0;
- }
+ } */
 .nav_btn {
   background-color: rgb(255, 255, 255);
-  border: 2px solid cadetblue;
+  border: 2px solid rgb(20, 90, 120);
   color:rgb(74, 156, 177);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.7rem;
   border-radius: 0.5rem;
   font-weight: bold;
   text-decoration: none;
@@ -100,6 +100,13 @@ nav {
     text-decoration: underline;
   }
 
+  #theme-btn {
+    padding: 0.15rem 0.5rem;
+  }
+
+  #switch-btn {
+    padding: 0.15rem 0.5rem;
+  }
 /* ===========================
    DROPDOWN MENU
    =========================== */
@@ -119,24 +126,39 @@ dropdown-menu {
 }
 
 .thumbnail {
-  width: 100%;
-  max-width: 16rem;
+  width: 16rem;
+  height: 16rem;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 0.25rem;
+  background-color: black;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
 }
 
-.thumbnail img {
+/* .thumbnail img {
   width: 100%;
   max-width: 16rem;
   object-fit: cover;
   border-radius: 0.25rem;
   box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  /* helps prevent right-click 
+} */
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
   pointer-events: none; /* helps prevent right-click */
+  user-select: none;
 }
 
 img {
-  pointer-events: none;
+  pointer-events: auto;
   user-select: none;
 }
 /* ===========================
@@ -153,6 +175,7 @@ img {
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.6);
+  pointer-events: all;
 }
 
 .modal-content {
@@ -167,6 +190,7 @@ img {
   position: relative;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  pointer-events: auto;
 }
 
 .modal.show .modal-content {
@@ -174,10 +198,11 @@ img {
 }
 
 .modal-content img {
-  width: 150%;
-  max-width: none;
+  width: 100%;
+  max-width: 100%;;
   height: auto;
   margin-bottom: 1rem;
+  pointer-events: auto;
 }
 
 .modal-content h3 {
@@ -287,7 +312,11 @@ img {
 @media (max-width: 600px) {
   .gallery-grid {
     grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+
   }
+
+    .logo {
+    max-width: 4rem;}
 
   .modal-content {
     margin: 20% auto;

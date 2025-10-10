@@ -58,6 +58,16 @@ function closeModal() {
   }, 300); // match transition duration
 }
 
+// Close modal when clicking outside the modal content
+const modal = document.getElementById('image-modal');
+modal.addEventListener('click', function(e) {
+  // Only close if the click is directly on the modal background
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+
+
 // Close modal when the close button is clicked
 document.querySelector('.close').addEventListener('click', closeModal); 
 document.getElementById('close-btn').addEventListener('click', closeModal);

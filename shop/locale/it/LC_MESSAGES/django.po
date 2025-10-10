@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-10 00:39+0200\n"
+"POT-Creation-Date: 2025-10-10 04:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,24 +38,32 @@ msgid "Login"
 msgstr "LOGIN"
 
 #: .\templates\registration\password_reset.html:5
+#: .\templates\registration\password_reset_confirm.html:9
 msgid "Reset your password"
 msgstr "Reimposta la tua password"
 
 #: .\templates\registration\password_reset.html:6
-msgid "Enter your email address and we'll send you a link to reset your password."
-msgstr "Inserisci il tuo indirizzo e-mail e ti invieremo un link per reimpostare la password."
+#: .\templates\registration\password_reset_done.html:6
+msgid ""
+"Enter your email address and we'll send you a link to reset your password."
+msgstr ""
+"Inserisci il tuo indirizzo e-mail e ti invieremo un link per reimpostare la "
+"password."
 
 #: .\templates\registration\password_reset.html:10
 msgid "Send reset link"
 msgstr "Invia link di ripristino"
 
 #: .\templates\registration\password_reset_complete.html:5
+#: .\templates\registration\password_reset_done.html:5
 msgid "Password reset complete"
 msgstr "Password reimpostata"
 
 #: .\templates\registration\password_reset_complete.html:6
 msgid "Your password has been successfully reset. You may now log in."
-msgstr "La tua password è stata reimpostata con successo. Ora puoi effettuare l'accesso."
+msgstr ""
+"La tua password è stata reimpostata con successo. Ora puoi effettuare "
+"l'accesso."
 
 #: .\templates\registration\password_reset_complete.html:7
 msgid "Go to login page"
@@ -64,10 +72,6 @@ msgstr "Vai alla pagina di accesso"
 #: .\templates\registration\password_reset_confirm.html:5
 msgid "Enter new password"
 msgstr "Inserisci una nuova password"
-
-#: .\templates\registration\password_reset_confirm.html:9
-msgid "Password:"
-msgstr "Password:"
 
 #: .\templates\registration\signup.html:4
 msgid "Sign Up"
@@ -98,8 +102,10 @@ msgid "Discover Our Art"
 msgstr "Scopri la nostra Arte"
 
 #: .\templates\shop\homepage.html:9
-msgid "Browse themed prints, illustrations, and photographs curated for every taste."
-msgstr "Sfoglia stampe, illustrazioni e fotografie a tema selezionate per tutti i "
+msgid ""
+"Browse themed prints, illustrations, and photographs curated for every taste."
+msgstr ""
+"Sfoglia stampe, illustrazioni e fotografie a tema selezionate per tutti i "
 "gusti."
 
 #: .\templates\shop\illustration_gallery.html:5
@@ -154,12 +160,14 @@ msgid "New Contact Form Submission from %(name)s"
 msgstr "Nuovo modulo di contatto inviato da %(name)s"
 
 #: .\views.py:195
-msgid "Thank you for reaching out to us. We've received your message and will get "
+msgid ""
+"Thank you for reaching out to us. We've received your message and will get "
 "back to you shortly.\n"
 "\n"
 "Best regards,\n"
 "Hearth Design Team"
-msgstr "Grazie per averci contattato.Abbiamo ricevuto il tuo messaggio e ti "
+msgstr ""
+"Grazie per averci contattato.Abbiamo ricevuto il tuo messaggio e ti "
 "risponderemo al più presto.\n"
 "\n"
 "Felici saluti!Il Team HEARTH Design"
