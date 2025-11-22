@@ -15,7 +15,7 @@ from pathlib import Path
 from decouple import config
 from dotenv import load_dotenv
 load_dotenv()
-import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,13 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+SECRET_KEY = config('SECRET_KEY')
+# DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG=True
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'hearth-design.herokuapp.com',]
 
 
 # Application definition
@@ -92,7 +93,6 @@ WSGI_APPLICATION = 'hearth_shop.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -100,8 +100,7 @@ DATABASES = {
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+        'PORT': config('DB_PORT', default='5432'),
     }
 }
 
@@ -128,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -169,7 +168,8 @@ LANGUAGES = [
     ('zh-hans', '简体中文'),
     ('ja', '日本語'),
 ]
-# LOCALE_PATHS = [BASE_DIR / 'locale',]
+LOCALE_PATHS = [BASE_DIR , 'shop.locale']
+# LOCALE_PATHS = [os.path.join(BASE_DIR, 'shop.locale')]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.environ.get('EMAIL_HOST')

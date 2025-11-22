@@ -28,15 +28,15 @@ from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('theme-filter/', views.theme_filter, name='theme_filter'), # Theme filter view
-    path('gallery/filter/', views.theme_filter, name='theme_filter'),
-    path('cart/add/', views.add_to_cart, name='add_to_cart'),
-    path('checkout/<int:product_id>/', views.create_checkout_session, name='checkout'),
     path('i18n/', include('django.conf.urls.i18n')), # enables set_language
 ]
 
 urlpatterns += i18n_patterns(
     path('', views.homepage, name='homepage'),  # homepage view
+    path('theme-filter/', views.theme_filter, name='theme_filter'), # Theme filter view
+    path('gallery/filter/', views.theme_filter, name='theme_filter'),
+    path('cart/add/', views.add_to_cart, name='add_to_cart'),
+    path('checkout/<int:product_id>/', views.create_checkout_session, name='checkout'),
     path('gallery/illustrations/', views.illustration_gallery, name='illustration_gallery'),
     path('gallery/photographies/', views.photography_gallery, name='photography_gallery'),
     path('upload/', views.upload_print, name='upload_print'),
@@ -50,7 +50,7 @@ urlpatterns += i18n_patterns(
     path('accounts/password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
     path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
-    path('contact/', views.contact_view, name='contact_view'),
+    path('contact/', views.contact_view, name='contact'),
 )
 
 if settings.DEBUG:
