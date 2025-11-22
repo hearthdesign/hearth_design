@@ -3,7 +3,9 @@ certifi==2025.8.3
 charset-normalizer==3.4.3
 dj-database-url==3.0.1
 Django==5.2.6
+gunicorn==23.0.0
 idna==3.10
+packaging==25.0
 pillow==11.3.0
 psycopg==3.2.10
 python-decouple==3.8
@@ -14,3 +16,4 @@ stripe==12.5.1
 typing_extensions==4.15.0
 tzdata==2025.2
 urllib3==2.5.0
+whitenoise==6.11.0
