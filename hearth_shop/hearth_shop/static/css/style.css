@@ -22,7 +22,7 @@ button {
 =========================== */
 
 header {
-  background-image: url('../images/header-bg.jpg'); /* Replace with your actual image path */
+  background-image: url('hearth_shop\media\prints\1003\the_world.png');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -163,7 +163,7 @@ dropdown-menu {
   justify-content: center;
   align-items: center;
   border-radius: 0.25rem;
-  background-color: black;
+  background-color: rgb(199, 178, 178);
   border-radius: 0.5rem;
   box-shadow: 0 0 4px rgba(0,0,0,0.2);
 }
