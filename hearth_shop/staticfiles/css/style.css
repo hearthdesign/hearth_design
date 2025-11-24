@@ -35,20 +35,6 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-header::before {
-  content: "";
-  position: absolute;
-  inset: 0; /* shorthand for top/right/bottom/left:0 */
-  background-color: rgba(255, 255, 255, 0.8); /* white overlay at 50% transparency */
-  z-index: 0;
-  margin-top: 0; 
-}
-
-header > * {
-  position: relative;
-  z-index: 1; /* keep text above overlay */
-}
-
 h1 {
   margin-left: 2%;
   color: rgb(20, 90, 120);
@@ -66,7 +52,7 @@ h1 {
 .logo {
   min-width: 14rem;
   height: auto;
-  margin: 5%;
+  margin: 1rem;
 }
 
 nav {
@@ -106,7 +92,7 @@ nav {
   background-color: white;
   border: 2px solid rgb(20, 90, 120);
   color:rgb(74, 156, 177);
-  padding: 0.15rem 0.5rem; 
+  padding: 0.5rem 0.7rem;
   border-radius: 0.5rem;
   font-weight: bold;
   text-decoration: none;
@@ -129,15 +115,15 @@ nav {
   color: rgb(20, 90, 120);
   border: 2px solid rgb(74, 156, 177);
   font-weight: bold;
-  padding: 0.15rem 0.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
   font-size: large;
 }
 
-  /* #theme-btn {
+  #theme-btn {
     padding: 0.15rem 0.5rem;
-  } */
+  }
 
   #switch-btn {
     padding: 0.15rem 0.5rem;
@@ -145,7 +131,7 @@ nav {
   }
 
   #language-select {
-    margin-right: 5.5rem;
+    margin-right: 4rem;
   }
     
   
@@ -403,20 +389,6 @@ img {
 main {
   min-height: 70vh;
 }
-
-/* ======================
-      LOGIN STYLING
-  ====================== */
-.Login-container {
-  display: block;
-  position: relative;
-  margin: 6rem 2rem;
-  padding: 2rem;
-  justify-items: center;
-  align-items: center;
-  text-align: end;
-}
-
 
 /* ======================
       FOOTER STYLING
