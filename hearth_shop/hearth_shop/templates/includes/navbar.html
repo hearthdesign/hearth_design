@@ -1,75 +1,88 @@
 <head>
-    {% load static %}
-    {% load i18n %}
-    <meta charset="UTF-8">
+  {% load static %}
+  {% load i18n %}
+  <meta charset="UTF-8">
 </head>
 
-<!-- includes/navbar.html -->
-<nav class="nav_links">
-  <ul class="nav_group">
-    <li><a href="{% url 'homepage' %}" class="nav_btn">{% trans "HOME" %}</a></li>
-    <li><a href="{% url 'illustration_gallery' %}" class="nav_btn">{% trans "ILLUSTRATIONS" %}</a></li>
-    <li><a href="{% url 'photography_gallery' %}" class="nav_btn">{% trans "PHOTOGRAPHY" %}</a></li>
-   
-    <!-- Theme button stacked above dropdown -->
-    </li class="nav_stack">
-    <button type="submit" class="nav_btn" id="theme-btn">{% trans "THEME" %}</button>
-    <form method="get" action="{% url 'theme_filter' %}">
-      <select name="theme" id="theme-select">
-        {% for theme in themes %}
-          <option value="{{ theme.slug }}">{% trans theme.name %}</option>
-        {% endfor %}
-      </select>
-    </form>
-  </li>
-</ul>  
-  <!-- Right-side group: Cart, Auth, Language -->
-  <ul class="nav_group">
-    <!-- Conditional links based on user-admin -->
+<nav class="navbar">
+  <div class="nav-header">
+    <button class="hamburger" id="hamburger-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="nav-links" id="nav-links">
+    <!-- Left group -->
+    <ul class="nav-group">
+      <li><a href="{% url 'homepage' %}" class="nav-btn" id="home-btn">{% trans "HOME" %}</a></li>
+      <li><a href="{% url 'illustration_gallery' %}" class="nav-btn">{% trans "ILLUSTRATIONS" %}</a></li>
+      <li><a href="{% url 'photography_gallery' %}" class="nav-btn">{% trans "PHOTOGRAPHY" %}</a></li>
+      <li class="nav-stack">
+        <button type="submit" class="nav-btn" id="theme-btn">{% trans "THEME" %}</button>
+        <form method="get" action="{% url 'theme_filter' %}">
+          <select name="theme" id="theme-select">
+            {% for theme in themes %}
+              <option value="{{ theme.slug }}">{% trans theme.name %}</option>
+            {% endfor %}
+          </select>
+        </form>
+      </li>
+    </ul>
+
+    <!-- Right group -->
+    <ul class="nav-group">
       {% if user.is_staff %}
-        <li><a href="{% url 'upload_print' %}" class="nav_btn">{% trans "Upload" %}</a></li>
+        <li><a href="{% url 'upload_print' %}" class="nav-btn">{% trans "Upload" %}</a></li>
       {% else %}
         <li>
-          <a href="{% url 'cart_view' %}" class="nav_btn">
+          <a href="{% url 'cart_view' %}" class="nav-btn">
             🛒{% trans "Cart" %} ({{ cart_count }}) — {{ cart_total }}{{ currency }}
           </a>
         </li>
       {% endif %}
 
-      <!-- Logout button for all logged-in users -->
       {% if user.is_authenticated %}
-      <li>
-        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+        <li>
+          <form method="post" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="nav-btn">{% trans "Logout" %}</button>
+          </form>
+        </li>
+      {% else %}
+        <li><a href="{% url 'login' %}" class="nav-btn">{% trans "Login" %}</a></li>
+        <li><a href="{% url 'signup' %}" class="nav-btn">{% trans "Sign Up" %}</a></li>
+      {% endif %}
+
+      <li class="nav-stack">
+        <button type="submit" class="nav-btn" id="switch-btn">{% trans "Switch Language" %}</button>
+        <form action="{% url 'set_language' %}" method="post" style="display:inline;">
           {% csrf_token %}
-          <button type="submit" class="nav_btn">
-            {% trans "Logout" %}
-          </button>
+          <input name="next" type="hidden" value="{{ request.path }}">
+          <label for="language-select">{% trans "Language" %}:</label>
+          <select name="language" id="language-select">
+            <option value="en">{% trans "English" %}</option>
+            <option value="de">{% trans "Deutsch" %}</option>
+            <option value="fr">{% trans "Français" %}</option>
+            <option value="es">{% trans "Español" %}</option>
+            <option value="it">{% trans "Italiano" %}</option>
+            <option value="pt">{% trans "Português" %}</option>
+            <option value="zh-hans">{% trans "简体中文" %}</option>
+            <option value="ja">{% trans "日本語" %}</option>
+          </select>
         </form>
       </li>
-    {% else %}
-      <li><a href="{% url 'login' %}" class="nav_btn">{% trans "Login" %}</a></li>
-      <li><a href="{% url 'signup' %}" class="nav_btn">{% trans "Sign Up" %}</a></li>
-{% endif %}
     </ul>
-<!-- Switch Language button stacked above dropdown -->
-      <li class="nav_stack">
-      <button type="submit" class="nav_btn" id="switch-btn">{% trans "Switch Language" %}</button>
-        <form action="{% url 'set_language' %}" method="post" style="display:inline;">
-        {% csrf_token %}
-        <input name="next" type="hidden" value="{{ request.path }}">
-        <label for="language-select">{% trans "Language" %}:</label>
-        <select name="language" id="language-select">
-          <option value="en">{% trans "English" %}</option>
-          <option value="de">{% trans "Deutsch" %}</option>
-          <option value="fr">{% trans "Français" %}</option>
-          <option value="es">{% trans "Español" %}</option>
-          <option value="it">{% trans "Italiano" %}</option>
-          <option value="pt">{% trans "Português" %}</option>
-          <option value="zh-hans">{% trans "简体中文" %}</option>
-          <option value="ja">{% trans "日本語" %}</option>
-        </select>
-      </form>
-    </li>
-  </ul>
+  </div>
 </nav>
 
+<script>
+  const hamburger = document.getElementById("hamburger-btn");
+  const navLinks = document.getElementById("nav-links");
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active"); // animate icon
+    navLinks.classList.toggle("show");    // toggle menu
+  });
+</script>

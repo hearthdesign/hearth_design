@@ -22,7 +22,7 @@
 <body>
     <header style="background-image: url('{% static "images/the_world.png" %}');">
         <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
-        <h1 class='Hearth_title'>{% trans "SHOP" %}</h1>
+        <h1 class='hearth-title'>{% trans "SHOP" %}</h1>
         {% include 'includes/navbar.html' %}
         <!-- Show welcome message if user is logged in -->
         {% if user_profile %}
