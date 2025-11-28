@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.utils import timezone
 
 # Parent Category Model
 class Category(models.Model):
@@ -179,9 +180,10 @@ class ContactSubmission(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     message = models.TextField()
-    ip_hash = models.CharField(max_length=64, null=True, blank=True)
-    user_agent = models.TextField(null=True, blank=True)
-    submitted_at = models.DateTimeField(auto_now_add=True)
+    ip_hash = models.CharField(max_length=64, blank=True)  # SHA-256 hash of IP
+    user_agent = models.TextField(blank=True)
+    submitted_at = models.DateTimeField(default=timezone.now)
+    marketing_consent = models.BooleanField(default=False)  # Marketing consent field
 
     def __str__(self):
-        return f"{self.name} ({self.email}) at {self.submitted_at.strftime('%Y-%m-%d %H:%M')}"
+        return f"{self.name} ({self.email}) - {self.submitted_at.strftime('%Y-%m-%d %H:%M')}"

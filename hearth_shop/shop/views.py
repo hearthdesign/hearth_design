@@ -165,49 +165,54 @@ def contact_view(request):
             # Honeypot check
             if form.cleaned_data.get('website'):
                 return redirect('thank_you')
-            # Metadata
-            ip = request.META.get('REMOTE_ADDR', '')
-            user_agent = request.META.get('HTTP_USER_AGENT', '')
-            ip_hash = hashlib.sha256(ip.encode()).hexdigest()
 
-            # Save to database
-            ContactSubmission.objects.create(
-                name=form.cleaned_data['name'],
-                email=form.cleaned_data['email'],
-                message=form.cleaned_data['message'],
-                ip_hash=ip_hash,
-                user_agent=user_agent,
-                submitted_at=timezone.now()
-            )
+            # Privacy checkbox server-side validation
+            if not form.cleaned_data.get('privacy_agree'):
+                form.add_error('privacy_agree', _("You must agree to the Privacy Notice"))
+            else:
+                # Metadata
+                ip = request.META.get('REMOTE_ADDR', '')
+                user_agent = request.META.get('HTTP_USER_AGENT', '')
+                ip_hash = hashlib.sha256(ip.encode()).hexdigest()
 
-            # Send email to admin
-            send_mail(
-                subject=_("New Contact Form Submission from %(name)s") % {'name': form.cleaned_data['name']},
-                message=form.cleaned_data['message'],
-                from_email=form.cleaned_data['email'],
-                recipient_list=['1.space.channel.1@gmail.com'],
-            )
+                # Save to database
+                ContactSubmission.objects.create(
+                    name=form.cleaned_data['name'],
+                    email=form.cleaned_data['email'],
+                    message=form.cleaned_data['message'],
+                    ip_hash=ip_hash,
+                    user_agent=user_agent,
+                    submitted_at=timezone.now(),
+                    marketing_consent=form.cleaned_data.get('marketing_consent', False)
+                )
 
-            # Translatable confirmation email to user
-            subject = _("New Contact Form Submission from %(name)s") % {'name': form.cleaned_data['name']},
-            message = _(
-                f"Hi {form.cleaned_data['name']},\n\n"
-                "Thank you for reaching out to us. We've received your message and will get back to you shortly.\n\n"
-                "Best regards,\nHearth Design Team"
-            )
+                # Send email to admin
+                send_mail(
+                    subject=_("New Contact Form Submission from %(name)s") % {'name': form.cleaned_data['name']},
+                    message=form.cleaned_data['message'],
+                    from_email=form.cleaned_data['email'],
+                    recipient_list=['1.space.channel.1@gmail.com'],
+                )
 
-            send_mail(
-                subject=subject,
-                message=message,
-                from_email='noreply@hearth.design',  # Use a verified sender
-                recipient_list=[form.cleaned_data['email']],
-            )
+                # Confirmation email to user
+                subject = _("Thank you for contacting Hearth Design")
+                message = _(
+                    f"Hi {form.cleaned_data['name']},\n\n"
+                    "Thank you for reaching out to us. We've received your message and will get back to you shortly.\n\n"
+                    "Best regards,\nHearth Design Team"
+                )
+                send_mail(
+                    subject=subject,
+                    message=message,
+                    from_email='noreply@hearth.design',
+                    recipient_list=[form.cleaned_data['email']],
+                )
 
-
-            return redirect('thank_you')
+                return redirect('thank_you')
     else:
         form = ContactForm()
-    return render(request, 'contact.html', {'form': form})
+    return render(request, 'shop/contact.html', {'form': form})
+
 
 def signup(request):
     if request.method == 'POST':

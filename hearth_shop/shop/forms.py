@@ -3,6 +3,8 @@ from django import forms
 from .models import Print
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.utils.translation import gettext_lazy as _
+
 
 class PrintForm(forms.ModelForm):
     class Meta:
@@ -10,22 +12,28 @@ class PrintForm(forms.ModelForm):
         fields = ['title', 'image', 'price', 'type', 'in_stock', 'themes', 'category', 'description']  
 
 class ContactForm(forms.Form):
-    name = forms.CharField(max_length=100, required=True)
-    email = forms.EmailField(required=True)
-    message = forms.CharField(widget=forms.Textarea, required=True)
-
-class ContactForm(forms.Form):
     name = forms.CharField(
         max_length=100,
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your name'})
+        label=_("Name"),
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Your name')})
     )
     email = forms.EmailField(
-        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your email'})
+        label=_("Email"),
+        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': _('Your email')})
     )
     message = forms.CharField(
-        widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Your message', 'rows': 5})
+        label=_("Message"),
+        widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': _('Your message'), 'rows': 5})
     )
     website = forms.CharField(required=False, widget=forms.HiddenInput)  # Honeypot
+    privacy_agree = forms.BooleanField(
+        label=_("I have read and agree to the Privacy Notice"),
+        required=True
+    )
+    marketing_consent = forms.BooleanField(
+        label=_("I would like to receive updates about new art, offers, and newsletters"),
+        required=False
+    )
 
 class CustomSignupForm(UserCreationForm):
     email = forms.EmailField(required=True, label="Email")
