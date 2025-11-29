@@ -1,5 +1,6 @@
 from django.conf import settings 
 from .models import Print  # Import product model to calculate cart totals
+from .models import Cart
 
 def cart_count(request):
     # Get the cart dictionary from session
@@ -8,15 +9,19 @@ def cart_count(request):
     # Return the total quantity of all items in the cart
     return {'cart_count': sum(cart.values())}
 
-# Injects total price of cart into all templates
 def cart_total(request):
-    # Get the cart dictionary from session
-    cart = request.session.get('cart', {})
-    # Fetch all products currently in the cart
-    items = Print.objects.filter(id__in=cart.keys())
-    # Calculate total cost: price × quantity for each item
-    total = sum(item.price * cart[str(item.id)] for item in items)
-    # Return total price
+    if not request.user.is_authenticated:
+        return {'cart_total': 0}
+
+    try:
+        cart = Cart.objects.get(user=request.user)
+    except Cart.DoesNotExist:
+        return {'cart_total': 0}
+
+    total = 0
+    for item in cart.cartitem_set.select_related('product'):
+        total += item.product.price * item.quantity
+
     return {'cart_total': total}
 
 # Injects basic user info into templates if logged in

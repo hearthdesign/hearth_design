@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block content %}
+  <h2>My Orders</h2>
+  {% if orders %}
+    <ul>
+      {% for order in orders %}
+        <li>
+          <strong>Order #{{ order.id }}</strong> — {{ order.created_at|date:"Y-m-d H:i" }}
+          {% if order.is_paid %}(Paid){% else %}(Pending){% endif %}
+          <ul>
+            {% for item in order.items.all %}
+              <li>{{ item.quantity }} x {{ item.print.title }} — {{ item.price }} €</li>
+            {% endfor %}
+          </ul>
+          <p>Total: {{ order.total_price }} €</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>You have no past orders.</p>
+  {% endif %}
+{% endblock %}
+
+

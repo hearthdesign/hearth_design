@@ -24,12 +24,6 @@
         <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
         <h1 class='hearth-title'>{% trans "SHOP" %}</h1>
         {% include 'includes/navbar.html' %}
-        <!-- Show welcome message if user is logged in -->
-        {% if user_profile %}
-            {% blocktrans with name=user_profile.first_name %}
-                Welcome back, {{ name }}!
-            {% endblocktrans %}
-        {% endif %}
 
     </header>
 <main>

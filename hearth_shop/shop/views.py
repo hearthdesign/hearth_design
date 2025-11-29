@@ -1,19 +1,20 @@
 # shop views
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Print, Theme, ContactSubmission
 from django.urls import reverse
 from django.core.paginator import Paginator # For pagination
-import stripe
 from django.conf import settings
 # To restrict access to logged-in users
 from django.contrib.auth.decorators import login_required  
-from .forms import PrintForm, ContactForm
 from django.core.mail import send_mail  # For sending emails
-import hashlib
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from datetime import datetime
-from .forms import CustomSignupForm
+import stripe
+import hashlib
+
+# Import all models
+from .models import Print, Theme, ContactSubmission, Cart, CartItem, Order
+from .forms import PrintForm, ContactForm, CustomSignupForm
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -22,18 +23,7 @@ def homepage(request):
     login_url = reverse('login')  # URL for the login page
     return render(request, 'shop/homepage.html', {'login_url': login_url})
 
-# Form for uploading prints
-# @login_required
-# def upload_print(request):
-#     if request.method == 'POST':
-#         form = PrintForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('illustration_gallery')  
-#     else:
-#         form = PrintForm()
-#     return render(request, 'shop/upload.html', {'form': form})
-
+# Upload print view
 @login_required
 def upload_print(request):
     if request.method == 'POST':
@@ -41,11 +31,11 @@ def upload_print(request):
         if form.is_valid():
             print_obj = form.save(commit=False)
 
-            # Automatically set today's date
+            # Set today's date automatically 
             print_obj.date = datetime.today().date()
-
             print_obj.save()
             form.save_m2m()
+
             # Redirect based on type
             if print_obj.type == 'photography':
                 return redirect('photography_gallery')
@@ -95,69 +85,80 @@ def theme_filter(request):
         'category': category
     })
 
-# only logged-in users can access cart and checkout routes
-# Require user to be logged in to access this view
+# Require login to access cart and checkout routes
+# Add to cart (model-based, not session)
 @login_required
 def add_to_cart(request):
-    
-    product_id = request.POST.get('product_id')  # Get the product ID
+    print_id = request.POST.get('print_id')  # Get the print ID
     # Get the quantity default to 1
     quantity = int(request.POST.get('quantity', 1))  
-    # Retrieve the current cart from the session, or initialize an empty dict
-    cart = request.session.get('cart', {})
+    # validate print ID
+    if not print_id or not print_id.isdigit(): 
+        return redirect('cart_view')
+    
+    print = get_object_or_404(Product, id=print_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
 
-    # If the product is already in the cart, increase its quantity
-    if product_id in cart:
-        cart[product_id] += quantity
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, print=print)
+    if created:
+        cart_item.quantity = quantity
     else:
-        # Otherwise, add it with the selected quantity
-        cart[product_id] = quantity
-    # Save the updated cart back into the session
-    request.session['cart'] = cart
-    # Mark the session as modified to ensure Django saves it
-    request.session.modified = True
-    # Redirect the user to the cart view page
+        cart_item.quantity += quantity
+    cart_item.save()
+
+
     return redirect('cart_view')
 
 # Require user to be logged in to view their cart
 @login_required
 def cart_view(request):
-    # Get the cart dictionary from the session
-    cart = request.session.get('cart', {})
-    # Fetch all Print objects whose IDs are in the cart
-    items = Print.objects.filter(id__in=cart.keys())
-    # Prepare a list of cart items with quantity and total price
-    cart_items = []
-    for item in items:
-        cart_items.append({
-            'product': item,  # The Print object
-            'quantity': cart[str(item.id)],  # Quantity from session
-            'total': item.price * cart[str(item.id)],  # Total cost
-        })
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    cart_items = cart.cartitem_set.select_related('print')
 
-    # Render the cart template with the cart_items context
-    return render(request, 'shop/cart.html', {'cart_items': cart_items})
+    items = []
+    for item in cart_items:
+        items.append({
+            'print': item.print,
+            'quantity': item.quantity,
+            'total': item.print.price * item.quantity,
+        })
+    total = sum(item.print.price * item.quantity for item in cart_items)
+    return render(request, 'shop/cart.html', {'cart_items': items,  'cart_total': total})
 
 # Require user to be logged-in to proceed to checkout
 @login_required
-def create_checkout_session(request, product_id):
-    product = get_object_or_404(Print, id=product_id)
-    session = stripe.checkout.Session.create(
-        payment_method_types=['card'],
-        line_items=[{
+def create_checkout_session(request):
+    cart = get_object_or_404(Cart, user=request.user)
+    line_items = []
+
+    for item in cart.cartitem_set.select_related('print'):
+        line_items.append({
             'price_data': {
                 'currency': 'eur',
-                'product_data': {'name': product.title},
-                'unit_amount': int(product.price * 100),
+                'product_data': {'name': item.print.title},
+                'unit_amount': int(item.print.price * 100),
             },
-            'quantity': 1,
-        }],
+            'quantity': item.quantity,
+        })
+
+    session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=line_items,
         mode='payment',
+        client_reference_id=request.user.id,
         success_url='http://127.0.0.1:8000/success/',
         cancel_url='http://127.0.0.1:8000/cancel/',
     )
+
     return redirect(session.url)
 
+# Order history view
+@login_required
+def order_history(request):
+    orders = Order.objects.filter(customer_email=request.user.email).prefetch_related("items__product")
+    return render(request, "shop/order_history.html", {"orders": orders})
+
+# Contact form
 def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -213,7 +214,7 @@ def contact_view(request):
         form = ContactForm()
     return render(request, 'shop/contact.html', {'form': form})
 
-
+# Signup
 def signup(request):
     if request.method == 'POST':
         form = CustomSignupForm(request.POST)

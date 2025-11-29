@@ -35,15 +35,15 @@
     <ul class="nav-group">
       {% if user.is_staff %}
         <li><a href="{% url 'upload_print' %}" class="nav-btn">{% trans "Upload" %}</a></li>
-      {% else %}
-        <li>
-          <a href="{% url 'cart_view' %}" class="nav-btn">
-            🛒{% trans "Cart" %} ({{ cart_count }}) — {{ cart_total }}{{ currency }}
-          </a>
-        </li>
       {% endif %}
 
       {% if user.is_authenticated %}
+        <li>
+          <a href="{% url 'cart_view' %}" class="nav-btn">
+            🛒 {% trans "Cart" %} — {{ cart_total }} €
+          </a>
+        </li>
+        <li><a href="{% url 'order_history' %}" class="nav-btn">{% trans "My Orders" %}</a></li>
         <li>
           <form method="post" action="{% url 'logout' %}" style="display:inline;">
             {% csrf_token %}
