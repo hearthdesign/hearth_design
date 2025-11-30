@@ -19,8 +19,8 @@ def cart_total(request):
         return {'cart_total': 0}
 
     total = 0
-    for item in cart.cartitem_set.select_related('product'):
-        total += item.product.price * item.quantity
+    for item in cart.cartitem_set.select_related('print'):
+        total += item.print.price * item.quantity
 
     return {'cart_total': total}
 

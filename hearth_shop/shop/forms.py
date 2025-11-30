@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 class PrintForm(forms.ModelForm):
     class Meta:
         model = Print
-        fields = ['title', 'image', 'price', 'type', 'in_stock', 'themes', 'category', 'description']  
+        fields = ['title', 'image', 'price', 'type', 'stock', 'themes', 'category', 'description']  
 
 class ContactForm(forms.Form):
     name = forms.CharField(

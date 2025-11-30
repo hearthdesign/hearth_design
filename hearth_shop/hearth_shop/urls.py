@@ -41,8 +41,8 @@ urlpatterns += i18n_patterns(
     path('gallery/photographies/', views.photography_gallery, name='photography_gallery'),
     path('upload/', views.upload_print, name='upload_print'),
     path('signup/', views.signup, name='signup'),  # User signup view
-    path('thank_you/', TemplateView.as_view(template_name='shop/thank_you.html'), name='thank_you'),    path('accounts/', include('django.contrib.auth.urls')), # for login/logout/password reset
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('thank_you/', TemplateView.as_view(template_name='shop/thank_you.html'), name='thank_you'),
+    path('accounts/', include('django.contrib.auth.urls')), # for login/logout/password reset
     path('contact/', views.contact_view, name='contact'),
 )
 

@@ -74,54 +74,48 @@ class Print(models.Model):
         ('wood', _('Wood Print')),
         ('paper', _('Paper Print')),
     ]
-
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, blank=True, max_length=200)
     type = models.CharField(max_length=20, choices=TYPE_CHOICES)
     format = models.CharField(max_length=50, choices=FORMAT_CHOICES, blank=True)
     size = models.CharField(max_length=50, blank=True)
-    date = models.DateField()
+    date = models.DateField(default=timezone.now)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='prints/%Y/%m%d', blank=True)
     price = models.DecimalField(max_digits=8, decimal_places=2, default=50.00)
     stock = models.PositiveIntegerField(default=0)
-    sku = models.CharField(max_length=50, unique=True, null=True, blank=True)  # allow nulls for auto generation
     is_active = models.BooleanField(default=True)
     themes = models.ManyToManyField("Theme", blank=True)
     category = models.ForeignKey("Category", on_delete=models.SET_NULL, null=True, blank=True)
-    in_stock = models.BooleanField(default=True)
 
     class Meta:
         ordering = ['title']
         verbose_name = "Print"
         verbose_name_plural = "Prints"
         indexes = [
-            models.Index(fields=['sku']),
             models.Index(fields=['price']),
         ]
 
+    # Save method to auto generated slug
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        # Auto-generate SKU if missing
-        if not self.sku:
-            # Save first to get an ID if it's a new object
-            super().save(*args, **kwargs)
-            self.sku = f"{self.type[:3].upper()}-{self.id}"
-            kwargs['force_insert'] = False  # ensure update not insert
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.title} - {self.sku}"
-    
-# Photography Model
+        return self.title
+    @property
+    def in_stock(self):
+        return self.stock > 0
+
+# Photography model
 class Photography(models.Model):
     print = models.ForeignKey(Print, on_delete=models.CASCADE, related_name='photographies')
     title = models.CharField(max_length=200)
     quantity = models.PositiveIntegerField(default=0)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     image = models.ImageField(upload_to='photographies/', blank=True)
-    in_stock = models.BooleanField(default=True)
     description = models.TextField(blank=True)
     slug = models.SlugField(unique=True, blank=True, max_length=200)
     themes = models.ManyToManyField("Theme", blank=True)
@@ -137,6 +131,9 @@ class Photography(models.Model):
 
     def __str__(self):
         return self.title
+    @property
+    def in_stock(self):
+        return self.quantity > 0
 
 # Illustration Model
 class Illustration(models.Model):
@@ -145,7 +142,6 @@ class Illustration(models.Model):
     quantity = models.PositiveIntegerField(default=0)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     image = models.ImageField(upload_to='illustrations/', blank=True)
-    in_stock = models.BooleanField(default=True)
     description = models.TextField(blank=True)
     slug = models.SlugField(unique=True, blank=True, max_length=200)
     themes = models.ManyToManyField("Theme", blank=True)
@@ -161,6 +157,9 @@ class Illustration(models.Model):
 
     def __str__(self):
         return self.title
+    @property
+    def in_stock(self):
+        return self.quantity > 0
         
 # Cart model
 class Cart(models.Model):
@@ -174,7 +173,7 @@ class Cart(models.Model):
     def __str__(self):
         return f"Cart of {self.user.username}"
 
-# CartItem model
+# Cart Item model
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     print = models.ForeignKey(Print, on_delete=models.CASCADE, null=True, blank=True)
@@ -185,9 +184,10 @@ class CartItem(models.Model):
         verbose_name_plural = _("Cart Items")
 
     def __str__(self):
-        return f"{self.quantity} x {self.print.title} in {self.cart.user.username}'s cart"
+        if self.print:
+            return f"{self.quantity} x {self.print.title} in {self.cart.user.username}'s cart"
+        return f"{self.quantity} item(s) in {self.cart.user.username}'s cart"
     
-
 # Order model
 class Order(models.Model):
     customer_name = models.CharField(max_length=100)
@@ -219,7 +219,7 @@ class OrderItem(models.Model):
     def __str__(self):
         return f"{self.quantity} x {self.print.title} in Order #{self.order.id}"
 
-# Contact submission Model
+# Contact submission model
 class ContactSubmission(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()

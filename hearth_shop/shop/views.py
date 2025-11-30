@@ -13,7 +13,7 @@ import stripe
 import hashlib
 
 # Import all models
-from .models import Print, Theme, ContactSubmission, Cart, CartItem, Order
+from .models import Print, Theme, ContactSubmission, Cart, CartItem, Order, Illustration, Photography
 from .forms import PrintForm, ContactForm, CustomSignupForm
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -37,7 +37,7 @@ def upload_print(request):
             form.save_m2m()
 
             # Redirect based on type
-            if print_obj.type == 'photography':
+            if print_obj.type == 'photo':
                 return redirect('photography_gallery')
             else:
                 return redirect('illustration_gallery')
@@ -47,7 +47,7 @@ def upload_print(request):
 
 # Illustration gallery view
 def illustration_gallery(request):
-    prints = Print.objects.filter(type='illustration', in_stock=True)
+    prints = Illustration.objects.filter(quantity__gt=0)
     paginator = Paginator(prints, 20)  # 20 items per page
     page_number = request.GET.get('page')  # get current page number
     page_obj = paginator.get_page(page_number) 
@@ -56,7 +56,7 @@ def illustration_gallery(request):
 
 # Photography gallery view
 def photography_gallery(request):
-    prints = Print.objects.filter(type='photo', in_stock=True)
+    prints = Photography.objects.filter(quantity__gt=0)
     paginator = Paginator(prints, 20)  # 20 items per page
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -68,21 +68,23 @@ def theme_filter(request):
     category = request.GET.get('type')  # 'illustration' or 'photography'
     theme = get_object_or_404(Theme, slug=slug)
 
-    prints = Print.objects.filter(themes=theme)
-
     if category == 'illustration':
-        prints = prints.filter(type='illustration')
+        prints = Illustration.objects.filter(themes=theme, quantity__gt=0)
         template = 'shop/illustration_gallery.html'
     elif category == 'photography':
-        prints = prints.filter(type='photo')
+        prints = Photography.objects.filter(themes=theme, quantity__gt=0)
         template = 'shop/photography_gallery.html'
     else:
+        # If no category specified, combine both
+        illustrations = Illustration.objects.filter(themes=theme, quantity__gt=0)
+        photographs = Photography.objects.filter(themes=theme, quantity__gt=0)
+        prints = list(illustrations) + list(photographs)
         template = 'shop/theme_filtered_gallery.html'
 
     return render(request, template, {
         'prints': prints,
         'theme': theme,
-        'category': category
+        'category': category,
     })
 
 # Require login to access cart and checkout routes
@@ -96,7 +98,7 @@ def add_to_cart(request):
     if not print_id or not print_id.isdigit(): 
         return redirect('cart_view')
     
-    print = get_object_or_404(Product, id=print_id)
+    print = get_object_or_404(Print, id=print_id)
     cart, created = Cart.objects.get_or_create(user=request.user)
 
     cart_item, created = CartItem.objects.get_or_create(cart=cart, print=print)
@@ -155,7 +157,7 @@ def create_checkout_session(request):
 # Order history view
 @login_required
 def order_history(request):
-    orders = Order.objects.filter(customer_email=request.user.email).prefetch_related("items__product")
+    orders = Order.objects.filter(customer_email=request.user.email).prefetch_related("items__print")
     return render(request, "shop/order_history.html", {"orders": orders})
 
 # Contact form

@@ -22,9 +22,9 @@ class ThemeAdmin(admin.ModelAdmin):
 # Register the Print Model with the Admin site
 @admin.register(Print)
 class PrintAdmin(admin.ModelAdmin):
-    list_display = ("title", "type", "format", "size", "price", "stock", "sku", "is_active", "in_stock")
-    list_filter = ("type", "format", "is_active", "in_stock", "themes", "category")
-    search_fields = ("title", "slug", "sku", "description")
+    list_display = ("title", "type", "format", "size", "price", "stock", "is_active")
+    list_filter = ("type", "format", "is_active", "stock", "themes", "category")
+    search_fields = ("title", "slug", "description")
     prepopulated_fields = {"slug": ("title",)}
     ordering = ("title",)
     filter_horizontal = ('themes',)
@@ -32,8 +32,8 @@ class PrintAdmin(admin.ModelAdmin):
 # Register the Photography Model with the Admin site
 @admin.register(Photography)
 class PhotographyAdmin(admin.ModelAdmin):
-    list_display = ("title", "print", "quantity", "price", "in_stock")
-    list_filter = ("in_stock", "themes")
+    list_display = ("title", "print", "quantity", "price")
+    list_filter = ("themes",)
     search_fields = ("title", "slug", "description")
     prepopulated_fields = {"slug": ("title",)}
     filter_horizontal = ('themes',)
@@ -41,8 +41,8 @@ class PhotographyAdmin(admin.ModelAdmin):
 # Register the Illustration Model with the Admin site
 @admin.register(Illustration)
 class IllustrationAdmin(admin.ModelAdmin):
-    list_display = ("title", "print", "quantity", "price", "in_stock")
-    list_filter = ("in_stock", "themes")
+    list_display = ("title", "print", "quantity", "price")
+    list_filter = ("themes",)
     search_fields = ("title", "slug", "description")
     prepopulated_fields = {"slug": ("title",)}
 
