@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+  {% if theme %}
+    {% blocktrans with theme_name=theme.name %}
+      {{ theme_name }} Gallery
+    {% endblocktrans %}
+  {% else %}
+    {% trans "Themed Gallery" %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h1>
+    {% if theme %}
+      {{ theme.name }} 
+    {% endif %}
+    {% if category %}
+      {{ category|title }}
+    {% endif %}
+    {% trans "Gallery" %}
+  </h1>
+
+  <div class="gallery-grid">
+    {% for print in page_obj %}
+      <div class="thumbnail">
+        <a href="#"
+           data-image="{{ print.image.url }}"
+           data-id="{{ print.id }}"
+           data-title="{{ print.title }}">
+          <img src="{{ print.image.url }}" alt="{{ print.title }}" loading="lazy">
+        </a>
+        <h3>{{ print.title }}</h3>
+        {% if print.description %}
+          <p>{{ print.description }}</p>
+        {% endif %}
+      </div>
+    {% empty %}
+      <p>{% trans "No prints found for this theme." %}</p>
+    {% endfor %}
+  </div>
+
+    {% block pagination %}
+    {% include "shop/_pagination.html" %}
+  {% endblock %}
+{% endblock %}

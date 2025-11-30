@@ -23,19 +23,9 @@
     {% endfor %}
   </div>
 
-  <div class="pagination">
-    {% if page_obj.has_previous %}
-      <a href="?theme={{ theme.slug }}&type={{ category }}&page={{ page_obj.previous_page_number }}">
-  {% trans "Previous" %}
-</a>
-    {% endif %}
-    <span>{% trans "Page" %}{{ page_obj.number }}</span>
-    {% if page_obj.has_next %}
-      <a href="?theme={{ theme.slug }}&type={{ category }}&page={{ page_obj.next_page_number }}">
-  {% trans "Next" %}
-</a>
-    {% endif %}
-  </div>
+  {% block pagination %}
+    {% include "shop/_pagination.html" %}
+  {% endblock %}
 {% endblock %}
 
 

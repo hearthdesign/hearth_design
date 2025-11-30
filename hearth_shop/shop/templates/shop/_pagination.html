@@ -1,0 +1,29 @@
+{% load i18n %}
+
+<div class="pagination">
+  {% if page_obj.has_previous %}
+    {% if theme %}
+      <a href="?theme={{ theme.slug }}{% if category %}&type={{ category }}{% endif %}&page={{ page_obj.previous_page_number }}">
+        {% trans "Previous" %}
+      </a>
+    {% else %}
+      <a href="?{% if category %}type={{ category }}&{% endif %}page={{ page_obj.previous_page_number }}">
+        {% trans "Previous" %}
+      </a>
+    {% endif %}
+  {% endif %}
+
+  <span>{% trans "Page" %} {{ page_obj.number }}</span>
+
+  {% if page_obj.has_next %}
+    {% if theme %}
+      <a href="?theme={{ theme.slug }}{% if category %}&type={{ category }}{% endif %}&page={{ page_obj.next_page_number }}">
+        {% trans "Next" %}
+      </a>
+    {% else %}
+      <a href="?{% if category %}type={{ category }}&{% endif %}page={{ page_obj.next_page_number }}">
+        {% trans "Next" %}
+      </a>
+    {% endif %}
+  {% endif %}
+</div>

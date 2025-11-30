@@ -20,8 +20,35 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 #Homepage view
 def homepage(request):
-    login_url = reverse('login')  # URL for the login page
-    return render(request, 'shop/homepage.html', {'login_url': login_url})
+    # Get filters from query string
+    category = request.GET.get("type")  # 'illustration' or 'photo'
+    theme_slug = request.GET.get("theme")
+
+    # Base queryset: active prints
+    prints = Print.objects.filter(is_active=True)
+
+    # Filter by category type if provided
+    if category in ["illustration", "photo"]:
+        prints = prints.filter(type=category)
+
+    # Filter by theme if provided
+    theme = None
+    if theme_slug:
+        theme = Theme.objects.filter(slug=theme_slug).first()
+        if theme:
+            prints = prints.filter(themes=theme)
+
+    # Paginate results
+    paginator = Paginator(prints, 12)  # 12 prints per page
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, "shop/homepage.html", {
+        "page_obj": page_obj,
+        "category": category,
+        "theme": theme,
+        "login_url": reverse("login"),
+    })
 
 # Upload print view
 @login_required
@@ -48,19 +75,26 @@ def upload_print(request):
 # Illustration gallery view
 def illustration_gallery(request):
     prints = Illustration.objects.filter(quantity__gt=0)
-    paginator = Paginator(prints, 20)  # 20 items per page
-    page_number = request.GET.get('page')  # get current page number
-    page_obj = paginator.get_page(page_number) 
-    return render(request, 'shop/illustration_gallery.html', {'page_obj': page_obj})
-
-
-# Photography gallery view
-def photography_gallery(request):
-    prints = Photography.objects.filter(quantity__gt=0)
-    paginator = Paginator(prints, 20)  # 20 items per page
+    paginator = Paginator(prints, 20)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'shop/photography_gallery.html', {'page_obj': page_obj})
+    return render(request, 'shop/illustration_gallery.html', {
+        'page_obj': page_obj,
+        'category': 'illustration',
+        'theme': None,
+    })
+
+# Photography gallery
+def photography_gallery(request):
+    prints = Photography.objects.filter(quantity__gt=0)
+    paginator = Paginator(prints, 20)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'shop/photography_gallery.html', {
+        'page_obj': page_obj,
+        'category': 'photography',
+        'theme': None,
+    })
 
 # Theme filter view with optional category
 def theme_filter(request):
@@ -68,6 +102,7 @@ def theme_filter(request):
     category = request.GET.get('type')  # 'illustration' or 'photography'
     theme = get_object_or_404(Theme, slug=slug)
 
+    # Decide which queryset to use based on category
     if category == 'illustration':
         prints = Illustration.objects.filter(themes=theme, quantity__gt=0)
         template = 'shop/illustration_gallery.html'
@@ -75,14 +110,17 @@ def theme_filter(request):
         prints = Photography.objects.filter(themes=theme, quantity__gt=0)
         template = 'shop/photography_gallery.html'
     else:
-        # If no category specified, combine both
-        illustrations = Illustration.objects.filter(themes=theme, quantity__gt=0)
-        photographs = Photography.objects.filter(themes=theme, quantity__gt=0)
-        prints = list(illustrations) + list(photographs)
-        template = 'shop/theme_filtered_gallery.html'
+        # If no category specified, use Print model directly (combine both)
+        prints = Print.objects.filter(themes=theme, is_active=True)
+        template = 'shop/themed_gallery.html'
+    
+    # Paginate results
+    paginator = Paginator(prints, 20)  # 20 items per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     return render(request, template, {
-        'prints': prints,
+        'page_obj': page_obj,
         'theme': theme,
         'category': category,
     })
