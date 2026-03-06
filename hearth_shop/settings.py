@@ -17,6 +17,8 @@ from dotenv import load_dotenv
 load_dotenv()
 import dj_database_url
 
+DEBUG = config('DEBUG', default=False, cast=bool)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -36,9 +38,9 @@ if DEBUG:
 else:
     ALLOWED_HOSTS = ['hearth-design.herokuapp.com']
 
-
+# -------------------------
 # Application definition
-
+# -------------------------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,8 +51,9 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'django_extensions',
 ]
-
+# -------------------------
 # Authentication redirects
+# -------------------------
 LOGIN_REDIRECT_URL = 'illustration_gallery'
 LOGOUT_REDIRECT_URL = 'login'
 
@@ -97,20 +100,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hearth_shop.wsgi.application'
 
+# -------------------------
+# ALLOWED_HOSTS
+# -------------------------
+if DEBUG:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+else:
+    # Heroku will pass ALLOWED_HOSTS via config vars
+    ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
-# Database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': config('DB_NAME'),
-#         'USER': config('DB_USER'),
-#         'PASSWORD': config('DB_PASSWORD'),
-#         'HOST': config('DB_HOST'),
-#         'PORT': config('DB_PORT', default='5432'),
-#     }
-# }
-DEBUG = config('DEBUG', default=False, cast=bool)
-
+# -------------------------
+# DATABASES
+# -------------------------
 if DEBUG:
     DATABASES = {
         'default': {
@@ -126,8 +127,9 @@ else:
     DATABASES = {
         'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
     }
-
+# -----------------------------
 # Default file storage backend
+# -----------------------------
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_ACCESS_KEY_ID = os.getenv('SUPABASE_ACCESS_KEY')
