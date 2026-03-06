@@ -12,6 +12,10 @@ a {
   color: inherit;
 }
 
+p {
+  color: rgb(74, 156, 177);
+}
+
 button {
   cursor: pointer;
   font-size: 1rem;
@@ -25,22 +29,79 @@ header {
   background-size: cover;
   background-position: center;
   position: relative;
-  padding: 2rem;
-  min-height: 50vh; /* taller so image is visible */
+  min-height: 30vh; /* taller so image is visible */
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* valid value */
+
   align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-h1 {
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* shorthand for top/right/bottom/left:0 */
+  background-color: rgba(255, 255, 255, 0.8); /* white overlay at 50% transparency */
+  z-index: 0;
+  margin-top: 0; 
+}
+
+header > * {
+  position: relative;
+  z-index: 1; /* keep text above overlay */
+}
+
+h1{
   margin-left: 2%;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  /* border: 1px solid rgb(20, 90, 120); */
+  color: rgb(20, 90, 120);
+  border-radius: 0.35rem;
+  padding: 0.15rem;
+}
+
+form input[type="text"], 
+form input[type="password"], 
+form input[type="email"]  {
+  border: 1px solid rgb(20, 90, 120);
+  border-radius: 0.35rem;
+  outline: none;
+  font-size: 1rem;
   color: rgb(20, 90, 120);
 }
 
-.Hearth_title {
+form-input::placeholder{
+  color: rgb(115, 195, 213);
+}
+
+#create-btn, 
+#login-btn {
+  background-color: white;
+  color: rgb(20, 90, 120);
+  border: 2px solid rgb(74, 156, 177);
+  font-weight: bold;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  font-size: large;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6{
+  color: rgb(20, 90, 120);
+}
+
+.hearth-title {
   font-size: 2rem;
   font-weight: bold;
   color: rgb(20, 90, 120);
@@ -48,92 +109,150 @@ h1 {
   flex: 1 1 auto;
 }
 
+label {
+  color: rgb(74, 156, 177);
+  font-weight: bold;
+}
+
 /* Logo styling */
 .logo {
-  min-width: 14rem;
+  min-width: 30rem;
   height: auto;
-  margin: 1rem;
+  margin: 5%;
 }
 
-nav {
+.navbar {
   display:flex;
+  position: relative;
   flex-wrap: wrap;
   height: auto;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 5%; 
+  justify-content: space-between;
+  padding: 0.3rem;
+  width: 10rem;
+  border: none;
+  border-radius: 0.5rem;
 }
 
-.nav_links {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+/* Hide hamburger on desktop */
+.hamburger {
+  display: none; /* hidden on desktop */
+  flex-direction: column;
   justify-content: space-around;
-  align-items: flex-start;
-  gap: 2rem;
+  width: 2rem;
+  height: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001; /* above menu */
 }
 
-.nav_group {
+.hamburger span {
+  width: 2rem;
+  height: 0.25rem;
+  background: #333;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  transform-origin: 1px;
+}
+
+/* When active (menu open) */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.nav-links {
   display: flex;
-  gap: 1rem;
-  align-items: flex-start;
+  list-style: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%; 
+}
+
+.nav-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
+  background-color: none;
 }
 
-.nav_stack {
+.nav-stack {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
+  justify-content: center;
+  /* gap: 0.3rem; */
 }
 
-.nav_btn {
-  background-color: white;
-  border: 2px solid rgb(20, 90, 120);
+/* Buttons */
+.nav-btn, 
+#home-btn, 
+#theme-btn, 
+#switch-btn, 
+#language-select {
+  background-color: transparent;
+  border: none;
   color:rgb(74, 156, 177);
-  padding: 0.5rem 0.7rem;
+  padding: 0.15rem 1rem;
   border-radius: 0.5rem;
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s ease;
+  width: 10rem;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-  .nav_btn:hover {
+#theme-select {
+  background-color: transparent;
+}
+
+.nav-btn:hover, 
+#language-select:hover, 
+#theme-btn:hover, 
+#switch-btn:hover, 
+#home-btn:hover  {
     text-decoration: underline;
+    background-color: rgb(115, 195, 213);
+    color: white;
   }
 
-  select {
-  padding: 0.3rem;
+#home-btn {
+  padding: 0 3.2rem;
+}
+
+select {
+  padding: 0.15rem 0.5rem;
   border-radius: 0.3rem;
   font-size: 1rem;
-}
-
-.modal_btn {
-  background-color: white;
+  border: none;
   color: rgb(20, 90, 120);
-  border: 2px solid rgb(74, 156, 177);
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: large;
 }
 
-  #theme-btn {
-    padding: 0.15rem 0.5rem;
-  }
 
-  #switch-btn {
-    padding: 0.15rem 0.5rem;
-    margin-right: 3rem; 
-  }
-
-  #language-select {
-    margin-right: 4rem;
-  }
-    
+#language-select {
+  text-align: center;
+}
   
 /* ===========================
    DROPDOWN MENU
@@ -141,7 +260,7 @@ nav {
 dropdown-menu {
   position: relative;
   display: inline-block;
-  margin-right: 4rem;
+  margin-right: 4%;
 }
 
 /* ===========================
@@ -155,14 +274,14 @@ dropdown-menu {
 }
 
 .thumbnail {
-  width: 16rem;
-  height: 16rem;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* keeps square shape */
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 0.25rem;
-  background-color: rgb(58, 58, 59);
+  background-color: rgb(0, 20, 22);
   border-radius: 0.5rem;
   box-shadow: 0 0 4px rgba(0,0,0,0.2);
 }
@@ -218,9 +337,9 @@ img {
 }
 
 .modal-content img {
-  width: 100%;
-  max-width: 100%;;
-  height: auto;
+  width: auto;
+  max-width: 25rem;
+  max-height: 25rem;
   margin-bottom: 1rem;
   pointer-events: auto;
 }
@@ -256,6 +375,17 @@ img {
   font-size: large;
 }
 
+.modal_btn {
+  background-color: white;
+  color: rgb(20, 90, 120);
+  border: 2px solid rgb(74, 156, 177);
+  font-weight: bold;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: large;
+}
+
 .close {
   position: absolute;
   top: 1rem;
@@ -273,7 +403,7 @@ img {
   font-size: 1.2rem;
   margin-left: auto;
   text-decoration: none;
-  color: #333;
+  color: rgb(20, 90, 120)
 }
 
 /* Cart page layout */
@@ -307,7 +437,47 @@ img {
    RESPONSIVE DESIGN
 =========================== */
 
+/* MAX-WIDTH 1024PX */
+/* Tablet layout: between desktop and mobile */
+@media (max-width: 1024px) and (min-width: 769px) {
+
+  .navbar {
+    display: flex;
+    flex-direction: row; 
+    width: 100%;
+    margin: 0;
+    position: end;
+  }
+
+  #nav-links {
+    display: flex;
+    flex-direction: row;       /* distribute groups horizontally */
+    justify-content: space-between;
+    align-items: flex-start;      /* align to top of header */
+    width: 100%;
+    background-color: rgba(255,255,255,0.9); /* visible background */
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .nav-group {
+    display: flex;
+    flex-direction: column;    /* stack items vertically inside each group */
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;                   /* each group takes equal horizontal space */
+  }
+
+  .nav-btn,
+  select {
+    width: 100%;               /* buttons/selects fill group width */
+    text-align: center;
+  }
+}
+
+
 /* MAX-WIDTH 768PX */
+/* Mobile styles */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
@@ -315,28 +485,139 @@ img {
     text-align: center;
   }
 
-  .Hearth_title {
+  .navbar {
+    position: fixed;       /* fixed at top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: transparent;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hamburger button */
+  .hamburger {
+    position: absolute;    /* anchor inside navbar */
+    top: 11.5rem;
+    right: 2rem;           /* always top-right corner */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 2rem;
+    height: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 0.25rem;
+    background: rgb(20, 90, 120);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    transform-origin: 0.75rem; /* ensures symmetry */
+  }
+
+  /* Transform into X */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Title */
+  .hearth-title {
     font-size: 2rem;
     margin-bottom: 1rem;
   }
 
+  /* Logo */
   .logo {
-  min-width: 14rem;
-  height: auto;
-  margin: 1rem;
+    min-width: 25%;
+    height: auto;
+    margin: 1rem;
   }
 
-  /* .logo {
-    max-width: 11rem;
-    min-width: 9rem;
-    margin-bottom: 1rem;
-  } */
+  /* Nav links (dropdown menu) */
+  .nav-links {
+    position: fixed;
+    top: 11rem;             /* below navbar */
+    right: 1rem;           /* aligned with hamburger */
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 15rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    z-index: 1000;
+    padding: 0.75rem
+  }
 
-  .nav_links {
+  .nav-links.show {
+    max-height: 750px;
+    opacity: 1;
+  }
+
+  /* Groups stack vertically */
+  .nav-group {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0.5rem;
+  }
+
+  .nav-group:last-child {
+    border-bottom: none;
+  }
+
+  /* Buttons full width */
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.15rem 1.5rem;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  /* Dropdown select full width */
+  select {
+    text-align: left;
+    width: 100%;
+    padding: 0.15rem 1.5rem;
+    box-sizing: border-box;
+    border: none;
+    color: rgb(74, 156, 177);
+    font-weight: bold;
+  }
+
+  /* Stacked items neatly aligned */
+  .nav-stack {
+    display: flex;
+    width: 70%;
+    align-items: baseline;
+    gap: 0.5rem;
   }
 }
+
 
 /* MAX-WIDTH 600PX */
 @media (max-width: 600px) {
@@ -352,16 +633,13 @@ img {
     box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  }
+  } */
 
   .logo {
     min-width: 14rem;
     height: auto;
     margin: 1rem;
-  }
-
-    /* .logo {
-    min-width: 11rem;} */
+  } 
 
   .modal-content {
     margin: 10% auto;
@@ -374,11 +652,6 @@ img {
   opacity: 1;
   }
 
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .cart-link {
     margin-top: 0.5rem;
   }
@@ -388,6 +661,49 @@ img {
   ====================== */ 
 main {
   min-height: 70vh;
+  width: 100%;
+}
+
+/* ======================
+      LOGIN / 
+      REGISTRATION 
+  ====================== */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex-wrap: wrap; 
+  padding: 2rem; 
+  justify-items: center;
+  align-items: center;
+  text-align: end;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem 1rem 2.5rem;
+  background-color: #f0ebfe;
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex-wrap: wrap; 
+  padding: 2rem;
+  justify-items: center;
+  align-items: center;
+  text-align: end;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem 1rem 2.5rem;
+  background-color: #f0ebfe;
 }
 
 /* ======================
@@ -396,17 +712,107 @@ main {
 
 footer {
   text-align: center;
-  padding: 1rem;
-  background-color: #f1f1f1;
+  background-color: #f9f3eb;
   color: rgb(20, 90, 120);;
   margin-bottom: 0;
-  position: relative;
+  /* position: relative; */
+  width: 100%;
+  margin-right: 0;
 }
 
 footer a {
   color: rgb(20, 90, 120);;
   text-decoration: underline;
   margin-left: 1rem;
+  margin: 1rem;
 }
+
+/* ======================
+      PRIVACY DROPDOWN
+  ====================== */
+
+/* Dropdown styling */
+.privacy-details {
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.privacy-details summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: rgb(20, 90, 120);
+  padding: 0.75rem;
+  list-style: none;
+  position: relative;
+}
+
+.privacy-details summary::after {
+  content: "▼";
+  position: absolute;
+  right: 1rem;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.privacy-details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+/* Animated content */
+.privacy-content {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  padding: 0 0.75rem;
+}
+
+.privacy-details[open] .privacy-content {
+  max-height: 500px; /* enough space for text */
+  opacity: 1;
+  padding: 0.75rem;
+}
+
+/* Checkbox styling */
+.privacy-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: rgb(74, 156, 177);
+}
+
+.privacy-check input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: rgb(20, 90, 120);
+  cursor: pointer;
+}
+
+.privacy-check, .marketing-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: rgb(74, 156, 177);
+}
+
+.privacy-check input[type="checkbox"],
+.marketing-check input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: rgb(20, 90, 120);
+  cursor: pointer;
+}
+
+/* ======================
+      CONTACT FORM
+  ====================== */
+
+
 
   
