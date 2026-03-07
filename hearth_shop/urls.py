@@ -38,7 +38,7 @@ urlpatterns += i18n_patterns(
     path('checkout/<int:product_id>/', views.create_checkout_session, name='checkout'),
     path("orders/", views.order_history, name="order_history"),
     path('gallery/illustrations/', views.illustration_gallery, name='illustration_gallery'),
-    path('gallery/photographies/', views.photography_gallery, name='photography_gallery'),
+    path('gallery/photography/', views.photography_gallery, name='photography_gallery'),
     path('upload/', views.upload_print, name='upload_print'),
     path('signup/', views.signup, name='signup'),  # User signup view
     path('thank_you/', TemplateView.as_view(template_name='shop/thank_you.html'), name='thank_you'),
