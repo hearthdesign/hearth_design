@@ -3,6 +3,9 @@ from django.utils.text import slugify
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _ 
 from django.conf import settings
+from shop.storage_cloudinary import CloudinaryMediaStorage
+from shop.storage_supabase import SupabaseDocumentsStorage
+from shop.storage_backups import SupabaseBackupsStorage
 
 # Parent Category Model
 class Category(models.Model):
@@ -21,7 +24,11 @@ class Category(models.Model):
     # Allows hierarchical nesting of categories
     parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL, related_name='subcategories')
     # (Optional) visual representation for category
-    image = models.ImageField(upload_to='category_images/', blank=True, null=True)
+    image = models.ImageField(upload_to='category_images/',
+                              storage=CloudinaryMediaStorage(),
+                              blank=True,
+                              null=True
+                              )
     # Hide category without delete if is not in use
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -49,8 +56,11 @@ class Theme(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True)
     slug = models.SlugField(unique=True)
-    icon = models.ImageField(upload_to='theme_icons/', blank=True, null=True)
-
+    icon = models.ImageField(upload_to='theme_icons/',
+                              storage=CloudinaryMediaStorage(),
+                              blank=True,
+                              null=True
+                              )
     class Meta:
         verbose_name = _("Theme")
         verbose_name_plural = _("Themes")
@@ -82,7 +92,27 @@ class Print(models.Model):
     size = models.CharField(max_length=50, blank=True)
     date = models.DateField(default=timezone.now)
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='prints/%Y/%m%d', blank=True)
+    # Cloudinary for images
+    image = models.ImageField(
+        upload_to='prints/%Y/%m%d',
+        storage=CloudinaryMediaStorage(),
+        blank=True,
+        null=True
+    )
+    # Supabase for documents
+    manual = models.FileField(
+        upload_to="manuals/",
+        storage=SupabaseDocumentsStorage(),
+        blank=True,
+        null=True
+    )
+    # Supabase for backups
+    backup = models.FileField(
+        upload_to="backups/",
+        storage=SupabaseBackupsStorage(),
+        blank=True,
+        null=True
+    )
     price = models.DecimalField(max_digits=8, decimal_places=2, default=50.00)
     stock = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
@@ -115,7 +145,11 @@ class Photography(models.Model):
     title = models.CharField(max_length=200)
     quantity = models.PositiveIntegerField(default=0)
     price = models.DecimalField(max_digits=8, decimal_places=2)
-    image = models.ImageField(upload_to='photographies/', blank=True)
+    image = models.ImageField(upload_to='photographies/',
+                              storage=CloudinaryMediaStorage(),
+                              blank=True,
+                              null=True
+                              )
     description = models.TextField(blank=True)
     slug = models.SlugField(unique=True, blank=True, max_length=200)
     themes = models.ManyToManyField("Theme", blank=True)
@@ -141,7 +175,11 @@ class Illustration(models.Model):
     title = models.CharField(max_length=200)
     quantity = models.PositiveIntegerField(default=0)
     price = models.DecimalField(max_digits=8, decimal_places=2)
-    image = models.ImageField(upload_to='illustrations/', blank=True)
+    image = models.ImageField(upload_to='illustrations/',
+                              storage=CloudinaryMediaStorage(),
+                              blank=True,
+                              null=True
+                              )
     description = models.TextField(blank=True)
     slug = models.SlugField(unique=True, blank=True, max_length=200)
     themes = models.ManyToManyField("Theme", blank=True)
