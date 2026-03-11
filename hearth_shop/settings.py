@@ -16,6 +16,7 @@ from decouple import config
 from dotenv import load_dotenv
 load_dotenv()
 import dj_database_url
+import cloudinary
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop.apps.ShopConfig',
     # 'django_extensions',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 # -------------------------
 # Authentication redirects
@@ -127,8 +130,26 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_ACCESS_KEY_ID = os.getenv('SUPABASE_ACCESS_KEY')
 AWS_SECRET_ACCESS_KEY = os.getenv('SUPABASE_SECRET_KEY')
-AWS_STORAGE_BUCKET_NAME = os.getenv('SUPABASE_BUCKET')
+# default bucket outsorted after the creation of customs buckets
+# AWS_STORAGE_BUCKET_NAME = os.getenv('SUPABASE_BUCKET')  
 AWS_S3_ENDPOINT_URL = os.getenv('SUPABASE_ENDPOINT')
+AWS_S3_REGION_NAME = "us-east-1"
+AWS_S3_SIGNATURE_VERSION = "s3v4"
+
+# -----------------------------
+# Media storage
+# -----------------------------
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+}
+
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -184,7 +205,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media', ) 
