@@ -100,11 +100,12 @@ WSGI_APPLICATION = 'hearth_shop.wsgi.application'
 # ALLOWED_HOSTS
 # -------------------------
 if DEBUG:
-    ALLOWED_HOSTS = ['localhost','127.0.0.1']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 else:
-    # Heroku will pass ALLOWED_HOSTS via config vars
-    ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
-
+    ALLOWED_HOSTS = config(
+        'ALLOWED_HOSTS',
+        default='hearth-design-044ecd91e469.herokuapp.com'
+    ).split(',')
 # -------------------------
 # DATABASES
 # -------------------------
