@@ -182,7 +182,7 @@ msgstr ""
 #~ msgstr "Wilkommen zurück %(name)s!\n"
 
 #~ msgid "Quantity:"
-#~ msgstr "Menge:Wilkommen zurück %(name)s!\n"
+#~ msgstr "Menge:"
 
 #~ msgid "Add to Cart"
 #~ msgstr "In den Warenkorb"
