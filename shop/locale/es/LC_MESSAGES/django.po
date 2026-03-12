@@ -210,7 +210,7 @@ msgstr ""
 #~ msgstr "Cambiar idioma"
 
 #~ msgid "Quantity:"
-#~ msgstr "Cantidad"
+#~ msgstr "Cantidad:"
 
 #~ msgid "Add to Cart"
 #~ msgstr "Añadir al carrito"
