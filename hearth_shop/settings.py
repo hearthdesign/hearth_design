@@ -14,12 +14,13 @@ import os
 from pathlib import Path
 from decouple import config
 from dotenv import load_dotenv
-load_dotenv()
+
 import dj_database_url
 import cloudinary
-
+from urllib.parse import urlparse, parse_qsl
 import logging
 import sys
+load_dotenv()
 
 LOGGING = {
     'version': 1,
@@ -125,32 +126,42 @@ else:
         'ALLOWED_HOSTS',
         default='hearth-design-044ecd91e469.herokuapp.com'
     ).split(',')
+
 # -------------------------
 # DATABASES
 # -------------------------
 if DEBUG:
+    # Local development — parse Neon URL from .env
+    tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': config('DB_NAME'),
-            'USER': config('DB_USER'),
-            'PASSWORD': config('DB_PASSWORD'),
-            'HOST': config('DB_HOST'),
-            'PORT': config('DB_PORT', default='5432'),
+            'NAME': tmpPostgres.path.replace('/', ''),
+            'USER': tmpPostgres.username,
+            'PASSWORD': tmpPostgres.password,
+            'HOST': tmpPostgres.hostname,
+            'PORT': tmpPostgres.port or 5432,
+            'OPTIONS': dict(parse_qsl(tmpPostgres.query)),
         }
     }
+
 else:
+    # Production on Heroku — Heroku injects DATABASE_URL automatically
     DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+        'default': dj_database_url.config(
+            conn_max_age=600,
+            ssl_require=True
+        )
     }
 # -----------------------------
 # Supabase S3 config
 # -----------------------------
-AWS_ACCESS_KEY_ID = os.getenv('SUPABASE_ACCESS_KEY')
-AWS_SECRET_ACCESS_KEY = os.getenv('SUPABASE_SECRET_KEY')
-AWS_S3_ENDPOINT_URL = os.getenv('SUPABASE_ENDPOINT')
-AWS_S3_REGION_NAME = "us-east-1"
-AWS_S3_SIGNATURE_VERSION = "s3v4"
+# AWS_ACCESS_KEY_ID = os.getenv('SUPABASE_ACCESS_KEY')
+# AWS_SECRET_ACCESS_KEY = os.getenv('SUPABASE_SECRET_KEY')
+# AWS_S3_ENDPOINT_URL = os.getenv('SUPABASE_ENDPOINT')
+# AWS_S3_REGION_NAME = "us-east-1"
+# AWS_S3_SIGNATURE_VERSION = "s3v4"
 
 # -----------------------------
 # Media storage
