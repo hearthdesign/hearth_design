@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
+<!-- Cart -->
 {% block content %}
-
 {% for item in items %}
   <p>{{ item.title }} - €{{ item.price }}</p>
   <a href="{% url 'checkout' item.id %}">{% trans "Buy with Stripe" %}</a>

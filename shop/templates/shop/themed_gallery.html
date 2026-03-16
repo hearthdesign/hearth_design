@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
+<!-- Themed gallery -->
 {% block title %}
   {% if theme %}
     {% blocktrans with theme_name=theme.name %}
