@@ -1,9 +1,6 @@
-<head>
-  {% load static %}
   {% load i18n %}
-  <meta charset="UTF-8">
-</head>
 
+<!-- Navbar -->
 <nav class="navbar">
   <div class="nav-header">
     <button class="hamburger" id="hamburger-btn">
@@ -56,33 +53,47 @@
       {% endif %}
       </ul>
       <ul class="nav-group">  
-      <li class="nav-stack">
-        <button type="submit" class="nav-btn" id="switch-btn">{% trans "Switch Language" %}</button>
-        <form action="{% url 'set_language' %}" method="post" style="display:inline;">
-          {% csrf_token %}
-          <input name="next" type="hidden" value="{{ request.path }}">
-          <select name="language" id="language-select">
-            <option value="en">{% trans "English" %}</option>
-            <option value="de">{% trans "Deutsch" %}</option>
-            <option value="fr">{% trans "Français" %}</option>
-            <option value="es">{% trans "Español" %}</option>
-            <option value="it">{% trans "Italiano" %}</option>
-            <option value="pt">{% trans "Português" %}</option>
-            <option value="zh-hans">{% trans "简体中文" %}</option>
-            <option value="ja">{% trans "日本語" %}</option>
-          </select>
-        </form>
-      </li>
+        <li class="nav-stack">
+          <button type="button" class="nav-btn" id="switch-btn">{% trans "Switch Language" %}</button>
+        
+          <form action="{% url 'set_language' %}" method="post" id="language-form" style="display:none;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}">
+            <select name="language" id="language-select">
+              <option value="en">{% trans "English" %}</option>
+              <option value="de">{% trans "Deutsch" %}</option>
+              <option value="fr">{% trans "Français" %}</option>
+              <option value="es">{% trans "Español" %}</option>
+              <option value="it">{% trans "Italiano" %}</option>
+              <option value="pt">{% trans "Português" %}</option>
+              <option value="zh-hans">{% trans "简体中文" %}</option>
+              <option value="ja">{% trans "日本語" %}</option>
+            </select>
+          </form>
+        </li>
     </ul>
   </div>
 </nav>
 
-<script>
+{% comment %} <script>
   const hamburger = document.getElementById("hamburger-btn");
   const navLinks = document.getElementById("nav-links");
 
   hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active"); // animate icon
-    navLinks.classList.toggle("show");    // toggle menu
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("show");
   });
-</script>
+
+  const switchBtn = document.getElementById("switch-btn");
+  const languageForm = document.getElementById("language-form");
+  const languageSelect = document.getElementById("language-select");
+
+  switchBtn.addEventListener("click", () => {
+    languageForm.style.display =
+      languageForm.style.display === "none" ? "inline-block" : "none";
+  });
+
+  languageSelect.addEventListener("change", () => {
+    languageForm.submit();
+  });
+</script> {% endcomment %}

@@ -1,3 +1,36 @@
+// ===============================
+// NAVBAR: Hamburger Menu
+// ===============================
+const hamburger = document.getElementById("hamburger-btn");
+const navLinks = document.getElementById("nav-links");
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("show");
+  });
+}
+
+// ===============================
+// NAVBAR: Language Switcher
+// ===============================
+const switchBtn = document.getElementById("switch-btn");
+const languageForm = document.getElementById("language-form");
+const languageSelect = document.getElementById("language-select");
+
+if (switchBtn && languageForm) {
+  switchBtn.addEventListener("click", () => {
+    languageForm.style.display =
+      languageForm.style.display === "none" ? "inline-block" : "none";
+  });
+}
+
+if (languageSelect && languageForm) {
+  languageSelect.addEventListener("change", () => {
+    languageForm.submit();
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
 // Disable right-click to deter image downloads
