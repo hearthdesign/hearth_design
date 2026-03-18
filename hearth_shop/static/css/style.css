@@ -265,6 +265,22 @@ select {
   text-align: center;
 }
   
+.pagination {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bold;
+  gap: 0.5rem;
+  color: rgb(20, 90, 120);
+}
+
+.pagination > * {
+  display: inline-flex;
+  align-items: center;
+  margin: 2%;
+}
+
+
 /* ===========================
    DROPDOWN MENU
    =========================== */
