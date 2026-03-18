@@ -214,7 +214,7 @@ msgstr ""
 #~ msgid "HOME"
 #~ msgstr "主页"
 
-#~ msgid "ILLUSTRATIONS"
+#~ msgid "ILLUSTRATION"
 #~ msgstr "插图"
 
 #~ msgid "PHOTOGRAPHY"

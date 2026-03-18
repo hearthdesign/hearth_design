@@ -218,8 +218,8 @@ msgstr ""
 #~ msgid "HOME"
 #~ msgstr "INIZIO"
 
-#~ msgid "ILLUSTRATIONS"
-#~ msgstr "ILLUSTRAZIONI"
+#~ msgid "ILLUSTRATION"
+#~ msgstr "ILLUSTRAZIONE"
 
 #~ msgid "PHOTOGRAPHY"
 #~ msgstr "FOTOGRAFIA"

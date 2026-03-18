@@ -218,6 +218,9 @@ msgstr ""
 #~ msgid "HOME"
 #~ msgstr "ACCUEIL"
 
+#~ msgid "ILLUSTRATION"
+#~ msgstr "ILLUSTRATION"
+
 #~ msgid "PHOTOGRAPHY"
 #~ msgstr "PHOTOGRAPHIE"
 
@@ -225,7 +228,7 @@ msgstr ""
 #~ msgstr "Panier"
 
 #~ msgid "Logout"
-#~ msgstr "Se déconnecter"
+#~ msgstr "Déconnexion"
 
 #~ msgid "THEME"
-#~ msgstr "THEME"
+#~ msgstr "THÈME"

@@ -190,8 +190,8 @@ msgstr ""
 #~ msgid "HOME"
 #~ msgstr "HOME"
 
-#~ msgid "ILLUSTRATIONS"
-#~ msgstr "ILLUSTRATIONEN"
+#~ msgid "ILLUSTRATION"
+#~ msgstr "ILLUSTRATION"
 
 #~ msgid "PHOTOGRAPHY"
 #~ msgstr "FOTOGRAFIE"

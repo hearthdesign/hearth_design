@@ -217,8 +217,8 @@ msgstr ""
 #~ msgid "HOME"
 #~ msgstr "ホーム"
 
-#~ msgid "ILLUSTRATIONS"
-#~ msgstr "実例"
+#~ msgid "ILLUSTRATION"
+#~ msgstr "イラスト"
 
 #~ msgid "PHOTOGRAPHY"
 #~ msgstr "写真"

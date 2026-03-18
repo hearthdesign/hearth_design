@@ -212,8 +212,8 @@ msgstr ""
 #~ msgid "HOME"
 #~ msgstr "HOME"
 
-#~ msgid "ILLUSTRATIONS"
-#~ msgstr "ILLUSTARTIONS"
+#~ msgid "ILLUSTRATION"
+#~ msgstr "ILLUSTARTION"
 
 #~ msgid "PHOTOGRAPHY"
 #~ msgstr "PHOTOGRAPHY"
