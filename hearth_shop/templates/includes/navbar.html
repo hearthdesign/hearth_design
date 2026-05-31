@@ -75,25 +75,3 @@
   </div>
 </nav>
 
-<script>
-  const hamburger = document.getElementById("hamburger-btn");
-  const navLinks = document.getElementById("nav-links");
-
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navLinks.classList.toggle("show");
-  });
-
-  const switchBtn = document.getElementById("switch-btn");
-  const languageForm = document.getElementById("language-form");
-  const languageSelect = document.getElementById("language-select");
-
-  switchBtn.addEventListener("click", () => {
-    languageForm.style.display =
-      languageForm.style.display === "none" ? "inline-block" : "none";
-  });
-
-  languageSelect.addEventListener("change", () => {
-    languageForm.submit();
-  });
-</script> 
