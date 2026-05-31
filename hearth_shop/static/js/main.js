@@ -12,12 +12,14 @@ if (hamburger && navLinks) {
 }
 
 // ===============================
-// NAVBAR: Language Switcher
 // LOADS AFTER DOM CONTENT TO 
 // ENSURE ELEMENTS ARE AVAILABLE
 // ===============================
-
 document.addEventListener("DOMContentLoaded", () => {
+
+  // ===============================
+  // NAVBAR: Language Switcher
+  // ===============================
   const switchBtn = document.getElementById("switch-btn");
   const languageForm = document.getElementById("language-form");
   const languageSelect = document.getElementById("language-select");
@@ -39,9 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Disable right-click
   // to deter image downloads
   // ===============================
-
   document.addEventListener('contextmenu', e => e.preventDefault());
   
+  // ===============================
+  // GALLERY + MODAL LOGIC
+  // ===============================
   const galleryLinks = Array.from(document.querySelectorAll('.thumbnail a'));
   let currentIndex = 0;
   
@@ -55,11 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
       // Extract image URL, product ID, and title from data attributes
       currentIndex = index; // stores the currentIndex for navigation 
-      const imageUrl = this.dataset.image;
-      const productId = this.dataset.id;
-      const title = this.dataset.title;
-      // Open modal with the extracted data attributes 
-      openModal(imageUrl, productId, title);  
+      // Open modal with the data attributes 
+      openModal(this.dataset.image, this.dataset.id, this.dataset.title);
+  
     });
   });
   // =======================================
@@ -71,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
       img.src = link.dataset.image;
     });
   };
-  
   preloadImages();
   
   // ========================================
