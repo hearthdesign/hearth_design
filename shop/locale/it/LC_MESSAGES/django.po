@@ -170,7 +170,7 @@ msgstr ""
 "Grazie per averci contattato.Abbiamo ricevuto il tuo messaggio e ti "
 "risponderemo al più presto.\n"
 "\n"
-"Felici saluti!Il Team HEARTH Design"
+"Felici saluti!\nIl Team HEARTH Design"
 
 #~ msgid "Hearth Shop"
 #~ msgstr "Hearth Shop"

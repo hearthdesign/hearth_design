@@ -213,7 +213,7 @@ msgstr ""
 #~ msgstr "HOME"
 
 #~ msgid "ILLUSTRATION"
-#~ msgstr "ILLUSTARTION"
+#~ msgstr "ILLUSTRATION"
 
 #~ msgid "PHOTOGRAPHY"
 #~ msgstr "PHOTOGRAPHY"
