@@ -126,6 +126,9 @@ else:
         'ALLOWED_HOSTS',
         default='hearth-design-044ecd91e469.herokuapp.com'
     ).split(',')
+    # Secure cookies for production (Heroku uses HTTPS)
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
 # -------------------------
 # DATABASES
