@@ -35,14 +35,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ===============================
+  // Disable right-click
+  // to deter image downloads
+  // ===============================
 
-  // Disable right-click to deter image downloads
   document.addEventListener('contextmenu', e => e.preventDefault());
   
   const galleryLinks = Array.from(document.querySelectorAll('.thumbnail a'));
   let currentIndex = 0;
   
+  // =============================================
   // Attach click listeners to all thumbnail links
+  // to open the modal with the correct image
+  // =============================================
   galleryLinks.forEach((link, index) => {
     link.addEventListener('click', function(e) {
       e.preventDefault(); // Prevent default link behavior
@@ -56,7 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
       openModal(imageUrl, productId, title);  
     });
   });
+  // =======================================
   // Preload Images for Smoother Navigation
+  // ======================================
   const preloadImages = () => {
     galleryLinks.forEach(link => {
       const img = new Image();
@@ -66,7 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
   preloadImages();
   
+  // ========================================
   // Function to populate and show the modal
+  // ========================================
   function openModal(imageUrl, productId, title) {
     const modal = document.getElementById('image-modal');
     // Set image source and title
@@ -102,12 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal();
     }
   });
-  
-  
+
   // Close modal when the close button is clicked
   document.querySelector('.close').addEventListener('click', closeModal); 
   document.getElementById('close-btn').addEventListener('click', closeModal);
-  
   
   // Function to navigate to the next image
   function showNextImage() {
@@ -125,7 +133,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById('prev-btn').addEventListener('click', showPreviousImage);
   document.getElementById('next-btn').addEventListener('click', showNextImage);
   
+  // ====================
   // Keyboard navigation
+  // ====================
   document.addEventListener('keydown', (e) => {
     const modal = document.getElementById('image-modal');
     if (modal.style.display === 'block') {
