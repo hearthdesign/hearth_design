@@ -203,7 +203,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -250,7 +250,6 @@ LANGUAGES = [
     ('pt', 'Português'),
     ('zh-hans', '简体中文'),
     ('ja', '日本語'),
-    ('en', 'English'),
 ]
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'shop', 'locale')]
 # LOCALE_PATHS = [os.path.join(BASE_DIR, 'shop.locale')]
