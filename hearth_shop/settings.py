@@ -250,6 +250,7 @@ LANGUAGES = [
     ('pt', 'Português'),
     ('zh-hans', '简体中文'),
     ('ja', '日本語'),
+    ('en', 'English'),
 ]
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'shop', 'locale')]
 # LOCALE_PATHS = [os.path.join(BASE_DIR, 'shop.locale')]
