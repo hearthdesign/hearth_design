@@ -251,7 +251,7 @@ LANGUAGES = [
     ('zh-hans', '简体中文'),
     ('ja', '日本語'),
 ]
-LOCALE_PATHS = [os.path.join(BASE_DIR, 'shop', 'locale')]
+# LOCALE_PATHS = [os.path.join(BASE_DIR, 'shop', 'locale')]
 # LOCALE_PATHS = [os.path.join(BASE_DIR, 'shop.locale')]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
