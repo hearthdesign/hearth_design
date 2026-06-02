@@ -204,13 +204,23 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LANGUAGE_CODE = 'en'
+PREFIX_DEFAULT_LANGUAGE = True
+LANGUAGE_COOKIE_PATH = '/'
 
 TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
 USE_TZ = True
-
+# Enable i18n
+USE_I18N = True
+LANGUAGES = [
+    ('en', 'English'),
+    ('de', 'Deutsch'),
+    ('fr', 'Français'),
+    ('es', 'Español'),
+    ('it', 'Italiano'),
+    ('pt', 'Português'),
+    ('zh-hans', '简体中文'),
+    ('ja', '日本語'),
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
@@ -239,18 +249,6 @@ STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media', ) 
 
-# Enable i18n
-USE_I18N = True
-LANGUAGES = [
-    ('en', 'English'),
-    ('de', 'Deutsch'),
-    ('fr', 'Français'),
-    ('es', 'Español'),
-    ('it', 'Italiano'),
-    ('pt', 'Português'),
-    ('zh-hans', '简体中文'),
-    ('ja', '日本語'),
-]
 # LOCALE_PATHS = [os.path.join(BASE_DIR, 'shop', 'locale')]
 # LOCALE_PATHS = [os.path.join(BASE_DIR, 'shop.locale')]
 
