@@ -228,6 +228,10 @@ LANGUAGES = [
     ('zh-hans', '简体中文'),
     ('ja', '日本語'),
 ]
+LANGUAGE_COOKIE_NAME = 'django_language'
+LANGUAGE_COOKIE_PATH = '/'
+LANGUAGE_COOKIE_SAMESITE = 'Lax'
+LANGUAGE_COOKIE_USE_SESSION = False
 
 # ---------------------------------------------------------
 # STATIC FILES
