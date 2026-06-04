@@ -52,10 +52,6 @@ header > * {
   z-index: 1; /* keep text above overlay */
 }
 
-h1, h2{
-  margin-left: 2%;
-}
-
 form {
   display: flex;
   flex-wrap: wrap;
@@ -99,6 +95,7 @@ h4,
 h5, 
 h6{
   color: rgb(20, 90, 120);
+  margin-left: 2%;
 }
 
 .hearth-title {
@@ -206,7 +203,7 @@ label {
 #language-form {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 5%;
   background: white;
   padding: 0.3rem;
   border-radius: 0.3rem;
