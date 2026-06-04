@@ -10,12 +10,18 @@
   <div class="gallery-grid">
     {% for print in page_obj %}
       <div class="thumbnail">
+        {% if print.image %}
         <a href="#" 
            data-image="{{ print.image.url }}" 
            data-id="{{ print.id }}" 
            data-title="{{ print.title }}">
           <img src="{{ print.image.url }}" alt="{{ print.title }}" loading="lazy">
         </a>
+        {% else %}
+          <a href="#">
+            <img src="/static/img/placeholder.jpg" alt="No image available">
+          </a>
+        {% endif %}
       </div>
     {% empty %}
       <p>{% trans "No prints found." %}</p>
