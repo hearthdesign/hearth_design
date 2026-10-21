@@ -6,7 +6,8 @@ from django.conf import settings
 from shop.storage_cloudinary import CloudinaryMediaStorage
 from shop.storage_supabase import SupabaseDocumentsStorage
 from shop.storage_backups import SupabaseBackupsStorage
-
+from django.core.exceptions import ValidationError
+from decimal import Decimal
 # Parent Category Model
 class Category(models.Model):
     TYPE_CHOICES = [
@@ -113,7 +114,11 @@ class Print(models.Model):
         blank=True,
         null=True
     )
-    price = models.DecimalField(max_digits=8, decimal_places=2, default=50.00)
+    price = models.DecimalField(
+    max_digits=8,
+    decimal_places=2,
+    default=Decimal("50.00")
+) 
     stock = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
     themes = models.ManyToManyField("Theme", blank=True)
@@ -214,12 +219,30 @@ class Cart(models.Model):
 # Cart Item model
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
-    print = models.ForeignKey(Print, on_delete=models.CASCADE, null=True, blank=True)
+
+    print = models.ForeignKey(
+    Print,
+    on_delete=models.CASCADE,
+    null=False,
+    blank=False,
+    related_name="cart_items"
+)
     quantity = models.PositiveIntegerField(default=1)
+    price_at_time = models.DecimalField(max_digits=8, decimal_places=2)
 
     class Meta:
         verbose_name = _("Cart Item")
         verbose_name_plural = _("Cart Items")
+        constraints = [
+            models.UniqueConstraint(
+                fields=["cart", "print"],
+                name="unique_cart_print"
+            ),
+            models.CheckConstraint(
+                check=models.Q(quantity__gt=0),
+                name="cartitem_quantity_gt_0"
+            ),
+        ]
 
     def __str__(self):
         if self.print:

@@ -22,6 +22,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from django.conf.urls.i18n import i18n_patterns, set_language
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,6 +43,7 @@ urlpatterns += i18n_patterns(
     path('thank_you/', TemplateView.as_view(template_name='shop/thank_you.html'), name='thank_you'),
     path('accounts/', include('django.contrib.auth.urls')), # for login/logout/password reset
     path('contact/', views.contact_view, name='contact'),
+    path("shop/", include("shop.urls")),
 )
 
 if settings.DEBUG:

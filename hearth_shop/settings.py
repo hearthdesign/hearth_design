@@ -263,9 +263,6 @@ STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media', ) 
 
-# LOCALE_PATHS = [os.path.join(BASE_DIR, 'shop', 'locale')]
-# LOCALE_PATHS = [os.path.join(BASE_DIR, 'shop.locale')]
-
 # ---------------------------------------------------------
 # EMAIL
 # ---------------------------------------------------------

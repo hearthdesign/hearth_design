@@ -2,9 +2,16 @@
 {% load i18n %}
 <!-- Cart -->
 {% block content %}
-{% for item in items %}
-  <p>{{ item.title }} - €{{ item.price }}</p>
-  <a href="{% url 'checkout' item.id %}">{% trans "Buy with Stripe" %}</a>
+{% for item in cart_items %}
+  <p>{{ item.print.title }} - €{{ item.print.price }}</p>
+  <p>Quantity: {{ item.quantity }}</p>
+  <p>Total: €{{ item.total }}</p>
 {% endfor %}
+
+<p><strong>Total: €{{ cart_total }}</strong></p>
+
+<a href="{% url 'create_checkout_session' %}">
+  {% trans "Buy with Stripe" %}
+</a>
 
 {% endblock %}

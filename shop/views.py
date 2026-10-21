@@ -9,14 +9,15 @@ from django.core.mail import send_mail  # For sending emails
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from datetime import datetime
-import stripe
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+from shop.services.webhooks import handle_stripe_webhook
 import hashlib
 
 # Import all models
 from .models import Print, Theme, ContactSubmission, Cart, CartItem, Order, Illustration, Photography
 from .forms import PrintForm, ContactForm, CustomSignupForm
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
 
 #Homepage view
 def homepage(request):
@@ -28,7 +29,7 @@ def homepage(request):
     prints = Print.objects.filter(is_active=True)
 
     # Filter by category type if provided
-    if category in ["illustration", "photo"]:
+    if category in ["illustration", "photography"]:
         prints = prints.filter(type=category)
 
     # Filter by theme if provided
