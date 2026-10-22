@@ -16,7 +16,7 @@ import hashlib
 import stripe
 
 # Import all models
-from .models import Order, Print, Theme, ContactSubmission, Cart, CartItem, Order, Illustration, Photography
+from .models import Order, Print, Theme, ContactSubmission, Cart, CartItem, Illustration, Photography
 from .forms import PrintForm, ContactForm, CustomSignupForm
 
 
