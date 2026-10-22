@@ -272,3 +272,16 @@ def signup(request):
     else:
         form = CustomSignupForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+@csrf_exempt
+def stripe_webhook_view(request):
+    if request.method != "POST":
+        return HttpResponse(status=405)
+
+    payload = request.body
+    sig_header = request.META.get("HTTP_STRIPE_SIGNATURE", "")
+
+    event, status_code = handle_stripe_webhook(payload, sig_header)
+
+    return HttpResponse(status=status_code)

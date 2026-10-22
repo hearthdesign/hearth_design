@@ -1,3 +1,6 @@
+import stripe
+from django.conf import settings
+
 def handle_stripe_webhook(payload, sig_header):
     try:
         event = stripe.Webhook.construct_event(
