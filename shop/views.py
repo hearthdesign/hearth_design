@@ -13,9 +13,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from shop.services.webhooks import handle_stripe_webhook
 import hashlib
+import stripe
 
 # Import all models
-from .models import Print, Theme, ContactSubmission, Cart, CartItem, Order, Illustration, Photography
+from .models import Order, Print, Theme, ContactSubmission, Cart, CartItem, Order, Illustration, Photography
 from .forms import PrintForm, ContactForm, CustomSignupForm
 
 
@@ -140,7 +141,11 @@ def add_to_cart(request):
     print = get_object_or_404(Print, id=print_id)
     cart, created = Cart.objects.get_or_create(user=request.user)
 
-    cart_item, created = CartItem.objects.get_or_create(cart=cart, print=print)
+    cart_item, created = CartItem.objects.get_or_create(
+        cart=cart,
+        print=print,
+        defaults={"price_at_time": print.price},
+    )
     if created:
         cart_item.quantity = quantity
     else:
