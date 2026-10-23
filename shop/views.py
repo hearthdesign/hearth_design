@@ -131,29 +131,42 @@ def theme_filter(request):
 # Add to cart (model-based, not session)
 @login_required
 def add_to_cart(request):
-    print_id = request.POST.get('print_id')  # Get the print ID
-    # Get the quantity default to 1
-    quantity = int(request.POST.get('quantity', 1))  
-    # validate print ID
-    if not print_id or not print_id.isdigit(): 
-        return redirect('cart_view')
-    
-    print = get_object_or_404(Print, id=print_id)
-    cart, created = Cart.objects.get_or_create(user=request.user)
+
+    print("=== ADD TO CART ===")
+    print(request.POST)
+
+    print_id = request.POST.get("print_id")
+    quantity = int(request.POST.get("quantity", 1))
+
+    print("print_id:", print_id)
+    print("quantity:", quantity)
+
+    if not print_id or not print_id.isdigit():
+        print("INVALID PRINT ID")
+        return redirect("cart_view")
+
+    print_obj = get_object_or_404(Print, id=print_id)
+
+    cart, created = Cart.objects.get_or_create(
+        user=request.user
+    )
 
     cart_item, created = CartItem.objects.get_or_create(
         cart=cart,
-        print=print,
-        defaults={"price_at_time": print.price},
+        print=print_obj,
+        defaults={"price_at_time": print_obj.price},
     )
+
     if created:
         cart_item.quantity = quantity
     else:
         cart_item.quantity += quantity
+
     cart_item.save()
 
+    print("CART ITEM SAVED")
 
-    return redirect('cart_view')
+    return redirect("cart_view")
 
 # Require user to be logged in to view their cart
 @login_required

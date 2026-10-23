@@ -79,12 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // ========================================
   // Function to populate and show the modal
   // ========================================
-  function openModal(imageUrl, productId, title) {
+  function openModal(imageUrl, productId, title, price) {
     const modal = document.getElementById('image-modal');
     // Set image source and title
     modal.querySelector('#modal-image').src = imageUrl;
     modal.querySelector('#modal-title').textContent = title;
-     modal.querySelector('#modal-price').textContent = price;
+    modal.querySelector('#modal-price').textContent = price;
     modal.classList.add('show');
     // Set hidden input value for product ID and default quantity
     const productInput = modal.querySelector('#modal-product-id');
