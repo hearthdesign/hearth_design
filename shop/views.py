@@ -172,31 +172,44 @@ def cart_view(request):
     return render(request, 'shop/cart.html', {'cart_items': items,  'cart_total': total})
 
 # Require user to be logged-in to proceed to checkout
+
 @login_required
 def create_checkout_session(request):
     cart = get_object_or_404(Cart, user=request.user)
+    cart_items = cart.cartitem_set.select_related("print")
+
+    # Prevent checkout with an empty cart.
+    if not cart_items.exists():
+        return redirect("cart_view")
+
     line_items = []
 
-    for item in cart.cartitem_set.select_related('print'):
+    for item in cart_items:
         line_items.append({
-            'price_data': {
-                'currency': 'eur',
-                'product_data': {'name': item.print.title},
-                'unit_amount': int(item.print.price * 100),
+            "price_data": {
+                "currency": "eur",
+                "product_data": {
+                    "name": item.print.title,
+                },
+                "unit_amount": int(item.print.price * 100),
             },
-            'quantity': item.quantity,
+            "quantity": item.quantity,
         })
 
     session = stripe.checkout.Session.create(
-        payment_method_types=['card'],
+        payment_method_types=["card"],
         line_items=line_items,
-        mode='payment',
-        client_reference_id=request.user.id,
-        success_url='http://127.0.0.1:8000/success/',
-        cancel_url='http://127.0.0.1:8000/cancel/',
+        mode="payment",
+        client_reference_id=str(request.user.id),
+        success_url=(
+            "http://127.0.0.1:8000/success/"
+            "?session_id={CHECKOUT_SESSION_ID}"
+        ),
+        cancel_url="http://127.0.0.1:8000/cancel/",
     )
 
     return redirect(session.url)
+
 
 # Order history view
 @login_required
