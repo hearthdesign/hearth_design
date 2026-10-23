@@ -60,7 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Extract image URL, product ID, and title from data attributes
       currentIndex = index; // stores the currentIndex for navigation 
       // Open modal with the data attributes 
-      openModal(this.dataset.image, this.dataset.id, this.dataset.title);
+      openModal(this.dataset.image, this.dataset.id, this.dataset.title,
+    this.dataset.price);
   
     });
   });
@@ -83,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set image source and title
     modal.querySelector('#modal-image').src = imageUrl;
     modal.querySelector('#modal-title').textContent = title;
+     modal.querySelector('#modal-price').textContent = price;
     modal.classList.add('show');
     // Set hidden input value for product ID and default quantity
     const productInput = modal.querySelector('#modal-product-id');
