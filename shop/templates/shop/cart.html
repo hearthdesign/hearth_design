@@ -10,8 +10,11 @@
 
 <p><strong>Total: €{{ cart_total }}</strong></p>
 
-<a href="{% url 'create_checkout_session' %}">
-  {% trans "Buy with Stripe" %}
-</a>
+<form action="{% url 'create_checkout_session' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="checkout-btn">
+        {% trans "Secure Checkout with Stripe" %}
+    </button>
+</form>
 
 {% endblock %}
