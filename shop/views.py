@@ -14,6 +14,8 @@ from django.http import HttpResponse
 from shop.services.webhooks import handle_stripe_webhook
 import hashlib
 import stripe
+from django.conf import settings
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 # Import all models
 from .models import Order, Print, Theme, ContactSubmission, Cart, CartItem, Illustration, Photography
@@ -216,11 +218,16 @@ def create_checkout_session(request):
         mode="payment",
         client_reference_id=str(request.user.id),
         success_url=(
-            "http://127.0.0.1:8000/success/"
-            "?session_id={CHECKOUT_SESSION_ID}"
+            request.build_absolute_uri(
+                reverse("payment_success")
+            )
+            + "?session_id={CHECKOUT_SESSION_ID}"
         ),
-        cancel_url="http://127.0.0.1:8000/cancel/",
-    )
+
+        cancel_url=request.build_absolute_uri(
+            reverse("payment_cancel")
+        )   
+    ),
 
     return redirect(session.url)
 
@@ -317,3 +324,17 @@ def stripe_webhook_view(request):
     event, status_code = handle_stripe_webhook(payload, sig_header)
 
     return HttpResponse(status=status_code)
+
+# Payment  success view
+def payment_success(request):
+    return render(
+        request,
+        "shop/payment_success.html"
+    )
+
+# Payment cancel view
+def payment_cancel(request):
+    return render(
+        request,
+        "shop/payment_cancel.html"
+    )

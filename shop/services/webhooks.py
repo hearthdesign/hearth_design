@@ -66,3 +66,4 @@ def handle_checkout_session(session):
         )
 
     cart.cartitem_set.all().delete()
+    print("ORDER CREATED:", order.id)

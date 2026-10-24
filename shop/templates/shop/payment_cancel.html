@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+    <h1>{% trans "Payment Cancelled" %}</h1>
+
+    <p>
+        {% trans "Your payment was cancelled." %}
+    </p>
+
+    <a href="{% url 'cart_view' %}">
+        {% trans "Return to Cart" %}
+    </a>
+
+{% endblock %}

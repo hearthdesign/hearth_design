@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+    <h1>{% trans "Payment Successful" %}</h1>
+
+    <p>
+        {% trans "Thank you for your purchase." %}
+    </p>
+
+    <p>
+        {% trans "Your order has been received." %}
+    </p>
+
+    <a href="{% url 'order_history' %}">
+            {% trans "View Orders" %}
+    </a>
+
+{% endblock %}
