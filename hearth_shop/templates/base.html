@@ -43,13 +43,17 @@
 
     <!-- TITLE -->
     <h3 id="modal-title"></h3>
-
+    
+    <p>
+      €<span id="modal-price"></span>
+    </p>
     <!-- ADD TO CART FORM (only for non-staff users) -->
     {% if not user.is_staff %}
       <form method="post" action="{% url 'add_to_cart' %}">
         {% csrf_token %}
         <input type="hidden" name="print_id" id="modal-product-id">
         <label for="quantity">{% trans "Quantity:" %}</label>
+        
         <input type="number" name="quantity" id="modal-quantity" value="1" min="1">
         <button type="submit">{% trans "Add to Cart" %}</button>
       </form>

@@ -34,7 +34,6 @@ urlpatterns += i18n_patterns(
     path('theme-filter/', views.theme_filter, name='theme_filter'), # Theme filter view
     path('cart/add/', views.add_to_cart, name='add_to_cart'),
     path('cart/', views.cart_view, name='cart_view'),
-    # path('checkout/<int:product_id>/', views.create_checkout_session, name='checkout'),
     path("orders/", views.order_history, name="order_history"),
     path('gallery/illustrations/', views.illustration_gallery, name='illustration_gallery'),
     path('gallery/photography/', views.photography_gallery, name='photography_gallery'),

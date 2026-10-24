@@ -115,10 +115,10 @@ class Print(models.Model):
         null=True
     )
     price = models.DecimalField(
-    max_digits=8,
-    decimal_places=2,
-    default=Decimal("50.00")
-) 
+        max_digits=8,
+        decimal_places=2,
+        default=Decimal("50.00")
+    ) 
     stock = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
     themes = models.ManyToManyField("Theme", blank=True)
@@ -219,14 +219,13 @@ class Cart(models.Model):
 # Cart Item model
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
-
     print = models.ForeignKey(
-    Print,
-    on_delete=models.CASCADE,
-    null=False,
-    blank=False,
-    related_name="cart_items"
-)
+        Print,
+        on_delete=models.CASCADE,
+        null=False,
+        blank=False,
+        related_name="cart_items"
+    )
     quantity = models.PositiveIntegerField(default=1)
     price_at_time = models.DecimalField(max_digits=8, decimal_places=2)
 
@@ -253,6 +252,11 @@ class CartItem(models.Model):
 class Order(models.Model):
     customer_name = models.CharField(max_length=100)
     customer_email = models.EmailField()
+    stripe_session_id = models.CharField(
+        max_length=255,
+        blank=True,
+        default="",
+    )
     prints = models.ManyToManyField(Print, through='OrderItem')
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     created_at = models.DateTimeField(auto_now_add=True)

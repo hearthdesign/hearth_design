@@ -3,7 +3,7 @@
 <!-- Cart -->
 {% block content %}
 {% for item in cart_items %}
-  <p>{{ item.print.title }} - €{{ item.print.price }}</p>
+  <p>{{ item.print.title }} - €{{ item.price_at_time }}</p>
   <p>Quantity: {{ item.quantity }}</p>
   <p>Total: €{{ item.total }}</p>
 {% endfor %}

@@ -179,13 +179,13 @@ def cart_view(request):
         items.append({
             'print': item.print,
             'quantity': item.quantity,
-            'total': item.print.price * item.quantity,
+            'price_at_time': item.price_at_time,
+            'total': item.price_at_time * item.quantity,
         })
-    total = sum(item.print.price * item.quantity for item in cart_items)
+    total = sum(item['total'] for item in items)
     return render(request, 'shop/cart.html', {'cart_items': items,  'cart_total': total})
 
 # Require user to be logged-in to proceed to checkout
-
 @login_required
 def create_checkout_session(request):
     cart = get_object_or_404(Cart, user=request.user)
@@ -204,12 +204,13 @@ def create_checkout_session(request):
                 "product_data": {
                     "name": item.print.title,
                 },
-                "unit_amount": int(item.print.price * 100),
+                "unit_amount": int(item.price_at_time * 100),
             },
             "quantity": item.quantity,
         })
 
     session = stripe.checkout.Session.create(
+        customer_email=request.user.email,
         payment_method_types=["card"],
         line_items=line_items,
         mode="payment",
