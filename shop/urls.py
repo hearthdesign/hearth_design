@@ -18,4 +18,9 @@ urlpatterns = [
         views.payment_cancel,
         name="payment_cancel"
     ),
+    path(
+        "cart/remove/<int:item_id>/",
+        views.remove_from_cart,
+        name="remove_from_cart"
+    ),
 ]

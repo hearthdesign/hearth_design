@@ -179,6 +179,7 @@ def cart_view(request):
     items = []
     for item in cart_items:
         items.append({
+            'id': item.id,
             'print': item.print,
             'quantity': item.quantity,
             'price_at_time': item.price_at_time,
@@ -186,6 +187,19 @@ def cart_view(request):
         })
     total = sum(item['total'] for item in items)
     return render(request, 'shop/cart.html', {'cart_items': items,  'cart_total': total})
+
+# Require user to be logged-in to remove items from cart
+@login_required
+def remove_from_cart(request, item_id):
+    cart_item = get_object_or_404(
+        CartItem,
+        id=item_id,
+        cart__user=request.user
+    )
+
+    cart_item.delete()
+
+    return redirect("cart_view")
 
 # Require user to be logged-in to proceed to checkout
 @login_required

@@ -12,7 +12,10 @@
           {% if order.is_paid %}(Paid){% else %}(Pending){% endif %}
           <ul>
             {% for item in order.items.all %}
-              <li>{{ item.quantity }} x {{ item.print.title }} — {{ item.price_at_time }} €</li>
+              <li>
+                {{ item.quantity }} x {{ item.print.title }}
+                — {{ item.price }} €
+              </li>
             {% endfor %}
           </ul>
           <p>Total: {{ order.total_price }} €</p>
