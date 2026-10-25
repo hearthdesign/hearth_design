@@ -1,4 +1,3 @@
-from requests import session
 import stripe
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -18,7 +17,12 @@ def handle_stripe_webhook(payload, sig_header):
 
     # Handle the event
     if event['type'] == 'checkout.session.completed':
+
+        print("WEBHOOK RECEIVED")
+        print("EVENT TYPE:", event['type'])
+
         session = event['data']['object']
+
         handle_checkout_session(session)
 
     return event, 200
@@ -31,7 +35,7 @@ def handle_checkout_session(session):
     print("=== STRIPE PAYMENT COMPLETED ===")
     print(session)
     user_id = session.get("client_reference_id")
-
+    print("USER ID:", user_id)
     if not user_id:
         return
 
@@ -64,6 +68,6 @@ def handle_checkout_session(session):
             # Stores the purchase price permanently.
             price=cart_item.price_at_time,
         )
-
+    
     cart.cartitem_set.all().delete()
     print("ORDER CREATED:", order.id)

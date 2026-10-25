@@ -10,7 +10,7 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from shop.services.webhooks import handle_stripe_webhook
 import hashlib
 import stripe
@@ -210,7 +210,9 @@ def create_checkout_session(request):
             },
             "quantity": item.quantity,
         })
-
+    print("STRIPE SECRET:", settings.STRIPE_SECRET_KEY[:10])
+    print("STRIPE PUBLISHABLE:", settings.STRIPE_PUBLISHABLE_KEY[:10])
+    print("STRIPE API KEY:", stripe.api_key[:10] if stripe.api_key else "None")
     session = stripe.checkout.Session.create(
         customer_email=request.user.email,
         payment_method_types=["card"],
@@ -227,7 +229,7 @@ def create_checkout_session(request):
         cancel_url=request.build_absolute_uri(
             reverse("payment_cancel")
         )   
-    ),
+    )
 
     return redirect(session.url)
 
