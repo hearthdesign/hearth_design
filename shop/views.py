@@ -188,9 +188,41 @@ def cart_view(request):
     total = sum(item['total'] for item in items)
     return render(request, 'shop/cart.html', {'cart_items': items,  'cart_total': total})
 
+# Require user to be logged-in to increase items in cart
+@login_required
+def increase_cart_quantity(request, item_id):
+
+    cart_item = get_object_or_404(
+        CartItem,
+        id=item_id,
+        cart__user=request.user
+    )
+
+    cart_item.quantity += 1
+    cart_item.save()
+
+    return redirect("cart_view")
+
 # Require user to be logged-in to remove items from cart
 @login_required
+def decrease_cart_quantity(request, item_id):
+    cart_item = get_object_or_404(
+        CartItem,
+        id=item_id,
+        cart__user=request.user
+    )
+
+    if cart_item.quantity > 1:
+        cart_item.quantity -= 1
+        cart_item.save()
+    else:
+        cart_item.delete()
+
+    return redirect("cart_view")
+
+@login_required
 def remove_from_cart(request, item_id):
+
     cart_item = get_object_or_404(
         CartItem,
         id=item_id,
@@ -210,6 +242,8 @@ def create_checkout_session(request):
     # Prevent checkout with an empty cart.
     if not cart_items.exists():
         return redirect("cart_view")
+
+
 
     line_items = []
 

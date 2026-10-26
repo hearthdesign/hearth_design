@@ -19,8 +19,19 @@ urlpatterns = [
         name="payment_cancel"
     ),
     path(
-        "cart/remove/<int:item_id>/",
-        views.remove_from_cart,
-        name="remove_from_cart"
+        "cart/increase/<int:item_id>/",
+        views.increase_cart_quantity,
+        name="increase_cart_quantity"
     ),
+
+    path(
+        "cart/decrease/<int:item_id>/",
+        views.decrease_cart_quantity,
+        name="decrease_cart_quantity"
+    ),
+    path(
+    "cart/remove/<int:item_id>/",
+    views.remove_from_cart,
+    name="remove_from_cart"
+),
 ]

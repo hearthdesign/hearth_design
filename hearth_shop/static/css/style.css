@@ -458,6 +458,20 @@ img {
   border-radius: 4px;
 }
 
+.cart-thumbnail {
+    width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+}
+
+/*  increase and decrease quantity buttons */
+.qty-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
 /* ===========================
    RESPONSIVE DESIGN
 =========================== */

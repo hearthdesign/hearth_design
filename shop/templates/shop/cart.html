@@ -3,12 +3,51 @@
 <!-- Cart -->
 {% block content %}
 {% for item in cart_items %}
-  <p>{{ item.print.title }} - €{{ item.price_at_time }}</p>
-  <p>Quantity: {{ item.quantity }}</p>
-  <p>Total: €{{ item.total }}</p>
+<div class="cart-item">
+    {% if item.print.image %}
+        <img
+            src="{{ item.print.image.url }}"
+            alt="{{ item.print.title }}"
+            class="cart-thumbnail">
+    {% endif %}
+    <div class="cart-details">  
+        <h3>{{ item.print.title }}</h3>
+        <p><strong>Price:</strong> €{{ item.price_at_time }}</p>
+        <p><strong>Quantity:</strong></p>
+        <div class="qty-stack">
+            <form
+                action="{% url 'increase_cart_quantity' item.id %}"
+                method="post">
+                {% csrf_token %}
+                <button type="submit">+</button>
+            </form>
+
+            <span>{{ item.quantity }}</span>
+
+            <form
+                action="{% url 'decrease_cart_quantity' item.id %}"
+                method="post">
+                {% csrf_token %}
+                <button type="submit">-</button>
+            </form>
+        </div>
+        <p><strong>Subtotal:</strong> €{{ item.total }}</p>
+        <form action="{% url 'remove_from_cart' item.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">
+                Remove Item
+            </button>
+        </form>
+        <p>CartItem ID: {{ item.id }}</p>
+        <p>Print ID: {{ item.print.id }}</p>
+        <p>Title: {{ item.print.title }}</p>
+    </div>
+
+</div>
+
 {% endfor %}
 
-<p><strong>Total: €{{ cart_total }}</strong></p>
+<p><strong>Cart Total: €{{ cart_total }}</strong></p>
 
 <form action="{% url 'create_checkout_session' %}" method="post">
     {% csrf_token %}
