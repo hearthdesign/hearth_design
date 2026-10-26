@@ -32,7 +32,7 @@ def homepage(request):
     prints = Print.objects.filter(is_active=True)
 
     # Filter by category type if provided
-    if category in ["illustration", "photography"]:
+    if category in ["illustration", "photo"]:
         prints = prints.filter(type=category)
 
     # Filter by theme if provided
@@ -78,7 +78,11 @@ def upload_print(request):
 
 # Illustration gallery view
 def illustration_gallery(request):
-    prints = Illustration.objects.filter(quantity__gt=0)
+    prints = Print.objects.filter(
+        type='illustration',
+        stock__gt=0,
+        is_active=True
+    )
     paginator = Paginator(prints, 20)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -90,13 +94,17 @@ def illustration_gallery(request):
 
 # Photography gallery
 def photography_gallery(request):
-    prints = Photography.objects.filter(quantity__gt=0)
+    prints = Print.objects.filter(
+        type='photo',
+        stock__gt=0,
+        is_active=True
+    )
     paginator = Paginator(prints, 20)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'shop/photography_gallery.html', {
         'page_obj': page_obj,
-        'category': 'photography',
+        'category': 'photo',
         'theme': None,
     })
 
@@ -108,14 +116,20 @@ def theme_filter(request):
 
     # Decide which queryset to use based on category
     if category == 'illustration':
-        prints = Illustration.objects.filter(themes=theme, quantity__gt=0)
+        prints = Print.objects.filter(themes=theme, quantity__gt=0)
         template = 'shop/illustration_gallery.html'
     elif category == 'photography':
-        prints = Photography.objects.filter(themes=theme, quantity__gt=0)
+        prints = Print.objects.filter(themes=theme, type='illustration',
+        stock__gt=0,
+        is_active=True,
+    )
         template = 'shop/photography_gallery.html'
     else:
         # If no category specified, use Print model directly (combine both)
-        prints = Print.objects.filter(themes=theme, is_active=True)
+        prints = Print.objects.filter(themes=theme, type='photo',
+        stock__gt=0,
+        is_active=True,
+    )
         template = 'shop/themed_gallery.html'
     
     # Paginate results
