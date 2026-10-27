@@ -146,63 +146,35 @@ class Print(models.Model):
 
 # Photography model
 class Photography(models.Model):
-    print = models.ForeignKey(Print, on_delete=models.CASCADE, related_name='photographies')
-    title = models.CharField(max_length=200)
-    quantity = models.PositiveIntegerField(default=0)
-    price = models.DecimalField(max_digits=8, decimal_places=2)
-    image = models.ImageField(upload_to='photographies/',
-                              storage=CloudinaryMediaStorage(),
-                              blank=True,
-                              null=True
-                              )
-    description = models.TextField(blank=True)
-    slug = models.SlugField(unique=True, blank=True, max_length=200)
-    themes = models.ManyToManyField("Theme", blank=True)
-    
+
+    print = models.OneToOneField(
+        Print,
+        on_delete=models.CASCADE,
+        related_name="photography"
+    )
+
     class Meta:
         verbose_name = _("Photography")
         verbose_name_plural = _("Photographies")
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
-
     def __str__(self):
-        return self.title
-    @property
-    def in_stock(self):
-        return self.quantity > 0
+        return self.print.title
 
 # Illustration Model
 class Illustration(models.Model):
-    print = models.ForeignKey(Print, on_delete=models.CASCADE, related_name='illustrations')
-    title = models.CharField(max_length=200)
-    quantity = models.PositiveIntegerField(default=0)
-    price = models.DecimalField(max_digits=8, decimal_places=2)
-    image = models.ImageField(upload_to='illustrations/',
-                              storage=CloudinaryMediaStorage(),
-                              blank=True,
-                              null=True
-                              )
-    description = models.TextField(blank=True)
-    slug = models.SlugField(unique=True, blank=True, max_length=200)
-    themes = models.ManyToManyField("Theme", blank=True)
+
+    print = models.OneToOneField(
+        Print,
+        on_delete=models.CASCADE,
+        related_name="illustration"
+    )
 
     class Meta:
         verbose_name = _("Illustration")
         verbose_name_plural = _("Illustrations")
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
-
     def __str__(self):
-        return self.title
-    @property
-    def in_stock(self):
-        return self.quantity > 0
+        return self.print.title
         
 # Cart model
 class Cart(models.Model):

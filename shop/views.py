@@ -18,7 +18,7 @@ from django.conf import settings
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 # Import all models
-from .models import Order, Print, Theme, ContactSubmission, Cart, CartItem, Illustration, Photography
+from .models import Order, Print, Theme, ContactSubmission, Cart, CartItem
 from .forms import PrintForm, ContactForm, CustomSignupForm
 
 
@@ -116,19 +116,23 @@ def theme_filter(request):
 
     # Decide which queryset to use based on category
     if category == 'illustration':
-        prints = Print.objects.filter(themes=theme, quantity__gt=0)
+        prints = Print.objects.filter(
+            themes=theme,
+            type='illustration',
+            is_active=True,)
         template = 'shop/illustration_gallery.html'
-    elif category == 'photography':
-        prints = Print.objects.filter(themes=theme, type='illustration',
-        stock__gt=0,
-        is_active=True,
+    elif category == 'photo':
+        prints = Print.objects.filter(themes=theme,
+            type='photo',
+            is_active=True,
     )
         template = 'shop/photography_gallery.html'
     else:
         # If no category specified, use Print model directly (combine both)
-        prints = Print.objects.filter(themes=theme, type='photo',
-        stock__gt=0,
-        is_active=True,
+        prints = Print.objects.filter(
+            themes=theme,
+            stock__gt=0,
+            is_active=True,
     )
         template = 'shop/themed_gallery.html'
     
