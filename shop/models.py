@@ -143,38 +143,6 @@ class Print(models.Model):
     @property
     def in_stock(self):
         return self.stock > 0
-
-# Photography model
-class Photography(models.Model):
-
-    print = models.OneToOneField(
-        Print,
-        on_delete=models.CASCADE,
-        related_name="photography"
-    )
-
-    class Meta:
-        verbose_name = _("Photography")
-        verbose_name_plural = _("Photographies")
-
-    def __str__(self):
-        return self.print.title
-
-# Illustration Model
-class Illustration(models.Model):
-
-    print = models.OneToOneField(
-        Print,
-        on_delete=models.CASCADE,
-        related_name="illustration"
-    )
-
-    class Meta:
-        verbose_name = _("Illustration")
-        verbose_name_plural = _("Illustrations")
-
-    def __str__(self):
-        return self.print.title
         
 # Cart model
 class Cart(models.Model):

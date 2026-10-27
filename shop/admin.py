@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import (
-    Category, Theme, Print, Photography, Illustration,
-    Cart, CartItem, Order, OrderItem, ContactSubmission
+    Category, Theme, Print, Cart, CartItem, Order, OrderItem, ContactSubmission
     )
 
 # Register the Category Model with the Admin site
@@ -28,23 +27,6 @@ class PrintAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     ordering = ("title",)
     filter_horizontal = ('themes',)
-
-# Register the Photography Model with the Admin site
-@admin.register(Photography)
-class PhotographyAdmin(admin.ModelAdmin):
-    list_display = ("title", "print", "quantity", "price")
-    list_filter = ("themes",)
-    search_fields = ("title", "slug", "description")
-    prepopulated_fields = {"slug": ("title",)}
-    filter_horizontal = ('themes',)
-
-# Register the Illustration Model with the Admin site
-@admin.register(Illustration)
-class IllustrationAdmin(admin.ModelAdmin):
-    list_display = ("title", "print", "quantity", "price")
-    list_filter = ("themes",)
-    search_fields = ("title", "slug", "description")
-    prepopulated_fields = {"slug": ("title",)}
 
 # Register the Cart Model with the Admin site
 @admin.register(Cart)
