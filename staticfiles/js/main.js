@@ -60,7 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Extract image URL, product ID, and title from data attributes
       currentIndex = index; // stores the currentIndex for navigation 
       // Open modal with the data attributes 
-      openModal(this.dataset.image, this.dataset.id, this.dataset.title);
+      openModal(this.dataset.image, this.dataset.id, this.dataset.title,
+    this.dataset.price);
   
     });
   });
@@ -78,24 +79,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // ========================================
   // Function to populate and show the modal
   // ========================================
-  function openModal(imageUrl, productId, title) {
+function openModal(imageUrl, productId, title, price) {
     const modal = document.getElementById('image-modal');
-    // Set image source and title
+
     modal.querySelector('#modal-image').src = imageUrl;
     modal.querySelector('#modal-title').textContent = title;
-    modal.classList.add('show');
-    // Set hidden input value for product ID and default quantity
+
+    const priceElement = modal.querySelector('#modal-price');
+        if (priceElement) {
+        priceElement.textContent = price || '';
+    }
     const productInput = modal.querySelector('#modal-product-id');
     const quantityInput = modal.querySelector('#modal-quantity');
-  
+
     if (productInput && quantityInput) {
-      productInput.value = productId;
-      quantityInput.value = 1;
+        productInput.value = productId;
+        quantityInput.value = 1;
     }
-  
+
     modal.classList.add('show');
-    modal.style.display = 'block';  // show the modal
-  }
+    modal.style.display = 'block';
+}
   
   function closeModal() {
     const modal = document.getElementById('image-modal');
