@@ -1,5 +1,45 @@
 # Hearth Shop — User Stories and Refactoring Plan
 
+
+## Table of Contents
+
+### Project Information
+1. [Project Context](#1-project-context)
+2. [Priority Legend](#2-priority-legend)
+3. [User Stories](#3-user-stories)
+
+### Must Have (M)
+- [US-01 Audit and Preserve the Existing Application](#us-01--audit-and-preserve-the-existing-application-m)
+- [US-02 Browse the Product Catalogue](#us-02--browse-the-product-catalogue-m)
+- [US-03 Fix Add-to-Cart Functionality](#us-03--fix-add-to-cart-functionality-m)
+- [US-04 Complete Checkout and Create Orders](#us-04--complete-checkout-and-create-orders-m)
+- [US-05 Fix Stripe Redirects and Checkout Feedback](#us-05--fix-stripe-redirects-and-checkout-feedback-m)
+- [US-06 Verify Payments and Update Order Status](#us-06--verify-payments-and-update-order-status-m)
+- [US-07 View Order History Securely](#us-07--view-order-history-securely-m)
+- [US-08 Improve Authentication and Authorization](#us-08--improve-authentication-and-authorization-m)
+
+### Should Have (S)
+- [US-09 Implement Frontend Product CRUD](#us-09--implement-frontend-product-crud-s)
+- [US-10 Send Transactional Order Emails](#us-10--send-transactional-order-emails-s)
+- [US-12 Improve Contact Form Functionality](#us-12--improve-contact-form-functionality-s)
+- [US-13 Improve Accessibility and Responsive Design](#us-13--improve-accessibility-and-responsive-design-s)
+- [US-14 Implement SEO and Error Handling](#us-14--implement-seo-and-error-handling-s)
+- [US-15 Refactor Into Reusable Django Apps Safely](#us-15--refactor-into-reusable-django-apps-safely-s)
+- [US-18 Improve Testing and Deployment Documentation](#us-18--improve-testing-and-deployment-documentation-s)
+
+### Could Have (C)
+- [US-11 Add a Dedicated Newsletter Signup](#us-11--add-a-dedicated-newsletter-signup-c)
+- [US-16 Document the Business Model, Database Schema, and Design](#us-16--document-the-business-model-database-schema-and-design-c)
+- [US-17 Document the Marketing Strategy and Facebook Evidence](#us-17--document-the-marketing-strategy-and-facebook-evidence-c)
+
+## Future Enhancements
+- [Future Commerce Features](#future-commerce-features)
+- [Future Customer Features](#future-customer-features)
+- [Future Product Features](#future-product-features)
+- [Future Marketing Features](#future-marketing-features)
+- [Future Technical Improvements](#future-technical-improvements)
+
+
 ## 1. Project context
 
 Hearth Shop is an existing Django e-commerce application for browsing and purchasing prints.
@@ -19,15 +59,11 @@ The existing database, product media, model relationships, migration history, pa
 
 ## 2. Priority legend
 
-- 🔴 **Critical:** Core functionality, payment reliability, data integrity, or security.
-- 🟡 **High:** Important functionality, usability, maintainability, testing, and deployment quality.
-- 🟢 **Supporting:** Documentation, marketing, and assessment evidence.
+See ../docs/project_workflow.md
 
-Priority indicates implementation urgency, not completion status.
+## 3. USER STORIES
 
-## 3. User stories
-
-### US-01 — Audit and preserve the existing application
+### US-01 — Audit and preserve the existing application (M)
 
 **Priority:** 🔴 Critical
 
@@ -46,7 +82,7 @@ Priority indicates implementation urgency, not completion status.
 
 **Current locations:** `hearth_shop/`, `shop/`, `media/`, `static/`, `staticfiles/`, and project configuration files.
 
-### US-02 — Browse the product catalogue
+### US-02 — Browse the product catalogue (M)
 
 **Priority:** 🟡 High
 
@@ -62,11 +98,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Catalogue pages are usable on desktop, tablet, and mobile.
 - [ ] Relevant automated tests pass.
 
-**Current locations:** `shop/` and `shop/templates/shop/`.
-
-**Possible future destination:** `catalog/`.
-
-### US-03 — Fix add-to-cart functionality
+### US-03 — Fix add-to-cart functionality (M)
 
 **Priority:** 🔴 Critical
 
@@ -85,11 +117,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Automated tests cover adding, updating, removing, and invalid input.
 - [ ] Manual testing confirms that cart operations work through the website.
 
-**Current locations:** Existing cart services, views, URLs, forms, and templates under `shop/`.
-
-**Possible future destination:** `cart/`.
-
-### US-04 — Complete checkout and create orders
+### US-04 — Complete checkout and create orders (M)
 
 **Priority:** 🔴 Critical
 
@@ -107,11 +135,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Database relationships and order totals are validated.
 - [ ] Automated tests cover order creation, invalid carts, and failure scenarios.
 
-**Current locations:** Existing checkout services and order logic under `shop/`.
-
-**Possible future destinations:** `orders/`, `cart/`, and `payments/`.
-
-### US-05 — Fix Stripe redirects and checkout feedback
+### US-05 — Fix Stripe redirects and checkout feedback (M)
 
 **Priority:** 🔴 Critical
 
@@ -130,11 +154,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Automated tests cover checkout session creation and relevant errors.
 - [ ] Production configuration uses the correct HTTPS domain and callback routes.
 
-**Current locations:** Existing checkout and Stripe services, views, URLs, and settings under `shop/` and `hearth_shop/`.
-
-**Possible future destination:** `payments/`.
-
-### US-06 — Verify payments and update order status
+### US-06 — Verify payments and update order status (M)
 
 **Priority:** 🔴 Critical
 
@@ -153,11 +173,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Automated tests cover valid events, invalid signatures, unknown orders, and repeated events.
 - [ ] Stripe test-mode payments and webhook delivery are verified before production use.
 
-**Current locations:** Existing Stripe and webhook services, including `shop/services/stripe.py` and `shop/services/webhooks.py`, subject to verification.
-
-**Possible future destinations:** `payments/` and `orders/`.
-
-### US-07 — View order history securely
+### US-07 — View order history securely (M)
 
 **Priority:** 🔴 Critical
 
@@ -173,11 +189,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Unauthenticated access is redirected or denied appropriately.
 - [ ] Automated tests cover order ownership and permissions.
 
-**Current locations:** Existing order models, views, URLs, and templates under `shop/`.
-
-**Possible future destination:** `orders/`.
-
-### US-08 — Improve authentication and authorization
+### US-08 — Improve authentication and authorization (M)
 
 **Priority:** 🔴 Critical
 
@@ -194,11 +206,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Forms validate submitted data and protect state-changing requests against CSRF.
 - [ ] Automated tests cover authenticated, unauthenticated, and unauthorized access.
 
-**Current locations:** Existing authentication configuration, registration templates, app URLs, views, and settings.
-
-**Possible future destination:** `accounts/`.
-
-### US-09 — Implement frontend product CRUD
+### US-09 — Implement frontend product CRUD (S)
 
 **Priority:** 🔴 Critical
 
@@ -217,11 +225,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Automated tests cover CRUD operations, validation, and unauthorized requests.
 - [ ] Existing products and media remain intact during implementation.
 
-**Current locations:** Existing product models, forms, views, URLs, and templates under `shop/`.
-
-**Possible future destination:** `catalog/`.
-
-### US-10 — Send transactional order emails
+### US-10 — Send transactional order emails (S)
 
 **Priority:** 🟡 High
 
@@ -237,11 +241,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Email configuration is managed through environment variables.
 - [ ] Automated tests verify the email trigger and content.
 
-**Current locations:** Existing email functionality, if present, and order/payment services under `shop/`.
-
-**Possible future destination:** `notifications/`.
-
-### US-11 — Add a dedicated newsletter signup
+### US-11 — Add a dedicated newsletter signup (C)
 
 **Priority:** 🟡 High
 
@@ -257,11 +257,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Marketing messages are sent in accordance with applicable consent and privacy requirements.
 - [ ] Automated tests cover signup, duplicate submissions, and consent handling.
 
-**Current locations:** Existing forms and templates under `shop/`, if applicable.
-
-**Possible future destination:** `marketing/`.
-
-### US-12 — Improve contact form functionality
+### US-12 — Improve contact form functionality (S)
 
 **Priority:** 🟡 High
 
@@ -277,11 +273,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Appropriate spam protection and input validation are in place.
 - [ ] Automated tests cover valid and invalid submissions.
 
-**Current locations:** Existing contact forms, views, and templates under `shop/`, if applicable.
-
-**Possible future destination:** `contact/`.
-
-### US-13 — Improve accessibility and responsive design
+### US-13 — Improve accessibility and responsive design (S)
 
 **Priority:** 🟡 High
 
@@ -299,9 +291,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Placeholder images and static file references resolve correctly.
 - [ ] Accessibility checks and results are documented.
 
-**Current locations:** `hearth_shop/templates/`, `shop/templates/`, `hearth_shop/static/`, and other configured source static directories.
-
-### US-14 — Implement SEO and error handling
+### US-14 — Implement SEO and error handling (S)
 
 **Priority:** 🟡 High
 
@@ -320,11 +310,7 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Checkout, payment, and order-history routes resolve correctly.
 - [ ] Automated tests cover the sitemap, robots route, and relevant error handling.
 
-**Current locations:** `hearth_shop/urls.py`, project templates, settings, and existing app URLs.
-
-**Possible future locations:** Project-level configuration, `pages/`, or `catalog/sitemaps.py`, where appropriate.
-
-### US-15 — Refactor into reusable Django apps safely
+### US-15 — Refactor into reusable Django apps safely (S)
 
 **Priority:** 🟡 High
 
@@ -344,11 +330,25 @@ Priority indicates implementation urgency, not completion status.
 - [ ] Existing functionality is checked for regressions after changes.
 - [ ] Deployment configuration is updated if externally used routes or settings change.
 
-**Current locations:** `shop/`, `hearth_shop/`, existing migrations, and services.
+### Planned App Structure
 
-**Possible future destinations:** `accounts/`, `catalog/`, `cart/`, `orders/`, `payments/`, `notifications/`, `marketing/`, `contact/`, and `pages/`.
+The current shop app may be incrementally separated into reusable apps where doing so improves maintainability and separation of concerns.
+Potential app boundaries include:
 
-### US-16 — Document the business model, database schema, and design
+- accounts/
+- catalog/
+- cart/
+- orders/
+- payments/
+- notifications/
+- contact/
+- marketing/
+- pages/
+
+Only apps that provide a clear separation of responsibilities will be created.
+Existing functionality, migrations, media, and database relationships must remain intact during the refactor.
+
+### US-16 — Document the business model, database schema, and design (C)
 
 **Priority:** 🟢 Supporting
 
@@ -365,15 +365,15 @@ Priority indicates implementation urgency, not completion status.
 - [ ] The README links to the relevant documentation.
 - [ ] External code, libraries, and assets are attributed where required.
 
-**Planned files**
+### Supporting Documentation
 
-- `docs/business-model.md`
-- `docs/data-schema.md`
-- `docs/erd.png`
-- `docs/design-rationale.md`
-- `docs/wireframes/`
+- Business Model
+- Database Schema
+- ER Diagram
+- Design Rationale
+- Wireframes
 
-### US-17 — Document the marketing strategy and Facebook evidence
+### US-17 — Document the marketing strategy and Facebook evidence (C)
 
 **Priority:** 🟢 Supporting
 
@@ -389,12 +389,14 @@ Priority indicates implementation urgency, not completion status.
 - [ ] The README links to the strategy and relevant evidence.
 - [ ] Mockups are clearly distinguished from live business pages.
 
-**Planned files**
+### Supporting Evidence
 
-- `docs/marketing-strategy.md`
-- `docs/evidence/`
+- Marketing Strategy
+- Facebook Business Page or Mockup
+- Brand Positioning
+- Newsletter Strategy
 
-### US-18 — Improve testing and deployment documentation
+### US-18 — Improve testing and deployment documentation (S)
 
 **Priority:** 🟡 High
 
@@ -423,65 +425,46 @@ Priority indicates implementation urgency, not completion status.
 - `requirements.txt`
 - `Procfile`
 
-## 4. Recommended implementation phases
+---
+### Won't Have (This Release)
+The following ideas are intentionally deferred to future releases.
 
-### Phase 1 — Audit and establish a baseline
+## Future Enhancements
 
-- US-01: Audit and preserve the existing application.
-- Review the current application structure, data, migrations, and dependencies.
-- Identify and document known defects.
-- Establish a baseline for application behaviour.
+### Future Commerce Features
+Discount codes
+Coupons
+Gift cards
+Product bundles
+Stock notifications
+Multi-currency support
 
-**Expected outcome:** The current architecture and major risks are understood before structural changes begin.
+### Future Customer Features
+Wishlist / favourites
+Customer profiles
+Saved addresses
+Downloadable invoices
+Repeat orders
 
-### Phase 2 — Repair the purchase journey
+### Future Product Features
+Product reviews
+Product ratings
+Related products
+Recently viewed products
+Limited edition collections
 
-- US-03: Fix add-to-cart functionality.
-- US-04: Complete checkout and order creation.
-- US-05: Fix Stripe redirects and checkout feedback.
-- US-06: Verify payments and update order status.
-- US-07: Verify order history and ownership.
-- US-10: Add transactional order emails.
+### Future Marketing Features
+Automated email campaigns
+Segmented newsletters
+Referral programme
+Customer loyalty programme
+Social media integrations
 
-**Expected outcome:** The purchase journey is verified from cart through payment confirmation and order history, including relevant failure scenarios.
+### Future Technical Improvements
+REST API
+Dedicated mobile application
+Docker deployment
+CI/CD pipeline
+Advanced monitoring
+Extended test coverage
 
-### Phase 3 — Improve security and refactor incrementally
-
-- US-08: Improve authentication and authorization.
-- US-09: Implement frontend product CRUD.
-- US-15: Refactor into reusable Django apps safely.
-
-**Expected outcome:** Responsibilities are separated where appropriate, permissions are enforced, and existing data and functionality remain intact.
-
-### Phase 4 — Complete catalogue, UX, SEO, and supporting requirements
-
-- US-02: Browse the product catalogue.
-- US-11: Add a dedicated newsletter signup.
-- US-12: Improve contact form functionality.
-- US-13: Improve accessibility and responsive design.
-- US-14: Implement SEO and error handling.
-- US-16: Document the business model, schema, and design.
-- US-17: Document the marketing strategy and Facebook evidence.
-- US-18: Improve testing and deployment documentation.
-
-**Expected outcome:** The application and its supporting documentation meet the defined functional, quality, and project requirements.
-
-## 5. Assessment evidence checklist
-
-- [ ] Working cart and checkout.
-- [ ] Verified Stripe payment handling.
-- [ ] Correct order and order-item creation.
-- [ ] Secure order history and ownership checks.
-- [ ] Frontend CRUD with server-side permissions.
-- [ ] Automated and manual testing evidence.
-- [ ] Accessibility testing results.
-- [ ] ER diagram and database schema.
-- [ ] Business model and target-audience rationale.
-- [ ] Wireframes and design rationale.
-- [ ] Sitemap, `robots.txt`, meta descriptions, and custom 404 page.
-- [ ] Dedicated newsletter signup.
-- [ ] Facebook page screenshots or mockups, if required.
-- [ ] Marketing strategy.
-- [ ] Deployment procedure and verification evidence.
-- [ ] README and supporting documentation.
-- [ ] GitHub development history and project tracking evidence.

@@ -237,7 +237,7 @@ Under investigation.
 
 ---
 
-## Backup Strategy
+## **Backup Strategy**
 
 Before refactoring:
 
