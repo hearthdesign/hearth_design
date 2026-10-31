@@ -300,7 +300,7 @@ These areas must be validated with automated and manual testing before and after
 
 Lower-risk activities such as documentation updates, CSS cleanup, and navigation improvements may be completed throughout the project without substantial risk to business functionality.
 
-## Risk Summary
+### Risk Summary
 
 - 🔴 High Risk: Stripe, Database, Orders
 - 🟡 Medium Risk: Templates, Static Assets, Internationalisation
@@ -332,6 +332,7 @@ Lower-risk activities such as documentation updates, CSS cleanup, and navigation
 | Navigation Refactoring | 🟢 Low | Menu links or page navigation may become inconsistent. | Manually verify all navigation paths after UI changes. |
 | Template Naming Cleanup | 🟢 Low | Minor maintenance issues or broken references may occur. | Rename incrementally and verify template loading after each change. |
 
+## Detailed Risk Analysis
 
 ### High Risk 🔴
 
@@ -456,6 +457,43 @@ Template Naming Cleanup
 - Review migration history.
 - Store migration state before schema changes.
 
+### Database Backup
+
+Date
+2026-10-23
+Method
+Django dumpdata
+Result
+Successful
+Verification
+Products, users, orders, and related records were confirmed present.
+Backup Storage
+Local backup storage outside the repository.
+
+### Media Backup
+
+Date
+2026-10-23
+Storage System
+Cloudinary
+Result
+Successful
+Verification
+Product media confirmed available and representative samples exported.
+Backup Storage
+Local backup storage outside the repository.
+
+### Source Code Backup
+
+Method
+Git tag
+Tag
+pre-refactor-baseline
+Result
+Successful
+Purpose
+Rollback point before structural refactoring.
+
 ---
 
 ## Dependency Audit Observations
@@ -481,3 +519,5 @@ Template Naming Cleanup
 Reason:
 
 AWS-related packages exist in requirements.txt but their current role in the project should be confirmed during the architecture audit.
+
+
