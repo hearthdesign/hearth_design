@@ -114,6 +114,8 @@ TEMPLATES = [
                 'shop.context_processors.user_profile',
                 # Injects site-wide settings like name and currency
                 'shop.context_processors.site_settings',
+                # Injects themes for the theme filter
+                'shop.context_processors.themes',
             ],
         },
     },
