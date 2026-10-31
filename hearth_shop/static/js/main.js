@@ -16,6 +16,35 @@ if (hamburger && navLinks) {
 // ENSURE ELEMENTS ARE AVAILABLE
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
+  // ===============================
+// NAVBAR: Theme Switcher
+// ===============================
+
+const themeBtn = document.getElementById("theme-btn");
+const themeForm = document.getElementById("theme-form");
+const themeSelect = document.getElementById("theme-select");
+
+if (themeBtn && themeForm) {
+    themeBtn.addEventListener("click", () => {
+        themeForm.style.display =
+            themeForm.style.display === "none"
+                ? "inline-block"
+                : "none";
+    });
+}
+
+if (themeSelect) {
+    themeSelect.addEventListener("change", () => {
+
+        if (themeSelect.value === "") {
+            window.location.href = "/";
+            return;
+        }
+
+        themeForm.submit();
+    });
+}
+
 
   // ===============================
   // NAVBAR: Language Switcher
@@ -126,13 +155,22 @@ function openModal(imageUrl, productId, title, price) {
   function showNextImage() {
     currentIndex = (currentIndex + 1) % galleryLinks.length;
     const next = galleryLinks[currentIndex];
-    openModal(next.dataset.image, next.dataset.id, next.dataset.title);
+    openModal(
+      next.dataset.image,
+      next.dataset.id,
+      next.dataset.title,
+      next.dataset.price);
   }
   // Function to navigate to the previous image
   function showPreviousImage() {
     currentIndex = (currentIndex - 1 + galleryLinks.length) % galleryLinks.length;
     const prev = galleryLinks[currentIndex];
-    openModal(prev.dataset.image, prev.dataset.id, prev.dataset.title);
+    openModal(
+      prev.dataset.image,
+      prev.dataset.id,
+      prev.dataset.title,
+      prev.dataset.price
+    );
   }
   
   document.getElementById('prev-btn').addEventListener('click', showPreviousImage);
@@ -142,7 +180,14 @@ function openModal(imageUrl, productId, title, price) {
   // Keyboard navigation
   // ====================
   document.addEventListener('keydown', (e) => {
-    const modal = document.getElementById('image-modal');
+    const modal = document.getElementById("image-modal");
+    if (modal) {
+      modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+}
     if (modal.style.display === 'block') {
       if (e.key === 'ArrowRight') {
         showNextImage();

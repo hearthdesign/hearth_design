@@ -1,39 +1,51 @@
 # shop views
+from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ImproperlyConfigured
+from django.core.mail import send_mail
+from django.core.paginator import Paginator  # For pagination
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from django.core.paginator import Paginator # For pagination
-from django.conf import settings
-# To restrict access to logged-in users
-from django.contrib.auth.decorators import login_required  
-from django.core.mail import send_mail  # For sending emails
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse, request
-from shop.services.webhooks import handle_stripe_webhook
+
 import hashlib
 import stripe
-from django.conf import settings
-stripe.api_key = settings.STRIPE_SECRET_KEY
+
+from shop.services.webhooks import handle_stripe_webhook
 
 # Import all models
-from .models import Order, Print, Theme, ContactSubmission, Cart, CartItem
+from .models import (
+    Order,
+    Print,
+    Theme,
+    ContactSubmission,
+    Cart,
+    CartItem,
+)
+
 from .forms import PrintForm, ContactForm, CustomSignupForm
 
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
-#Homepage view
+
+# Homepage view
 def homepage(request):
     # Get filters from query string
-    category = request.GET.get("type")  # 'illustration' or 'photo'
+    print_type = request.GET.get("type")  # 'illustration' or 'photo'
     theme_slug = request.GET.get("theme")
 
     # Base queryset: active prints
-    prints = Print.objects.filter(is_active=True)
+    prints = Print.objects.filter(
+        is_active=True,
+        stock__gt=0,
+    ).order_by("-date")
 
     # Filter by category type if provided
-    if category in ["illustration", "photo"]:
-        prints = prints.filter(type=category)
+    if print_type in ["illustration", "photo"]:
+        prints = prints.filter(type=print_type)
 
     # Filter by theme if provided
     theme = None
@@ -49,103 +61,128 @@ def homepage(request):
 
     return render(request, "shop/homepage.html", {
         "page_obj": page_obj,
-        "category": category,
+        "category": print_type,
         "theme": theme,
         "login_url": reverse("login"),
     })
 
+
 # Upload print view
 @login_required
 def upload_print(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = PrintForm(request.POST, request.FILES)
+
         if form.is_valid():
             print_obj = form.save(commit=False)
 
-            # Set today's date automatically 
-            print_obj.date = datetime.today().date()
+            # Set today's date automatically
+            print_obj.date = timezone.now().date()
+
             print_obj.save()
             form.save_m2m()
 
             # Redirect based on type
-            if print_obj.type == 'photo':
-                return redirect('photography_gallery')
-            else:
-                return redirect('illustration_gallery')
+            if print_obj.type == "photo":
+                return redirect("photography_gallery")
+
+            elif print_obj.type == "illustration":
+                return redirect("illustration_gallery")
+
     else:
         form = PrintForm()
-    return render(request, 'shop/upload.html', {'form': form})
+
+    return render(request, "shop/upload.html", {"form": form})
 
 # Illustration gallery view
 def illustration_gallery(request):
     prints = Print.objects.filter(
-        type='illustration',
+        type="illustration",
         stock__gt=0,
-        is_active=True
-    )
+        is_active=True,
+    ).order_by("-date")
+
     paginator = Paginator(prints, 20)
-    page_number = request.GET.get('page')
+
+    page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
-    return render(request, 'shop/illustration_gallery.html', {
-        'page_obj': page_obj,
-        'category': 'illustration',
-        'theme': None,
+
+    return render(request, "shop/illustration_gallery.html", {
+        "page_obj": page_obj,
+        "category": "illustration",
+        "theme": None,
     })
 
 # Photography gallery
 def photography_gallery(request):
     prints = Print.objects.filter(
-        type='photo',
+        type="photo",
         stock__gt=0,
-        is_active=True
-    )
+        is_active=True,
+    ).order_by("-date")
+
     paginator = Paginator(prints, 20)
-    page_number = request.GET.get('page')
+
+    page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
-    return render(request, 'shop/photography_gallery.html', {
-        'page_obj': page_obj,
-        'category': 'photo',
-        'theme': None,
+
+    return render(request, "shop/photography_gallery.html", {
+        "page_obj": page_obj,
+        "category": "photo",
+        "theme": None,
     })
 
-# Theme filter view with optional category
+# Theme filter view with optional print type
 def theme_filter(request):
-    slug = request.GET.get('theme')
-    category = request.GET.get('type')  # 'illustration' or 'photography'
+    slug = request.GET.get("theme")
+
+    if not slug:
+        return redirect("homepage")
+
+    # 'illustration' or 'photo'
+    print_type = request.GET.get("type")
+
+    # If it's missing, redirect to the homepage
     theme = get_object_or_404(Theme, slug=slug)
 
-    # Decide which queryset to use based on category
-    if category == 'illustration':
-        prints = Print.objects.filter(
-            themes=theme,
-            type='illustration',
-            is_active=True,)
-        template = 'shop/illustration_gallery.html'
-    elif category == 'photo':
-        prints = Print.objects.filter(themes=theme,
-            type='photo',
-            is_active=True,
+    # Base queryset
+    prints = Print.objects.filter(
+        themes=theme,
+        stock__gt=0,
+        is_active=True,
     )
-        template = 'shop/photography_gallery.html'
+
+    # Decide which queryset to use based on print type
+    if print_type == "illustration":
+        prints = prints.filter(type="illustration")
+        template = "shop/illustration_gallery.html"
+
+    elif print_type == "photo":
+        prints = prints.filter(type="photo")
+        template = "shop/photography_gallery.html"
+
     else:
-        # If no category specified, use Print model directly (combine both)
-        prints = Print.objects.filter(
-            themes=theme,
-            stock__gt=0,
-            is_active=True,
-    )
-        template = 'shop/themed_gallery.html'
-    
+        # If no print type is specified, return all active prints
+        # belonging to the selected theme (combine both)
+        template = "shop/themed_gallery.html"
+
+    prints = prints.order_by("-date")
+
     # Paginate results
     paginator = Paginator(prints, 20)  # 20 items per page
-    page_number = request.GET.get('page')
+
+    page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
-    return render(request, template, {
-        'page_obj': page_obj,
-        'theme': theme,
-        'category': category,
-    })
+    return render(
+        request,
+        template,
+        {
+            "page_obj": page_obj,
+            "theme": theme,
+            "print_type": print_type,
+        },
+    )
 
 # Require login to access cart and checkout routes
 # Add to cart (model-based, not session)
@@ -156,16 +193,24 @@ def add_to_cart(request):
     print(request.POST)
 
     print_id = request.POST.get("print_id")
-    quantity = int(request.POST.get("quantity", 1))
 
     print("print_id:", print_id)
-    print("quantity:", quantity)
 
     if not print_id or not print_id.isdigit():
         print("INVALID PRINT ID")
         return redirect("cart_view")
 
     print_obj = get_object_or_404(Print, id=print_id)
+
+    try:
+        quantity = int(request.POST.get("quantity", 1))
+    except (TypeError, ValueError):
+        quantity = 1
+
+    quantity = max(1, quantity)
+    quantity = min(quantity, print_obj.stock)
+
+    print("quantity:", quantity)
 
     cart, created = Cart.objects.get_or_create(
         user=request.user
@@ -180,7 +225,10 @@ def add_to_cart(request):
     if created:
         cart_item.quantity = quantity
     else:
-        cart_item.quantity += quantity
+        cart_item.quantity = min(
+            cart_item.quantity + quantity,
+            print_obj.stock,
+        )
 
     cart_item.save()
 
@@ -213,11 +261,12 @@ def increase_cart_quantity(request, item_id):
     cart_item = get_object_or_404(
         CartItem,
         id=item_id,
-        cart__user=request.user
+        cart__user=request.user,
     )
 
-    cart_item.quantity += 1
-    cart_item.save()
+    if cart_item.quantity < cart_item.print.stock:
+        cart_item.quantity += 1
+        cart_item.save()
 
     return redirect("cart_view")
 
@@ -276,9 +325,11 @@ def create_checkout_session(request):
             },
             "quantity": item.quantity,
         })
-    print("STRIPE SECRET:", settings.STRIPE_SECRET_KEY[:10])
-    print("STRIPE PUBLISHABLE:", settings.STRIPE_PUBLISHABLE_KEY[:10])
-    print("STRIPE API KEY:", stripe.api_key[:10] if stripe.api_key else "None")
+
+    if not settings.STRIPE_SECRET_KEY:
+        raise ImproperlyConfigured(
+            "Stripe secret key is not configured."
+        )
     session = stripe.checkout.Session.create(
         customer_email=request.user.email,
         payment_method_types=["card"],

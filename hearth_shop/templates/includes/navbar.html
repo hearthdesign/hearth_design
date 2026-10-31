@@ -17,14 +17,33 @@
       <li><a href="{% url 'illustration_gallery' %}" class="nav-btn">{% trans "ILLUSTRATIONS" %}</a></li>
       <li><a href="{% url 'photography_gallery' %}" class="nav-btn">{% trans "PHOTOGRAPHY" %}</a></li>
       <li class="nav-stack">
-        <button type="submit" class="nav-btn" id="theme-btn">{% trans "THEME" %}</button>
-        <form method="get" action="{% url 'theme_filter' %}">
-          <select name="theme" id="theme-select">
-            {% for theme in themes %}
-              <option value="{{ theme.slug }}">{% trans theme.name %}</option>
-            {% endfor %}
-          </select>
-        </form>
+        <button
+            type="button"
+            class="nav-btn"
+            id="theme-btn">
+            {% trans "THEME" %}
+        </button>
+          <form
+              method="get"
+              action="{% url 'theme_filter' %}"
+              id="theme-form"
+              style="display:none;">
+
+              <select
+                  name="theme"
+                  id="theme-select">
+
+                  <option value="">
+                      {% trans "All Themes" %}
+                  </option>
+                
+                  {% for theme in themes %}
+                      <option value="{{ theme.slug }}">
+                          {{ theme.name }}
+                      </option>
+                  {% endfor %}
+              </select>
+          </form>
       </li>
     </ul>
 
