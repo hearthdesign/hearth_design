@@ -181,6 +181,7 @@ def theme_filter(request):
             "page_obj": page_obj,
             "theme": theme,
             "print_type": print_type,
+            "category": print_type,
         },
     )
 
