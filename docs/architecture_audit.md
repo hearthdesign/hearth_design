@@ -520,4 +520,240 @@ Reason:
 
 AWS-related packages exist in requirements.txt but their current role in the project should be confirmed during the architecture audit.
 
+---
 
+## Existing User Journeys
+
+### Journey 1: Browse Product Catalogue
+
+User Goal
+
+Discover available artwork.
+
+Steps
+
+1. Visit Homepage.
+2. Navigate to Photography Gallery.
+3. Navigate to Illustration Gallery.
+4. Browse products.
+5. View product information.
+6. Return to gallery or continue browsing.
+
+Expected Outcome
+
+The user can view available artwork, descriptions, prices, and images.
+
+### Journey 2: Add Product to Cart
+
+User Goal
+
+Prepare items for purchase.
+
+Steps
+
+1. Browse artwork.
+2. Select a product.
+3. Add product to cart.
+4. View cart contents.
+5. Adjust quantities or remove products.
+
+Expected Outcome
+
+The cart displays selected products with correct quantities and totals.
+
+### Journey 3: Checkout and Payment
+
+User Goal
+
+Purchase artwork.
+
+Steps
+
+1. Review cart.
+2. Proceed to checkout.
+3. Complete Stripe payment.
+4. Return to success page.
+
+Expected Outcome
+
+Order is created and payment is processed successfully.
+
+### Journey 4: View Order History
+
+User Goal
+
+Review previous purchases.
+
+Steps
+
+1. Login.
+2. Open Order History.
+3. View previous orders.
+
+Expected Outcome
+
+Only the authenticated user's orders are displayed.
+
+### Journey 5: User Authentication
+
+User Goal
+
+Access protected functionality.
+
+Steps
+
+1. Register account.
+2. Login.
+3. Access protected pages.
+4. Logout.
+
+Expected Outcome
+
+Authentication works correctly and permissions are enforced.
+
+### Journey 6: Contact Form
+
+User Goal
+
+Send an enquiry.
+
+Steps
+
+1. Open Contact page.
+2. Complete form.
+3. Submit enquiry.
+
+Expected Outcome
+
+User receives confirmation that the enquiry has been submitted.
+
+### Journey 6: Contact Form
+
+User Goal
+
+Send an enquiry.
+
+Steps
+
+1. Open Contact page.
+2. Complete form.
+3. Submit enquiry.
+
+Expected Outcome
+
+User receives confirmation that the enquiry has been submitted.
+
+## Existing Functionality Inventory
+
+## Product Catalogue
+
+Status: Implemented
+
+Features
+
+- Homepage
+- Photography gallery
+- Illustration gallery
+- Themed gallery
+- Pagination
+- Artwork images
+- Product information
+
+### Product Catalogue
+
+Status: Implemented
+
+Features
+
+- Homepage
+- Photography gallery
+- Illustration gallery
+- Themed gallery
+- Pagination
+- Artwork images
+- Product information
+
+### Shopping Cart
+
+Status: Implemented
+
+Features
+
+- Add products
+- Remove products
+- Update quantities
+- Display totals
+
+Notes:
+Requires functional verification during US-03.
+
+## Checkout
+
+Status: Implemented
+
+Features
+
+- Stripe Checkout Session
+- Cart integration
+- Success page
+- Cancellation page
+
+Notes:
+Requires verification during US-04 and US-05.
+
+### Orders
+
+Status: Implemented
+
+Features
+
+- Order creation
+- Order history
+- Order item records
+
+Notes
+
+Requires verification during US-04 and US-07.
+
+### Payments
+
+Status: Implemented
+
+Features
+
+- Stripe integration
+- Webhook handling
+
+Notes
+
+Requires verification during US-06.
+
+### Authentication
+
+Status: Implemented
+
+Features
+
+- Registration
+- Login
+- Logout
+- Password reset
+- Password change
+
+### Media Management
+
+Status: Implemented
+
+Features
+
+- Cloudinary image storage
+- Product image display
+
+### Media Management
+
+Status: Implemented
+
+Features
+
+- Cloudinary image storage
+- Product image display
