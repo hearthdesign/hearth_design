@@ -17,33 +17,33 @@ if (hamburger && navLinks) {
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
   // ===============================
-// NAVBAR: Theme Switcher
-// ===============================
+  // NAVBAR: Theme Switcher
+  // ===============================
 
-const themeBtn = document.getElementById("theme-btn");
-const themeForm = document.getElementById("theme-form");
-const themeSelect = document.getElementById("theme-select");
+  const themeBtn = document.getElementById("theme-btn");
+  const themeForm = document.getElementById("theme-form");
+  const themeSelect = document.getElementById("theme-select");
 
-if (themeBtn && themeForm) {
+  if (themeBtn && themeForm) {
     themeBtn.addEventListener("click", () => {
-        themeForm.style.display =
-            themeForm.style.display === "none"
-                ? "inline-block"
-                : "none";
+      themeForm.style.display =
+        themeForm.style.display === "none"
+          ? "inline-block"
+          : "none";
     });
-}
+  }
 
-if (themeSelect && themeForm) {
+  if (themeSelect && themeForm) {
     themeSelect.addEventListener("change", () => {
 
-        if (themeSelect.value === "") {
-            window.location.href = "/";
-            return;
-        }
+      if (themeSelect.value === "") {
+        window.location.href = "/";
+        return;
+      }
 
-        themeForm.submit();
+      themeForm.submit();
     });
-}
+  }
 
 
   // ===============================
@@ -52,14 +52,14 @@ if (themeSelect && themeForm) {
   const switchBtn = document.getElementById("switch-btn");
   const languageForm = document.getElementById("language-form");
   const languageSelect = document.getElementById("language-select");
-  
+
   if (switchBtn && languageForm) {
     switchBtn.addEventListener("click", () => {
       languageForm.style.display =
         languageForm.style.display === "none" ? "inline-block" : "none";
     });
   }
-  
+
   if (languageSelect && languageForm) {
     languageSelect.addEventListener("change", () => {
       languageForm.submit();
@@ -71,27 +71,27 @@ if (themeSelect && themeForm) {
   // to deter image downloads
   // ===============================
   document.addEventListener('contextmenu', e => e.preventDefault());
-  
+
   // ===============================
   // GALLERY + MODAL LOGIC
   // ===============================
   const galleryLinks = Array.from(document.querySelectorAll('.thumbnail a'));
   let currentIndex = 0;
-  
+
   // =============================================
   // Attach click listeners to all thumbnail links
   // to open the modal with the correct image
   // =============================================
   galleryLinks.forEach((link, index) => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
       e.preventDefault(); // Prevent default link behavior
-    
+
       // Extract image URL, product ID, and title from data attributes
       currentIndex = index; // stores the currentIndex for navigation 
       // Open modal with the data attributes 
       openModal(this.dataset.image, this.dataset.id, this.dataset.title,
-    this.dataset.price);
-  
+        this.dataset.price);
+
     });
   });
   // =======================================
@@ -104,15 +104,16 @@ if (themeSelect && themeForm) {
     });
   };
   preloadImages();
-  
+
   // ========================================
   // Function to populate and show the modal
+  // Safely exits if modal elements are not present
   // ========================================
-function openModal(imageUrl, productId, title, price) {
+  function openModal(imageUrl, productId, title, price) {
     const modal = document.getElementById("image-modal");
 
     if (!modal) {
-        return;
+      return;
     }
 
     modal.querySelector("#modal-image").src = imageUrl;
@@ -121,76 +122,84 @@ function openModal(imageUrl, productId, title, price) {
     const priceElement = modal.querySelector("#modal-price");
 
     if (priceElement) {
-        priceElement.textContent = price || "";
+      priceElement.textContent = price || "";
     }
 
     const productInput = modal.querySelector("#modal-product-id");
     const quantityInput = modal.querySelector("#modal-quantity");
 
     if (productInput && quantityInput) {
-        productInput.value = productId;
-        quantityInput.value = 1;
+      productInput.value = productId;
+      quantityInput.value = 1;
     }
 
     modal.classList.add("show");
     modal.style.display = "block";
-}
-  
-function closeModal() {
+  }
+  // ========================================
+  // Close modal safely
+  // Prevent errors on pages without a gallery modal
+  // ========================================
+  function closeModal() {
     const modal = document.getElementById("image-modal");
 
     if (!modal) {
-        return;
+      return;
     }
 
     modal.classList.remove("show");
 
     setTimeout(() => {
-        modal.style.display = "none";
+      modal.style.display = "none";
     }, 300); // match transition duration
   }
-  
-  
-// Close modal when clicking outside the modal content
-const modal = document.getElementById("image-modal");
 
-if (modal) {
-  modal.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-}
 
-// Close modal when the close button is clicked
-const closeIcon = document.querySelector(".close");
+  // Close modal when clicking outside the modal content
+  const modal = document.getElementById("image-modal");
 
-if (closeIcon) {
-  closeIcon.addEventListener("click", closeModal);
-}
+  if (modal) {
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
 
-const closeBtn = document.getElementById("close-btn");
+  // Close modal when the close button is clicked
+  const closeIcon = document.querySelector(".close");
+  // ========================================
+  // Modal Controls
+  // Add listeners only when modal elements exist
+  // Prevent JavaScript errors on non-gallery pages
+  // ========================================
+  if (closeIcon) {
+    closeIcon.addEventListener("click", closeModal);
+  }
 
-if (closeBtn) {
-  closeBtn.addEventListener("click", closeModal);
-}
+  const closeBtn = document.getElementById("close-btn");
 
-const prevBtn = document.getElementById("prev-btn");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+  }
 
-if (prevBtn) {
-  prevBtn.addEventListener("click", showPreviousImage);
-}
+  const prevBtn = document.getElementById("prev-btn");
 
-const nextBtn = document.getElementById("next-btn");
+  if (prevBtn) {
+    prevBtn.addEventListener("click", showPreviousImage);
+  }
 
-if (nextBtn) {
-  nextBtn.addEventListener("click", showNextImage);
-}
+  const nextBtn = document.getElementById("next-btn");
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", showNextImage);
+  }
 
   // Function to navigate to the next image
+  // Retains image, title, product ID and price
   function showNextImage() {
     if (galleryLinks.length === 0) {
-        return;
+      return;
     }
 
     currentIndex = (currentIndex + 1) % galleryLinks.length;
@@ -198,50 +207,50 @@ if (nextBtn) {
     const next = galleryLinks[currentIndex];
 
     openModal(
-        next.dataset.image,
-        next.dataset.id,
-        next.dataset.title,
-        next.dataset.price
+      next.dataset.image,
+      next.dataset.id,
+      next.dataset.title,
+      next.dataset.price
     );
-}
+  }
   // Function to navigate to the previous image
+  // Retains image, title, product ID and price
   function showPreviousImage() {
     if (galleryLinks.length === 0) {
-        return;
+      return;
     }
 
     currentIndex =
-        (currentIndex - 1 + galleryLinks.length) %
-        galleryLinks.length;
+      (currentIndex - 1 + galleryLinks.length) %
+      galleryLinks.length;
 
     const prev = galleryLinks[currentIndex];
 
     openModal(
-        prev.dataset.image,
-        prev.dataset.id,
-        prev.dataset.title,
-        prev.dataset.price
+      prev.dataset.image,
+      prev.dataset.id,
+      prev.dataset.title,
+      prev.dataset.price
     );
-}
-  
+  }
+
   // ====================
   // Keyboard navigation
+  // Runs only while the modal is open
   // ====================
   document.addEventListener('keydown', (e) => {
-  const modal = document.getElementById('image-modal');
+    const modal = document.getElementById('image-modal');
+    // Exit gracefully when the modal is not available
+    if (!modal || modal.style.display !== 'block') {
+      return;
+    }
 
-  if (!modal || modal.style.display !== 'block') {
-    return;
-  }
-
-  if (e.key === 'ArrowRight') {
-    showNextImage();
-  } else if (e.key === 'ArrowLeft') {
-    showPreviousImage();
-  } else if (e.key === 'Escape') {
-    closeModal();
-  }
+    if (e.key === 'ArrowRight') {
+      showNextImage();
+    } else if (e.key === 'ArrowLeft') {
+      showPreviousImage();
+    } else if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
 });
-}
-)
-
