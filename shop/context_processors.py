@@ -1,12 +1,27 @@
 from django.conf import settings 
-from .models import Print  # Import product model to calculate cart totals
-from .models import Cart
-from .models import Theme
+from .models import Cart, Theme
 
 def themes(request):
     return {
         "themes": Theme.objects.all()
     }
+
+def cart_count(request):
+
+    if not request.user.is_authenticated:
+        return {"cart_count": 0}
+
+    try:
+        cart = Cart.objects.get(user=request.user)
+    except Cart.DoesNotExist:
+        return {"cart_count": 0}
+
+    count = sum(
+        item.quantity
+        for item in cart.cartitem_set.all()
+    )
+
+    return {"cart_count": count}
 
 def cart_count(request):
     # Get the cart dictionary from session

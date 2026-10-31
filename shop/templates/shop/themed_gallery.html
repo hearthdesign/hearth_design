@@ -25,14 +25,23 @@
   <div class="gallery-grid">
     {% for print in page_obj %}
       <div class="thumbnail">
-        <a href="#"
-           data-image="{{ print.image.url }}"
-           data-id="{{ print.id }}"
-           data-title="{{ print.title }}"
-           data-price="{{ print.price }}">
-          <img src="{{ print.image.url }}" alt="{{ print.title }}" loading="lazy">
-        </a>
+        {% if print.image %}
+          <a href="#"
+            data-image="{{ print.image.url }}"
+            data-id="{{ print.id }}"
+            data-title="{{ print.title }}"
+            data-price="{{ print.price }}">
+            <img src="{{ print.image.url }}" alt="{{ print.title }}"
+              loading="lazy">
+          <a/>          
+        {% else %}
+          <a href="#">
+            <img src="/static/img/placeholder.jpg" alt="{% trans 'No image available' %}">
+          </a>
+        {% endif %} 
+          
         <h3>{{ print.title }}</h3>
+        
         {% if print.description %}
           <p>{{ print.description }}</p>
         {% endif %}

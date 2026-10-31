@@ -33,7 +33,7 @@ if (themeBtn && themeForm) {
     });
 }
 
-if (themeSelect) {
+if (themeSelect && themeForm) {
     themeSelect.addEventListener("change", () => {
 
         if (themeSelect.value === "") {
@@ -109,94 +109,139 @@ if (themeSelect) {
   // Function to populate and show the modal
   // ========================================
 function openModal(imageUrl, productId, title, price) {
-    const modal = document.getElementById('image-modal');
+    const modal = document.getElementById("image-modal");
 
-    modal.querySelector('#modal-image').src = imageUrl;
-    modal.querySelector('#modal-title').textContent = title;
-
-    const priceElement = modal.querySelector('#modal-price');
-        if (priceElement) {
-        priceElement.textContent = price || '';
+    if (!modal) {
+        return;
     }
-    const productInput = modal.querySelector('#modal-product-id');
-    const quantityInput = modal.querySelector('#modal-quantity');
+
+    modal.querySelector("#modal-image").src = imageUrl;
+    modal.querySelector("#modal-title").textContent = title;
+
+    const priceElement = modal.querySelector("#modal-price");
+
+    if (priceElement) {
+        priceElement.textContent = price || "";
+    }
+
+    const productInput = modal.querySelector("#modal-product-id");
+    const quantityInput = modal.querySelector("#modal-quantity");
 
     if (productInput && quantityInput) {
         productInput.value = productId;
         quantityInput.value = 1;
     }
 
-    modal.classList.add('show');
-    modal.style.display = 'block';
+    modal.classList.add("show");
+    modal.style.display = "block";
 }
   
-  function closeModal() {
-    const modal = document.getElementById('image-modal');
-    modal.classList.remove('show');
+function closeModal() {
+    const modal = document.getElementById("image-modal");
+
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.remove("show");
+
     setTimeout(() => {
-      modal.style.display = 'none';
+        modal.style.display = "none";
     }, 300); // match transition duration
   }
   
-  // Close modal when clicking outside the modal content
-  const modal = document.getElementById('image-modal');
-  modal.addEventListener('click', function(e) {
-    // Only close if the click is directly on the modal background
+  
+// Close modal when clicking outside the modal content
+const modal = document.getElementById("image-modal");
+
+if (modal) {
+  modal.addEventListener("click", function (e) {
     if (e.target === modal) {
       closeModal();
     }
   });
+}
 
-  // Close modal when the close button is clicked
-  document.querySelector('.close').addEventListener('click', closeModal); 
-  document.getElementById('close-btn').addEventListener('click', closeModal);
-  
+// Close modal when the close button is clicked
+const closeIcon = document.querySelector(".close");
+
+if (closeIcon) {
+  closeIcon.addEventListener("click", closeModal);
+}
+
+const closeBtn = document.getElementById("close-btn");
+
+if (closeBtn) {
+  closeBtn.addEventListener("click", closeModal);
+}
+
+const prevBtn = document.getElementById("prev-btn");
+
+if (prevBtn) {
+  prevBtn.addEventListener("click", showPreviousImage);
+}
+
+const nextBtn = document.getElementById("next-btn");
+
+if (nextBtn) {
+  nextBtn.addEventListener("click", showNextImage);
+}
+
   // Function to navigate to the next image
   function showNextImage() {
+    if (galleryLinks.length === 0) {
+        return;
+    }
+
     currentIndex = (currentIndex + 1) % galleryLinks.length;
+
     const next = galleryLinks[currentIndex];
+
     openModal(
-      next.dataset.image,
-      next.dataset.id,
-      next.dataset.title,
-      next.dataset.price);
-  }
+        next.dataset.image,
+        next.dataset.id,
+        next.dataset.title,
+        next.dataset.price
+    );
+}
   // Function to navigate to the previous image
   function showPreviousImage() {
-    currentIndex = (currentIndex - 1 + galleryLinks.length) % galleryLinks.length;
+    if (galleryLinks.length === 0) {
+        return;
+    }
+
+    currentIndex =
+        (currentIndex - 1 + galleryLinks.length) %
+        galleryLinks.length;
+
     const prev = galleryLinks[currentIndex];
+
     openModal(
-      prev.dataset.image,
-      prev.dataset.id,
-      prev.dataset.title,
-      prev.dataset.price
+        prev.dataset.image,
+        prev.dataset.id,
+        prev.dataset.title,
+        prev.dataset.price
     );
-  }
-  
-  document.getElementById('prev-btn').addEventListener('click', showPreviousImage);
-  document.getElementById('next-btn').addEventListener('click', showNextImage);
+}
   
   // ====================
   // Keyboard navigation
   // ====================
   document.addEventListener('keydown', (e) => {
-    const modal = document.getElementById("image-modal");
-    if (modal) {
-      modal.addEventListener("click", function (e) {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-}
-    if (modal.style.display === 'block') {
-      if (e.key === 'ArrowRight') {
-        showNextImage();
-      } else if (e.key === 'ArrowLeft') {
-        showPreviousImage();
-      } else if (e.key === 'Escape') {
-        modal.style.display = 'none';
-      }
-    }
-  });
+  const modal = document.getElementById('image-modal');
 
+  if (!modal || modal.style.display !== 'block') {
+    return;
+  }
+
+  if (e.key === 'ArrowRight') {
+    showNextImage();
+  } else if (e.key === 'ArrowLeft') {
+    showPreviousImage();
+  } else if (e.key === 'Escape') {
+    closeModal();
+  }
 });
+}
+)
+
