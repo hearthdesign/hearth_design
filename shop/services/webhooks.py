@@ -4,15 +4,22 @@ from django.contrib.auth import get_user_model
 from shop.models import Cart, Order, OrderItem
 
 def handle_stripe_webhook(payload, sig_header):
+    print("WEBHOOK RECEIVED")
+    print("SIGNATURE HEADER:", sig_header)
+    print("SIGNATURE HEADER:", sig_header)
+    print("WEBHOOK SECRET EXISTS:", bool(settings.STRIPE_WEBHOOK_SECRET))
     try:
         event = stripe.Webhook.construct_event(
             payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
         )
     except ValueError as e:
-        # Invalid payload
+        print("WEBHOOK ERROR: Invalid payload")
+        print(e)
         return None, 400
+
     except stripe.error.SignatureVerificationError as e:
-        # Invalid signature
+        print("WEBHOOK ERROR: Invalid signature")
+        print(e)
         return None, 400
 
     # Handle the event
