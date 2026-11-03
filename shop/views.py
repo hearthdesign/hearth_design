@@ -1,6 +1,6 @@
 # shop views
 from django.conf import settings
-from django.contrib.auth.decorators import login_required, messages
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ImproperlyConfigured
 from django.core.mail import send_mail
 from django.core.paginator import Paginator  # For pagination
@@ -10,6 +10,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
 
 import hashlib
 import stripe
@@ -463,13 +464,17 @@ def signup(request):
 
 @csrf_exempt
 def stripe_webhook_view(request):
+    print("WEBHOOK VIEW HIT")
     if request.method != "POST":
         return HttpResponse(status=405)
 
     payload = request.body
-    sig_header = request.META.get("HTTP_STRIPE_SIGNATURE", "")
+    sig_header = request.META.get(
+        "HTTP_STRIPE_SIGNATURE", ""
+    )
 
-    event, status_code = handle_stripe_webhook(payload, sig_header)
+    event, status_code = handle_stripe_webhook(
+        payload, sig_header)
 
     return HttpResponse(status=status_code)
 
