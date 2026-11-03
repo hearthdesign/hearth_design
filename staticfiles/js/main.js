@@ -35,11 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (themeSelect && themeForm) {
     themeSelect.addEventListener("change", () => {
-
-      if (themeSelect.value === "") {
-        window.location.href = "/";
-        return;
-      }
+      console.log("Theme changed:", themeSelect.value);
+        console.log("Submitting to:", themeForm.action);
+  //     if (themeSelect.value === "") {
+  //       window.location.href = themeForm.action.replace("theme-filter/", "");
+  //       return;
+  // }
 
       themeForm.submit();
     });
@@ -85,13 +86,18 @@ document.addEventListener("DOMContentLoaded", () => {
   galleryLinks.forEach((link, index) => {
     link.addEventListener('click', function (e) {
       e.preventDefault(); // Prevent default link behavior
-
+      if (!this.dataset.image) {
+        return;
+      }
       // Extract image URL, product ID, and title from data attributes
       currentIndex = index; // stores the currentIndex for navigation 
       // Open modal with the data attributes 
-      openModal(this.dataset.image, this.dataset.id, this.dataset.title,
-        this.dataset.price);
-
+      openModal(
+        this.dataset.image,
+        this.dataset.id,
+        this.dataset.title,
+        this.dataset.price
+      );
     });
   });
   // =======================================
@@ -99,6 +105,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // ======================================
   const preloadImages = () => {
     galleryLinks.forEach(link => {
+      if (!link.dataset.image) {
+        return;
+      }
+
       const img = new Image();
       img.src = link.dataset.image;
     });

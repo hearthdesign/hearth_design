@@ -37,21 +37,28 @@ def handle_checkout_session(session):
     user_id = session.get("client_reference_id")
     print("USER ID:", user_id)
     if not user_id:
+        print("WEBHOOK ERROR: No client_reference_id")
         return
 
     User = get_user_model()
 
     try:
         user = User.objects.get(id=user_id)
+    except User.DoesNotExist:
+        print(f"WEBHOOK ERROR: User {user_id} not found")
+        return
+
+    try:
         cart = Cart.objects.get(user=user)
-    except (User.DoesNotExist, Cart.DoesNotExist):
+    except Cart.DoesNotExist:
+        print(f"WEBHOOK ERROR: Cart for user {user_id} not found")
         return
 
     total_price = sum(
         item.price_at_time * item.quantity
         for item in cart.cartitem_set.all()
     )
-
+    print("Creating order...")
     order = Order.objects.create(
         customer_name=user.username,
         customer_email=user.email,

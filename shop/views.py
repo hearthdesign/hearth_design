@@ -1,6 +1,6 @@
 # shop views
 from django.conf import settings
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, messages
 from django.core.exceptions import ImproperlyConfigured
 from django.core.mail import send_mail
 from django.core.paginator import Paginator  # For pagination
@@ -268,6 +268,9 @@ def increase_cart_quantity(request, item_id):
     if cart_item.quantity < cart_item.print.stock:
         cart_item.quantity += 1
         cart_item.save()
+        print("Quantity increased")
+    else:
+        print("Stock limit reached")
 
     return redirect("cart_view")
 
@@ -297,9 +300,32 @@ def remove_from_cart(request, item_id):
         cart__user=request.user
     )
 
-    cart_item.delete()
+    if cart_item.quantity > 1:
+        cart_item.quantity -= 1
+        cart_item.save()
+
+    else:
+        item_title = cart_item.print.title
+        cart_item.delete()
+
+        remaining_items = CartItem.objects.filter(
+            cart__user=request.user
+        ).exists()
+
+        if remaining_items:
+            messages.success(
+                request,
+            f'"{item_title}" was removed from your cart.'
+            )
+
+        else:
+            messages.info(
+                request,
+            "Browse the gallery to discover more artwork."
+            )
 
     return redirect("cart_view")
+        
 
 # Require user to be logged-in to proceed to checkout
 @login_required
@@ -355,8 +381,10 @@ def create_checkout_session(request):
 # Order history view
 @login_required
 def order_history(request):
-    orders = Order.objects.filter(customer_email=request.user.email).prefetch_related("items__print")
-    return render(request, "shop/order_history.html", {"orders": orders})
+    orders = Order.objects.filter(
+        customer_email=request.user.email).prefetch_related("items__print")
+    return render(
+        request, "shop/order_history.html", {"orders": orders})
 
 # Contact form
 def contact_view(request):
