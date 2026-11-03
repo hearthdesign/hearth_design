@@ -6,7 +6,6 @@ from shop.models import Cart, Order, OrderItem
 def handle_stripe_webhook(payload, sig_header):
     print("WEBHOOK RECEIVED")
     print("SIGNATURE HEADER:", sig_header)
-    print("SIGNATURE HEADER:", sig_header)
     print("WEBHOOK SECRET EXISTS:", bool(settings.STRIPE_WEBHOOK_SECRET))
     try:
         event = stripe.Webhook.construct_event(
