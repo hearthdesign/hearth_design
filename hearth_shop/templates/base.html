@@ -26,7 +26,17 @@
 
     </header>
 <main>
-  {% block content %}{% endblock %}
+  {% block content %}
+    {% if messages %}
+      <div class="messages-container">
+        {% for message in messages %}
+          <div class="message message-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endblock %}
 </main>
 
 <!--  MODAL OVERLAY -->

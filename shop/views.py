@@ -198,19 +198,53 @@ def add_to_cart(request):
 
     print("print_id:", print_id)
 
+    # Validate incoming product ID
+    # Reject missing or non-numeric IDs before querying the database
     if not print_id or not print_id.isdigit():
         print("INVALID PRINT ID")
         return redirect("cart_view")
 
     print_obj = get_object_or_404(Print, id=print_id)
 
+
+    # Validate requested quantity
+    # Fall back to a safe value if invalid data is submitted
     try:
         quantity = int(request.POST.get("quantity", 1))
     except (TypeError, ValueError):
+        # Invalid quantity entered, set to 1 and show a warning message
+        messages.warning(
+            request,
+            _("Invalid quantity entered. Quantity has been reset to 1.")
+    )
         quantity = 1
 
+    # Prevent zero or negative quantities
     quantity = max(1, quantity)
+    if quantity < 1:
+        messages.warning(
+            request,
+            _("Quantity must be greater than zero. Quantity has been reset to 1.")
+        )
+    quantity = 1
+
+    # Prevent quantities exceeding available stock
     quantity = min(quantity, print_obj.stock)
+    if quantity > print_obj.stock:
+        messages.warning(
+            request,
+            _("Only %(stock)s item(s) currently available.") % {
+            "stock": print_obj.stock
+            }
+        )
+
+    # Prevent adding unavailable products
+    if print_obj.stock <= 0:
+        messages.error(
+            request,
+            _("This item is currently out of stock.")
+        )
+        return redirect("cart_view")
 
     print("quantity:", quantity)
 
@@ -227,15 +261,21 @@ def add_to_cart(request):
     if created:
         cart_item.quantity = quantity
     else:
+        requested_total = cart_item.quantity + quantity
+
+        if requested_total > print_obj.stock:
+            messages.warning(
+                request,
+                _("Maximum available stock reached for '%(title)s'.") % {
+                    "title": print_obj.title
+                }
+            )
+
         cart_item.quantity = min(
-            cart_item.quantity + quantity,
+            requested_total,
             print_obj.stock,
         )
-
-    cart_item.save()
-
     print("CART ITEM SAVED")
-
     return redirect("cart_view")
 
 # Require user to be logged in to view their cart
@@ -271,6 +311,10 @@ def increase_cart_quantity(request, item_id):
         cart_item.save()
         print("Quantity increased")
     else:
+        messages.warning(
+            request,
+            _("No additional stock is available for this item.")
+        )
         print("Stock limit reached")
 
     return redirect("cart_view")
@@ -287,8 +331,16 @@ def decrease_cart_quantity(request, item_id):
     if cart_item.quantity > 1:
         cart_item.quantity -= 1
         cart_item.save()
+
     else:
+        item_title = cart_item.print.title
         cart_item.delete()
+        messages.info(
+            request,
+            _("'%(title)s' has been removed from your cart.") % {
+                "title": item_title
+            }
+        )
 
     return redirect("cart_view")
 

@@ -4,6 +4,8 @@
 
 ### Navigation / UX Improvements
 
+**Status:** Open
+
 Add a clearly visible button to allow users to leave the upload process without relying on:
 
 - The navigation bar
@@ -37,6 +39,8 @@ Possible button labels:
 
 ### Change Password Form
 
+**Status:** Open
+
 **Issue:**
 
 - Accessing the password change form currently results in a **500 Server Error**.
@@ -55,6 +59,8 @@ Possible button labels:
 
 #### Failed Checkout with Empty Cart
 
+**Status:** Solved
+
 **Issue:**
 
 - No clear status or feedback message is displayed when a checkout attempt fails because the shopping cart is empty.
@@ -70,6 +76,8 @@ Possible button labels:
 ### Order Confirmation Flow
 
 #### "View Order" Returns No Order
+
+**Status:** Solved
 
 **Issue:**
 
@@ -110,7 +118,7 @@ Browser console and Heroku logs contain repeated 404 errors.
 
 ### Orders Not Created After Successful Payment
 
-**Status:** Open
+**Status:** Solved
 
 **Priority:** High
 
@@ -148,7 +156,7 @@ Webhook processing may not complete successfully after checkout.
 
 ### Stripe Webhook Returns Redirect (302)
 
-**Status:** Open
+**Status:** Solved
 
 **Priority:** High
 
@@ -198,7 +206,7 @@ Move the Stripe webhook route outside `i18n_patterns` to provide a language-inde
 
 ### Missing Webhook Processing Verification
 
-**Status:** Open
+**Status:** Solved
 
 **Priority:** High
 
@@ -228,7 +236,7 @@ Review Heroku logs after another successful test payment.
 
 ### Cart Not Cleared After Successful Payment
 
-**Status:** Open
+**Status:** Solved
 
 **Priority:** High
 
@@ -258,7 +266,7 @@ Webhook processing does not reach the cart-clearing stage.
 
 ### Quantity Increase Function Not Updating Cart
 
-**Status:** Open
+**Status:** Solved
 
 **Priority:** Medium
 
@@ -286,7 +294,7 @@ if cart_item.quantity < cart_item.print.stock:
 
 ### Intermittent PostgreSQL Connection Closures
 
-**Status:** Open
+**Status:** Solved
 
 **Priority:** Medium
 
@@ -328,3 +336,18 @@ True
 - Monitor connection stability on Heroku.
 
 ---
+
+### Cart Validation Improvements
+
+Status: Resolved
+
+Implemented server-side validation for:
+
+- Invalid product IDs
+- Missing IDs
+- Non-numeric quantities
+- Negative quantities
+- Zero quantities
+- Quantities exceeding available stock
+
+User-facing feedback messages were added to explain corrections and validation failures.
