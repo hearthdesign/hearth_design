@@ -13,9 +13,15 @@
   <div class="nav-links" id="nav-links">
     <!-- Left group -->
     <ul class="nav-group">
-      <li><a href="{% url 'homepage' %}" class="nav-btn" id="home-btn">{% trans "HOME" %}</a></li>
-      <li><a href="{% url 'illustration_gallery' %}" class="nav-btn">{% trans "ILLUSTRATIONS" %}</a></li>
-      <li><a href="{% url 'photography_gallery' %}" class="nav-btn">{% trans "PHOTOGRAPHY" %}</a></li>
+      <li>
+        <a href="{% url 'homepage' %}" class="nav-btn" id="home-btn">
+          {% trans "HOME" %}</a></li>
+      <li>
+        <a href="{% url 'illustration_gallery' %}" class="nav-btn">
+          {% trans "ILLUSTRATIONS" %}</a></li>
+      <li>
+        <a href="{% url 'photography_gallery' %}" class="nav-btn">
+          {% trans "PHOTOGRAPHY" %}</a></li>
       <li class="nav-stack">
         <button
             type="button"
@@ -32,6 +38,7 @@
               <select
                   name="theme"
                   id="theme-select">
+
                 
                   {% for theme in themes %}
                       <option value="{{ theme.slug }}">
@@ -46,7 +53,8 @@
     <!-- Right group -->
     <ul class="nav-group">
       {% if user.is_staff %}
-        <li><a href="{% url 'upload_print' %}" class="nav-btn">{% trans "Upload" %}</a></li>
+        <li><a href="{% url 'upload_print' %}" class="nav-btn">
+          {% trans "Upload" %}</a></li>
       {% endif %}
 
       {% if user.is_authenticated %}
@@ -55,21 +63,26 @@
             🛒 {% trans "Cart" %} — {{ cart_total }} €
           </a>
         </li>
-        <li><a href="{% url 'order_history' %}" class="nav-btn">{% trans "My Orders" %}</a></li>
+        <li><a href="{% url 'order_history' %}" class="nav-btn">
+          {% trans "My Orders" %}</a></li>
         <li>
           <form method="post" action="{% url 'logout' %}" style="display:inline;">
             {% csrf_token %}
-            <button type="submit" class="nav-btn">{% trans "Logout" %}</button>
+            <button type="submit" class="nav-btn">
+              {% trans "Logout" %}</button>
           </form>
         </li>
       {% else %}
-        <li><a href="{% url 'login' %}" class="nav-btn">{% trans "Login" %}</a></li>
-        <li><a href="{% url 'signup' %}" class="nav-btn">{% trans "Sign Up" %}</a></li>
+        <li><a href="{% url 'login' %}" class="nav-btn">
+          {% trans "Login" %}</a></li>
+        <li><a href="{% url 'signup' %}" class="nav-btn">
+          {% trans "Sign Up" %}</a></li>
       {% endif %}
       </ul>
       <ul class="nav-group">  
         <li class="nav-stack">
-          <button type="button" class="nav-btn" id="switch-btn">{% trans "Switch Language" %}</button>
+          <button type="button" class="nav-btn" id="switch-btn">
+            {% trans "Switch Language" %}</button>
         
           <form action="{% url 'set_language' %}"
             method="post" 
