@@ -1,6 +1,7 @@
 <!-- hearth_shop/templates/base.html -->
 <!DOCTYPE html>
-<html lang="en">
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     {% load static %}
     {% load i18n %}
