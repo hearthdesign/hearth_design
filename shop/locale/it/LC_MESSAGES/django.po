@@ -482,17 +482,23 @@ msgstr ""
 #~ msgid "日本語"
 #~ msgstr "日本語"
 
-#~ msgid "Switch"
-#~ msgstr "Cambia"
-
 #~ msgid "Quantity:"
 #~ msgstr "Quantità:"
 
-#~ msgid "HOME"
-#~ msgstr "INIZIO"
+msgid "HOME"
+msgstr "HOME"
 
-#~ msgid "Logout"
-#~ msgstr "Disconnetti"
+msgid "ILLUSTRATIONS"
+msgstr "ILLUSTRAZIONI"
 
-#~ msgid "THEME"
-#~ msgstr "TEMA"
+msgid "THEME"
+msgstr "TEMA"
+
+msgid "My Orders"
+msgstr "I miei ordini"
+
+msgid "Logout"
+msgstr "Disconnetti"
+
+msgid "Switch Language"
+msgstr "Cambia lingua"

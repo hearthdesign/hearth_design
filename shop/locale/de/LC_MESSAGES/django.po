@@ -458,15 +458,6 @@ msgstr ""
 #~ msgid "Welcome back, %(name)s!\n"
 #~ msgstr "Willkommen zurück, %(name)s!\n"
 
-#~ msgid "Quantity:"
-#~ msgstr "Menge:"
-
-#~ msgid "HOME"
-#~ msgstr "HOME"
-
-#~ msgid "Logout"
-#~ msgstr "Abmelden"
-
 #~ msgid "Language"
 #~ msgstr "Sprache"
 
@@ -494,8 +485,23 @@ msgstr ""
 #~ msgid "日本語"
 #~ msgstr "Japanisch"
 
-#~ msgid "Switch Language"
-#~ msgstr "Sprache wechseln"
+#~ msgid "Quantity:"
+#~ msgstr "Menge:"
 
-#~ msgid "THEME"
-#~ msgstr "THEMA"
+msgid "HOME"
+msgstr "STARTSEITE"
+
+msgid "ILLUSTRATIONS"
+msgstr "ILLUSTRATIONEN"
+
+msgid "THEME"
+msgstr "THEMA"
+
+msgid "My Orders"
+msgstr "Meine Bestellungen"
+
+msgid "Logout"
+msgstr "Abmelden"
+
+msgid "Switch Language"
+msgstr "Sprache wechseln"

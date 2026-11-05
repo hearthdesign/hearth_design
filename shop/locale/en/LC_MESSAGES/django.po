@@ -480,17 +480,23 @@ msgstr ""
 #~ msgid "日本語"
 #~ msgstr "日本語"
 
-#~ msgid "Switch"
-#~ msgstr "Switch"
-
 #~ msgid "Quantity:"
 #~ msgstr "Quantity:"
 
-#~ msgid "HOME"
-#~ msgstr "HOME"
+msgid "HOME"
+msgstr "HOME"
 
-#~ msgid "Logout"
-#~ msgstr "Logout"
+msgid "ILLUSTRATIONS"
+msgstr "ILLUSTRATIONS"
 
-#~ msgid "THEME"
-#~ msgstr "THEME"
+msgid "THEME"
+msgstr "THEME"
+
+msgid "My Orders"
+msgstr "My Orders"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Switch Language"
+msgstr "Switch Language"

@@ -477,17 +477,23 @@ msgstr ""
 #~ msgid "日本語"
 #~ msgstr "日本語"
 
-#~ msgid "Switch"
-#~ msgstr "切り替え"
-
 #~ msgid "Quantity:"
 #~ msgstr "数量:"
 
-#~ msgid "HOME"
-#~ msgstr "ホーム"
+msgid "HOME"
+msgstr "ホーム"
 
-#~ msgid "Logout"
-#~ msgstr "ログアウト"
+msgid "ILLUSTRATIONS"
+msgstr "イラスト"
 
-#~ msgid "THEME"
-#~ msgstr "テーマ"
+msgid "THEME"
+msgstr "テーマ"
+
+msgid "My Orders"
+msgstr "注文履歴"
+
+msgid "Logout"
+msgstr "ログアウト"
+
+msgid "Switch Language"
+msgstr "言語を変更"

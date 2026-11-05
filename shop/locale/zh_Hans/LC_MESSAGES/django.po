@@ -473,17 +473,23 @@ msgstr ""
 #~ msgid "日本語"
 #~ msgstr "日本語"
 
-#~ msgid "Switch"
-#~ msgstr "切换"
-
 #~ msgid "Quantity:"
 #~ msgstr "数量："
 
-#~ msgid "HOME"
-#~ msgstr "主页"
+msgid "HOME"
+msgstr "主页"
 
-#~ msgid "Logout"
-#~ msgstr "退出登录"
+msgid "ILLUSTRATIONS"
+msgstr "插画"
 
-#~ msgid "THEME"
-#~ msgstr "主题"
+msgid "THEME"
+msgstr "主题"
+
+msgid "My Orders"
+msgstr "我的订单"
+
+msgid "Logout"
+msgstr "退出登录"
+
+msgid "Switch Language"
+msgstr "切换语言"

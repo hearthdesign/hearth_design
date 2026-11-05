@@ -32,10 +32,6 @@
               <select
                   name="theme"
                   id="theme-select">
-
-                  <option value="">
-                      {% trans "All Themes" %}
-                  </option>
                 
                   {% for theme in themes %}
                       <option value="{{ theme.slug }}">

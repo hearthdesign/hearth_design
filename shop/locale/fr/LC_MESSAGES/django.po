@@ -483,17 +483,23 @@ msgstr ""
 #~ msgid "日本語"
 #~ msgstr "日本語"
 
-#~ msgid "Switch"
-#~ msgstr "Changer"
-
 #~ msgid "Quantity:"
 #~ msgstr "Quantité :"
 
-#~ msgid "HOME"
-#~ msgstr "ACCUEIL"
+msgid "HOME"
+msgstr "ACCUEIL"
 
-#~ msgid "Logout"
-#~ msgstr "Déconnexion"
+msgid "ILLUSTRATIONS"
+msgstr "ILLUSTRATIONS"
 
-#~ msgid "THEME"
-#~ msgstr "THÈME"
+msgid "THEME"
+msgstr "THÈME"
+
+msgid "My Orders"
+msgstr "Mes commandes"
+
+msgid "Logout"
+msgstr "Déconnexion"
+
+msgid "Switch Language"
+msgstr "Changer de langue"

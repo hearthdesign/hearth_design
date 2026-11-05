@@ -1,12 +1,12 @@
 <!-- hearth_shop/templates/base.html -->
+{% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
-    {% load static %}
-    {% load i18n %}
     <meta charset="UTF-8">
-    <title>{% block title %}{% trans "Hearth Shop"%}{% endblock %}</title>
+    <title>{% block title %}{% trans "Hearth Shop" %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
