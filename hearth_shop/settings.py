@@ -164,14 +164,7 @@ else:
             ssl_require=True
         )
     }
-# -----------------------------
-# Supabase S3 config
-# -----------------------------
-# AWS_ACCESS_KEY_ID = os.getenv('SUPABASE_ACCESS_KEY')
-# AWS_SECRET_ACCESS_KEY = os.getenv('SUPABASE_SECRET_KEY')
-# AWS_S3_ENDPOINT_URL = os.getenv('SUPABASE_ENDPOINT')
-# AWS_S3_REGION_NAME = "us-east-1"
-# AWS_S3_SIGNATURE_VERSION = "s3v4"
+
 
 # -----------------------------
 # MEDIA STORAGE CONFIGURATION

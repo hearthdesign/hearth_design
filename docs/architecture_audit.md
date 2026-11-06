@@ -15,7 +15,7 @@ The current implementation uses:
 - PostgreSQL
 - Stripe
 - Cloudinary
-- Supabase
+- Neon-DB
 - Heroku
 
 ---
