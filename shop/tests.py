@@ -1,5 +1,6 @@
 from decimal import Decimal
 
+from django.db import IntegrityError
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -13,6 +14,7 @@ from .models import (
     OrderItem,
 )
 
+from shop.services.webhooks import handle_checkout_session
 
 # ======================================================
 # Model Tests
@@ -180,6 +182,24 @@ class OrderTest(TestCase):
             1
         )
 
+    # ======================================================
+    # Duplicate order prevention Test
+    # ======================================================
+        
+    def test_order_session_id_must_be_unique(self):
+
+        Order.objects.create(
+            customer_name="John Doe",
+            customer_email="john@example.com",
+            stripe_session_id="cs_test_123",
+        )
+
+        with self.assertRaises(IntegrityError):
+            Order.objects.create(
+                customer_name="John Doe",
+                customer_email="john@example.com",
+                stripe_session_id="cs_test_123",
+            )
 
 # ======================================================
 # Authentication Tests
@@ -286,4 +306,232 @@ class HomepageTest(TestCase):
         self.assertEqual(
             response.status_code,
             200
+        )
+
+
+# ======================================================
+# Checkout and Webhook Tests
+# ======================================================
+
+class CheckoutTest(TestCase):
+
+    def setUp(self):
+
+        self.user = User.objects.create_user(
+            username="tester",
+            password="password123",
+        )
+
+        self.print_obj = Print.objects.create(
+            title="Ocean",
+            type="photo",
+            stock=5,
+            price=Decimal("35.00"),
+        )
+
+        self.cart = Cart.objects.create(
+            user=self.user
+        )
+
+        CartItem.objects.create(
+            cart=self.cart,
+            print=self.print_obj,
+            quantity=2,
+            price_at_time=self.print_obj.price,
+        )
+
+    # ======================================================
+    # Webhook Order Creation Tests
+    # ======================================================
+
+    def test_webhook_creates_order(self):
+
+        user = User.objects.create_user(
+            username="john",
+            email="john@example.com",
+            password="password123",
+        )
+
+        cart = Cart.objects.create(
+            user=user
+        )
+
+        CartItem.objects.create(
+            cart=cart,
+            print=self.print_obj,
+            quantity=2,
+            price_at_time=self.print_obj.price,
+        )
+
+        session = {
+            "id": "cs_test_123",
+            "client_reference_id": user.id,
+        }
+
+        handle_checkout_session(session)
+
+        self.assertEqual(
+            Order.objects.count(),
+            1
+        )
+
+        order = Order.objects.first()
+
+        self.assertEqual(
+            order.total_price,
+            Decimal("70.00")
+        )
+
+        self.assertTrue(order.is_paid)
+
+        self.assertEqual(
+            order.customer_name,
+            "john"
+        )
+
+
+    # ======================================================
+    # Webhook does not create duplicate Orders Test
+    # ======================================================
+    
+    def test_webhook_does_not_create_duplicate_orders(self):
+
+        user = User.objects.create_user(
+            username="john",
+            email="john@example.com",
+            password="password123",
+        )
+
+        cart = Cart.objects.create(
+            user=user
+        )
+
+        CartItem.objects.create(
+            cart=cart,
+            print=self.print_obj,
+            quantity=1,
+            price_at_time=self.print_obj.price,
+        )
+
+        session = {
+            "id": "cs_test_duplicate",
+            "client_reference_id": user.id,
+        }
+
+        handle_checkout_session(session)
+
+        handle_checkout_session(session)
+
+        self.assertEqual(
+            Order.objects.count(),
+            1
+        )
+
+    # ======================================================
+    # Cart is cleared after Checkout Test
+    # ======================================================
+
+    def test_cart_is_cleared_after_checkout(self):
+
+        user = User.objects.create_user(
+            username="john",
+            email="john@example.com",
+            password="password123",
+        )
+
+        cart = Cart.objects.create(
+            user=user
+        )
+
+        CartItem.objects.create(
+            cart=cart,
+            print=self.print_obj,
+            quantity=1,
+            price_at_time=self.print_obj.price,
+        )
+
+        session = {
+            "id": "cs_test_clear",
+            "client_reference_id": user.id,
+        }
+
+        handle_checkout_session(session)
+        self.assertEqual(
+            Order.objects.count(),
+            1
+        )
+        self.assertEqual(
+            cart.cartitem_set.count(),
+            0
+        )
+        
+
+    # ======================================================
+    # Paid Order Creation Tests
+    # ======================================================
+    
+    def test_webhook_creates_paid_order(self):
+
+        session = {
+            "id": "cs_test_paid",
+            "client_reference_id": self.user.id,
+        }
+
+        handle_checkout_session(session)
+
+        order = Order.objects.get(
+            stripe_session_id="cs_test_paid"
+        )
+
+        self.assertTrue(order.is_paid)
+
+# ======================================================
+# Order Total Validation Tests
+# ======================================================
+
+    # ======================================================
+    # Order Total CALCULATIONTest
+    # ======================================================
+
+    def test_order_total_calculation(self):
+
+        order = Order.objects.create(
+            customer_name="John Doe",
+            customer_email="john@example.com",
+        )
+
+        OrderItem.objects.create(
+            order=order,
+            print=self.print_obj,
+            quantity=2,
+            price=Decimal("35.00"),
+        )
+
+        self.assertEqual(
+            order.calculate_total(),
+            Decimal("70.00")
+        )
+
+    # ======================================================
+    # Order Total Consistency Tests
+    # ======================================================
+
+    def test_order_has_correct_total(self):
+
+        order = Order.objects.create(
+            customer_name="John",
+            customer_email="john@example.com",
+            total_price=Decimal("70.00")
+        )
+
+        OrderItem.objects.create(
+            order=order,
+            print=self.print_obj,
+            quantity=2,
+            price=Decimal("35.00")
+        )
+
+        self.assertEqual(
+            order.total_price,
+            Decimal("70.00")
         )

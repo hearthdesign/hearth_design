@@ -64,6 +64,15 @@ def handle_checkout_session(session):
         item.price_at_time * item.quantity
         for item in cart.cartitem_set.all()
     )
+    existing_order = Order.objects.filter(
+        stripe_session_id=session["id"]
+        ).first()
+
+    if existing_order:
+        print(
+            f"ORDER ALREADY EXISTS FOR SESSION {session['id']}"
+        )
+        return
     print("Creating order...")
     order = Order.objects.create(
         customer_name=user.username,
