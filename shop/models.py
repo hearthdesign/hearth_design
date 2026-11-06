@@ -4,8 +4,6 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _ 
 from django.conf import settings
 from shop.storage_cloudinary import CloudinaryMediaStorage
-from shop.storage_supabase import SupabaseDocumentsStorage
-from shop.storage_backups import SupabaseBackupsStorage
 from django.core.exceptions import ValidationError
 from decimal import Decimal
 # Parent Category Model
@@ -100,20 +98,7 @@ class Print(models.Model):
         blank=True,
         null=True
     )
-    # Supabase for documents
-    manual = models.FileField(
-        upload_to="manuals/",
-        storage=SupabaseDocumentsStorage(),
-        blank=True,
-        null=True
-    )
-    # Supabase for backups
-    backup = models.FileField(
-        upload_to="backups/",
-        storage=SupabaseBackupsStorage(),
-        blank=True,
-        null=True
-    )
+
     price = models.DecimalField(
         max_digits=8,
         decimal_places=2,

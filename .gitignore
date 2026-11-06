@@ -22,3 +22,6 @@ Thumbs.db
 
 # Virtual enviroment
 hvenv/
+venv/
+.venv/
+.hvenv/
