@@ -181,6 +181,7 @@ class Order(models.Model):
         max_length=255,
         blank=True,
         default="",
+        unique=True,
     )
 
     prints = models.ManyToManyField(Print, through='OrderItem')
