@@ -182,11 +182,18 @@ class Order(models.Model):
         blank=True,
         default="",
     )
+
     prints = models.ManyToManyField(Print, through='OrderItem')
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     is_paid = models.BooleanField(default=False)
 
+    def calculate_total(self):
+        return sum(
+            item.price * item.quantity
+            for item in self.items.all()
+        )
+    
     class Meta:
         ordering = ['-created_at']
         verbose_name = _("Order")
