@@ -23,6 +23,12 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from django.conf.urls.i18n import i18n_patterns, set_language
 from django.urls import path, include
+from django.contrib.sitemaps.views import sitemap
+from shop.sitemaps import PrintSitemap
+
+sitemaps = {
+    "prints": PrintSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,6 +44,12 @@ urlpatterns = [
         'shop/stripe/webhook/',
         views.stripe_webhook_view,
         name='stripe-webhook'
+    ),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="sitemap",
     ),
 ]
 
