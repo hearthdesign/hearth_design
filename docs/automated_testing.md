@@ -25,18 +25,18 @@ python manage.py test
 - Access control
 - Theme filtering
   
-### utomated Testing Results
+### Automated Testing Results
 
 **Results**
 
-- 13 tests executed
-- 13 tests passed
+- 20 tests executed
+- 20 tests passed
 - 0 failures
 - 0 test errors
-  
+
 ```text
-Found 13 test(s).
-Ran 13 tests
+Found 20 test(s).
+Ran 20 tests in 19.003s
 
 OK
 ```
