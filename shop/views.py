@@ -1,10 +1,12 @@
 # shop views
+from turtle import title
+
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ImproperlyConfigured
 from django.core.mail import send_mail
 from django.core.paginator import Paginator  # For pagination
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.utils import timezone
@@ -181,6 +183,7 @@ def theme_filter(request):
         {
             "page_obj": page_obj,
             "theme": theme,
+            "selected_theme": theme,
             "print_type": print_type,
             "category": print_type,
         },
@@ -191,17 +194,15 @@ def theme_filter(request):
 @login_required
 def add_to_cart(request):
 
-    print("=== ADD TO CART ===")
-    print(request.POST)
-
     print_id = request.POST.get("print_id")
-
-    print("print_id:", print_id)
 
     # Validate incoming product ID
     # Reject missing or non-numeric IDs before querying the database
     if not print_id or not print_id.isdigit():
-        print("INVALID PRINT ID")
+        messages.error(
+            request,
+            _("Invalid product selection.")
+        )
         return redirect("cart_view")
 
     print_obj = get_object_or_404(Print, id=print_id)
@@ -220,16 +221,17 @@ def add_to_cart(request):
         quantity = 1
 
     # Prevent zero or negative quantities
-    quantity = max(1, quantity)
+    # quantity = max(1, quantity)
     if quantity < 1:
         messages.warning(
             request,
-            _("Quantity must be greater than zero. Quantity has been reset to 1.")
+            _("Quantity must be greater than zero. " \
+            "Quantity has been reset to 1.")
         )
-    quantity = 1
+        quantity = 1
 
     # Prevent quantities exceeding available stock
-    quantity = min(quantity, print_obj.stock)
+
     if quantity > print_obj.stock:
         messages.warning(
             request,
@@ -237,6 +239,7 @@ def add_to_cart(request):
             "stock": print_obj.stock
             }
         )
+        quantity = print_obj.stock
 
     # Prevent adding unavailable products
     if print_obj.stock <= 0:
@@ -245,8 +248,6 @@ def add_to_cart(request):
             _("This item is currently out of stock.")
         )
         return redirect("cart_view")
-
-    print("quantity:", quantity)
 
     cart, created = Cart.objects.get_or_create(
         user=request.user
@@ -260,22 +261,28 @@ def add_to_cart(request):
 
     if created:
         cart_item.quantity = quantity
+
     else:
         requested_total = cart_item.quantity + quantity
 
         if requested_total > print_obj.stock:
-            messages.warning(
+            messages.error(
                 request,
-                _("Maximum available stock reached for '%(title)s'.") % {
-                    "title": print_obj.title
-                }
+                _("Requested quantity exceeds available stock.")
             )
 
         cart_item.quantity = min(
             requested_total,
             print_obj.stock,
         )
-    print("CART ITEM SAVED")
+    cart_item.save()
+
+    messages.success(
+        request,
+        _('"%(title)s" added to your cart.') % {
+        "title": print_obj.title
+        }
+    )
     return redirect("cart_view")
 
 # Require user to be logged in to view their cart
@@ -293,8 +300,13 @@ def cart_view(request):
             'price_at_time': item.price_at_time,
             'total': item.price_at_time * item.quantity,
         })
+
     total = sum(item['total'] for item in items)
-    return render(request, 'shop/cart.html', {'cart_items': items,  'cart_total': total})
+    return render(
+        request, 'shop/cart.html',
+                  {'cart_items': items,  
+                    'cart_total': total})
+
 
 # Require user to be logged-in to increase items in cart
 @login_required
@@ -309,13 +321,18 @@ def increase_cart_quantity(request, item_id):
     if cart_item.quantity < cart_item.print.stock:
         cart_item.quantity += 1
         cart_item.save()
-        print("Quantity increased")
+        messages.success(
+            request,
+            _('Quantity of "%(title)s" increased to %(qty)s.') % {
+                "title": cart_item.print.title,
+                "qty": cart_item.quantity,
+            }
+)
     else:
         messages.warning(
             request,
             _("No additional stock is available for this item.")
         )
-        print("Stock limit reached")
 
     return redirect("cart_view")
 
@@ -331,6 +348,13 @@ def decrease_cart_quantity(request, item_id):
     if cart_item.quantity > 1:
         cart_item.quantity -= 1
         cart_item.save()
+        messages.info(
+            request,
+            _('Quantity of "%(title)s" decreased to %(qty)s.') % {
+            "title": cart_item.print.title,
+            "qty": cart_item.quantity,
+            }
+        )
 
     else:
         item_title = cart_item.print.title
@@ -338,7 +362,7 @@ def decrease_cart_quantity(request, item_id):
         messages.info(
             request,
             _("'%(title)s' has been removed from your cart.") % {
-                "title": item_title
+            "title": item_title
             }
         )
 
@@ -353,33 +377,30 @@ def remove_from_cart(request, item_id):
         cart__user=request.user
     )
 
-    if cart_item.quantity > 1:
-        cart_item.quantity -= 1
-        cart_item.save()
+    item_title = cart_item.print.title
+    cart_item.delete()
 
-    else:
-        item_title = cart_item.print.title
-        cart_item.delete()
-
-        remaining_items = CartItem.objects.filter(
+    remaining_items = CartItem.objects.filter(
             cart__user=request.user
         ).exists()
 
-        if remaining_items:
-            messages.success(
-                request,
-            f'"{item_title}" was removed from your cart.'
-            )
+    if remaining_items:
+        messages.warning(
+            request,
+            _('"%(title)s" has been removed from your cart.') % {
+            "title": item_title
+            }
+        )
 
-        else:
+        if not remaining_items:
+
             messages.info(
                 request,
-            "Browse the gallery to discover more artwork."
+                _("Your cart is now empty. Browse the gallery to discover more artwork.")
             )
 
     return redirect("cart_view")
         
-
 # Require user to be logged-in to proceed to checkout
 @login_required
 def create_checkout_session(request):

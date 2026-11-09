@@ -162,7 +162,7 @@ NAV BUTTONS & DROPDOWNS
   padding: 0.5rem 1rem;
   background-color: rgb(247,241,225);
   color: rgb(74,156,177);
-  border: none;
+  border: 1.7px solid rgba(74,156,177,0.5);
   border-radius: 0.5rem;
   font-size: 1rem;
   font-weight: bold;
@@ -196,6 +196,10 @@ select {
   color: rgb(74, 156, 177);
   background-color: rgb(247, 241, 225);
   font-weight: bold;
+}
+
+.checkout-btn {
+    margin: 1rem 2%;
 }
 
 #language-form,
@@ -454,34 +458,35 @@ img {
    CART PAGE STYLING
 =========================== */
 
-/* Cart emoji */
-
-.cart-link {
-  font-size: 1.2rem;
-  margin-left: auto;
-  text-decoration: none;
-  color: rgb(20, 90, 120)
-}
-
-/* Cart page layout */
-
 .cart-page {
   padding: 2rem;
 }
 
 .cart-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+  align-items: flex-start;
+  gap:15%;
+  margin-top: 1rem;
   padding: 1rem;
   background-color: #fff;
   border-radius: 6px;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
 }
 
+.cart-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+
+  text-align: right;
+  align-items: flex-end;
+}  
+.cart-details h3 {
+    margin: 0;
+}
+
 .cart-item p {
-  margin: 0;
+  margin: .35rem 0;
 }
 
 .cart-item a {
@@ -492,18 +497,53 @@ img {
 }
 
 .cart-thumbnail {
-    width: 100px;
-    max-height: 100px;
-    object-fit: cover;
+  margin-top: 0.5rem;
+  width: 135px; height: 135px;
+  object-fit: cover;
+  border-radius: 0.35rem;
 }
 
 /*  increase and decrease quantity buttons */
 
 .qty-stack {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 4px;
+    gap: 0.5rem;
+}
+
+.qty-display {
+    min-width: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.qty-stack button {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.3rem;
+  border: 1.7px solid rgba(74, 156,177, 0.9);
+  border-radius: 0.35rem;
+  background-color: rgb(247,241,225);
+  color: rgb(74,156,177);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.checkout-btn,
+.remove-btn  {
+  width: auto;
+  height: 2rem;
+  font-size: 1rem;
+  border: 1.7px solid rgba(74, 156,177, 0.9);
+  border-radius: 0.35rem;
+  background-color: rgb(247,241,225);
+  color: rgb(74,156,177);
+  font-weight: bold;
+}
+
+.cart-summary {
+    margin: 2rem;
 }
 
   .modal-content {
@@ -515,10 +555,6 @@ img {
 
   .modal.show .modal-content {
   opacity: 1;
-  }
-
-  .cart-link {
-    margin-top: 0.5rem;
   }
 
 /* ======================
@@ -721,6 +757,7 @@ footer a {
   .nav-select {
     min-width: auto;
     font-size:0.85rem;
+    border: 1.7px solid rgba(74,156,177,0.5);
   }
 }
 

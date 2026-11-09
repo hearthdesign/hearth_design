@@ -1,76 +1,88 @@
 {% extends 'base.html' %}
 {% load i18n %}
-<!-- Contact form-->
+
+{% block title %}{% trans "Contact Us" %}{% endblock %}
+
 {% block content %}
-<form method="POST" class="contact-form">
-  {% csrf_token %}
+<div class="contact-container">
+  <h2>{% trans "Contact Us" %}</h2>
+  
+  <form method="POST" class="contact-form">
+    {% csrf_token %}
 
-  <!-- Name -->
-  <label for="id_name">{% trans "Name:" %}</label>
-  {{ form.name }}
-  {% if form.name.errors %}
-    {% for error in form.name.errors %}
-      <div class="error">{{ error }}</div>
-    {% endfor %}
-  {% endif %}
+    <!-- Name -->
+    <div class="form-group">
+      <label for="id_name">{% trans "Name:" %}</label>
+      {{ form.name }}
+      {% if form.name.errors %}
+        {% for error in form.name.errors %}
+          <div class="error-msg">{{ error }}</div>
+        {% endfor %}
+      {% endif %}
+    </div>
 
-  <!-- Email -->
-  <label for="id_email">{% trans "Email:" %}</label>
-  {{ form.email }}
-  {% if form.email.errors %}
-    {% for error in form.email.errors %}
-      <div class="error">{{ error }}</div>
-    {% endfor %}
-  {% endif %}
+    <!-- Email -->
+    <div class="form-group">
+      <label for="id_email">{% trans "Email:" %}</label>
+      {{ form.email }}
+      {% if form.email.errors %}
+        {% for error in form.email.errors %}
+          <div class="error-msg">{{ error }}</div>
+        {% endfor %}
+      {% endif %}
+    </div>
 
-  <!-- Message -->
-  <label for="id_message">{% trans "Message:" %}</label>
-  {{ form.message }}
-  {% if form.message.errors %}
-    {% for error in form.message.errors %}
-      <div class="error">{{ error }}</div>
-    {% endfor %}
-  {% endif %}
+    <!-- Message -->
+    <div class="form-group">
+      <label for="id_message">{% trans "Message:" %}</label>
+      {{ form.message }}
+      {% if form.message.errors %}
+        {% for error in form.message.errors %}
+          <div class="error-msg">{{ error }}</div>
+        {% endfor %}
+      {% endif %}
+    </div>
 
-  <!-- Honeypot field (hidden from users, visible to bots) -->
+    <!-- Honeypot field (hidden from users, visible to bots) -->
     <div style="display:none;">
-    {{ form.website }}
-  </div>
+      {{ form.website }}
+    </div>
 
-  <!-- Privacy Notice Dropdown -->
-  <details class="privacy-details">
-  <summary>{% trans "Privacy Notice" %}</summary>
-  <div class="privacy-content">
-    <p>
-      {% blocktrans %}
-      When you submit this form, we collect your name, email address, and message
-      for the sole purpose of responding to your inquiry. Technical metadata
-      (such as IP address in hashed form and browser information) may also be
-      processed to ensure security and prevent abuse. Your data will not be used
-      for marketing without your explicit consent. Submissions are stored securely
-      and deleted once they are no longer needed. You have the right to request
-      access, correction, or deletion of your data at any time.
-      {% endblocktrans %}
-    </p>
-  </div>
-</details>
+    <!-- Privacy Notice Dropdown -->
+    <details class="privacy-details">
+      <summary>{% trans "Privacy Notice" %}</summary>
+      <div class="privacy-content">
+        <p>
+          {% blocktrans %}
+          When you submit this form, we collect your name, email address, and message
+          for the sole purpose of responding to your inquiry. Technical metadata
+          (such as IP address in hashed form and browser information) may also be
+          processed to ensure security and prevent abuse. Your data will not be used
+          for marketing without your explicit consent. Submissions are stored securely
+          and deleted once they are no longer needed. You have the right to request
+          access, correction, or deletion of your data at any time.
+          {% endblocktrans %}
+        </p>
+      </div>
+    </details>
 
- <!-- Mandatory Privacy Checkbox -->
-<label class="privacy-check">
-  <input type="checkbox" name="privacy_agree" required>
-  {% trans "I have read and agree to the Privacy Notice" %}
-</label>
+    <!-- Mandatory Privacy Checkbox -->
+    <label class="privacy-check">
+      <input type="checkbox" name="privacy_agree" required>
+      <span>{% trans "I have read and agree to the Privacy Notice" %}</span>
+    </label>
 
-<!-- Optional Marketing Consent Checkbox -->
-  <label class="marketing-check">
-    <input type="checkbox" name="marketing_consent">
-    {% trans "I would like to receive updates about new art, offers, and newsletters" %}
-  </label>
+    <!-- Optional Marketing Consent Checkbox -->
+    <label class="marketing-check">
+      <input type="checkbox" name="marketing_consent">
+      <span>{% trans "I would like to receive updates about new art, offers, and newsletters" %}</span>
+    </label>
 
-  <button type="submit">{% trans "Send Message" %}</button>
-</form>
+    <button type="submit" class="contact-submit-btn">{% trans "Send Message" %}</button>
+  </form>
 
-{% if success_message %}
-  <p class="success_message">{{ success_message }}</p>
-{% endif %}
+  {% if success_message %}
+    <p class="success_message">{{ success_message }}</p>
+  {% endif %}
+</div>
 {% endblock %}

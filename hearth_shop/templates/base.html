@@ -33,6 +33,15 @@
     </header>
 
     {% include 'includes/navbar.html' %}
+    {% if messages %}
+<div class="messages-container">
+    {% for message in messages %}
+        <div class="message message-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
 
 <main>
   {% block content %}

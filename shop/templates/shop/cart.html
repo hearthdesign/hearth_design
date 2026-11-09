@@ -16,44 +16,46 @@
         <p><strong>Quantity:</strong></p>
         <div class="qty-stack">
             <form
-                action="{% url 'increase_cart_quantity' item.id %}"
-                method="post">
-                {% csrf_token %}
-                <button type="submit">+</button>
-            </form>
-
-            <span>{{ item.quantity }}</span>
-
-            <form
                 action="{% url 'decrease_cart_quantity' item.id %}"
                 method="post">
                 {% csrf_token %}
                 <button type="submit">-</button>
             </form>
+
+            <span>{{ item.quantity }}</span>
+
+            <form
+                action="{% url 'increase_cart_quantity' item.id %}"
+                method="post">
+                {% csrf_token %}
+                <button type="submit">+</button>
+            </form>
         </div>
         <p><strong>Subtotal:</strong> €{{ item.total }}</p>
         <form action="{% url 'remove_from_cart' item.id %}" method="post">
             {% csrf_token %}
-            <button type="submit">
+            <button type="submit" class="remove-btn">
                 Remove Item
             </button>
         </form>
-        <p>CartItem ID: {{ item.id }}</p>
-        <p>Print ID: {{ item.print.id }}</p>
-        <p>Title: {{ item.print.title }}</p>
     </div>
 
 </div>
-
+<div class="cart-summary">
 {% endfor %}
+    {% if not cart_items %}
+    <p>{% trans "Your cart is currently empty." %}</p>
+{% endif %}
 
 <p><strong>Cart Total: €{{ cart_total }}</strong></p>
 
+{% if cart_items %}
 <form action="{% url 'create_checkout_session' %}" method="post">
     {% csrf_token %}
     <button type="submit" class="checkout-btn">
         {% trans "Secure Checkout with Stripe" %}
     </button>
 </form>
-
+{% endif %}
+</div>
 {% endblock %}

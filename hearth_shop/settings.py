@@ -32,6 +32,12 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # SECURITY WARNING: don't run with debug turned on in production!
 SECRET_KEY = config('SECRET_KEY')
 
+# LOCALE_PATHS = [
+#     BASE_DIR / "locale",
+# ]
+
+
+
 # ---------------------------------------------------------
 # LOGGING
 # ---------------------------------------------------------
@@ -166,7 +172,6 @@ else:
         )
     }
 
-
 # -----------------------------
 # MEDIA STORAGE CONFIGURATION
 # -----------------------------
@@ -228,6 +233,10 @@ LANGUAGE_COOKIE_NAME = 'django_language'
 LANGUAGE_COOKIE_PATH = '/'
 LANGUAGE_COOKIE_SAMESITE = 'Lax'
 LANGUAGE_COOKIE_USE_SESSION = False
+
+LOCALE_PATHS = [
+    BASE_DIR / 'shop' / 'locale',
+]
 
 # ---------------------------------------------------------
 # STATIC FILES
