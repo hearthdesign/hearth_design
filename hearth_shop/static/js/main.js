@@ -20,16 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // NAVBAR: Theme Switcher
   // ===============================
 
-  const themeBtn = document.getElementById("theme-btn");
-  const themeForm = document.getElementById("theme-form");
-  const themeSelect = document.getElementById("theme-select");
+  const themeBtn = 
+    document.getElementById("theme-btn");
+  const themeForm = 
+    document.getElementById("theme-form");
+  const themeSelect = 
+    document.getElementById("theme-select");
 
-  if (themeBtn && themeForm) {
-    themeBtn.addEventListener("click", () => {
-      themeForm.style.display =
-        themeForm.style.display === "none"
-          ? "inline-block"
-          : "none";
+  if (themeSelect) {
+    themeSelect.addEventListener("change", () => {
+        themeSelect.form.submit();
     });
   }
 
@@ -50,16 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===============================
   // NAVBAR: Language Switcher
   // ===============================
-  const switchBtn = document.getElementById("switch-btn");
   const languageForm = document.getElementById("language-form");
   const languageSelect = document.getElementById("language-select");
-
-  if (switchBtn && languageForm) {
-    switchBtn.addEventListener("click", () => {
-      languageForm.style.display =
-        languageForm.style.display === "none" ? "inline-block" : "none";
-    });
-  }
 
   if (languageSelect && languageForm) {
     languageSelect.addEventListener("change", () => {

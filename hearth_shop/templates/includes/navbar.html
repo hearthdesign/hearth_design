@@ -2,14 +2,6 @@
 
 <!-- Navbar -->
 <nav class="navbar">
-  <div class="nav-header">
-    <button class="hamburger" id="hamburger-btn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-
   <div class="nav-links" id="nav-links">
     <!-- Left group -->
     <ul class="nav-group">
@@ -22,32 +14,30 @@
       <li>
         <a href="{% url 'photography_gallery' %}" class="nav-btn">
           {% trans "PHOTOGRAPHY" %}</a></li>
-      <li class="nav-stack">
-        <button
-            type="button"
-            class="nav-btn"
-            id="theme-btn">
-            {% trans "THEME" %}
-        </button>
-          <form
-              method="get"
-              action="{% url 'theme_filter' %}"
-              id="theme-form"
-              style="display:none;">
+      <li class="nav-item">
+        <form method="get"
+          action="{% url 'theme_filter' %}"
+          id="theme-form">
 
-              <select
-                  name="theme"
-                  id="theme-select">
+        <select name="theme"
+                id="theme-select"
+                class="nav-control">
 
-                
-                  {% for theme in themes %}
-                      <option value="{{ theme.slug }}">
-                          {{ theme.name }}
-                      </option>
-                  {% endfor %}
-              </select>
-          </form>
-      </li>
+            <option value="">
+                {% trans "All Themes" %}
+            </option>
+
+            {% for theme in themes %}
+                <option value="{{ theme.slug }}"
+                    {% if request.GET.theme == theme.slug %}selected{% endif %}>
+                    {{ theme.name }}
+                </option>
+            {% endfor %}
+
+        </select>
+
+    </form>
+</li>
     </ul>
 
     <!-- Right group -->
@@ -80,38 +70,35 @@
       {% endif %}
       </ul>
       <ul class="nav-group">  
-        <li class="nav-stack">
-          <button type="button" class="nav-btn" id="switch-btn">
-            {% trans "Switch Language" %}</button>
-        
+        <li class="nav-item">
+         
           <form action="{% url 'set_language' %}"
             method="post" 
             id="language-form" 
-            style="display:none;">
+            class="language-form">
+
             {% csrf_token %}
-            <input
-              type="hidden"
+            
+            <input type="hidden"
               name="next"
               value="{{ request.get_full_path }}">
-            <select name="language" id="language-select">
-              {% get_current_language as LANGUAGE_CODE %}
-              {% get_available_languages as LANGUAGES %}
-              {% for lang, lang_name in LANGUAGES %}
-                <option value="{{ lang }}" {% if lang == LANGUAGE_CODE %}selected{% endif %}>
-                  {{ lang_name }}
-                </option>
-              {% endfor %}
+
+            <select name="language"
+                id="language-select"
+                class="nav-control">
+
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+
+                {% for lang, lang_name in LANGUAGES %}
+                    <option value="{{ lang }}"
+                            {% if lang == LANGUAGE_CODE %}selected{% endif %}>
+                        {{ lang_name }}
+                    </option>
+                {% endfor %}
+                  
             </select>
-            {% comment %} <select name="language" id="language-select">
-              <option value="en">{% trans "English" %}</option>
-              <option value="de">{% trans "Deutsch" %}</option>
-              <option value="fr">{% trans "Français" %}</option>
-              <option value="es">{% trans "Español" %}</option>
-              <option value="it">{% trans "Italiano" %}</option>
-              <option value="pt">{% trans "Português" %}</option>
-              <option value="zh-hans">{% trans "简体中文" %}</option>
-              <option value="ja">{% trans "日本語" %}</option>
-            </select> {% endcomment %}
+
           </form>
         </li>
     </ul>

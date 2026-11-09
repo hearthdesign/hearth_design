@@ -19,12 +19,13 @@ p {
 
 button {
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 4rem;
 }
 
 /* ===========================
    HEADER & NAVIGATION
 =========================== */
+
 header {
   background-image: url("static/images/1003/the_world.png"); 
   background-size: cover;
@@ -113,6 +114,7 @@ label {
 }
 
 /* Logo styling */
+
 .logo {
   min-width: 30rem;
   height: auto;
@@ -135,6 +137,7 @@ label {
 }
 
 /* Hide hamburger on desktop */
+
 .hamburger {
   display: none; /* hidden on desktop */
   flex-direction: column;
@@ -158,6 +161,7 @@ label {
 }
 
 /* When active (menu open) */
+
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -193,24 +197,15 @@ label {
   background-color: none;
 }
 
-.nav-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* gap: 0.3rem; */
-}
 
-#language-form {
-  position: absolute;
-  top: 100%;
-  left: 5%;
-  background: white;
-  padding: 0.3rem;
-  border-radius: 0.3rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  z-index: 999;
-}
+
+#language-form,
+#theme-form {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  }
 
 /* Buttons */
 .nav-btn, 
@@ -647,14 +642,7 @@ img {
     font-weight: bold;
   }
 
-  /* Stacked items neatly aligned */
-  .nav-stack {
-    display: flex;
-    width: 70%;
-    align-items: baseline;
-    gap: 0.5rem;
-  }
-}
+
 
 
 /* MAX-WIDTH 600PX */

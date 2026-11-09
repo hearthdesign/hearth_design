@@ -21,12 +21,19 @@
     <script src="{% static 'js/main.js' %}" defer></script>
 </head>
 <body>
-    <header style="background-image: url('{% static "images/the_world.png" %}');">
-        <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
-        <h1 class='hearth-title'>{% trans "SHOP" %}</h1>
-        {% include 'includes/navbar.html' %}
-
+    <header class="hero">
+      <div class="hero-content">
+        <img src="{% static 'images/logo.png' %}"
+             alt="Logo"
+             class="logo">
+            <h1 class='hearth-title'>
+              {% trans "[ SHOP ]" %}
+            </h1>
+      </div>
     </header>
+
+    {% include 'includes/navbar.html' %}
+
 <main>
   {% block content %}
     {% if messages %}
