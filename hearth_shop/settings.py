@@ -17,6 +17,7 @@ from decouple import config
 from dotenv import load_dotenv
 import dj_database_url
 import cloudinary
+from django.utils.translation import gettext_lazy as _
 
 load_dotenv()
 
@@ -220,14 +221,14 @@ USE_TZ = True
 # Enable i18n
 USE_I18N = True
 LANGUAGES = [
-    ('en', 'English'),
-    ('de', 'Deutsch'),
-    ('fr', 'Français'),
-    ('es', 'Español'),
-    ('it', 'Italiano'),
-    ('pt', 'Português'),
-    ('zh-hans', '简体中文'),
-    ('ja', '日本語'),
+    ('en', _('English')),
+    ('de', _('Deutsch')),
+    ('fr', _('Français')),
+    ('es', _('Español')),
+    ('it', _('Italiano')),
+    ('pt', _('Português')),
+    ('zh-Hans', _('简体中文')),
+    ('ja', _('日本語')),
 ]
 LANGUAGE_COOKIE_NAME = 'django_language'
 LANGUAGE_COOKIE_PATH = '/'

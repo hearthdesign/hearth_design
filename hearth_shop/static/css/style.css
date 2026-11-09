@@ -191,7 +191,7 @@ NAV BUTTONS & DROPDOWNS
 
 select {
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: clamp(0.75rem, 2vw, 1rem);
   border: none;
   color: rgb(74, 156, 177);
   background-color: rgb(247, 241, 225);
@@ -348,10 +348,8 @@ form input::placeholder {
   height: 100%;
   object-fit: fill;
   object-position: center;
-  pointer-events: none;
   user-select: none;
   pointer-events: none; /* helps prevent right-click */
-  user-select: none;
 }
 
 img {
@@ -390,6 +388,9 @@ img {
   transition: opacity 0.3s ease-in-out;
   pointer-events: auto;
 }
+  .modal.show .modal-content {
+  opacity: 1;
+  }
 
 .modal.show .modal-content {
   opacity: 1;
@@ -503,7 +504,9 @@ img {
   border-radius: 0.35rem;
 }
 
-/*  increase and decrease quantity buttons */
+/*  ==========================================
+    increase and decrease quantity buttons 
+=============================================*/
 
 .qty-stack {
     display: flex;
@@ -546,16 +549,93 @@ img {
     margin: 2rem;
 }
 
-  .modal-content {
-    margin: 10% auto;
-    padding: 1rem;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
+/* ===========================
+   ORDERS HISTORY PAGE STYLING
+=========================== */
 
-  .modal.show .modal-content {
-  opacity: 1;
-  }
+.orders-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.order-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(74, 156, 177, 0.2);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  color: rgb(20, 90, 120);
+}
+
+.order-status {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-paid {
+  background-color: #e8f7e8;
+  color: #206020;
+}
+
+.status-pending {
+  background-color: #fff8e6;
+  color: #8a6500;
+}
+
+.order-items-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.order-item-row {
+  display: flex;
+  justify-content: space-between;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eee;
+  font-size: 1.1rem;
+  color: rgb(20, 90, 120);
+}
+
+.no-orders {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: rgb(74, 156, 177);
+}
 
 /* ======================
       LOGIN / 
@@ -604,23 +684,56 @@ img {
       FOOTER STYLING
   ====================== */
 
-footer {
-  text-align: center;
+/* ======================
+     FOOTER STYLING
+   ====================== */
+
+.site-footer {
   background-color: #f9f3eb;
-  color: rgb(20, 90, 120);;
-  margin-bottom: 0;
-  /* position: relative; */
+  color: rgb(20, 90, 120);
+  padding: 2.5rem 1rem;
   width: 100%;
-  margin-right: 0;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(74, 156, 177, 0.2);
+  box-sizing: border-box;
 }
 
-footer a {
-  color: rgb(20, 90, 120);;
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.site-footer a {
+  color: rgb(20, 90, 120);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0; /* Clears out old conflicting margins */
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: rgb(74, 156, 177);
   text-decoration: underline;
-  margin-left: 1rem;
-  margin: 1rem;
 }
 
+.footer-copy {
+  font-size: 0.85rem;
+  color: rgb(74, 156, 177);
+  margin: 0;
+}
 /* ======================
       PRIVACY DROPDOWN
   ====================== */
@@ -710,42 +823,272 @@ footer a {
       CONTACT FORM
   ====================== */
 
+.contact-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
 
+.contact-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.contact-form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(74, 156, 177, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.contact-form label {
+  color: rgb(20, 90, 120);
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+/* Style Django form inputs and textareas */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgb(74, 156, 177);
+  border-radius: 0.35rem;
+  outline: none;
+  font-size: 1rem;
+  font-family: inherit;
+  color: rgb(20, 90, 120);
+  background-color: #fafafa;
+  box-sizing: border-box;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgb(20, 90, 120);
+  background-color: #fff;
+  box-shadow: 0 0 4px rgba(74, 156, 177, 0.4);
+}
+
+/* Validation Errors */
+.error-msg {
+  color: #8f1d1d;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 0.15rem;
+}
+
+/* Submit Button */
+.contact-submit-btn {
+  margin-top: 1rem;
+  background-color: rgb(247, 241, 225);
+  color: rgb(74, 156, 177);
+  border: 1.7px solid rgba(74, 156, 177, 0.9);
+  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.2s ease;
+  align-self: flex-start;
+}
+
+.contact-submit-btn:hover {
+  background-color: rgb(115, 195, 213);
+  color: white;
+}
+
+.success_message {
+  text-align: center;
+  background-color: #e8f7e8;
+  color: #206020;
+  border: 1px solid #8fd18f;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+  font-weight: 500;
+}
 
 /* ===========================
-   RESPONSIVE DESIGN
+   MEDIA QUERIES
 =========================== */
 
-
-
 /* =========================================== 
-   RESPONSIVE DESIGN
     MAX-WIDTH 1024PX 
     Tablet layout: between desktop and mobile 
 ============================================== */
 @media (max-width: 1024px) {
-
   .nav-links {
     justify-content: center;
+    gap: 0.5rem;
     }
+}
+
+@media (max-width: 980px) {
+  .nav-links {
+    justify-content: center;
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    justify-content: center;
+    gap: 0.35rem;
+  }
 
   .nav-btn,
+  .nav-control,
   .nav-select {
-    font-size: 0.9rem;
-    width: auto;
-    min-width: auto;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: rgb(247, 241, 225);
-    color: rgb(74, 156, 177);
-    font-weight: bold;
-    }
+    min-width: auto; /* Allow full flexibility on mobile */
+    padding: 0.3rem 0.6rem; /* Tighter padding for tablets/mobiles */
   }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    gap: 0.5rem;
+    padding: 0;
+  }
+
+  .nav-btn,
+  .nav-control,
+  .nav-select {
+    min-width: auto;
+    padding: 0.25rem 0.5rem; /* Compact padding for small phones */
+    font-size: 0.8rem;
+  }
+}
+
+/* ===========================
+   FORMS & OTHER ELEMENTS
+=========================== */
+
+.checkout-btn {
+  margin: 1rem 2%;
+}
+
+#language-form,
+#theme-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  color: rgb(20, 90, 120);
+  border-radius: 0.35rem;
+}
+
+form input[type="text"], 
+form input[type="password"], 
+form input[type="email"] {
+  border: 1px solid rgb(20, 90, 120);
+  border-radius: 0.35rem;
+  outline: none;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  color: rgb(20, 90, 120);
+  padding: 0.4rem;
+}
+
+form input::placeholder {
+  color: rgb(115, 195, 213);
+}
+
+#create-btn, 
+#login-btn {
+  background-color: white;
+  color: rgb(20, 90, 120);
+  border: 2px solid rgb(74, 156, 177);
+  font-weight: bold;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+}
+
+.login-form label,
+.signup-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.field-help {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: rgb(74, 156, 177);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*========================= 
 /* MAX-WIDTH 768PX 
 ========================= */
+/* 
+@media (max-width: 980px) {
+  .nav-links {
+    justify-content: center;
+    gap: 0.35rem;
+  }
 
+  .nav-btn,
+  .nav-select {
+    min-width: auto;
+    font-size:0.85rem;
+    border: 1.7px solid rgba(74,156,177,0.5);
+  }
+}
+ */
+
+
+
+
+
+
+
+
+/* 
 @media (max-width: 768px) {
 
   .nav-links {
@@ -763,7 +1106,7 @@ footer a {
 
 /* MAX-WIDTH 600PX */
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .gallery-grid {
     display: grid;
     justify-content: center;
@@ -771,4 +1114,13 @@ footer a {
     gap: 0.5rem;
     padding: 0;
   }
-}
+
+
+  .nav-btn,
+  .nav-select {
+    min-width: auto;
+    font-size:0.85rem;
+    border: 1.7px solid rgba(74,156,177,0.5);
+  }
+
+} */

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-09 20:47+0100\n"
+"POT-Creation-Date: 2026-11-09 23:30+0100\n"
 "PO-Revision-Date: 2026-03-06 00:00+0200\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Japanese <LL@li.org>\n"
@@ -16,6 +16,38 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\hearth_shop\settings.py:224
+msgid "English"
+msgstr ""
+
+#: .\hearth_shop\settings.py:225
+msgid "Deutsch"
+msgstr ""
+
+#: .\hearth_shop\settings.py:226
+msgid "Français"
+msgstr ""
+
+#: .\hearth_shop\settings.py:227
+msgid "Español"
+msgstr ""
+
+#: .\hearth_shop\settings.py:228
+msgid "Italiano"
+msgstr ""
+
+#: .\hearth_shop\settings.py:229
+msgid "Português"
+msgstr ""
+
+#: .\hearth_shop\settings.py:230
+msgid "简体中文"
+msgstr ""
+
+#: .\hearth_shop\settings.py:231
+msgid "日本語"
+msgstr ""
 
 #: .\hearth_shop\templates\base.html:10
 msgid "Hearth Shop"
@@ -35,11 +67,25 @@ msgstr ""
 msgid "Add to Cart"
 msgstr "カートに戻る"
 
-#: .\hearth_shop\templates\base.html:104
+#: .\hearth_shop\templates\base.html:115
 #, fuzzy
 #| msgid "Contact Submission"
 msgid "Contact Us"
 msgstr "お問い合わせ"
+
+#: .\hearth_shop\templates\base.html:118
+#, fuzzy
+#| msgid "Privacy Notice"
+msgid "Privacy Policy"
+msgstr "プライバシー通知"
+
+#: .\hearth_shop\templates\base.html:119
+msgid "Terms of Service"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:124
+msgid "All rights reserved."
+msgstr ""
 
 #: .\hearth_shop\templates\includes\navbar.html:10
 msgid "HOME"
@@ -62,7 +108,7 @@ msgstr "写真"
 msgid "All Themes"
 msgstr "テーマ"
 
-#: .\hearth_shop\templates\includes\navbar.html:47
+#: .\hearth_shop\templates\includes\navbar.html:46
 #: .\shop\templates\shop\upload.html:11
 msgid "Upload"
 msgstr "アップロード"
@@ -72,6 +118,8 @@ msgid "Cart"
 msgstr "カート"
 
 #: .\hearth_shop\templates\includes\navbar.html:57
+#: .\shop\templates\shop\order_history.html:3
+#: .\shop\templates\shop\order_history.html:7
 msgid "My Orders"
 msgstr "マイ注文"
 
@@ -85,10 +133,16 @@ msgstr "ログアウト"
 msgid "Login"
 msgstr "ログイン"
 
-#: .\hearth_shop\templates\includes\navbar.html:69
+#: .\hearth_shop\templates\includes\navbar.html:70
 #: .\shop\templates\registration\signup.html:6
 msgid "Sign Up"
 msgstr "新規登録"
+
+#: .\hearth_shop\templates\includes\navbar.html:83
+#, fuzzy
+#| msgid "Switch Language"
+msgid "Select Language"
+msgstr "言語を変更"
 
 #: .\shop\forms.py:17
 msgid "Name"
@@ -379,6 +433,30 @@ msgstr "イラスト"
 msgid "No prints found."
 msgstr "プリントが見つかりませんでした。"
 
+#: .\shop\templates\shop\order_history.html:16
+#, fuzzy
+#| msgid "Order"
+msgid "Order #"
+msgstr "注文"
+
+#: .\shop\templates\shop\order_history.html:19
+msgid "Paid"
+msgstr ""
+
+#: .\shop\templates\shop\order_history.html:19
+msgid "Pending"
+msgstr ""
+
+#: .\shop\templates\shop\order_history.html:35
+msgid "Total:"
+msgstr ""
+
+#: .\shop\templates\shop\order_history.html:43
+#, fuzzy
+#| msgid "You have requested a password reset."
+msgid "You have no past orders."
+msgstr "パスワードの再設定が要求されました。"
+
 #: .\shop\templates\shop\payment_cancel.html:6
 msgid "Payment Cancelled"
 msgstr "支払いキャンセル"
@@ -538,6 +616,3 @@ msgstr ""
 
 #~ msgid "THEME"
 #~ msgstr "テーマ"
-
-#~ msgid "Switch Language"
-#~ msgstr "言語を変更"

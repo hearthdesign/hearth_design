@@ -1,4 +1,4 @@
-$locales = @("de", "en", "es", "fr", "it", "ja", "pt", "zh_Hans")
+$locales = @("de", "en", "es", "fr", "it", "ja", "pt", "zh-Hans")
 foreach ($lang in $locales) {
     $poPath = "locale\$lang\LC_MESSAGES\django.po"
     if (Test-Path $poPath) {

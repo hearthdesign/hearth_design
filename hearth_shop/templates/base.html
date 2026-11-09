@@ -80,7 +80,7 @@
       <form method="post" action="{% url 'add_to_cart' %}">
         {% csrf_token %}
         <input type="hidden" name="print_id" id="modal-product-id">
-        <label for="quantity">{% trans "Quantity:" %}</label>
+        <label for="modal-quantity">{% trans "Quantity:" %}</label>
         
         <input type="number" name="quantity" id="modal-quantity" value="1" min="1">
         <button type="submit">{% trans "Add to Cart" %}</button>
@@ -99,9 +99,31 @@
 </div> <!--  END OF #image-modal -->
 
 <!-- FOOTER -->
-<footer>
+{% comment %} <footer>
   <p>&copy; 2025 HEARTH SHOP</p>
   <a href="{% url 'contact' %}">{% trans "Contact Us" %}</a>
+</footer> {% endcomment %}
+
+
+
+<footer class="site-footer">
+  <div class="footer-content">
+    
+    <!-- Footer Navigation Links -->
+    <div class="footer-links">
+      <a href="{% url 'contact' %}">{% trans "Contact Us" %}</a>
+      {% comment %} <a href="{% url 'my_orders' %}">{% trans "My Orders" %}</a> {% endcomment %}
+      <a href="#">{% trans "Privacy Policy" %}</a>
+      <a href="#">{% trans "Terms of Service" %}</a>
+    </div>
+
+    <!-- Brand / Copyright -->
+    <p class="footer-copy">
+      &copy; 2026 HEARTH Shop. {% trans "All rights reserved." %}
+    </p>
+
+  </div>
 </footer>
+
 </body>
 </html>
