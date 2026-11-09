@@ -39,12 +39,12 @@
     </form>
 </li>
     </ul>
-
     <!-- Right group -->
     <ul class="nav-group">
       {% if user.is_staff %}
-        <li><a href="{% url 'upload_print' %}" class="nav-btn">
-          {% trans "Upload" %}</a></li>
+        <li>
+          <a href="{% url 'upload_print' %}" class="nav-btn">{% trans "Upload" %}</a>
+        </li>
       {% endif %}
 
       {% if user.is_authenticated %}
@@ -53,56 +53,56 @@
             🛒 {% trans "Cart" %} — {{ cart_total }} €
           </a>
         </li>
-        <li><a href="{% url 'order_history' %}" class="nav-btn">
-          {% trans "My Orders" %}</a></li>
+        <li>
+          <a href="{% url 'order_history' %}" class="nav-btn">{% trans "My Orders" %}</a>
+        </li>
         <li>
           <form method="post" action="{% url 'logout' %}" style="display:inline;">
             {% csrf_token %}
-            <button type="submit" class="nav-btn">
-              {% trans "Logout" %}</button>
+            <button type="submit" class="nav-btn">{% trans "Logout" %}</button>
           </form>
         </li>
       {% else %}
-        <li><a href="{% url 'login' %}" class="nav-btn">
-          {% trans "Login" %}</a></li>
-        <li><a href="{% url 'signup' %}" class="nav-btn">
-          {% trans "Sign Up" %}</a></li>
-      {% endif %}
-      </ul>
-      <ul class="nav-group">  
-        <li class="nav-item">
-         
-          <form action="{% url 'set_language' %}"
-            method="post" 
-            id="language-form" 
-            class="language-form">
-
-            {% csrf_token %}
-            
-            <input type="hidden"
-              name="next"
-              value="{{ request.get_full_path }}">
-
-            <select name="language"
-                id="language-select"
-                class="nav-control"
-                onchange="this.form.submit()"
-
-                {% get_current_language as LANGUAGE_CODE %}
-                {% get_available_languages as LANGUAGES %}
-
-                {% for lang, lang_name in LANGUAGES %}
-                    <option value="{{ lang }}"
-                            {% if lang == LANGUAGE_CODE %}selected{% endif %}>
-                        {{ lang_name }}
-                    </option>
-                {% endfor %}
-                  
-            </select>
-
-          </form>
+        <li>
+          <a href="{% url 'login' %}" class="nav-btn">{% trans "Login" %}</a>
         </li>
+        <li>
+          <a href="{% url 'signup' %}" class="nav-btn">{% trans "Sign Up" %}</a>
+        </li>
+      {% endif %}
     </ul>
+
+    <ul class="nav-group">  
+      <li class="nav-item">
+        <form action="{% url 'set_language' %}" method="post" id="language-form" class="language-form">
+          {% csrf_token %}
+          
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
+
+          <!-- Added a screen-reader label for accessibility compliance -->
+          <label for="language-select" style="display:none;">{% trans "Select Language" %}</label>
+
+          <select name="language"
+                  id="language-select"
+                  class="nav-control"
+                  onchange="this.form.submit()">
+
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+
+              {% for lang, lang_name in LANGUAGES %}
+                  <option value="{{ lang }}" {% if lang == LANGUAGE_CODE %}selected{% endif %}>
+                      {{ lang_name }}
+                  </option>
+              {% endfor %}
+              
+          </select>
+        </form>
+      </li>
+    </ul>
+  </div>
+</nav>
+    
   </div>
 </nav>
 

@@ -1,30 +1,48 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}My Orders{% endblock %}
-<!-- orders history page -->
+{% block title %}{% trans "My Orders" %}{% endblock %}
+
 {% block content %}
-  <h2>My Orders</h2>
+<div class="orders-container">
+  <h2>{% trans "My Orders" %}</h2>
+  
   {% if orders %}
-    <ul>
+    <div class="orders-list">
       {% for order in orders %}
-        <li>
-          <strong>Order #{{ order.id }}</strong> — {{ order.created_at|date:"Y-m-d H:i" }}
-          {% if order.is_paid %}(Paid){% else %}(Pending){% endif %}
-          <ul>
+        <div class="order-card">
+          
+          <!-- Order Meta Header -->
+          <div class="order-header">
+            <span class="order-id"><strong>{% trans "Order #" %}{{ order.id }}</strong></span>
+            <span class="order-date">{{ order.created_at|date:"Y-m-d H:i" }}</span>
+            <span class="order-status {% if order.is_paid %}status-paid{% else %}status-pending{% endif %}">
+              {% if order.is_paid %}{% trans "Paid" %}{% else %}{% trans "Pending" %}{% endif %}
+            </span>
+          </div>
+
+          <!-- Order Items List -->
+          <ul class="order-items-list">
             {% for item in order.items.all %}
-              <li>
-                {{ item.quantity }} x {{ item.print.title }}
-                — {{ item.price }} €
+              <li class="order-item-row">
+                <span class="item-desc">{{ item.quantity }}x {{ item.print.title }}</span>
+                <span class="item-price">{{ item.price }} €</span>
               </li>
             {% endfor %}
           </ul>
-          <p>Total: {{ order.total_price }} €</p>
-        </li>
+
+          <!-- Order Grand Total -->
+          <div class="order-footer">
+            <span>{% trans "Total:" %}</span>
+            <strong class="order-total">{{ order.total_price }} €</strong>
+          </div>
+
+        </div>
       {% endfor %}
-    </ul>
+    </div>
   {% else %}
-    <p>You have no past orders.</p>
+    <p class="no-orders">{% trans "You have no past orders." %}</p>
   {% endif %}
+</div>
 {% endblock %}
 
 

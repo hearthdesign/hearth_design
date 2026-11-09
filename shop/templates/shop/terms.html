@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Terms of Service" %}{% endblock %}
+
+{% block content %}
+<div class="legal-container">
+  <h2>{% trans "Terms of Service" %}</h2>
+  <p class="last-updated">{% trans "Last updated: November 2026" %}</p>
+
+  <div class="legal-content">
+    <h3>1. {% trans "Acceptance of Terms" %}</h3>
+    <p>
+      {% trans "By accessing and using HEARTH Shop, you accept and agree to be bound by the terms and provision of this agreement." %}
+    </p>
+
+    <h3>2. {% trans "Products and Orders" %}</h3>
+    <p>
+      {% trans "All orders are subject to availability and confirmation of the order price. We reserve the right to refuse any order placed with us." %}
+    </p>
+
+    <h3>3. {% trans "User Accounts" %}</h3>
+    <p>
+      {% trans "If you create an account on the website, you are responsible for maintaining the security of your account and you are fully responsible for all activities that occur under the account." %}
+    </p>
+
+    <h3>4. {% trans "Contact Information" %}</h3>
+    <p>
+      {% trans "If you have any questions about these Terms, please contact us via our contact page." %}
+    </p>
+  </div>
+</div>
+{% endblock %}
