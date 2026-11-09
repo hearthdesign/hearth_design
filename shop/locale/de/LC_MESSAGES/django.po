@@ -7,7 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2026-11-09 23:34+0100\n"
+=======
+"POT-Creation-Date: 2026-11-09 20:44+0100\n"
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 "PO-Revision-Date: 2026-03-06 00:00+0200\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: German <LL@li.org>\n"
@@ -17,6 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+<<<<<<< HEAD
 #: .\hearth_shop\settings.py:224
 msgid "English"
 msgstr "English"
@@ -53,6 +58,12 @@ msgstr "日本語"
 msgid "Hearth Shop"
 msgstr "Hearth Shop"
 
+=======
+#: .\hearth_shop\templates\base.html:10
+msgid "Hearth Shop"
+msgstr "Hearth Shop"
+
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\hearth_shop\templates\base.html:30
 msgid "[ SHOP ]"
 msgstr ""
@@ -67,12 +78,17 @@ msgstr "Quantity:"
 msgid "Add to Cart"
 msgstr "Zurück zum Warenkorb"
 
+<<<<<<< HEAD
 #: .\hearth_shop\templates\base.html:115
+=======
+#: .\hearth_shop\templates\base.html:104
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #, fuzzy
 #| msgid "Contact Submission"
 msgid "Contact Us"
 msgstr "Kontaktanfrage"
 
+<<<<<<< HEAD
 #: .\hearth_shop\templates\base.html:118
 #, fuzzy
 #| msgid "Privacy Notice"
@@ -97,6 +113,18 @@ msgstr "STARTSEITE"
 msgid "ILLUSTRATIONS"
 msgstr "ILLUSTRATION"
 
+=======
+#: .\hearth_shop\templates\includes\navbar.html:10
+msgid "HOME"
+msgstr "STARTSEITE"
+
+#: .\hearth_shop\templates\includes\navbar.html:13
+#, fuzzy
+#| msgid "ILLUSTRATION"
+msgid "ILLUSTRATIONS"
+msgstr "ILLUSTRATION"
+
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\hearth_shop\templates\includes\navbar.html:16
 #: .\shop\templates\shop\photography_gallery.html:8
 msgid "PHOTOGRAPHY"
@@ -108,7 +136,11 @@ msgstr "FOTOGRAFIE"
 msgid "All Themes"
 msgstr "Themen"
 
+<<<<<<< HEAD
 #: .\hearth_shop\templates\includes\navbar.html:46
+=======
+#: .\hearth_shop\templates\includes\navbar.html:47
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\shop\templates\shop\upload.html:11
 msgid "Upload"
 msgstr "Hochladen"
@@ -118,8 +150,11 @@ msgid "Cart"
 msgstr "Warenkorb"
 
 #: .\hearth_shop\templates\includes\navbar.html:57
+<<<<<<< HEAD
 #: .\shop\templates\shop\order_history.html:3
 #: .\shop\templates\shop\order_history.html:7
+=======
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 msgid "My Orders"
 msgstr "Meine Bestellungen"
 
@@ -133,17 +168,24 @@ msgstr "Abmelden"
 msgid "Login"
 msgstr "Anmelden"
 
+<<<<<<< HEAD
 #: .\hearth_shop\templates\includes\navbar.html:70
+=======
+#: .\hearth_shop\templates\includes\navbar.html:69
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\shop\templates\registration\signup.html:6
 msgid "Sign Up"
 msgstr "Registrieren"
 
+<<<<<<< HEAD
 #: .\hearth_shop\templates\includes\navbar.html:83
 #, fuzzy
 #| msgid "Switch Language"
 msgid "Select Language"
 msgstr "Sprache wechseln"
 
+=======
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\shop\forms.py:17
 msgid "Name"
 msgstr "Name"
@@ -449,6 +491,7 @@ msgstr "ILLUSTRATION"
 msgid "No prints found."
 msgstr "Keine Kunstdrucke gefunden."
 
+<<<<<<< HEAD
 #: .\shop\templates\shop\order_history.html:16
 #, fuzzy
 #| msgid "Order"
@@ -473,6 +516,8 @@ msgstr ""
 msgid "You have no past orders."
 msgstr "Sie haben das Zurücksetzen Ihres Passworts angefordert."
 
+=======
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\shop\templates\shop\payment_cancel.html:6
 msgid "Payment Cancelled"
 msgstr "Zahlung abgebrochen"
@@ -639,5 +684,37 @@ msgstr ""
 #~ msgid "Welcome back, %(name)s!\n"
 #~ msgstr "Welcome back, %(name)s!\n"
 
+<<<<<<< HEAD
 #~ msgid "THEME"
 #~ msgstr "THEMA"
+=======
+#~ msgid "English"
+#~ msgstr "English"
+
+#~ msgid "Deutsch"
+#~ msgstr "Deutsch"
+
+#~ msgid "Français"
+#~ msgstr "Français"
+
+#~ msgid "Español"
+#~ msgstr "Español"
+
+#~ msgid "Italiano"
+#~ msgstr "Italiano"
+
+#~ msgid "Português"
+#~ msgstr "Português"
+
+#~ msgid "简体中文"
+#~ msgstr "简体中文"
+
+#~ msgid "日本語"
+#~ msgstr "日本語"
+
+#~ msgid "THEME"
+#~ msgstr "THEMA"
+
+#~ msgid "Switch Language"
+#~ msgstr "Sprache wechseln"
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)

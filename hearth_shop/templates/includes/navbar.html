@@ -63,8 +63,49 @@
           </form>
         </li>
       {% else %}
+<<<<<<< HEAD
         <li>
           <a href="{% url 'login' %}" class="nav-btn">{% trans "Login" %}</a>
+=======
+        <li><a href="{% url 'login' %}" class="nav-btn">
+          {% trans "Login" %}</a></li>
+        <li><a href="{% url 'signup' %}" class="nav-btn">
+          {% trans "Sign Up" %}</a></li>
+      {% endif %}
+      </ul>
+      <ul class="nav-group">  
+        <li class="nav-item">
+         
+          <form action="{% url 'set_language' %}"
+            method="post" 
+            id="language-form" 
+            class="language-form">
+
+            {% csrf_token %}
+            
+            <input type="hidden"
+              name="next"
+              value="{{ request.get_full_path }}">
+
+            <select name="language"
+                id="language-select"
+                class="nav-control"
+                onchange="this.form.submit()"
+
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+
+                {% for lang, lang_name in LANGUAGES %}
+                    <option value="{{ lang }}"
+                            {% if lang == LANGUAGE_CODE %}selected{% endif %}>
+                        {{ lang_name }}
+                    </option>
+                {% endfor %}
+                  
+            </select>
+
+          </form>
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
         </li>
         <li>
           <a href="{% url 'signup' %}" class="nav-btn">{% trans "Sign Up" %}</a>

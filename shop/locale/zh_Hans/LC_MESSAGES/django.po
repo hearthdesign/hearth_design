@@ -41,6 +41,7 @@ msgstr ""
 msgid "Português"
 msgstr ""
 
+<<<<<<< HEAD
 #: .\hearth_shop\settings.py:230
 msgid "简体中文"
 msgstr ""
@@ -48,6 +49,17 @@ msgstr ""
 #: .\hearth_shop\settings.py:231
 msgid "日本語"
 msgstr ""
+=======
+#: .\forms.py:30
+#: .\templates\shop\contact.html:61
+msgid "I have read and agree to the Privacy Notice"
+msgstr "我已阅读并同意隐私声明"
+
+#: .\forms.py:34
+#: .\templates\shop\contact.html:67
+msgid "I would like to receive updates about new art, offers, and newsletters"
+msgstr "我希望接收有关新艺术作品、优惠活动和新闻通讯的更新"
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 
 #: .\hearth_shop\templates\base.html:10
 msgid "Hearth Shop"
@@ -95,6 +107,7 @@ msgstr "首页"
 msgid "ILLUSTRATIONS"
 msgstr "插画"
 
+<<<<<<< HEAD
 #: .\hearth_shop\templates\includes\navbar.html:16
 #: .\shop\templates\shop\photography_gallery.html:8
 msgid "PHOTOGRAPHY"
@@ -110,6 +123,19 @@ msgstr "主题"
 #: .\shop\templates\shop\upload.html:11
 msgid "Upload"
 msgstr "上传"
+=======
+#: .\models.py:84
+msgid "Metal Print"
+msgstr "金属印刷品"
+
+#: .\models.py:85
+msgid "Wood Print"
+msgstr "木质印刷品"
+
+#: .\models.py:86
+msgid "Paper Print"
+msgstr "纸质印刷品"
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 
 #: .\hearth_shop\templates\includes\navbar.html:53 .\shop\models.py:138
 msgid "Cart"
@@ -262,9 +288,14 @@ msgstr "修改密码"
 msgid "Reset your password"
 msgstr "重置密码"
 
+<<<<<<< HEAD
 #: .\shop\templates\registration\password_reset.html:6
 msgid ""
 "Enter your email address and we'll send you a link to reset your password."
+=======
+#: .\templates\registration\password_reset.html:6
+msgid "Enter your email address and we'll send you a link to reset your password."
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 msgstr "请输入您的电子邮箱地址，我们将向您发送重置密码的链接。"
 
 #: .\shop\templates\registration\password_reset.html:10
@@ -374,6 +405,7 @@ msgstr "隐私声明"
 #| "stored securely and deleted once they are no longer needed. You have the "
 #| "right to request access, correction, or deletion of your data at any time."
 msgid ""
+<<<<<<< HEAD
 "\n"
 "        When you submit this form, we collect your name, email address, and "
 "message\n"
@@ -394,6 +426,20 @@ msgstr ""
 "我们还可能会处理技术元数据（例如哈希形式的IP地址和浏览器信息），以确保安全并"
 "防止滥用。未经您的明确同意，您的数据不会用于营销目的。提交的内容会安全存储，"
 "并在不再需要时删除。您有权随时请求访问、更正或删除您的数据。"
+=======
+"When you submit this form, we collect your name, email address, and message "
+"for the sole purpose of responding to your inquiry. Technical metadata "
+"(such as IP address in hashed form and browser information) may also be "
+"processed to ensure security and prevent abuse. Your data will not be used "
+"for marketing without your explicit consent. Submissions are stored securely "
+"and deleted once they are no longer needed. You have the right to request "
+"access, correction, or deletion of your data at any time."
+msgstr ""
+"当您提交此表单时，我们仅收集您的姓名、电子邮件地址和留言，用于回复您的咨询。"
+"我们还可能会处理技术元数据（例如哈希形式的IP地址和浏览器信息），以确保安全并防止滥用。"
+"未经您的明确同意，您的数据不会用于营销目的。提交的内容会安全存储，并在不再需要时删除。"
+"您有权随时请求访问、更正或删除您的数据。"
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 
 #: .\shop\templates\shop\contact.html:70
 msgid "Send Message"
@@ -409,6 +455,7 @@ msgstr "欢迎来到 HEARTH 商店"
 msgid "Discover Our Art"
 msgstr "探索我们的艺术"
 
+<<<<<<< HEAD
 #: .\shop\templates\shop\homepage.html:8
 msgid ""
 "Browse themed prints, illustrations, and photographs curated for every taste."
@@ -419,6 +466,11 @@ msgstr "浏览为各种品味精心挑选的主题版画、插画和摄影作品
 #| msgid "ILLUSTRATIONS"
 msgid "ILLUSTRATION"
 msgstr "插画"
+=======
+#: .\templates\shop\homepage.html:8
+msgid "Browse themed prints, illustrations, and photographs curated for every taste."
+msgstr "浏览为各种品味精心挑选的主题版画、插画和摄影作品。"
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 
 #: .\shop\templates\shop\illustration_gallery.html:27
 #: .\shop\templates\shop\photography_gallery.html:28
@@ -489,6 +541,7 @@ msgstr "感谢您的留言！"
 msgid "We'll get back to you as soon as possible."
 msgstr "我们将尽快与您联系。"
 
+<<<<<<< HEAD
 #: .\shop\templates\shop\themed_gallery.html:6
 #, fuzzy, python-format
 #| msgid "%(theme_name)s Gallery"
@@ -496,6 +549,11 @@ msgid ""
 "\n"
 "      %(theme_name)s Gallery\n"
 "    "
+=======
+#: .\templates\shop\themed_gallery.html:6
+#, python-format
+msgid "%(theme_name)s Gallery"
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 msgstr "%(theme_name)s 画廊"
 
 #: .\shop\templates\shop\themed_gallery.html:10
@@ -548,8 +606,13 @@ msgstr "'%(title)s' 已从您的购物车中移除。"
 
 #: .\shop\views.py:326
 #, python-format
+<<<<<<< HEAD
 msgid "Quantity of \"%(title)s\" increased to %(qty)s."
 msgstr ""
+=======
+msgid "Maximum available stock reached for '%(title)s'."
+msgstr "'%(title)s' 已达到最大可售库存。"
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 
 #: .\shop\views.py:334
 msgid "No additional stock is available for this item."
@@ -565,11 +628,17 @@ msgstr ""
 msgid "'%(title)s' has been removed from your cart."
 msgstr "'%(title)s' 已从您的购物车中移除。"
 
+<<<<<<< HEAD
 #: .\shop\views.py:390
 #, fuzzy, python-format
 #| msgid "'%(title)s' has been removed from your cart."
 msgid "\"%(title)s\" has been removed from your cart."
 msgstr "'%(title)s' 已从您的购物车中移除。"
+=======
+#: .\views.py:453
+msgid "You must agree to the Privacy Notice"
+msgstr "您必须同意隐私政策"
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 
 #: .\shop\views.py:399
 msgid "Your cart is now empty. Browse the gallery to discover more artwork."
@@ -601,9 +670,29 @@ msgstr ""
 "顺致问候，\n"
 "Hearth Design 团队"
 
+<<<<<<< HEAD
 #, python-format
 #~ msgid "Maximum available stock reached for '%(title)s'."
 #~ msgstr "'%(title)s' 已达到最大可售库存。"
 
 #~ msgid "THEME"
 #~ msgstr "主题"
+=======
+msgid "HOME"
+msgstr "首页"
+
+msgid "ILLUSTRATIONS"
+msgstr "插画"
+
+msgid "THEME"
+msgstr "主题"
+
+msgid "My Orders"
+msgstr "我的订单"
+
+msgid "Logout"
+msgstr "登出"
+
+msgid "Switch Language"
+msgstr "切换语言"
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)

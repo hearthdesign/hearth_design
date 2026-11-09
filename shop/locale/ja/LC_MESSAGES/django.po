@@ -7,7 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2026-11-09 23:30+0100\n"
+=======
+"POT-Creation-Date: 2026-11-09 20:47+0100\n"
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 "PO-Revision-Date: 2026-03-06 00:00+0200\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Japanese <LL@li.org>\n"
@@ -17,6 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+<<<<<<< HEAD
 #: .\hearth_shop\settings.py:224
 msgid "English"
 msgstr ""
@@ -91,6 +96,36 @@ msgstr ""
 msgid "HOME"
 msgstr "ホーム"
 
+=======
+#: .\hearth_shop\templates\base.html:10
+msgid "Hearth Shop"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:30
+msgid "[ SHOP ]"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:83
+msgid "Quantity:"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:86
+#, fuzzy
+#| msgid "Return to Cart"
+msgid "Add to Cart"
+msgstr "カートに戻る"
+
+#: .\hearth_shop\templates\base.html:104
+#, fuzzy
+#| msgid "Contact Submission"
+msgid "Contact Us"
+msgstr "お問い合わせ"
+
+#: .\hearth_shop\templates\includes\navbar.html:10
+msgid "HOME"
+msgstr "ホーム"
+
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\hearth_shop\templates\includes\navbar.html:13
 #, fuzzy
 #| msgid "ILLUSTRATIONS"
@@ -108,7 +143,11 @@ msgstr "写真"
 msgid "All Themes"
 msgstr "テーマ"
 
+<<<<<<< HEAD
 #: .\hearth_shop\templates\includes\navbar.html:46
+=======
+#: .\hearth_shop\templates\includes\navbar.html:47
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\shop\templates\shop\upload.html:11
 msgid "Upload"
 msgstr "アップロード"
@@ -118,8 +157,11 @@ msgid "Cart"
 msgstr "カート"
 
 #: .\hearth_shop\templates\includes\navbar.html:57
+<<<<<<< HEAD
 #: .\shop\templates\shop\order_history.html:3
 #: .\shop\templates\shop\order_history.html:7
+=======
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 msgid "My Orders"
 msgstr "マイ注文"
 
@@ -133,17 +175,24 @@ msgstr "ログアウト"
 msgid "Login"
 msgstr "ログイン"
 
+<<<<<<< HEAD
 #: .\hearth_shop\templates\includes\navbar.html:70
+=======
+#: .\hearth_shop\templates\includes\navbar.html:69
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\shop\templates\registration\signup.html:6
 msgid "Sign Up"
 msgstr "新規登録"
 
+<<<<<<< HEAD
 #: .\hearth_shop\templates\includes\navbar.html:83
 #, fuzzy
 #| msgid "Switch Language"
 msgid "Select Language"
 msgstr "言語を変更"
 
+=======
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\shop\forms.py:17
 msgid "Name"
 msgstr "名前"
@@ -433,6 +482,7 @@ msgstr "イラスト"
 msgid "No prints found."
 msgstr "プリントが見つかりませんでした。"
 
+<<<<<<< HEAD
 #: .\shop\templates\shop\order_history.html:16
 #, fuzzy
 #| msgid "Order"
@@ -457,6 +507,8 @@ msgstr ""
 msgid "You have no past orders."
 msgstr "パスワードの再設定が要求されました。"
 
+=======
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\shop\templates\shop\payment_cancel.html:6
 msgid "Payment Cancelled"
 msgstr "支払いキャンセル"
@@ -616,3 +668,9 @@ msgstr ""
 
 #~ msgid "THEME"
 #~ msgstr "テーマ"
+<<<<<<< HEAD
+=======
+
+#~ msgid "Switch Language"
+#~ msgstr "言語を変更"
+>>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
