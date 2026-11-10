@@ -247,7 +247,6 @@ STATIC_URL = '/static/'
 
 # Local development: static file locations
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
     BASE_DIR / 'hearth_shop' / 'static',
     ]
 # Production: where collectstatic will put everything
