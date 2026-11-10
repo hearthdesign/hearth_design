@@ -92,6 +92,7 @@
 
               {% for lang, lang_name in LANGUAGES %}
                   <option value="{{ lang }}" {% if lang == LANGUAGE_CODE %}selected{% endif %}>
+                      {{ lang_name }}
                   </option>
               {% endfor %}
               
