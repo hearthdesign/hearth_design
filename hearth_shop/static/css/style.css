@@ -199,7 +199,7 @@ select:not(.nav-control) {
 }
 
 .checkout-btn {
-    margin: 1rem 2%;
+  margin: 1rem 2%;
 }
 
 #language-form,
@@ -1081,10 +1081,10 @@ img {
   }
 }
 
-/* ===========================
+ /* ===========================
    FORMS & OTHER ELEMENTS
 =========================== */
-
+/*
 .checkout-btn {
   margin: 1rem 2%;
 }
@@ -1144,7 +1144,7 @@ form input::placeholder {
   margin-top: 0.25rem;
   font-size: 0.85rem;
   color: rgb(74, 156, 177);
-}
+} */
 
 
 
