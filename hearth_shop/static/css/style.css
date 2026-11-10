@@ -152,11 +152,11 @@ label {
 ========================== */
 
 .nav-btn,
-.nav-control{
+.nav-control {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: content-box;
+  box-sizing: border-box; /* Fixed from content-box for predictable sizing */
   min-height: 1.5rem;
   min-width: 7.5rem;
   padding: 0.5rem 1rem;
@@ -172,8 +172,7 @@ label {
   white-space: nowrap;
   cursor: pointer;
   box-shadow: 0 0.5rem 0.5rem rgba(0,0,0,0.15);
-  transition: background-color 0.3s ease,
-    color 0.2s ease;
+  transition: background-color 0.3s ease, color 0.2s ease;
 }
 
 .nav-btn:hover, 
@@ -189,10 +188,11 @@ label {
   cursor: pointer;
 }
 
-select {
+/* Generic select styled safely without breaking .nav-control */
+select:not(.nav-control) {
   border-radius: 0.5rem;
   font-size: clamp(0.75rem, 2vw, 1rem);
-  border: none;
+  border: 1px solid rgba(74, 156, 177, 0.5);
   color: rgb(74, 156, 177);
   background-color: rgb(247, 241, 225);
   font-weight: bold;
@@ -653,6 +653,54 @@ img {
   margin-top: 2rem;
   font-size: 1.1rem;
   color: rgb(74, 156, 177);
+}
+
+/* ===========================
+   STATUS PAGES (SUCCESS / CANCEL)
+=========================== */
+
+.status-container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(74, 156, 177, 0.2);
+  text-align: center;
+}
+
+.status-container h1 {
+  color: rgb(20, 90, 120);
+  margin-bottom: 1rem;
+  margin-left: 0;
+}
+
+.status-container p {
+  color: #555;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  margin-left: 0;
+}
+
+.status-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: rgb(247, 241, 225);
+  color: rgb(74, 156, 177);
+  border: 1.7px solid rgba(74, 156, 177, 0.9);
+  font-weight: bold;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.35rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.2s ease;
+}
+
+.status-btn:hover {
+  background-color: rgb(115, 195, 213);
+  color: white;
+  text-decoration: none;
 }
 
 /* ======================
