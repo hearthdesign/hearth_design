@@ -564,3 +564,7 @@ def payment_cancel(request):
         request,
         "shop/payment_cancel.html"
     )
+
+# Terms of Service
+def terms_of_service_view(request):
+    return render(request, 'shop/terms.html')

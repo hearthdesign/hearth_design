@@ -680,9 +680,6 @@ img {
   background-color: #f0ebfe;
 }
 
-/* ======================
-      FOOTER STYLING
-  ====================== */
 
 /* ======================
      FOOTER STYLING
@@ -923,6 +920,45 @@ img {
   border-radius: 6px;
   margin-top: 1.5rem;
   font-weight: 500;
+}
+
+/* ===========================
+   LEGAL / TERMS PAGE STYLING
+=========================== */
+
+.legal-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(74, 156, 177, 0.2);
+}
+
+.legal-container h2 {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: rgb(20, 90, 120);
+}
+
+.last-updated {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgb(115, 195, 213);
+  margin-bottom: 2rem;
+}
+
+.legal-content h3 {
+  color: rgb(20, 90, 120);
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.legal-content p {
+  color: #444;
+  line-height: 1.6;
+  margin-left: 0;
 }
 
 /* ===========================

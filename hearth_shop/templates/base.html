@@ -114,12 +114,12 @@
       <a href="{% url 'contact' %}">{% trans "Contact Us" %}</a>
       {% comment %} <a href="{% url 'my_orders' %}">{% trans "My Orders" %}</a> {% endcomment %}
       <a href="#">{% trans "Privacy Policy" %}</a>
-      <a href="#">{% trans "Terms of Service" %}</a>
+      <a href="{% url 'terms_of_service' %}">{% trans "Terms of Service" %}</a>
     </div>
 
     <!-- Brand / Copyright -->
     <p class="footer-copy">
-      &copy; 2026 HEARTH Shop. {% trans "All rights reserved." %}
+      &copy; 2026 HEARTH DESIGN Shop. {% trans "All rights reserved." %}
     </p>
 
   </div>
