@@ -409,8 +409,8 @@ msgid "Browse themed prints, illustrations, and photographs curated for every ta
 msgstr "Esplora stampe tematiche, illustrazioni e fotografie selezionate per ogni gusto."
 
 #: .\templates\shop\illustration_gallery.html:8
-msgid "ILLUSTRATIONS"
-msgstr "ILLUSTRAZIONI"
+msgid "ILLUSTRATION"
+msgstr "ILLUSTRAZIONE"
 
 #: .\templates\shop\illustration_gallery.html:27
 #: .\templates\shop\photography_gallery.html:28

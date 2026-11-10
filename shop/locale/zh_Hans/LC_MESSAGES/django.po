@@ -248,16 +248,7 @@ msgstr "留言："
 msgid "Privacy Notice"
 msgstr "隐私声明"
 
-#: .\shop\templates\shop\contact.html:45
-#, fuzzy
-#| msgid ""
-#| "When you submit this form, we collect your name, email address, and "
-#| "message for the sole purpose of responding to your inquiry. Technical "
-#| "metadata (such as IP address in hashed form and browser information) may "
-#| "also be processed to ensure security and prevent abuse. Your data will "
-#| "not be used for marketing without your explicit consent. Submissions are "
-#| "stored securely and deleted once they are no longer needed. You have the "
-#| "right to request access, correction, or deletion of your data at any time."
+#: .\templates\shop\contact.html:45
 msgid ""
 "When you submit this form, we collect your name, email address, and message "
 "for the sole purpose of responding to your inquiry. Technical metadata "
@@ -272,17 +263,17 @@ msgstr ""
 "未经您的明确同意，您的数据不会用于营销目的。提交的内容会安全存储，并在不再需要时删除。"
 "您有权随时请求访问、更正或删除您的数据。"
 
-#: .\shop\templates\shop\contact.html:70
+#: .\templates\shop\contact.html:70
 msgid "Send Message"
 msgstr "发送留言"
 
-#: .\shop\templates\shop\homepage.html:4
-#: .\shop\templates\shop\illustration_gallery.html:4
-#: .\shop\templates\shop\photography_gallery.html:4
+#: .\templates\shop\homepage.html:4
+#: .\templates\shop\illustration_gallery.html:4
+#: .\templates\shop\photography_gallery.html:4
 msgid "Welcome to HEARTH Shop"
 msgstr "欢迎来到 HEARTH 商店"
 
-#: .\shop\templates\shop\homepage.html:7
+#: .\templates\shop\homepage.html:7
 msgid "Discover Our Art"
 msgstr "探索我们的艺术"
 
@@ -290,72 +281,56 @@ msgstr "探索我们的艺术"
 msgid "Browse themed prints, illustrations, and photographs curated for every taste."
 msgstr "浏览为各种品味精心挑选的主题版画、插画和摄影作品。"
 
-#: .\shop\templates\shop\illustration_gallery.html:27
-#: .\shop\templates\shop\photography_gallery.html:28
+#: .\templates\shop\illustration_gallery.html:8
+msgid "ILLUSTRATION"
+msgstr "插画"
+
+#: .\templates\shop\illustration_gallery.html:27
+#: .\templates\shop\photography_gallery.html:28
 msgid "No prints found."
 msgstr "未找到版画。"
 
-#: .\shop\templates\shop\order_history.html:16
-#, fuzzy
-#| msgid "Order"
-msgid "Order #"
-msgstr "订单"
-
-#: .\shop\templates\shop\order_history.html:19
-msgid "Paid"
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:19
-msgid "Pending"
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:35
-msgid "Total:"
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:43
-#, fuzzy
-#| msgid "You have requested a password reset."
-msgid "You have no past orders."
-msgstr "您已请求重置密码。"
-
-#: .\shop\templates\shop\payment_cancel.html:6
+#: .\templates\shop\payment_cancel.html:6
 msgid "Payment Cancelled"
 msgstr "支付已取消"
 
-#: .\shop\templates\shop\payment_cancel.html:9
+#: .\templates\shop\payment_cancel.html:9
 msgid "Your payment was cancelled."
 msgstr "您的支付已被取消。"
 
-#: .\shop\templates\shop\payment_cancel.html:13
+#: .\templates\shop\payment_cancel.html:13
 msgid "Return to Cart"
 msgstr "返回购物车"
 
-#: .\shop\templates\shop\payment_success.html:6
+#: .\templates\shop\payment_success.html:6
 msgid "Payment Successful"
 msgstr "支付成功"
 
-#: .\shop\templates\shop\payment_success.html:9
+#: .\templates\shop\payment_success.html:9
 msgid "Thank you for your purchase."
 msgstr "感谢您的购买。"
 
-#: .\shop\templates\shop\payment_success.html:13
+#: .\templates\shop\payment_success.html:13
 msgid "Your order has been received."
 msgstr "您的订单已收到。"
 
-#: .\shop\templates\shop\payment_success.html:17
+#: .\templates\shop\payment_success.html:17
 msgid "View Orders"
 msgstr "查看订单"
 
-#: .\shop\templates\shop\thank_you.html:4
+#: .\templates\shop\photography_gallery.html:8
+msgid "PHOTOGRAPHY"
+msgstr "摄影"
+
+#: .\templates\shop\thank_you.html:4
 msgid "Thank You"
 msgstr "谢谢"
 
-#: .\shop\templates\shop\thank_you.html:7
+#: .\templates\shop\thank_you.html:7
 msgid "Thank you for your message!"
 msgstr "感谢您的留言！"
 
-#: .\shop\templates\shop\thank_you.html:8
+#: .\templates\shop\thank_you.html:8
 msgid "We'll get back to you as soon as possible."
 msgstr "我们将尽快与您联系。"
 
@@ -364,69 +339,55 @@ msgstr "我们将尽快与您联系。"
 msgid "%(theme_name)s Gallery"
 msgstr "%(theme_name)s 画廊"
 
-#: .\shop\templates\shop\themed_gallery.html:10
-#: .\shop\templates\shop\themed_gallery.html:22
+#: .\templates\shop\themed_gallery.html:10
+#: .\templates\shop\themed_gallery.html:22
 msgid "Themed Gallery"
 msgstr "主题画廊"
 
-#: .\shop\templates\shop\themed_gallery.html:39
+#: .\templates\shop\themed_gallery.html:39
 msgid "No image available"
 msgstr "暂无图片"
 
-#: .\shop\templates\shop\themed_gallery.html:50
+#: .\templates\shop\themed_gallery.html:50
 msgid "No prints found for this theme."
 msgstr "未找到此主题的版画。"
 
-#: .\shop\templates\shop\upload.html:4 .\shop\templates\shop\upload.html:7
+#: .\templates\shop\upload.html:4
+#: .\templates\shop\upload.html:7
 msgid "Upload a New Print"
 msgstr "上传新版画"
 
-#: .\shop\views.py:204
-msgid "Invalid product selection."
-msgstr ""
+#: .\templates\shop\upload.html:11
+msgid "Upload"
+msgstr "上传"
 
-#: .\shop\views.py:219
+#: .\views.py:218
 msgid "Invalid quantity entered. Quantity has been reset to 1."
 msgstr "输入的数量无效。数量已重置为 1。"
 
-#: .\shop\views.py:228
+#: .\views.py:227
 msgid "Quantity must be greater than zero. Quantity has been reset to 1."
 msgstr "数量必须大于零。数量已重置为 1。"
 
-#: .\shop\views.py:238
+#: .\views.py:236
 #, python-format
 msgid "Only %(stock)s item(s) currently available."
 msgstr "当前仅剩 %(stock)s 件商品。"
 
-#: .\shop\views.py:248
+#: .\views.py:245
 msgid "This item is currently out of stock."
 msgstr "该商品目前缺货。"
 
-#: .\shop\views.py:271
-msgid "Requested quantity exceeds available stock."
-msgstr ""
-
-#: .\shop\views.py:282
-#, fuzzy, python-format
-#| msgid "'%(title)s' has been removed from your cart."
-msgid "\"%(title)s\" added to your cart."
-msgstr "'%(title)s' 已从您的购物车中移除。"
-
-#: .\shop\views.py:326
+#: .\views.py:269
 #, python-format
 msgid "Maximum available stock reached for '%(title)s'."
 msgstr "'%(title)s' 已达到最大可售库存。"
 
-#: .\shop\views.py:334
+#: .\views.py:316
 msgid "No additional stock is available for this item."
 msgstr "该商品没有更多库存。"
 
-#: .\shop\views.py:353
-#, python-format
-msgid "Quantity of \"%(title)s\" decreased to %(qty)s."
-msgstr ""
-
-#: .\shop\views.py:364
+#: .\views.py:340
 #, python-format
 msgid "'%(title)s' has been removed from your cart."
 msgstr "'%(title)s' 已从您的购物车中移除。"
@@ -435,24 +396,16 @@ msgstr "'%(title)s' 已从您的购物车中移除。"
 msgid "You must agree to the Privacy Notice"
 msgstr "您必须同意隐私政策"
 
-#: .\shop\views.py:399
-msgid "Your cart is now empty. Browse the gallery to discover more artwork."
-msgstr ""
-
-#: .\shop\views.py:474
-msgid "You must agree to the Privacy Notice"
-msgstr "您必须同意隐私政策"
-
-#: .\shop\views.py:494
+#: .\views.py:473
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
 msgstr "来自 %(name)s 的新联系表单提交"
 
-#: .\shop\views.py:501
+#: .\views.py:480
 msgid "Thank you for contacting Hearth Design"
 msgstr "感谢您联系 Hearth Design"
 
-#: .\shop\views.py:504
+#: .\views.py:483
 msgid ""
 "Thank you for reaching out to us. We've received your message and will get "
 "back to you shortly.\n"

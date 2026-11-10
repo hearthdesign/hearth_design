@@ -287,8 +287,8 @@ msgid "Browse themed prints, illustrations, and photographs curated for every ta
 msgstr "Découvrez des impressions thématiques, des illustrations et des photographies sélectionnées pour tous les goûts."
 
 #: .\templates\shop\illustration_gallery.html:8
-msgid "ILLUSTRATIONS"
-msgstr "ILLUSTRATIONS"
+msgid "ILLUSTRATION"
+msgstr "ILLUSTRATION"
 
 #: .\templates\shop\illustration_gallery.html:27
 #: .\templates\shop\photography_gallery.html:28
