@@ -31,8 +31,9 @@
             </h1>
       </div>
     </header>
-
+    <!-- Navbar Inclusion -->
     {% include 'includes/navbar.html' %}
+    <!-- Global Messages Container -->
     {% if messages %}
 <div class="messages-container">
     {% for message in messages %}
@@ -45,15 +46,6 @@
 
 <main>
   {% block content %}
-    {% if messages %}
-      <div class="messages-container">
-        {% for message in messages %}
-          <div class="message message-{{ message.tags }}">
-            {{ message }}
-          </div>
-        {% endfor %}
-      </div>
-    {% endif %}
   {% endblock %}
 </main>
 
@@ -94,15 +86,9 @@
       <button id="close-btn" class="modal_btn">x</button>
     </div>
 
-  </div> <!-- END OF .modal-content -->
+  </div> 
 
-</div> <!--  END OF #image-modal -->
-
-<!-- FOOTER -->
-{% comment %} <footer>
-  <p>&copy; 2025 HEARTH SHOP</p>
-  <a href="{% url 'contact' %}">{% trans "Contact Us" %}</a>
-</footer> {% endcomment %}
+</div> <!-- END OF .modal-content -->
 
 
 
@@ -115,12 +101,12 @@
     <div class="footer-links">
       <a href="{% url 'contact' %}">{% trans "Contact Us" %}</a>
       <a href="#">{% trans "Privacy Policy" %}</a>
-      <a href="#">{% trans "Terms of Service" %}</a>
+      <a href="{% url 'terms_of_service' %}">{% trans "Terms of Service" %}</a>
     </div>
 
     <!-- Brand / Copyright -->
     <p class="footer-copy">
-      &copy; 2026 HEARTH Shop. {% trans "All rights reserved." %}
+      &copy; 2026 HEARTH DESIGN Shop. {% trans "All rights reserved." %}
     </p>
 
   </div>

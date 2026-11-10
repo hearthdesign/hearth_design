@@ -67,7 +67,11 @@ urlpatterns += i18n_patterns(
     path('accounts/', include('django.contrib.auth.urls')), # for login/logout/password reset
     path('contact/', views.contact_view, name='contact'),
     path('terms/', views.terms_of_service_view, name='terms_of_service'),
-    path("shop/", include("shop.urls"))
+    path("shop/", include("shop.urls")).add(),
+    path('checkout/success/', views.payment_success_view, name='payment_success'),
+    path('checkout/cancel/', views.payment_cancel_view, name='payment_cancel'),
+    path('checkout/thanks/', views.thank_you_view, name='thank_you'),
+
     )
 
 if settings.DEBUG:

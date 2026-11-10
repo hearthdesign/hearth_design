@@ -1,20 +1,16 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% block title %}{% trans "Payment Successful" %}{% endblock %}
+
 {% block content %}
-
+<div class="status-container">
     <h1>{% trans "Payment Successful" %}</h1>
-
-    <p>
-        {% trans "Thank you for your purchase." %}
-    </p>
-
-    <p>
-        {% trans "Your order has been received." %}
-    </p>
-
-    <a href="{% url 'order_history' %}">
-            {% trans "View Orders" %}
+    <p>{% trans "Thank you for your purchase." %}</p>
+    <p>{% trans "Your order has been received and is being processed." %}</p>
+    
+    <a href="{% url 'order_history' %}" class="status-btn">
+        {% trans "View Orders" %}
     </a>
-
+</div>
 {% endblock %}
