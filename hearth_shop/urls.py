@@ -66,9 +66,9 @@ urlpatterns += i18n_patterns(
     path('thank_you/', TemplateView.as_view(template_name='shop/thank_you.html'), name='thank_you'),
     path('accounts/', include('django.contrib.auth.urls')), # for login/logout/password reset
     path('contact/', views.contact_view, name='contact'),
-    path('terms/', views.terms_of_service_view, name='terms_of_service'
-    path("shop/", include("shop.urls")),
-)
+    path('terms/', views.terms_of_service_view, name='terms_of_service'),
+    path("shop/", include("shop.urls"))
+    )
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
