@@ -17,39 +17,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\hearth_shop\settings.py:224
-msgid "English"
-msgstr ""
+#: .\forms.py:17
+msgid "Name"
+msgstr "姓名"
 
-#: .\hearth_shop\settings.py:225
-msgid "Deutsch"
-msgstr ""
+#: .\forms.py:18
+msgid "Your name"
+msgstr "您的姓名"
 
-#: .\hearth_shop\settings.py:226
-msgid "Français"
-msgstr ""
+#: .\forms.py:21
+msgid "Email"
+msgstr "电子邮箱"
 
-#: .\hearth_shop\settings.py:227
-msgid "Español"
-msgstr ""
+#: .\forms.py:22
+msgid "Your email"
+msgstr "您的电子邮箱"
 
-#: .\hearth_shop\settings.py:228
-msgid "Italiano"
-msgstr ""
+#: .\forms.py:25
+msgid "Message"
+msgstr "留言"
 
-#: .\hearth_shop\settings.py:229
-msgid "Português"
-msgstr ""
+#: .\forms.py:26
+msgid "Your message"
+msgstr "您的留言"
 
-<<<<<<< HEAD
-#: .\hearth_shop\settings.py:230
-msgid "简体中文"
-msgstr ""
-
-#: .\hearth_shop\settings.py:231
-msgid "日本語"
-msgstr ""
-=======
 #: .\forms.py:30
 #: .\templates\shop\contact.html:61
 msgid "I have read and agree to the Privacy Notice"
@@ -59,71 +50,27 @@ msgstr "我已阅读并同意隐私声明"
 #: .\templates\shop\contact.html:67
 msgid "I would like to receive updates about new art, offers, and newsletters"
 msgstr "我希望接收有关新艺术作品、优惠活动和新闻通讯的更新"
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 
-#: .\hearth_shop\templates\base.html:10
-msgid "Hearth Shop"
-msgstr ""
+#: .\models.py:17
+msgid "General"
+msgstr "常规"
 
-#: .\hearth_shop\templates\base.html:30
-msgid "[ SHOP ]"
-msgstr ""
-
-#: .\hearth_shop\templates\base.html:83
-msgid "Quantity:"
-msgstr ""
-
-#: .\hearth_shop\templates\base.html:86
-#, fuzzy
-#| msgid "Return to Cart"
-msgid "Add to Cart"
-msgstr "返回购物车"
-
-#: .\hearth_shop\templates\base.html:115
-#, fuzzy
-#| msgid "Contact Submission"
-msgid "Contact Us"
-msgstr "联系表单提交"
-
-#: .\hearth_shop\templates\base.html:118
-#, fuzzy
-#| msgid "Privacy Notice"
-msgid "Privacy Policy"
-msgstr "隐私声明"
-
-#: .\hearth_shop\templates\base.html:119
-msgid "Terms of Service"
-msgstr ""
-
-#: .\hearth_shop\templates\base.html:124
-msgid "All rights reserved."
-msgstr ""
-
-#: .\hearth_shop\templates\includes\navbar.html:10
-msgid "HOME"
-msgstr "首页"
-
-#: .\hearth_shop\templates\includes\navbar.html:13
-msgid "ILLUSTRATIONS"
-msgstr "插画"
-
-<<<<<<< HEAD
-#: .\hearth_shop\templates\includes\navbar.html:16
-#: .\shop\templates\shop\photography_gallery.html:8
-msgid "PHOTOGRAPHY"
-msgstr "摄影"
-
-#: .\hearth_shop\templates\includes\navbar.html:27
-#, fuzzy
-#| msgid "Themes"
-msgid "All Themes"
+#: .\models.py:66
+msgid "Theme"
 msgstr "主题"
 
-#: .\hearth_shop\templates\includes\navbar.html:46
-#: .\shop\templates\shop\upload.html:11
-msgid "Upload"
-msgstr "上传"
-=======
+#: .\models.py:67
+msgid "Themes"
+msgstr "主题"
+
+#: .\models.py:80
+msgid "Photography"
+msgstr "摄影"
+
+#: .\models.py:81
+msgid "Illustration"
+msgstr "插画"
+
 #: .\models.py:84
 msgid "Metal Print"
 msgstr "金属印刷品"
@@ -135,262 +82,169 @@ msgstr "木质印刷品"
 #: .\models.py:86
 msgid "Paper Print"
 msgstr "纸质印刷品"
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 
-#: .\hearth_shop\templates\includes\navbar.html:53 .\shop\models.py:138
+#: .\models.py:153
 msgid "Cart"
 msgstr "购物车"
 
-#: .\hearth_shop\templates\includes\navbar.html:57
-#: .\shop\templates\shop\order_history.html:3
-#: .\shop\templates\shop\order_history.html:7
-msgid "My Orders"
-msgstr "我的订单"
-
-#: .\hearth_shop\templates\includes\navbar.html:62
-msgid "Logout"
-msgstr "登出"
-
-#: .\hearth_shop\templates\includes\navbar.html:67
-#: .\shop\templates\registration\login.html:6
-#: .\shop\templates\registration\login.html:10
-msgid "Login"
-msgstr "登录"
-
-#: .\hearth_shop\templates\includes\navbar.html:70
-#: .\shop\templates\registration\signup.html:6
-msgid "Sign Up"
-msgstr "注册"
-
-#: .\hearth_shop\templates\includes\navbar.html:83
-#, fuzzy
-#| msgid "Switch Language"
-msgid "Select Language"
-msgstr "切换语言"
-
-#: .\shop\forms.py:17
-msgid "Name"
-msgstr "姓名"
-
-#: .\shop\forms.py:18
-msgid "Your name"
-msgstr "您的姓名"
-
-#: .\shop\forms.py:21
-msgid "Email"
-msgstr "电子邮箱"
-
-#: .\shop\forms.py:22
-msgid "Your email"
-msgstr "您的电子邮箱"
-
-#: .\shop\forms.py:25
-msgid "Message"
-msgstr "留言"
-
-#: .\shop\forms.py:26
-msgid "Your message"
-msgstr "您的留言"
-
-#: .\shop\forms.py:30 .\shop\templates\shop\contact.html:61
-msgid "I have read and agree to the Privacy Notice"
-msgstr "我已阅读并同意隐私声明"
-
-#: .\shop\forms.py:34 .\shop\templates\shop\contact.html:67
-msgid "I would like to receive updates about new art, offers, and newsletters"
-msgstr "我希望接收有关新艺术作品、优惠活动和新闻通讯的更新"
-
-#: .\shop\models.py:15
-msgid "General"
-msgstr "常规"
-
-#: .\shop\models.py:64
-msgid "Theme"
-msgstr "主题"
-
-#: .\shop\models.py:65
-msgid "Themes"
-msgstr "主题"
-
-#: .\shop\models.py:78
-msgid "Photography"
-msgstr "摄影"
-
-#: .\shop\models.py:79
-msgid "Illustration"
-msgstr "插画"
-
-#: .\shop\models.py:82
-msgid "Metal Print"
-msgstr "金属印刷品"
-
-#: .\shop\models.py:83
-msgid "Wood Print"
-msgstr "木质印刷品"
-
-#: .\shop\models.py:84
-msgid "Paper Print"
-msgstr "纸质印刷品"
-
-#: .\shop\models.py:139
+#: .\models.py:154
 msgid "Carts"
 msgstr "购物车"
 
-#: .\shop\models.py:158
+#: .\models.py:173
 msgid "Cart Item"
 msgstr "购物车商品"
 
-#: .\shop\models.py:159
+#: .\models.py:174
 msgid "Cart Items"
 msgstr "购物车商品"
 
-#: .\shop\models.py:200
+#: .\models.py:207
 msgid "Order"
 msgstr "订单"
 
-#: .\shop\models.py:201
+#: .\models.py:208
 msgid "Orders"
 msgstr "订单"
 
-#: .\shop\models.py:214
+#: .\models.py:221
 msgid "Order Item"
 msgstr "订单商品"
 
-#: .\shop\models.py:215
+#: .\models.py:222
 msgid "Order Items"
 msgstr "订单商品"
 
-#: .\shop\models.py:232
+#: .\models.py:239
 msgid "Contact Submission"
 msgstr "联系表单提交"
 
-#: .\shop\models.py:233
+#: .\models.py:240
 msgid "Contact Submissions"
 msgstr "联系表单提交记录"
 
-#: .\shop\templates\registration\logged_out.html:5
+#: .\templates\registration\logged_out.html:5
 msgid "You have been logged out."
 msgstr "您已退出登录。"
 
-#: .\shop\templates\registration\password_change_done.html:6
+#: .\templates\registration\login.html:6
+#: .\templates\registration\login.html:10
+msgid "Login"
+msgstr "登录"
+
+#: .\templates\registration\password_change_done.html:6
 msgid "Your password has been changed successfully."
 msgstr "您的密码已成功修改。"
 
-#: .\shop\templates\registration\password_change_form.html:5
+#: .\templates\registration\password_change_form.html:5
 msgid "Change your password"
 msgstr "修改您的密码"
 
-#: .\shop\templates\registration\password_change_form.html:9
+#: .\templates\registration\password_change_form.html:9
 msgid "Change password"
 msgstr "修改密码"
 
-#: .\shop\templates\registration\password_reset.html:5
+#: .\templates\registration\password_reset.html:5
 msgid "Reset your password"
 msgstr "重置密码"
 
-<<<<<<< HEAD
-#: .\shop\templates\registration\password_reset.html:6
-msgid ""
-"Enter your email address and we'll send you a link to reset your password."
-=======
 #: .\templates\registration\password_reset.html:6
 msgid "Enter your email address and we'll send you a link to reset your password."
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 msgstr "请输入您的电子邮箱地址，我们将向您发送重置密码的链接。"
 
-#: .\shop\templates\registration\password_reset.html:10
+#: .\templates\registration\password_reset.html:10
 msgid "Send reset link"
 msgstr "发送重置链接"
 
-#: .\shop\templates\registration\password_reset_complete.html:6
+#: .\templates\registration\password_reset_complete.html:6
 msgid "Password reset complete"
 msgstr "密码重置完成"
 
-#: .\shop\templates\registration\password_reset_complete.html:7
+#: .\templates\registration\password_reset_complete.html:7
 msgid "Your password has been successfully reset. You may now log in."
 msgstr "您的密码已成功重置。您现在可以登录了。"
 
-#: .\shop\templates\registration\password_reset_complete.html:8
+#: .\templates\registration\password_reset_complete.html:8
 msgid "Go to login page"
 msgstr "前往登录页面"
 
-#: .\shop\templates\registration\password_reset_confirm.html:5
+#: .\templates\registration\password_reset_confirm.html:5
 msgid "Enter new password"
 msgstr "输入新密码"
 
-#: .\shop\templates\registration\password_reset_confirm.html:9
-#: .\shop\templates\registration\password_reset_email.html:8
+#: .\templates\registration\password_reset_confirm.html:9
+#: .\templates\registration\password_reset_email.html:8
 msgid "Reset password"
 msgstr "重置密码"
 
-#: .\shop\templates\registration\password_reset_done.html:5
+#: .\templates\registration\password_reset_done.html:5
 msgid "Password reset email sent"
 msgstr "密码重置邮件已发送"
 
-#: .\shop\templates\registration\password_reset_done.html:6
+#: .\templates\registration\password_reset_done.html:6
 msgid "Check your inbox for a link to reset your password."
 msgstr "请检查您的收件箱以获取重置密码的链接。"
 
-#: .\shop\templates\registration\password_reset_email.html:5
+#: .\templates\registration\password_reset_email.html:5
 msgid "You have requested a password reset."
 msgstr "您已请求重置密码。"
 
-#: .\shop\templates\registration\password_reset_email.html:6
+#: .\templates\registration\password_reset_email.html:6
 msgid "Please click the link below to reset your password:"
 msgstr "请点击以下链接重置您的密码："
 
-#: .\shop\templates\registration\signup.html:10
+#: .\templates\registration\signup.html:6
+msgid "Sign Up"
+msgstr "注册"
+
+#: .\templates\registration\signup.html:10
 msgid "Username:"
 msgstr "用户名："
 
-#: .\shop\templates\registration\signup.html:16
-#: .\shop\templates\shop\contact.html:18
+#: .\templates\registration\signup.html:16
+#: .\templates\shop\contact.html:18
 msgid "Email:"
 msgstr "电子邮箱："
 
-#: .\shop\templates\registration\signup.html:22
+#: .\templates\registration\signup.html:22
 msgid "Password:"
 msgstr "密码："
 
-#: .\shop\templates\registration\signup.html:28
+#: .\templates\registration\signup.html:28
 msgid "Confirm Password:"
 msgstr "确认密码："
 
-#: .\shop\templates\registration\signup.html:34
+#: .\templates\registration\signup.html:34
 msgid "Create Account"
 msgstr "创建账户"
 
-#: .\shop\templates\shop\_pagination.html:7
-#: .\shop\templates\shop\_pagination.html:11
+#: .\templates\shop\_pagination.html:7
+#: .\templates\shop\_pagination.html:11
 msgid "Previous"
 msgstr "上一页"
 
-#: .\shop\templates\shop\_pagination.html:16
+#: .\templates\shop\_pagination.html:16
 msgid "Page"
 msgstr "页"
 
-#: .\shop\templates\shop\_pagination.html:21
-#: .\shop\templates\shop\_pagination.html:25
+#: .\templates\shop\_pagination.html:21
+#: .\templates\shop\_pagination.html:25
 msgid "Next"
 msgstr "下一页"
 
-#: .\shop\templates\shop\cart.html:47
-msgid "Your cart is currently empty."
-msgstr ""
-
-#: .\shop\templates\shop\cart.html:56
+#: .\templates\shop\cart.html:55
 msgid "Secure Checkout with Stripe"
 msgstr "使用 Stripe 安全结账"
 
-#: .\shop\templates\shop\contact.html:9
+#: .\templates\shop\contact.html:9
 msgid "Name:"
 msgstr "姓名："
 
-#: .\shop\templates\shop\contact.html:27
+#: .\templates\shop\contact.html:27
 msgid "Message:"
 msgstr "留言："
 
-#: .\shop\templates\shop\contact.html:42
+#: .\templates\shop\contact.html:42
 msgid "Privacy Notice"
 msgstr "隐私声明"
 
@@ -405,28 +259,6 @@ msgstr "隐私声明"
 #| "stored securely and deleted once they are no longer needed. You have the "
 #| "right to request access, correction, or deletion of your data at any time."
 msgid ""
-<<<<<<< HEAD
-"\n"
-"        When you submit this form, we collect your name, email address, and "
-"message\n"
-"        for the sole purpose of responding to your inquiry. Technical "
-"metadata\n"
-"        (such as IP address in hashed form and browser information) may also "
-"be\n"
-"        processed to ensure security and prevent abuse. Your data will not "
-"be used\n"
-"        for marketing without your explicit consent. Submissions are stored "
-"securely\n"
-"        and deleted once they are no longer needed. You have the right to "
-"request\n"
-"        access, correction, or deletion of your data at any time.\n"
-"        "
-msgstr ""
-"当您提交此表单时，我们仅收集您的姓名、电子邮件地址和留言，用于回复您的咨询。"
-"我们还可能会处理技术元数据（例如哈希形式的IP地址和浏览器信息），以确保安全并"
-"防止滥用。未经您的明确同意，您的数据不会用于营销目的。提交的内容会安全存储，"
-"并在不再需要时删除。您有权随时请求访问、更正或删除您的数据。"
-=======
 "When you submit this form, we collect your name, email address, and message "
 "for the sole purpose of responding to your inquiry. Technical metadata "
 "(such as IP address in hashed form and browser information) may also be "
@@ -439,7 +271,6 @@ msgstr ""
 "我们还可能会处理技术元数据（例如哈希形式的IP地址和浏览器信息），以确保安全并防止滥用。"
 "未经您的明确同意，您的数据不会用于营销目的。提交的内容会安全存储，并在不再需要时删除。"
 "您有权随时请求访问、更正或删除您的数据。"
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 
 #: .\shop\templates\shop\contact.html:70
 msgid "Send Message"
@@ -455,22 +286,9 @@ msgstr "欢迎来到 HEARTH 商店"
 msgid "Discover Our Art"
 msgstr "探索我们的艺术"
 
-<<<<<<< HEAD
-#: .\shop\templates\shop\homepage.html:8
-msgid ""
-"Browse themed prints, illustrations, and photographs curated for every taste."
-msgstr "浏览为各种品味精心挑选的主题版画、插画和摄影作品。"
-
-#: .\shop\templates\shop\illustration_gallery.html:8
-#, fuzzy
-#| msgid "ILLUSTRATIONS"
-msgid "ILLUSTRATION"
-msgstr "插画"
-=======
 #: .\templates\shop\homepage.html:8
 msgid "Browse themed prints, illustrations, and photographs curated for every taste."
 msgstr "浏览为各种品味精心挑选的主题版画、插画和摄影作品。"
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 
 #: .\shop\templates\shop\illustration_gallery.html:27
 #: .\shop\templates\shop\photography_gallery.html:28
@@ -541,19 +359,9 @@ msgstr "感谢您的留言！"
 msgid "We'll get back to you as soon as possible."
 msgstr "我们将尽快与您联系。"
 
-<<<<<<< HEAD
-#: .\shop\templates\shop\themed_gallery.html:6
-#, fuzzy, python-format
-#| msgid "%(theme_name)s Gallery"
-msgid ""
-"\n"
-"      %(theme_name)s Gallery\n"
-"    "
-=======
 #: .\templates\shop\themed_gallery.html:6
 #, python-format
 msgid "%(theme_name)s Gallery"
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 msgstr "%(theme_name)s 画廊"
 
 #: .\shop\templates\shop\themed_gallery.html:10
@@ -606,13 +414,8 @@ msgstr "'%(title)s' 已从您的购物车中移除。"
 
 #: .\shop\views.py:326
 #, python-format
-<<<<<<< HEAD
-msgid "Quantity of \"%(title)s\" increased to %(qty)s."
-msgstr ""
-=======
 msgid "Maximum available stock reached for '%(title)s'."
 msgstr "'%(title)s' 已达到最大可售库存。"
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 
 #: .\shop\views.py:334
 msgid "No additional stock is available for this item."
@@ -628,17 +431,9 @@ msgstr ""
 msgid "'%(title)s' has been removed from your cart."
 msgstr "'%(title)s' 已从您的购物车中移除。"
 
-<<<<<<< HEAD
-#: .\shop\views.py:390
-#, fuzzy, python-format
-#| msgid "'%(title)s' has been removed from your cart."
-msgid "\"%(title)s\" has been removed from your cart."
-msgstr "'%(title)s' 已从您的购物车中移除。"
-=======
 #: .\views.py:453
 msgid "You must agree to the Privacy Notice"
 msgstr "您必须同意隐私政策"
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 
 #: .\shop\views.py:399
 msgid "Your cart is now empty. Browse the gallery to discover more artwork."
@@ -670,14 +465,6 @@ msgstr ""
 "顺致问候，\n"
 "Hearth Design 团队"
 
-<<<<<<< HEAD
-#, python-format
-#~ msgid "Maximum available stock reached for '%(title)s'."
-#~ msgstr "'%(title)s' 已达到最大可售库存。"
-
-#~ msgid "THEME"
-#~ msgstr "主题"
-=======
 msgid "HOME"
 msgstr "首页"
 
@@ -695,4 +482,3 @@ msgstr "登出"
 
 msgid "Switch Language"
 msgstr "切换语言"
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)

@@ -7,11 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2026-11-09 23:30+0100\n"
-=======
 "POT-Creation-Date: 2026-11-09 20:54+0100\n"
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 "PO-Revision-Date: 2026-03-06 00:00+0200\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Spanish <LL@li.org>\n"
@@ -21,93 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-<<<<<<< HEAD
-#: .\hearth_shop\settings.py:224
-msgid "English"
-msgstr ""
-
-#: .\hearth_shop\settings.py:225
-msgid "Deutsch"
-msgstr ""
-
-#: .\hearth_shop\settings.py:226
-msgid "Français"
-msgstr ""
-
-#: .\hearth_shop\settings.py:227
-msgid "Español"
-msgstr ""
-
-#: .\hearth_shop\settings.py:228
-msgid "Italiano"
-msgstr ""
-
-#: .\hearth_shop\settings.py:229
-msgid "Português"
-msgstr ""
-
-#: .\hearth_shop\settings.py:230
-msgid "简体中文"
-msgstr ""
-
-#: .\hearth_shop\settings.py:231
-msgid "日本語"
-msgstr ""
-
-#: .\hearth_shop\templates\base.html:10
-msgid "Hearth Shop"
-msgstr ""
-
-#: .\hearth_shop\templates\base.html:30
-msgid "[ SHOP ]"
-msgstr ""
-
-#: .\hearth_shop\templates\base.html:83
-msgid "Quantity:"
-msgstr ""
-
-#: .\hearth_shop\templates\base.html:86
-#, fuzzy
-#| msgid "Return to Cart"
-msgid "Add to Cart"
-msgstr "Volver al carrito"
-
-#: .\hearth_shop\templates\base.html:115
-#, fuzzy
-#| msgid "Contact Submission"
-msgid "Contact Us"
-msgstr "Envío de contacto"
-
-#: .\hearth_shop\templates\base.html:118
-#, fuzzy
-#| msgid "Privacy Notice"
-msgid "Privacy Policy"
-msgstr "Aviso de Privacidad"
-
-#: .\hearth_shop\templates\base.html:119
-msgid "Terms of Service"
-msgstr ""
-
-#: .\hearth_shop\templates\base.html:124
-msgid "All rights reserved."
-msgstr ""
-
-#: .\hearth_shop\templates\includes\navbar.html:10
-msgid "HOME"
-msgstr "INICIO"
-
-#: .\hearth_shop\templates\includes\navbar.html:13
-#, fuzzy
-#| msgid "ILLUSTRATIONS"
-msgid "ILLUSTRATIONS"
-msgstr "ILUSTRACIONES"
-
-#: .\hearth_shop\templates\includes\navbar.html:16
-#: .\shop\templates\shop\photography_gallery.html:8
-msgid "PHOTOGRAPHY"
-msgstr "FOTOGRAFÍA"
-
-=======
 #: .\hearth_shop\templates\base.html:10
 msgid "Hearth Shop"
 msgstr ""
@@ -147,18 +56,13 @@ msgstr "ILUSTRACIONES"
 msgid "PHOTOGRAPHY"
 msgstr "FOTOGRAFÍA"
 
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\hearth_shop\templates\includes\navbar.html:27
 #, fuzzy
 #| msgid "Themes"
 msgid "All Themes"
 msgstr "Temas"
 
-<<<<<<< HEAD
-#: .\hearth_shop\templates\includes\navbar.html:46
-=======
 #: .\hearth_shop\templates\includes\navbar.html:47
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\shop\templates\shop\upload.html:11
 msgid "Upload"
 msgstr "Subir"
@@ -168,11 +72,6 @@ msgid "Cart"
 msgstr "Carrito"
 
 #: .\hearth_shop\templates\includes\navbar.html:57
-<<<<<<< HEAD
-#: .\shop\templates\shop\order_history.html:3
-#: .\shop\templates\shop\order_history.html:7
-=======
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 msgid "My Orders"
 msgstr "Mis pedidos"
 
@@ -186,24 +85,11 @@ msgstr "Cerrar sesión"
 msgid "Login"
 msgstr "Iniciar sesión"
 
-<<<<<<< HEAD
-#: .\hearth_shop\templates\includes\navbar.html:70
-=======
 #: .\hearth_shop\templates\includes\navbar.html:69
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\shop\templates\registration\signup.html:6
 msgid "Sign Up"
 msgstr "Registrarse"
 
-<<<<<<< HEAD
-#: .\hearth_shop\templates\includes\navbar.html:83
-#, fuzzy
-#| msgid "Switch Language"
-msgid "Select Language"
-msgstr "Cambiar idioma"
-
-=======
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 #: .\shop\forms.py:17
 msgid "Name"
 msgstr "Nombre"
@@ -432,32 +318,15 @@ msgstr "Mensaje:"
 msgid "Privacy Notice"
 msgstr "Aviso de Privacidad"
 
-#: .\shop\templates\shop\contact.html:45
-#, fuzzy
-#| msgid ""
-#| "When you submit this form, we collect your name, email address, and "
-#| "message for the sole purpose of responding to your inquiry. Technical "
-#| "metadata (such as IP address in hashed form and browser information) may "
-#| "also be processed to ensure security and prevent abuse. Your data will "
-#| "not be used for marketing without your explicit consent. Submissions are "
-#| "stored securely and deleted once they are no longer needed. You have the "
-#| "right to request access, correction, or deletion of your data at any time."
+#: .\templates\shop\contact.html:45
 msgid ""
-"\n"
-"        When you submit this form, we collect your name, email address, and "
-"message\n"
-"        for the sole purpose of responding to your inquiry. Technical "
-"metadata\n"
-"        (such as IP address in hashed form and browser information) may also "
-"be\n"
-"        processed to ensure security and prevent abuse. Your data will not "
-"be used\n"
-"        for marketing without your explicit consent. Submissions are stored "
-"securely\n"
-"        and deleted once they are no longer needed. You have the right to "
-"request\n"
-"        access, correction, or deletion of your data at any time.\n"
-"        "
+"When you submit this form, we collect your name, email address, and message "
+"for the sole purpose of responding to your inquiry. Technical metadata "
+"(such as IP address in hashed form and browser information) may also be "
+"processed to ensure security and prevent abuse. Your data will not be used "
+"for marketing without your explicit consent. Submissions are stored securely "
+"and deleted once they are no longer needed. You have the right to request "
+"access, correction, or deletion of your data at any time."
 msgstr ""
 "Cuando envía este formulario, recopilamos su nombre, dirección de correo "
 "electrónico y mensaje con el único propósito de responder a su consulta. "
@@ -468,205 +337,149 @@ msgstr ""
 "y se elimina cuando ya no es necesaria. Tiene derecho a solicitar el acceso, "
 "la corrección o la eliminación de sus datos en cualquier momento."
 
-#: .\shop\templates\shop\contact.html:70
+#: .\templates\shop\contact.html:70
 msgid "Send Message"
 msgstr "Enviar mensaje"
 
-#: .\shop\templates\shop\homepage.html:4
-#: .\shop\templates\shop\illustration_gallery.html:4
-#: .\shop\templates\shop\photography_gallery.html:4
+#: .\templates\shop\homepage.html:4
+#: .\templates\shop\illustration_gallery.html:4
+#: .\templates\shop\photography_gallery.html:4
 msgid "Welcome to HEARTH Shop"
 msgstr "Bienvenido a HEARTH Shop"
 
-#: .\shop\templates\shop\homepage.html:7
+#: .\templates\shop\homepage.html:7
 msgid "Discover Our Art"
 msgstr "Descubra nuestro arte"
 
-#: .\shop\templates\shop\homepage.html:8
-msgid ""
-"Browse themed prints, illustrations, and photographs curated for every taste."
-msgstr ""
-"Explore impresiones temáticas, ilustraciones y fotografías seleccionadas "
-"para todos los gustos."
+#: .\templates\shop\homepage.html:8
+msgid "Browse themed prints, illustrations, and photographs curated for every taste."
+msgstr "Explore impresiones temáticas, ilustraciones y fotografías seleccionadas para todos los gustos."
 
-#: .\shop\templates\shop\illustration_gallery.html:8
-#, fuzzy
-#| msgid "ILLUSTRATIONS"
-msgid "ILLUSTRATION"
+#: .\templates\shop\illustration_gallery.html:8
+msgid "ILLUSTRATIONS"
 msgstr "ILUSTRACIONES"
 
-#: .\shop\templates\shop\illustration_gallery.html:27
-#: .\shop\templates\shop\photography_gallery.html:28
+#: .\templates\shop\illustration_gallery.html:27
+#: .\templates\shop\photography_gallery.html:28
 msgid "No prints found."
 msgstr "No se encontraron impresiones."
 
-<<<<<<< HEAD
-#: .\shop\templates\shop\order_history.html:16
-#, fuzzy
-#| msgid "Order"
-msgid "Order #"
-msgstr "Pedido"
-
-#: .\shop\templates\shop\order_history.html:19
-msgid "Paid"
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:19
-msgid "Pending"
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:35
-msgid "Total:"
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:43
-#, fuzzy
-#| msgid "You have requested a password reset."
-msgid "You have no past orders."
-msgstr "Has solicitado un restablecimiento de contraseña."
-
-=======
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
-#: .\shop\templates\shop\payment_cancel.html:6
+#: .\templates\shop\payment_cancel.html:6
 msgid "Payment Cancelled"
 msgstr "Pago cancelado"
 
-#: .\shop\templates\shop\payment_cancel.html:9
+#: .\templates\shop\payment_cancel.html:9
 msgid "Your payment was cancelled."
 msgstr "Su pago fue cancelado."
 
-#: .\shop\templates\shop\payment_cancel.html:13
+#: .\templates\shop\payment_cancel.html:13
 msgid "Return to Cart"
 msgstr "Volver al carrito"
 
-#: .\shop\templates\shop\payment_success.html:6
+#: .\templates\shop\payment_success.html:6
 msgid "Payment Successful"
 msgstr "Pago realizado con éxito"
 
-#: .\shop\templates\shop\payment_success.html:9
+#: .\templates\shop\payment_success.html:9
 msgid "Thank you for your purchase."
 msgstr "Gracias por su compra."
 
-#: .\shop\templates\shop\payment_success.html:13
+#: .\templates\shop\payment_success.html:13
 msgid "Your order has been received."
 msgstr "Hemos recibido su pedido."
 
-#: .\shop\templates\shop\payment_success.html:17
+#: .\templates\shop\payment_success.html:17
 msgid "View Orders"
 msgstr "Ver pedidos"
 
-#: .\shop\templates\shop\thank_you.html:4
+#: .\templates\shop\photography_gallery.html:8
+msgid "PHOTOGRAPHY"
+msgstr "FOTOGRAFÍA"
+
+#: .\templates\shop\thank_you.html:4
 msgid "Thank You"
 msgstr "Gracias"
 
-#: .\shop\templates\shop\thank_you.html:7
+#: .\templates\shop\thank_you.html:7
 msgid "Thank you for your message!"
 msgstr "¡Gracias por su mensaje!"
 
-#: .\shop\templates\shop\thank_you.html:8
+#: .\templates\shop\thank_you.html:8
 msgid "We'll get back to you as soon as possible."
 msgstr "Nos pondremos en contacto con usted lo antes posible."
 
-#: .\shop\templates\shop\themed_gallery.html:6
-#, fuzzy, python-format
-#| msgid "%(theme_name)s Gallery"
-msgid ""
-"\n"
-"      %(theme_name)s Gallery\n"
-"    "
+#: .\templates\shop\themed_gallery.html:6
+#, python-format
+msgid "%(theme_name)s Gallery"
 msgstr "Galería %(theme_name)s"
 
-#: .\shop\templates\shop\themed_gallery.html:10
-#: .\shop\templates\shop\themed_gallery.html:22
+#: .\templates\shop\themed_gallery.html:10
+#: .\templates\shop\themed_gallery.html:22
 msgid "Themed Gallery"
 msgstr "Galería temática"
 
-#: .\shop\templates\shop\themed_gallery.html:39
+#: .\templates\shop\themed_gallery.html:39
 msgid "No image available"
 msgstr "No hay imagen disponible"
 
-#: .\shop\templates\shop\themed_gallery.html:50
+#: .\templates\shop\themed_gallery.html:50
 msgid "No prints found for this theme."
 msgstr "No se encontraron impresiones para este tema."
 
-#: .\shop\templates\shop\upload.html:4 .\shop\templates\shop\upload.html:7
+#: .\templates\shop\upload.html:4
+#: .\templates\shop\upload.html:7
 msgid "Upload a New Print"
 msgstr "Subir una nueva impresión"
 
-#: .\shop\views.py:204
-msgid "Invalid product selection."
-msgstr ""
+#: .\templates\shop\upload.html:11
+msgid "Upload"
+msgstr "Subir"
 
-#: .\shop\views.py:219
+#: .\views.py:218
 msgid "Invalid quantity entered. Quantity has been reset to 1."
 msgstr "La cantidad introducida no es válida. Se ha restablecido a 1."
 
-#: .\shop\views.py:228
+#: .\views.py:227
 msgid "Quantity must be greater than zero. Quantity has been reset to 1."
 msgstr "La cantidad debe ser mayor que cero. Se ha restablecido a 1."
 
-#: .\shop\views.py:238
+#: .\views.py:236
 #, python-format
 msgid "Only %(stock)s item(s) currently available."
 msgstr "Actualmente solo hay %(stock)s artículo(s) disponible(s)."
 
-#: .\shop\views.py:248
+#: .\views.py:245
 msgid "This item is currently out of stock."
 msgstr "Este artículo está agotado actualmente."
 
-#: .\shop\views.py:271
-msgid "Requested quantity exceeds available stock."
-msgstr ""
-
-#: .\shop\views.py:282
-#, fuzzy, python-format
-#| msgid "'%(title)s' has been removed from your cart."
-msgid "\"%(title)s\" added to your cart."
-msgstr "'%(title)s' ha sido eliminado de su carrito."
-
-#: .\shop\views.py:326
+#: .\views.py:269
 #, python-format
-msgid "Quantity of \"%(title)s\" increased to %(qty)s."
-msgstr ""
+msgid "Maximum available stock reached for '%(title)s'."
+msgstr "Se ha alcanzado la cantidad máxima disponible para '%(title)s'."
 
-#: .\shop\views.py:334
+#: .\views.py:316
 msgid "No additional stock is available for this item."
 msgstr "No hay stock adicional disponible para este artículo."
 
-#: .\shop\views.py:353
-#, python-format
-msgid "Quantity of \"%(title)s\" decreased to %(qty)s."
-msgstr ""
-
-#: .\shop\views.py:364
+#: .\views.py:340
 #, python-format
 msgid "'%(title)s' has been removed from your cart."
 msgstr "'%(title)s' ha sido eliminado de su carrito."
 
-#: .\shop\views.py:390
-#, fuzzy, python-format
-#| msgid "'%(title)s' has been removed from your cart."
-msgid "\"%(title)s\" has been removed from your cart."
-msgstr "'%(title)s' ha sido eliminado de su carrito."
-
-#: .\shop\views.py:399
-msgid "Your cart is now empty. Browse the gallery to discover more artwork."
-msgstr ""
-
-#: .\shop\views.py:474
+#: .\views.py:453
 msgid "You must agree to the Privacy Notice"
 msgstr "Debe aceptar el Aviso de Privacidad"
 
-#: .\shop\views.py:494
+#: .\views.py:473
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
 msgstr "Nuevo envío del formulario de contacto de %(name)s"
 
-#: .\shop\views.py:501
+#: .\views.py:480
 msgid "Thank you for contacting Hearth Design"
 msgstr "Gracias por contactar con Hearth Design"
 
-#: .\shop\views.py:504
+#: .\views.py:483
 msgid ""
 "Thank you for reaching out to us. We've received your message and will get "
 "back to you shortly.\n"
@@ -680,15 +493,20 @@ msgstr ""
 "Saludos cordiales,\n"
 "El equipo de Hearth Design"
 
-#, python-format
-#~ msgid "Maximum available stock reached for '%(title)s'."
-#~ msgstr "Se ha alcanzado la cantidad máxima disponible para '%(title)s'."
+msgid "HOME"
+msgstr "INICIO"
 
-#~ msgid "THEME"
-#~ msgstr "TEMA"
-<<<<<<< HEAD
-=======
+msgid "ILLUSTRATIONS"
+msgstr "ILUSTRACIONES"
 
-#~ msgid "Switch Language"
-#~ msgstr "Cambiar idioma"
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
+msgid "THEME"
+msgstr "TEMA"
+
+msgid "My Orders"
+msgstr "Mis pedidos"
+
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+msgid "Switch Language"
+msgstr "Cambiar idioma"

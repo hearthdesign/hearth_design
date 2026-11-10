@@ -1,9 +1,15 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load i18n %}
-<!-- Thank you page -->
+
 {% block title %}{% trans "Thank You" %}{% endblock %}
 
 {% block content %}
-  <h2>{% trans "Thank you for your message!" %}</h2>
-  <p>{% trans "We'll get back to you as soon as possible." %}</p>
+<div class="status-container">
+    <h1>{% trans "Thank You!" %}</h1>
+    <p>{% trans "We appreciate your support. Your submission or order has been successfully recorded." %}</p>
+    
+    <a href="{% url 'shop_home' %}" class="status-btn">
+        {% trans "Back to Home" %}
+    </a>
+</div>
 {% endblock %}
