@@ -551,19 +551,20 @@ def stripe_webhook_view(request):
     return HttpResponse(status=status_code)
 
 # Payment  success view
+@login_required
 def payment_success(request):
-    return render(
-        request,
-        "shop/payment_success.html"
-    )
+    return render(request, 'shop/payment_success.html')
 
 # Payment cancel view
+@login_required
 def payment_cancel(request):
-    return render(
-        request,
-        "shop/payment_cancel.html"
-    )
+    return render(request, 'shop/payment_cancel.html')
+
+
+@login_required
+def thank_you(request):
+    return render(request, 'shop/thank_you.html')
 
 # Terms of Service
-def terms_of_service_view(request):
+def terms_of_service(request):
     return render(request, 'shop/terms.html')

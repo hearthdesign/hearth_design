@@ -66,11 +66,11 @@ urlpatterns += i18n_patterns(
     path('thank_you/', TemplateView.as_view(template_name='shop/thank_you.html'), name='thank_you'),
     path('accounts/', include('django.contrib.auth.urls')), # for login/logout/password reset
     path('contact/', views.contact_view, name='contact'),
-    path('terms/', views.terms_of_service_view, name='terms_of_service'),
+    path('terms/', views.terms_of_service, name='terms_of_service'),
     path("shop/", include("shop.urls")),
     path('checkout/success/', views.payment_success, name='payment_success'),
-    path('checkout/cancel/', views.payment_cancel_view, name='payment_cancel'),
-    path('checkout/thanks/', views.thank_you_view, name='thank_you'),
+    path('checkout/cancel/', views.payment_cancel, name='payment_cancel'),
+    path('checkout/thanks/', views.thank_you, name='thank_you'),
 
     )
 
