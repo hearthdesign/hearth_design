@@ -148,7 +148,7 @@ label {
 
 
 /* ==========================
-NAV BUTTONS & DROPDOWNS
+  NAV BUTTONS & DROPDOWNS
 ========================== */
 
 .nav-btn,
@@ -513,8 +513,6 @@ img {
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
-<<<<<<< HEAD
-=======
 }
 
 .qty-display {
@@ -549,7 +547,6 @@ img {
 
 .cart-summary {
     margin: 2rem;
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 }
 
 .qty-display {
@@ -568,23 +565,6 @@ img {
   color: rgb(74,156,177);
   font-weight: bold;
   cursor: pointer;
-}
-
-<<<<<<< HEAD
-.checkout-btn,
-.remove-btn  {
-  width: auto;
-  height: 2rem;
-  font-size: 1rem;
-  border: 1.7px solid rgba(74, 156,177, 0.9);
-  border-radius: 0.35rem;
-  background-color: rgb(247,241,225);
-  color: rgb(74,156,177);
-  font-weight: bold;
-}
-
-.cart-summary {
-    margin: 2rem;
 }
 
 /* ===========================
@@ -675,8 +655,6 @@ img {
   color: rgb(74, 156, 177);
 }
 
-=======
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
 /* ======================
       LOGIN / 
       REGISTRATION 
