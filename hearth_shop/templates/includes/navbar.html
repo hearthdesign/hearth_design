@@ -63,10 +63,6 @@
           </form>
         </li>
       {% else %}
-<<<<<<< HEAD
-        <li>
-          <a href="{% url 'login' %}" class="nav-btn">{% trans "Login" %}</a>
-=======
         <li><a href="{% url 'login' %}" class="nav-btn">
           {% trans "Login" %}</a></li>
         <li><a href="{% url 'signup' %}" class="nav-btn">
@@ -105,12 +101,11 @@
             </select>
 
           </form>
->>>>>>> eb8bf50 (Update: Chinese translations improve cart functionality, and enhance CSS styles)
         </li>
         <li>
           <a href="{% url 'signup' %}" class="nav-btn">{% trans "Sign Up" %}</a>
         </li>
-      {% endif %}
+
     </ul>
 
     <ul class="nav-group">  
