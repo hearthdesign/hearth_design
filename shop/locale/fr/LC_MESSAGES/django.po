@@ -1,4 +1,4 @@
-#
+# Gettext catalog for French translations (fr)
 #
 #
 msgid ""
@@ -685,13 +685,13 @@ msgstr "La quantité demandée dépasse le stock disponible."
 
 #: .\shop\views.py:281
 #, python-format
-msgid ""%(title)s" added to your cart."
-msgstr "« %(title)s » a été ajouté à votre panier."
+msgid "\"%(title)s\" added to your cart."
+msgstr "\"%(title)s\" a été ajouté à votre panier."
 
 #: .\shop\views.py:325
 #, python-format
-msgid "Quantity of "%(title)s" increased to %(qty)s."
-msgstr "La quantité de « %(title)s » a été augmentée à %(qty)s."
+msgid "Quantity of \"%(title)s\" increased to %(qty)s."
+msgstr "La quantité de \"%(title)s\" a été augmentée à %(qty)s."
 
 #: .\shop\views.py:333
 msgid "No additional stock is available for this item."
@@ -699,18 +699,18 @@ msgstr "Aucun stock supplémentaire n'est disponible pour cet article."
 
 #: .\shop\views.py:352
 #, python-format
-msgid "Quantity of "%(title)s" decreased to %(qty)s."
-msgstr "La quantité de « %(title)s » a été diminuée à %(qty)s."
+msgid "Quantity of \"%(title)s\" decreased to %(qty)s."
+msgstr "La quantité de \"%(title)s\" a été diminuée à %(qty)s."
 
 #: .\shop\views.py:363
 #, python-format
 msgid "'%(title)s' has been removed from your cart."
-msgstr "« %(title)s » a été retiré de votre panier."
+msgstr "'%(title)s' a été retiré de votre panier."
 
 #: .\shop\views.py:389
 #, python-format
-msgid ""%(title)s" has been removed from your cart."
-msgstr "« %(title)s » a été retiré de votre panier."
+msgid "\"%(title)s\" has been removed from your cart."
+msgstr "\"%(title)s\" a été retiré de votre panier."
 
 #: .\shop\views.py:398
 msgid "Your cart is now empty. Browse the gallery to discover more artwork."
