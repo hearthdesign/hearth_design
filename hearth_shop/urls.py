@@ -71,7 +71,7 @@ urlpatterns += i18n_patterns(
     path('checkout/success/', views.payment_success, name='payment_success'),
     path('checkout/cancel/', views.payment_cancel, name='payment_cancel'),
     path('checkout/thanks/', views.thank_you, name='thank_you'),
-
+    path("privacy-policy/", views.privacy_policy, name="privacy_policy",),
     )
 
 if settings.DEBUG:
