@@ -18,10 +18,12 @@
         <form method="get"
           action="{% url 'theme_filter' %}"
           id="theme-form">
-
+        <label for="theme-select" class="visually-hidden">{% trans "Select Language" %}
+        </label>
         <select name="theme"
                 id="theme-select"
-                class="nav-control">
+                class="nav-control"
+                >
 
             <option value="">
                 {% trans "All Themes" %}
@@ -86,7 +88,7 @@
 
           <!-- Added a screen-reader label for accessibility compliance -->
           <label for="language-select"
-                 style="display:none;">{% trans "Select Language" %}
+                 class="visually-hidden">{% trans "Select Language" %}
           </label>
 
           <select name="language"

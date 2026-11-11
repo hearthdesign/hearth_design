@@ -81,7 +81,7 @@ main {
 
     padding: 1.5rem 3rem;
 
-    background-color: rgba(255,255,255,0.55);
+    background-color: rgba(255,255,255,0.70);
 
     border-radius: 1rem;
 
@@ -187,7 +187,7 @@ select:not(.nav-control) {
   border-radius: 0.5rem;
   font-size: clamp(0.75rem, 2vw, 1rem);
   border: 1px solid rgba(74, 156, 177, 0.5);
-  color: rgb(74, 156, 177);
+  color: rgb(20, 90, 120); 
   background-color: rgb(247, 241, 225);
   font-weight: bold;
 }
@@ -249,7 +249,12 @@ form input::placeholder {
     display: block;
     margin-top: 0.25rem;
     font-size: 0.85rem;
-    color: rgb(74,156,177);
+    color: #2f6e82;;
+}
+
+.visually-hidden {
+    position: absolute;
+    left: -9999px;
 }
 
 /* ===========================
@@ -556,7 +561,7 @@ img {
   border: 1.7px solid rgba(74, 156,177, 0.9);
   border-radius: 0.35rem;
   background-color: rgb(247,241,225);
-  color: rgb(74,156,177);
+  color: rgb(20, 90, 120);
   font-weight: bold;
   cursor: pointer;
 }
@@ -646,7 +651,7 @@ img {
   text-align: center;
   margin-top: 2rem;
   font-size: 1.1rem;
-  color: rgb(74, 156, 177);
+  color: rgb(20, 90, 120);
 }
 
 /* ===========================
@@ -781,13 +786,13 @@ img {
 }
 
 .site-footer a:hover {
-  color: rgb(74, 156, 177);
+  color: rgb(20, 90, 120);
   text-decoration: underline;
 }
 
 .footer-copy {
   font-size: 0.85rem;
-  color: rgb(74, 156, 177);
+  color: rgb(20, 90, 120);
   margin: 0;
 }
 /* ======================
@@ -848,7 +853,7 @@ img {
   gap: 0.5rem;
   margin-top: 1rem;
   font-weight: bold;
-  color: rgb(74, 156, 177);
+  color: rgb(20, 90, 120);
 }
 
 .privacy-check input[type="checkbox"] {
@@ -864,7 +869,7 @@ img {
   gap: 0.5rem;
   margin-top: 1rem;
   font-weight: bold;
-  color: rgb(74, 156, 177);
+  color: rgb(20, 90, 120);
 }
 
 .privacy-check input[type="checkbox"],
@@ -953,7 +958,7 @@ img {
 .contact-submit-btn {
   margin-top: 1rem;
   background-color: rgb(247, 241, 225);
-  color: rgb(74, 156, 177);
+  color: rgb(20, 90, 120);
   border: 1.7px solid rgba(74, 156, 177, 0.9);
   font-weight: bold;
   padding: 0.6rem 1.2rem;
