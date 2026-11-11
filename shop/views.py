@@ -450,7 +450,6 @@ def create_checkout_session(request):
 
     return redirect(session.url)
 
-
 # Order history view
 @login_required
 def order_history(request):
@@ -568,3 +567,7 @@ def thank_you(request):
 # Terms of Service
 def terms_of_service(request):
     return render(request, 'shop/terms.html')
+
+# Private Policy
+def privacy_policy(request):
+    return render(request, "shop/privacy_policy.html")
