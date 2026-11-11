@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-11 01:13+0100\n"
+"POT-Creation-Date: 2026-11-11 02:29+0100\n"
 "PO-Revision-Date: 2026-03-06 00:00+0200\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: French <LL@li.org>\n"
@@ -75,6 +75,8 @@ msgid "Contact Us"
 msgstr "Demande de contact"
 
 #: .\hearth_shop\templates\base.html:103
+#: .\shop\templates\shop\private_policy.html:6
+#: .\shop\templates\shop\private_policy.html:10
 #, fuzzy
 #| msgid "Privacy Notice"
 msgid "Privacy Policy"
@@ -94,8 +96,9 @@ msgid "HOME"
 msgstr "ACCUEIL"
 
 #: .\hearth_shop\templates\includes\navbar.html:13
-msgid "ILLUSTRATIONS"
-msgstr "ILLUSTRATIONS"
+#: .\shop\templates\shop\illustration_gallery.html:8
+msgid "ILLUSTRATION"
+msgstr "ILLUSTRATION"
 
 #: .\hearth_shop\templates\includes\navbar.html:16
 #: .\shop\templates\shop\photography_gallery.html:8
@@ -432,10 +435,6 @@ msgstr ""
 "Découvrez des impressions thématiques, des illustrations et des "
 "photographies sélectionnées pour tous les goûts."
 
-#: .\shop\templates\shop\illustration_gallery.html:8
-msgid "ILLUSTRATION"
-msgstr "ILLUSTRATION"
-
 #: .\shop\templates\shop\illustration_gallery.html:27
 #: .\shop\templates\shop\photography_gallery.html:28
 msgid "No prints found."
@@ -496,6 +495,85 @@ msgstr "Votre commande a été reçue."
 #: .\shop\templates\shop\payment_success.html:13
 msgid "View Orders"
 msgstr "Voir les commandes"
+
+#: .\shop\templates\shop\private_policy.html:13
+msgid ""
+"We take the protection of your personal data seriously. This website "
+"processes personal information in accordance with the General Data "
+"Protection Regulation (GDPR) and applicable German and European data "
+"protection laws."
+msgstr ""
+
+#: .\shop\templates\shop\private_policy.html:16
+msgid "Data We Collect"
+msgstr ""
+
+#: .\shop\templates\shop\private_policy.html:18
+msgid ""
+"When you place an order, contact us through a form, or create an account, we "
+"may collect your name, email address, billing and shipping information, and "
+"details necessary to process your request."
+msgstr ""
+
+#: .\shop\templates\shop\private_policy.html:21
+msgid "Purpose of Processing"
+msgstr ""
+
+#: .\shop\templates\shop\private_policy.html:23
+msgid ""
+"Personal data is processed solely for the purpose of providing our services, "
+"fulfilling orders, responding to inquiries, maintaining security, and "
+"complying with legal obligations."
+msgstr ""
+
+#: .\shop\templates\shop\private_policy.html:26
+#, fuzzy
+#| msgid "Payment Successful"
+msgid "Payments"
+msgstr "Paiement réussi"
+
+#: .\shop\templates\shop\private_policy.html:28
+msgid ""
+"Payments are processed through trusted third-party payment providers. We do "
+"not store complete payment card information on our servers."
+msgstr ""
+
+#: .\shop\templates\shop\private_policy.html:31
+msgid "Data Storage"
+msgstr ""
+
+#: .\shop\templates\shop\private_policy.html:33
+msgid ""
+"Personal data is stored only for as long as necessary to fulfil contractual, "
+"legal, or operational requirements and is deleted when no longer needed."
+msgstr ""
+
+#: .\shop\templates\shop\private_policy.html:36
+msgid "Your Rights"
+msgstr ""
+
+#: .\shop\templates\shop\private_policy.html:38
+msgid ""
+"Under the GDPR, you have the right to access, correct, restrict, delete, or "
+"transfer your personal data, as well as the right to object to certain "
+"processing activities."
+msgstr ""
+
+#: .\shop\templates\shop\private_policy.html:41
+#, fuzzy
+#| msgid "Contact Submission"
+msgid "Contact"
+msgstr "Demande de contact"
+
+#: .\shop\templates\shop\private_policy.html:43
+msgid ""
+"For questions regarding privacy or data protection, please use the contact "
+"form available on this website."
+msgstr ""
+
+#: .\shop\templates\shop\private_policy.html:47
+msgid "Last updated:"
+msgstr ""
 
 #: .\shop\templates\shop\terms.html:9
 msgid "Last updated: November 2026"
@@ -653,20 +731,20 @@ msgstr "'%(title)s' a été retiré de votre panier."
 msgid "Your cart is now empty. Browse the gallery to discover more artwork."
 msgstr ""
 
-#: .\shop\views.py:473
+#: .\shop\views.py:472
 msgid "You must agree to the Privacy Notice"
 msgstr "Vous devez accepter l'Avis de Confidentialité"
 
-#: .\shop\views.py:493
+#: .\shop\views.py:492
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
 msgstr "Nouveau formulaire de contact envoyé par %(name)s"
 
-#: .\shop\views.py:500
+#: .\shop\views.py:499
 msgid "Thank you for contacting Hearth Design"
 msgstr "Merci d'avoir contacté Hearth Design"
 
-#: .\shop\views.py:503
+#: .\shop\views.py:502
 msgid ""
 "Thank you for reaching out to us. We've received your message and will get "
 "back to you shortly.\n"
@@ -679,6 +757,9 @@ msgstr ""
 "\n"
 "Cordialement,\n"
 "L'équipe Hearth Design"
+
+#~ msgid "ILLUSTRATIONS"
+#~ msgstr "ILLUSTRATIONS"
 
 #~ msgid "Your payment was cancelled."
 #~ msgstr "Votre paiement a été annulé."
