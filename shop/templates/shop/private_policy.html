@@ -1,2 +1,49 @@
+{% comment %} PRIVATE POLICY {% endcomment %}
+{% extends "base.html" %}
 {% load i18n %}
 
+{% block title %}{% trans "Privacy Policy" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{% trans "Privacy Policy" %}</h1>
+
+    <p>
+        {% trans "We take the protection of your personal data seriously. This website processes personal information in accordance with the General Data Protection Regulation (GDPR) and applicable German and European data protection laws." %}
+    </p>
+
+    <h2>{% trans "Data We Collect" %}</h2>
+    <p>
+        {% trans "When you place an order, contact us through a form, or create an account, we may collect your name, email address, billing and shipping information, and details necessary to process your request." %}
+    </p>
+
+    <h2>{% trans "Purpose of Processing" %}</h2>
+    <p>
+        {% trans "Personal data is processed solely for the purpose of providing our services, fulfilling orders, responding to inquiries, maintaining security, and complying with legal obligations." %}
+    </p>
+
+    <h2>{% trans "Payments" %}</h2>
+    <p>
+        {% trans "Payments are processed through trusted third-party payment providers. We do not store complete payment card information on our servers." %}
+    </p>
+
+    <h2>{% trans "Data Storage" %}</h2>
+    <p>
+        {% trans "Personal data is stored only for as long as necessary to fulfil contractual, legal, or operational requirements and is deleted when no longer needed." %}
+    </p>
+
+    <h2>{% trans "Your Rights" %}</h2>
+    <p>
+        {% trans "Under the GDPR, you have the right to access, correct, restrict, delete, or transfer your personal data, as well as the right to object to certain processing activities." %}
+    </p>
+
+    <h2>{% trans "Contact" %}</h2>
+    <p>
+        {% trans "For questions regarding privacy or data protection, please use the contact form available on this website." %}
+    </p>
+
+    <p>
+        <strong>{% trans "Last updated:" %}</strong> November 2026
+    </p>
+</div>
+{% endblock %}
