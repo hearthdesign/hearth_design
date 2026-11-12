@@ -41,7 +41,7 @@ main {
 =========================== */
 
 .hero {
-  background-image: url("../images/the_world.webp");
+  background-image: url("hearth_shop\static\images\the_world.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
