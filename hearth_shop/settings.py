@@ -227,7 +227,7 @@ LANGUAGES = [
     ('es', _('Español')),
     ('it', _('Italiano')),
     ('pt', _('Português')),
-    ('zh-Hans', _('简体中文')),
+    ('zh-Hans', _('中文')),
     ('ja', _('日本語')),
 ]
 LANGUAGE_COOKIE_NAME = 'django_language'
