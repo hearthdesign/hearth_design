@@ -1,4 +1,4 @@
-  {% load i18n %}
+{% load i18n %}
 
 <!-- Navbar -->
 <nav class="navbar">
@@ -16,14 +16,16 @@
           {% trans "PHOTOGRAPHY" %}</a></li>
       <li class="nav-item">
         <form method="get"
-          action="{% url 'theme_filter' %}"
-          id="theme-form">
-        <label for="theme-select" class="visually-hidden">{% trans "Select Theme" %}
+              action="{% url 'theme_filter' %}"
+              id="theme-form">
+        <label for="theme-select" class="visually-hidden">
+            {% trans "Select Theme" %}
         </label>
+        
         <select name="theme"
                 id="theme-select"
                 class="nav-control"
-                >
+                onchange="this.form.submit()">
 
             <option value="">
                 {% trans "All Themes" %}
@@ -51,8 +53,8 @@
 
       {% if user.is_authenticated %}
         <li>
-          <a href="{% url 'cart_view' %}" class="nav-btn">
-            🛒 {% trans "Cart" %} — {{ cart_total }} €
+          <a href="{% url 'cart_view' %}" class="nav-btn" aria-label="{% trans 'Cart' %}, {{ cart_total }} euros">
+            <span aria-hidden="true">🛒</span> {% trans "Cart" %} — {{ cart_total }} €
           </a>
         </li>
         <li>
@@ -86,9 +88,9 @@
                  name="next"
                  value="{{ request.get_full_path }}">
 
-          <!-- Added a screen-reader label for accessibility compliance -->
-          <label for="language-select"
-                 class="visually-hidden">{% trans "Select Language" %}
+          <!-- Screen-reader label for accessibility compliance -->
+          <label for="language-select" class="visually-hidden">
+              {% trans "Select Language" %}
           </label>
 
           <select name="language"
@@ -112,4 +114,3 @@
     </ul>
   </div>
 </nav>
-
