@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-11 00:00+0000\n"
+"POT-Creation-Date: 2026-11-12 04:22+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Chinese (Simplified) \n"
@@ -287,8 +287,7 @@ msgstr "重置密码"
 #: .\shop\templates\registration\password_reset.html:6
 msgid ""
 "Enter your email address and we'll send you a link to reset your password."
-msgstr ""
-"请输入您的电子邮箱地址，我们将向您发送重置密码的链接。"
+msgstr "请输入您的电子邮箱地址，我们将向您发送重置密码的链接。"
 
 #: .\shop\templates\registration\password_reset.html:10
 msgid "Send reset link"
@@ -405,10 +404,10 @@ msgid ""
 "          "
 msgstr ""
 "\n"
-"          当您提交此表单时，我们仅为了回复您的咨询而收集您的姓名、电子邮箱地址和留言。 "
-"为了确保安全并防止滥用，我们还可能会处理技术元数据（例如哈希形式的IP地址和浏览器信息）。 "
-"未经您的明确同意，您的数据不会用于营销。 提交的内容将被安全存储，并在不再需要时删除。 "
-"您随时有权请求访问、更正或删除您的数据。\n"
+"          当您提交此表单时，我们仅为了回复您的咨询而收集您的姓名、电子邮箱地"
+"址和留言。 为了确保安全并防止滥用，我们还可能会处理技术元数据（例如哈希形式的"
+"IP地址和浏览器信息）。 未经您的明确同意，您的数据不会用于营销。 提交的内容将"
+"被安全存储，并在不再需要时删除。 您随时有权请求访问、更正或删除您的数据。\n"
 "          "
 
 #: .\shop\templates\shop\contact.html:81
@@ -428,8 +427,7 @@ msgstr "发现我们的艺术"
 #: .\shop\templates\shop\homepage.html:8
 msgid ""
 "Browse themed prints, illustrations, and photographs curated for every taste."
-msgstr ""
-"浏览为各种品味精心挑选的主题印刷品、插画和摄影作品。"
+msgstr "浏览为各种品味精心挑选的主题印刷品、插画和摄影作品。"
 
 #: .\shop\templates\shop\illustration_gallery.html:27
 #: .\shop\templates\shop\photography_gallery.html:28
@@ -493,8 +491,8 @@ msgid ""
 "Protection Regulation (GDPR) and applicable German and European data "
 "protection laws."
 msgstr ""
-"我们高度重视您的个人数据保护。本网站根据《通用数据保护条例》(GDPR) "
-"以及适用的德国和欧洲数据保护法律处理个人信息。"
+"我们高度重视您的个人数据保护。本网站根据《通用数据保护条例》(GDPR) 以及适用的"
+"德国和欧洲数据保护法律处理个人信息。"
 
 #: .\shop\templates\shop\private_policy.html:16
 msgid "Data We Collect"
@@ -506,8 +504,8 @@ msgid ""
 "may collect your name, email address, billing and shipping information, and "
 "details necessary to process your request."
 msgstr ""
-"当您下订单、通过表单联系我们或创建账户时，我们可能会收集您的姓名、电子邮箱地址、账单和配送信息，"
-"以及处理您的请求所需的详细信息。"
+"当您下订单、通过表单联系我们或创建账户时，我们可能会收集您的姓名、电子邮箱地"
+"址、账单和配送信息，以及处理您的请求所需的详细信息。"
 
 #: .\shop\templates\shop\private_policy.html:21
 msgid "Purpose of Processing"
@@ -519,7 +517,8 @@ msgid ""
 "fulfilling orders, responding to inquiries, maintaining security, and "
 "complying with legal obligations."
 msgstr ""
-"个人数据的处理仅限于提供我们的服务、履行订单、回复咨询、维护安全以及遵守法律义务的目的。"
+"个人数据的处理仅限于提供我们的服务、履行订单、回复咨询、维护安全以及遵守法律"
+"义务的目的。"
 
 #: .\shop\templates\shop\private_policy.html:26
 msgid "Payments"
@@ -530,7 +529,8 @@ msgid ""
 "Payments are processed through trusted third-party payment providers. We do "
 "not store complete payment card information on our servers."
 msgstr ""
-"支付通过受信任的第三方支付服务商处理。我们不会在服务器上存储完整的支付卡信息。"
+"支付通过受信任的第三方支付服务商处理。我们不会在服务器上存储完整的支付卡信"
+"息。"
 
 #: .\shop\templates\shop\private_policy.html:31
 msgid "Data Storage"
@@ -541,7 +541,8 @@ msgid ""
 "Personal data is stored only for as long as necessary to fulfil contractual, "
 "legal, or operational requirements and is deleted when no longer needed."
 msgstr ""
-"个人数据的存储时间仅限于满足合同、法律或运营要求所需的期限，并在不再需要时予以删除。"
+"个人数据的存储时间仅限于满足合同、法律或运营要求所需的期限，并在不再需要时予"
+"以删除。"
 
 #: .\shop\templates\shop\private_policy.html:36
 msgid "Your Rights"
@@ -553,7 +554,8 @@ msgid ""
 "transfer your personal data, as well as the right to object to certain "
 "processing activities."
 msgstr ""
-"根据GDPR，您有权访问、更正、限制、删除或转移您的个人数据，并有权反对某些处理活动。"
+"根据GDPR，您有权访问、更正、限制、删除或转移您的个人数据，并有权反对某些处理"
+"活动。"
 
 #: .\shop\templates\shop\private_policy.html:41
 msgid "Contact"
@@ -563,8 +565,7 @@ msgstr "联系方式"
 msgid ""
 "For questions regarding privacy or data protection, please use the contact "
 "form available on this website."
-msgstr ""
-"如有关于隐私或数据保护的问题，请使用本网站提供的联系表单。"
+msgstr "如有关于隐私或数据保护的问题，请使用本网站提供的联系表单。"
 
 #: .\shop\templates\shop\private_policy.html:47
 msgid "Last updated:"
@@ -582,8 +583,7 @@ msgstr "接受条款"
 msgid ""
 "By accessing and using HEARTH Shop, you accept and agree to be bound by the "
 "terms and provision of this agreement."
-msgstr ""
-"通过访问和使用 HEARTH Shop，您接受并同意受本协议条款和规定的约束。"
+msgstr "通过访问和使用 HEARTH Shop，您接受并同意受本协议条款和规定的约束。"
 
 #: .\shop\templates\shop\terms.html:17
 msgid "Products and Orders"
@@ -594,7 +594,8 @@ msgid ""
 "All orders are subject to availability and confirmation of the order price. "
 "We reserve the right to refuse any order placed with us."
 msgstr ""
-"所有订单均须视供应情况及订单价格确认而定。我们保留拒绝向我们下的任何订单的权利。"
+"所有订单均须视供应情况及订单价格确认而定。我们保留拒绝向我们下的任何订单的权"
+"利。"
 
 #: .\shop\templates\shop\terms.html:22
 msgid "User Accounts"
@@ -606,7 +607,8 @@ msgid ""
 "the security of your account and you are fully responsible for all "
 "activities that occur under the account."
 msgstr ""
-"如果您在网站上创建账户，您有责任维护您账户的安全，并对在该账户下发生的所有活动承担全部责任。"
+"如果您在网站上创建账户，您有责任维护您账户的安全，并对在该账户下发生的所有活"
+"动承担全部责任。"
 
 #: .\shop\templates\shop\terms.html:27
 msgid "Contact Information"
@@ -616,8 +618,7 @@ msgstr "联系信息"
 msgid ""
 "If you have any questions about these Terms, please contact us via our "
 "contact page."
-msgstr ""
-"如果您对这些条款有任何疑问，请通过我们的联系页面与我们联系。"
+msgstr "如果您对这些条款有任何疑问，请通过我们的联系页面与我们联系。"
 
 #: .\shop\templates\shop\thank_you.html:4
 msgid "Thank You"
@@ -631,18 +632,21 @@ msgstr "谢谢您！"
 msgid ""
 "We appreciate your support. Your submission or order has been successfully "
 "recorded."
-msgstr ""
-"感谢您的支持。您的提交或订单已成功记录。"
+msgstr "感谢您的支持。您的提交或订单已成功记录。"
 
 #: .\shop\templates\shop\thank_you.html:12
 msgid "Back to Home"
 msgstr "返回首页"
 
 #: .\shop\templates\shop\themed_gallery.html:6
-#, python-format
+#, fuzzy, python-format
+#| msgid ""
+#| "\n"
+#| "     %(theme_name)s Gallery\n"
+#| "    "
 msgid ""
 "\n"
-"     %(theme_name)s Gallery\n"
+"      %(theme_name)s Gallery\n"
 "    "
 msgstr ""
 "\n"
