@@ -7,8 +7,8 @@ from django.core.mail import send_mail
 from django.core.paginator import Paginator  # For pagination
 from django.http import HttpResponse, request
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
-from django.utils import timezone
+from django.urls import reverse, translate_url
+from django.utils import timezone, translation
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
@@ -457,6 +457,39 @@ def order_history(request):
         customer_email=request.user.email).prefetch_related("items__print")
     return render(
         request, "shop/order_history.html", {"orders": orders})
+
+# SET LANGUAGE
+def custom_set_language(request):
+    """
+    Custom language switcher view that safely handles i18n URL prefixes
+    and prevents redirect loops.
+    """
+    next_url = request.POST.get('next', request.GET.get('next', '/'))
+    lang_code = request.POST.get('language', request.GET.get('language'))
+    
+    if lang_code and lang_code in [lang[0] for lang in settings.LANGUAGES]:
+        # Activate language and set translation environment
+        translation.activate(lang_code)
+        
+        # Strip current language prefix from next_url if present (e.g., '/de/about/' -> '/about/')
+        for lang in [lang[0] for lang in settings.LANGUAGES]:
+            prefix = f"/{lang}/"
+            if next_url.startswith(prefix):
+                next_url = next_url[len(prefix)-1:] # Keeps the leading slash
+                break
+            elif next_url == f"/{lang}":
+                next_url = "/"
+                break
+                
+        # Translate the URL into the new language prefix pattern
+        translated_url = translate_url(next_url, lang_code)
+        
+        # Create response and set the official Django language cookie
+        response = HttpResponseRedirect(translated_url)
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
+        return response
+        
+    return HttpResponseRedirect('/')
 
 # Contact form
 def contact_view(request):

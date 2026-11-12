@@ -22,6 +22,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from django.conf.urls.i18n import i18n_patterns, set_language
+from shop.views import custom_set_language # Adjust import to the app
 from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
 from shop.sitemaps import PrintSitemap
@@ -32,7 +33,7 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('i18n/', include('django.conf.urls.i18n')), # enables set_language
+    path('i18n/setlang/', custom_set_language, name='custom_set_language'), # enables set_language
 
     # Stripe webhook: no language prefix
     # Stripe webhooks must use a language-independent URL.
