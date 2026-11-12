@@ -1,11 +1,11 @@
-# 
-# 
+# Gettext catalog for English translations (en)
+#
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-11 00:00+0000\n"
+"POT-Creation-Date: 2026-11-12 02:50+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: English\n"
@@ -51,35 +51,59 @@ msgstr ""
 msgid "Hearth Shop"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:30
+#: .\hearth_shop\templates\base.html:39
+msgid "Shop"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:40
 msgid "[ SHOP ]"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:75
+#: .\hearth_shop\templates\base.html:76 .\hearth_shop\templates\base.html:109
+msgid "Close modal"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:95
 msgid "Quantity:"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:78
+#: .\hearth_shop\templates\base.html:97
 msgid "Add to Cart"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:102 .\shop\templates\shop\contact.html:4
+#: .\hearth_shop\templates\base.html:102
+msgid "Gallery controls"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:103
+msgid "Previous image"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:106
+msgid "Next image"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:121
+msgid "Footer navigation"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:122 .\shop\templates\shop\contact.html:4
 #: .\shop\templates\shop\contact.html:8
 msgid "Contact Us"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:103
+#: .\hearth_shop\templates\base.html:123
 #: .\shop\templates\shop\private_policy.html:6
 #: .\shop\templates\shop\private_policy.html:10
 msgid "Privacy Policy"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:104 .\shop\templates\shop\terms.html:4
+#: .\hearth_shop\templates\base.html:124 .\shop\templates\shop\terms.html:4
 #: .\shop\templates\shop\terms.html:8
 msgid "Terms of Service"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:109
+#: .\hearth_shop\templates\base.html:129
 msgid "All rights reserved."
 msgstr ""
 
@@ -97,41 +121,46 @@ msgstr ""
 msgid "PHOTOGRAPHY"
 msgstr ""
 
-#: .\hearth_shop\templates\includes\navbar.html:27
+#: .\hearth_shop\templates\includes\navbar.html:22
+msgid "Select Theme"
+msgstr ""
+
+#: .\hearth_shop\templates\includes\navbar.html:31
 msgid "All Themes"
 msgstr ""
 
-#: .\hearth_shop\templates\includes\navbar.html:46
+#: .\hearth_shop\templates\includes\navbar.html:50
 #: .\shop\templates\shop\upload.html:11
 msgid "Upload"
 msgstr ""
 
-#: .\hearth_shop\templates\includes\navbar.html:53 .\shop\models.py:138
+#: .\hearth_shop\templates\includes\navbar.html:56
+#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:138
 msgid "Cart"
 msgstr ""
 
-#: .\hearth_shop\templates\includes\navbar.html:57
+#: .\hearth_shop\templates\includes\navbar.html:61
 #: .\shop\templates\shop\order_history.html:3
 #: .\shop\templates\shop\order_history.html:7
 msgid "My Orders"
 msgstr ""
 
-#: .\hearth_shop\templates\includes\navbar.html:62
+#: .\hearth_shop\templates\includes\navbar.html:66
 msgid "Logout"
 msgstr ""
 
-#: .\hearth_shop\templates\includes\navbar.html:67
+#: .\hearth_shop\templates\includes\navbar.html:71
 #: .\shop\templates\registration\login.html:6
 #: .\shop\templates\registration\login.html:10
 msgid "Login"
 msgstr ""
 
-#: .\hearth_shop\templates\includes\navbar.html:70
+#: .\hearth_shop\templates\includes\navbar.html:74
 #: .\shop\templates\registration\signup.html:6
 msgid "Sign Up"
 msgstr ""
 
-#: .\hearth_shop\templates\includes\navbar.html:89
+#: .\hearth_shop\templates\includes\navbar.html:93
 msgid "Select Language"
 msgstr ""
 

@@ -1,4 +1,4 @@
-# # Gettext catalog for Spanish translations (es)
+# Gettext catalog for Spanish translations (es)
 #
 #
 msgid ""
@@ -51,35 +51,59 @@ msgstr "Japonés"
 msgid "Hearth Shop"
 msgstr "Hearth Shop"
 
-#: .\hearth_shop\templates\base.html:30
+#: .\hearth_shop\templates\base.html:39
+msgid "Shop"
+msgstr "Tienda"
+
+#: .\hearth_shop\templates\base.html:40
 msgid "[ SHOP ]"
 msgstr "[ TIENDA ]"
 
-#: .\hearth_shop\templates\base.html:75
+#: .\hearth_shop\templates\base.html:76 .\hearth_shop\templates\base.html:109
+msgid "Close modal"
+msgstr "Cerrar ventana modal"
+
+#: .\hearth_shop\templates\base.html:95
 msgid "Quantity:"
 msgstr "Cantidad:"
 
-#: .\hearth_shop\templates\base.html:78
+#: .\hearth_shop\templates\base.html:97
 msgid "Add to Cart"
 msgstr "Añadir al carrito"
 
-#: .\hearth_shop\templates\base.html:102 .\shop\templates\shop\contact.html:4
+#: .\hearth_shop\templates\base.html:102
+msgid "Gallery controls"
+msgstr "Controles de la galería"
+
+#: .\hearth_shop\templates\base.html:103
+msgid "Previous image"
+msgstr "Imagen anterior"
+
+#: .\hearth_shop\templates\base.html:106
+msgid "Next image"
+msgstr "Imagen siguiente"
+
+#: .\hearth_shop\templates\base.html:121
+msgid "Footer navigation"
+msgstr "Navegación del pie de página"
+
+#: .\hearth_shop\templates\base.html:122 .\shop\templates\shop\contact.html:4
 #: .\shop\templates\shop\contact.html:8
 msgid "Contact Us"
 msgstr "Contáctenos"
 
-#: .\hearth_shop\templates\base.html:103
+#: .\hearth_shop\templates\base.html:123
 #: .\shop\templates\shop\private_policy.html:6
 #: .\shop\templates\shop\private_policy.html:10
 msgid "Privacy Policy"
 msgstr "Política de privacidad"
 
-#: .\hearth_shop\templates\base.html:104 .\shop\templates\shop\terms.html:4
+#: .\hearth_shop\templates\base.html:124 .\shop\templates\shop\terms.html:4
 #: .\shop\templates\shop\terms.html:8
 msgid "Terms of Service"
 msgstr "Términos del servicio"
 
-#: .\hearth_shop\templates\base.html:109
+#: .\hearth_shop\templates\base.html:129
 msgid "All rights reserved."
 msgstr "Todos los derechos reservados."
 
@@ -97,41 +121,46 @@ msgstr "ILUSTRACIÓN"
 msgid "PHOTOGRAPHY"
 msgstr "FOTOGRAFÍA"
 
-#: .\hearth_shop\templates\includes\navbar.html:27
+#: .\hearth_shop\templates\includes\navbar.html:22
+msgid "Select Theme"
+msgstr "Seleccionar tema"
+
+#: .\hearth_shop\templates\includes\navbar.html:31
 msgid "All Themes"
 msgstr "Todos los temas"
 
-#: .\hearth_shop\templates\includes\navbar.html:46
+#: .\hearth_shop\templates\includes\navbar.html:50
 #: .\shop\templates\shop\upload.html:11
 msgid "Upload"
 msgstr "Subir"
 
-#: .\hearth_shop\templates\includes\navbar.html:53 .\shop\models.py:138
+#: .\hearth_shop\templates\includes\navbar.html:56
+#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:138
 msgid "Cart"
 msgstr "Carrito"
 
-#: .\hearth_shop\templates\includes\navbar.html:57
+#: .\hearth_shop\templates\includes\navbar.html:61
 #: .\shop\templates\shop\order_history.html:3
 #: .\shop\templates\shop\order_history.html:7
 msgid "My Orders"
 msgstr "Mis pedidos"
 
-#: .\hearth_shop\templates\includes\navbar.html:62
+#: .\hearth_shop\templates\includes\navbar.html:66
 msgid "Logout"
 msgstr "Cerrar sesión"
 
-#: .\hearth_shop\templates\includes\navbar.html:67
+#: .\hearth_shop\templates\includes\navbar.html:71
 #: .\shop\templates\registration\login.html:6
 #: .\shop\templates\registration\login.html:10
 msgid "Login"
 msgstr "Iniciar sesión"
 
-#: .\hearth_shop\templates\includes\navbar.html:70
+#: .\hearth_shop\templates\includes\navbar.html:74
 #: .\shop\templates\registration\signup.html:6
 msgid "Sign Up"
 msgstr "Registrarse"
 
-#: .\hearth_shop\templates\includes\navbar.html:89
+#: .\hearth_shop\templates\includes\navbar.html:93
 msgid "Select Language"
 msgstr "Seleccionar idioma"
 
@@ -323,17 +352,17 @@ msgstr "Confirmar contraseña:"
 msgid "Create Account"
 msgstr "Crear cuenta"
 
-#: .\shop\templates\shop_pagination.html:7
-#: .\shop\templates\shop_pagination.html:11
+#: .\shop\templates\shop\_pagination.html:7
+#: .\shop\templates\shop\_pagination.html:11
 msgid "Previous"
 msgstr "Anterior"
 
-#: .\shop\templates\shop_pagination.html:16
+#: .\shop\templates\shop\_pagination.html:16
 msgid "Page"
 msgstr "Página"
 
-#: .\shop\templates\shop_pagination.html:21
-#: .\shop\templates\shop_pagination.html:25
+#: .\shop\templates\shop\_pagination.html:21
+#: .\shop\templates\shop\_pagination.html:25
 msgid "Next"
 msgstr "Siguiente"
 
@@ -554,7 +583,7 @@ msgstr ""
 msgid "Last updated:"
 msgstr "Última actualización:"
 
-#: .\shop\terms.html:9
+#: .\shop\templates\shop\terms.html:9
 msgid "Last updated: November 2026"
 msgstr "Última actualización: Noviembre de 2026"
 

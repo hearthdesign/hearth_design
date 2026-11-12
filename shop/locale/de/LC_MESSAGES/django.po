@@ -1,4 +1,4 @@
-#
+# Gettext catalog for German translations (de)
 #
 #
 msgid ""
@@ -41,7 +41,7 @@ msgstr "Portugiesisch"
 
 #: .\hearth_shop\settings.py:230
 msgid "简体中文"
-msgstr "Vereinfachtes Chinesisch"
+msgstr "Chinesisch (vereinfacht)"
 
 #: .\hearth_shop\settings.py:231
 msgid "日本語"
@@ -51,35 +51,59 @@ msgstr "Japanisch"
 msgid "Hearth Shop"
 msgstr "Hearth Shop"
 
-#: .\hearth_shop\templates\base.html:30
+#: .\hearth_shop\templates\base.html:39
+msgid "Shop"
+msgstr "Shop"
+
+#: .\hearth_shop\templates\base.html:40
 msgid "[ SHOP ]"
 msgstr "[ SHOP ]"
 
-#: .\hearth_shop\templates\base.html:75
+#: .\hearth_shop\templates\base.html:76 .\hearth_shop\templates\base.html:109
+msgid "Close modal"
+msgstr "Modal schließen"
+
+#: .\hearth_shop\templates\base.html:95
 msgid "Quantity:"
 msgstr "Menge:"
 
-#: .\hearth_shop\templates\base.html:78
+#: .\hearth_shop\templates\base.html:97
 msgid "Add to Cart"
 msgstr "In den Warenkorb"
 
-#: .\hearth_shop\templates\base.html:102 .\shop\templates\shop\contact.html:4
-#: .\shop\templates\shop\contact.html:8
-msgid "Contact Us"
-msgstr "Kontaktieren Sie uns"
+#: .\hearth_shop\templates\base.html:102
+msgid "Gallery controls"
+msgstr "Galerie-Steuerung"
 
 #: .\hearth_shop\templates\base.html:103
+msgid "Previous image"
+msgstr "Vorheriges Bild"
+
+#: .\hearth_shop\templates\base.html:106
+msgid "Next image"
+msgstr "Nächstes Bild"
+
+#: .\hearth_shop\templates\base.html:121
+msgid "Footer navigation"
+msgstr "Fußzeilennavigation"
+
+#: .\hearth_shop\templates\base.html:122 .\shop\templates\shop\contact.html:4
+#: .\shop\templates\shop\contact.html:8
+msgid "Contact Us"
+msgstr "Kontakt"
+
+#: .\hearth_shop\templates\base.html:123
 #: .\shop\templates\shop\private_policy.html:6
 #: .\shop\templates\shop\private_policy.html:10
 msgid "Privacy Policy"
 msgstr "Datenschutzerklärung"
 
-#: .\hearth_shop\templates\base.html:104 .\shop\templates\shop\terms.html:4
+#: .\hearth_shop\templates\base.html:124 .\shop\templates\shop\terms.html:4
 #: .\shop\templates\shop\terms.html:8
 msgid "Terms of Service"
 msgstr "Nutzungsbedingungen"
 
-#: .\hearth_shop\templates\base.html:109
+#: .\hearth_shop\templates\base.html:129
 msgid "All rights reserved."
 msgstr "Alle Rechte vorbehalten."
 
@@ -97,41 +121,46 @@ msgstr "ILLUSTRATION"
 msgid "PHOTOGRAPHY"
 msgstr "FOTOGRAFIE"
 
-#: .\hearth_shop\templates\includes\navbar.html:27
+#: .\hearth_shop\templates\includes\navbar.html:22
+msgid "Select Theme"
+msgstr "Thema auswählen"
+
+#: .\hearth_shop\templates\includes\navbar.html:31
 msgid "All Themes"
 msgstr "Alle Themen"
 
-#: .\hearth_shop\templates\includes\navbar.html:46
+#: .\hearth_shop\templates\includes\navbar.html:50
 #: .\shop\templates\shop\upload.html:11
 msgid "Upload"
 msgstr "Hochladen"
 
-#: .\hearth_shop\templates\includes\navbar.html:53 .\shop\models.py:138
+#: .\hearth_shop\templates\includes\navbar.html:56
+#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:138
 msgid "Cart"
 msgstr "Warenkorb"
 
-#: .\hearth_shop\templates\includes\navbar.html:57
+#: .\hearth_shop\templates\includes\navbar.html:61
 #: .\shop\templates\shop\order_history.html:3
 #: .\shop\templates\shop\order_history.html:7
 msgid "My Orders"
 msgstr "Meine Bestellungen"
 
-#: .\hearth_shop\templates\includes\navbar.html:62
+#: .\hearth_shop\templates\includes\navbar.html:66
 msgid "Logout"
 msgstr "Abmelden"
 
-#: .\hearth_shop\templates\includes\navbar.html:67
+#: .\hearth_shop\templates\includes\navbar.html:71
 #: .\shop\templates\registration\login.html:6
 #: .\shop\templates\registration\login.html:10
 msgid "Login"
 msgstr "Anmelden"
 
-#: .\hearth_shop\templates\includes\navbar.html:70
+#: .\hearth_shop\templates\includes\navbar.html:74
 #: .\shop\templates\registration\signup.html:6
 msgid "Sign Up"
 msgstr "Registrieren"
 
-#: .\hearth_shop\templates\includes\navbar.html:89
+#: .\hearth_shop\templates\includes\navbar.html:93
 msgid "Select Language"
 msgstr "Sprache auswählen"
 
@@ -165,7 +194,7 @@ msgstr "Ich habe die Datenschutzhinweise gelesen und stimme ihnen zu"
 
 #: .\shop\forms.py:34 .\shop\templates\shop\contact.html:78
 msgid "I would like to receive updates about new art, offers, and newsletters"
-msgstr "Ich möchte Updates zu neuer Kunst, Angeboten und Newslettern erhalten"
+msgstr "Ich möchte Updates über neue Kunst, Angebote und Newsletter erhalten"
 
 #: .\shop\models.py:15
 msgid "General"
@@ -189,11 +218,11 @@ msgstr "Illustration"
 
 #: .\shop\models.py:82
 msgid "Metal Print"
-msgstr "Metalldruck"
+msgstr "Metallbild"
 
 #: .\shop\models.py:83
 msgid "Wood Print"
-msgstr "Holzdruck"
+msgstr "Holzbild"
 
 #: .\shop\models.py:84
 msgid "Paper Print"
@@ -229,15 +258,15 @@ msgstr "Bestellpositionen"
 
 #: .\shop\models.py:232
 msgid "Contact Submission"
-msgstr "Kontaktanfrage"
+msgstr "Kontakteingang"
 
 #: .\shop\models.py:233
 msgid "Contact Submissions"
-msgstr "Kontaktanfragen"
+msgstr "Kontakteingänge"
 
 #: .\shop\templates\registration\logged_out.html:5
 msgid "You have been logged out."
-msgstr "Sie wurden erfolgreich abgemeldet."
+msgstr "Sie wurden abgemeldet."
 
 #: .\shop\templates\registration\password_change_done.html:6
 msgid "Your password has been changed successfully."
@@ -259,7 +288,7 @@ msgstr "Passwort zurücksetzen"
 msgid ""
 "Enter your email address and we'll send you a link to reset your password."
 msgstr ""
-"Geben Sie Ihre E-Mail-Adresse ein, und wir senden Ihnen einen Link zum Zurücksetzen Ihres Passworts."
+"Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen einen Link zum Zurücksetzen Ihres Passworts."
 
 #: .\shop\templates\registration\password_reset.html:10
 msgid "Send reset link"
@@ -267,7 +296,7 @@ msgstr "Link zum Zurücksetzen senden"
 
 #: .\shop\templates\registration\password_reset_complete.html:6
 msgid "Password reset complete"
-msgstr "Passwort-Zurücksetzung abgeschlossen"
+msgstr "Passwort zurücksetzen abgeschlossen"
 
 #: .\shop\templates\registration\password_reset_complete.html:7
 msgid "Your password has been successfully reset. You may now log in."
@@ -275,7 +304,7 @@ msgstr "Ihr Passwort wurde erfolgreich zurückgesetzt. Sie können sich jetzt an
 
 #: .\shop\templates\registration\password_reset_complete.html:8
 msgid "Go to login page"
-msgstr "Zur Anmeldeseite gehen"
+msgstr "Zur Anmeldeseite"
 
 #: .\shop\templates\registration\password_reset_confirm.html:5
 msgid "Enter new password"
@@ -296,7 +325,7 @@ msgstr "Überprüfen Sie Ihren Posteingang auf einen Link zum Zurücksetzen Ihre
 
 #: .\shop\templates\registration\password_reset_email.html:5
 msgid "You have requested a password reset."
-msgstr "Sie haben eine Passwort-Zurücksetzung angefordert."
+msgstr "Sie haben das Zurücksetzen Ihres Passworts angefordert."
 
 #: .\shop\templates\registration\password_reset_email.html:6
 msgid "Please click the link below to reset your password:"
@@ -376,18 +405,17 @@ msgid ""
 "          "
 msgstr ""
 "\n"
-"          Wenn Sie dieses Formular absenden, erfassen wir Ihren Namen, Ihre E-Mail-Adresse "
-"und Ihre Nachricht\n"
-"          ausschließlich zum Zweck der Beantwortung Ihrer Anfrage. Technische "
-"Metadaten\n"
-"          (wie IP-Adresse in gehaschter Form und Browser-Informationen) können ebenfalls "
+"          Wenn Sie dieses Formular absenden, erheben wir Ihren Namen, Ihre E-Mail-Adresse "
+"sowie Ihre Nachricht\n"
+"          ausschließlich zum Zweck der Beantwortung Ihrer Anfrage. Technische Metadaten\n"
+"          (wie etwa die IP-Adresse in gehashter Form und Browserinformationen) können ebenfalls "
 "verarbeitet werden,\n"
-"          um die Sicherheit zu gewährleisten und Missbrauch zu verhindern. Ihre Daten werden nicht "
-"ohne Ihre ausdrückliche\n"
-"          Zustimmung für Marketingzwecke verwendet. Einsendungen werden sicher gespeichert "
-"und gelöscht,\n"
-"          sobald sie nicht mehr benötigt werden. Sie haben jederzeit das Recht, "
-"Auskunft, Berichtigung oder Löschung Ihrer Daten zu verlangen.\n"
+"          um die Sicherheit zu gewährleisten und Missbrauch zu verhindern. Ihre Daten werden ohne "
+"Ihre ausdrückliche Einwilligung\n"
+"          nicht für Marketingzwecke verwendet. Eingesendete Daten werden sicher gespeichert\n"
+"          und gelöscht, sobald sie nicht mehr benötigt werden. Sie haben jederzeit das Recht auf "
+"Auskunft,\n"
+"          Berichtigung oder Löschung Ihrer Daten.\n"
 "          "
 
 #: .\shop\templates\shop\contact.html:81
@@ -408,7 +436,7 @@ msgstr "Entdecken Sie unsere Kunst"
 msgid ""
 "Browse themed prints, illustrations, and photographs curated for every taste."
 msgstr ""
-"Durchstöbern Sie thematische Kunstdrucke, Illustrationen und Fotografien, die für jeden Geschmack zusammengestellt wurden."
+"Stöbern Sie in thematischen Kunstdrucken, Illustrationen und Fotografien für jeden Geschmack."
 
 #: .\shop\templates\shop\illustration_gallery.html:27
 #: .\shop\templates\shop\photography_gallery.html:28
@@ -417,7 +445,7 @@ msgstr "Keine Kunstdrucke gefunden."
 
 #: .\shop\templates\shop\order_history.html:16
 msgid "Order #"
-msgstr "Bestellung Nr. "
+msgstr "Bestell-Nr. "
 
 #: .\shop\templates\shop\order_history.html:19
 msgid "Paid"
@@ -433,7 +461,7 @@ msgstr "Gesamt:"
 
 #: .\shop\templates\shop\order_history.html:43
 msgid "You have no past orders."
-msgstr "Sie haben keine früheren Bestellungen."
+msgstr "Sie haben keine vergangenen Bestellungen."
 
 #: .\shop\templates\shop\payment_cancel.html:4
 #: .\shop\templates\shop\payment_cancel.html:8
@@ -473,8 +501,8 @@ msgid ""
 "protection laws."
 msgstr ""
 "Wir nehmen den Schutz Ihrer persönlichen Daten ernst. Diese Website "
-"verarbeitet personenbezogene Daten in Übereinstimmung mit der Datenschutz-Grundverordnung (DSGVO) "
-"und den geltenden deutschen und europäischen Datenschutzgesetzen."
+"verarbeitet personenbezogene Informationen gemäß der Datenschutz-Grundverordnung (DSGVO) "
+"sowie den geltenden deutschen und europäischen Datenschutzgesetzen."
 
 #: .\shop\templates\shop\private_policy.html:16
 msgid "Data We Collect"
@@ -487,8 +515,8 @@ msgid ""
 "details necessary to process your request."
 msgstr ""
 "Wenn Sie eine Bestellung aufgeben, uns über ein Formular kontaktieren oder ein Konto erstellen, "
-"erheben wir möglicherweise Ihren Namen, Ihre E-Mail-Adresse, Rechnungs- und Lieferadresse sowie "
-"Angaben, die für die Bearbeitung Ihrer Anfrage erforderlich sind."
+"erheben wir möglicherweise Ihren Namen, Ihre E-Mail-Adresse, Rechnungs- und Versandinformationen sowie "
+"weitere zur Bearbeitung Ihrer Anfrage erforderliche Details."
 
 #: .\shop\templates\shop\private_policy.html:21
 msgid "Purpose of Processing"
@@ -500,9 +528,9 @@ msgid ""
 "fulfilling orders, responding to inquiries, maintaining security, and "
 "complying with legal obligations."
 msgstr ""
-"Personenbezogene Daten werden ausschließlich zum Zweck der Erbringung unserer Dienstleistungen, "
-"der Erfüllung von Bestellungen, der Beantwortung von Anfragen, der Aufrechterhaltung der Sicherheit und "
-"der Einhaltung gesetzlicher Verpflichtungen verarbeitet."
+"Personenbezogene Daten werden ausschließlich zum Zweck der Bereitstellung unserer Dienste, "
+"der Auftragsabwicklung, der Beantwortung von Anfragen, der Wahrung der Sicherheit und "
+"zur Erfüllung gesetzlicher Verpflichtungen verarbeitet."
 
 #: .\shop\templates\shop\private_policy.html:26
 msgid "Payments"
@@ -525,8 +553,8 @@ msgid ""
 "Personal data is stored only for as long as necessary to fulfil contractual, "
 "legal, or operational requirements and is deleted when no longer needed."
 msgstr ""
-"Personenbezogene Daten werden nur so lange gespeichert, wie es zur Erfüllung vertraglicher, "
-"gesetzlicher oder betrieblicher Anforderungen erforderlich ist, und gelöscht, wenn sie nicht mehr benötigt werden."
+"Personenbezogene Daten werden nur so lange gespeichert, wie es für vertragliche, "
+"gesetzliche oder betriebliche Anforderungen erforderlich ist, und nach Wegfall des Zwecks gelöscht."
 
 #: .\shop\templates\shop\private_policy.html:36
 msgid "Your Rights"
@@ -538,7 +566,7 @@ msgid ""
 "transfer your personal data, as well as the right to object to certain "
 "processing activities."
 msgstr ""
-"Gemäß DSGVO haben Sie das Recht auf Auskunft, Berichtigung, Einschränkung, Löschung oder "
+"Gemäß der DSGVO haben Sie das Recht auf Auskunft, Berichtigung, Einschränkung, Löschung oder "
 "Übertragbarkeit Ihrer personenbezogenen Daten sowie das Recht, bestimmten "
 "Verarbeitungstätigkeiten zu widersprechen."
 
@@ -551,8 +579,7 @@ msgid ""
 "For questions regarding privacy or data protection, please use the contact "
 "form available on this website."
 msgstr ""
-"Bei Fragen zum Datenschutz nutzen Sie bitte das Kontaktformular "
-"auf dieser Website."
+"Bei Fragen zum Thema Datenschutz oder Privatsphäre nutzen Sie bitte das auf dieser Website bereitgestellte Kontaktformular."
 
 #: .\shop\templates\shop\private_policy.html:47
 msgid "Last updated:"
@@ -564,15 +591,15 @@ msgstr "Zuletzt aktualisiert: November 2026"
 
 #: .\shop\templates\shop\terms.html:12
 msgid "Acceptance of Terms"
-msgstr "Zustimmung zu den Bedingungen"
+msgstr "Annahme der Bedingungen"
 
 #: .\shop\templates\shop\terms.html:14
 msgid ""
 "By accessing and using HEARTH Shop, you accept and agree to be bound by the "
 "terms and provision of this agreement."
 msgstr ""
-"Durch den Zugriff auf und die Nutzung von HEARTH Shop akzeptieren Sie die "
-"Bestimmungen dieser Vereinbarung und erklären sich damit einverstanden."
+"Durch den Zugriff auf und die Nutzung des HEARTH Shops akzeptieren Sie die "
+"Bedingungen und Bestimmungen dieser Vereinbarung und erklären sich mit ihnen einverstanden."
 
 #: .\shop\templates\shop\terms.html:17
 msgid "Products and Orders"
@@ -583,7 +610,7 @@ msgid ""
 "All orders are subject to availability and confirmation of the order price. "
 "We reserve the right to refuse any order placed with us."
 msgstr ""
-"Alle Bestellungen vorbehaltlich der Verfügbarkeit und Bestätigung des Bestellpreises. "
+"Alle Bestellungen unterliegen der Verfügbarkeit und der Bestätigung des Bestellungspreises. "
 "Wir behalten uns das Recht vor, jede bei uns aufgegebene Bestellung abzulehnen."
 
 #: .\shop\templates\shop\terms.html:22
@@ -597,8 +624,8 @@ msgid ""
 "activities that occur under the account."
 msgstr ""
 "Wenn Sie ein Konto auf der Website erstellen, sind Sie für die Wahrung der Sicherheit "
-"Ihres Kontos verantwortlich und tragen die volle Verantwortung für alle Aktivitäten, "
-"die unter dem Konto stattfinden."
+"Ihres Kontos verantwortlich und tragen die volle Verantwortung für alle "
+"Aktivitäten, die über dieses Konto erfolgen."
 
 #: .\shop\templates\shop\terms.html:27
 msgid "Contact Information"
@@ -624,7 +651,7 @@ msgid ""
 "We appreciate your support. Your submission or order has been successfully "
 "recorded."
 msgstr ""
-"Wir schätzen Ihre Unterstützung. Ihre Einsendung oder Bestellung wurde erfolgreich erfasst."
+"Wir schätzen Ihre Unterstützung. Ihre Einreichung oder Bestellung wurde erfolgreich aufgezeichnet."
 
 #: .\shop\templates\shop\thank_you.html:12
 msgid "Back to Home"
@@ -638,7 +665,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"      Galerie: %(theme_name)s\n"
+"      %(theme_name)s Galerie\n"
 "    "
 
 #: .\shop\templates\shop\themed_gallery.html:10
@@ -656,7 +683,7 @@ msgstr "Keine Kunstdrucke für dieses Thema gefunden."
 
 #: .\shop\templates\shop\upload.html:4 .\shop\templates\shop\upload.html:7
 msgid "Upload a New Print"
-msgstr "Einen neuen Kunstdruck hochladen"
+msgstr "Neuen Kunstdruck hochladen"
 
 #: .\shop\views.py:203
 msgid "Invalid product selection."
@@ -668,16 +695,16 @@ msgstr "Ungültige Menge eingegeben. Die Menge wurde auf 1 zurückgesetzt."
 
 #: .\shop\views.py:227
 msgid "Quantity must be greater than zero. Quantity has been reset to 1."
-msgstr "Die Menge muss größer als null sein. Die Menge wurde auf 1 zurückgesetzt."
+msgstr "Die Menge muss größer als Null sein. Die Menge wurde auf 1 zurückgesetzt."
 
 #: .\shop\views.py:237
 #, python-format
 msgid "Only %(stock)s item(s) currently available."
-msgstr "Derzeit sind nur %(stock)s Artikel verfügbar."
+msgstr "Derzeit sind nur %(stock)s Stück verfügbar."
 
 #: .\shop\views.py:247
 msgid "This item is currently out of stock."
-msgstr "Dieser Artikel ist derzeit vergriffen."
+msgstr "Dieser Artikel ist derzeit ausverkauft."
 
 #: .\shop\views.py:270
 msgid "Requested quantity exceeds available stock."
@@ -686,31 +713,31 @@ msgstr "Die angeforderte Menge übersteigt den verfügbaren Lagerbestand."
 #: .\shop\views.py:281
 #, python-format
 msgid "\"%(title)s\" added to your cart."
-msgstr "„%(title)s“ wurde Ihrem Warenkorb hinzugefügt."
+msgstr "\"%(title)s\" wurde zu Ihrem Warenkorb hinzugefügt."
 
 #: .\shop\views.py:325
 #, python-format
 msgid "Quantity of \"%(title)s\" increased to %(qty)s."
-msgstr "Menge von „%(title)s“ auf %(qty)s erhöht."
+msgstr "Menge von \"%(title)s\" auf %(qty)s erhöht."
 
 #: .\shop\views.py:333
 msgid "No additional stock is available for this item."
-msgstr "Für diesen Artikel ist kein weiterer Lagerbestand verfügbar."
+msgstr "Für diesen Artikel ist kein zusätzlicher Bestand verfügbar."
 
 #: .\shop\views.py:352
 #, python-format
 msgid "Quantity of \"%(title)s\" decreased to %(qty)s."
-msgstr "Menge von „%(title)s“ auf %(qty)s verringert."
+msgstr "Menge von \"%(title)s\" auf %(qty)s verringert."
 
 #: .\shop\views.py:363
 #, python-format
 msgid "'%(title)s' has been removed from your cart."
-msgstr "„%(title)s“ wurde aus Ihrem Warenkorb entfernt."
+msgstr "'%(title)s' wurde aus Ihrem Warenkorb entfernt."
 
 #: .\shop\views.py:389
 #, python-format
 msgid "\"%(title)s\" has been removed from your cart."
-msgstr "„%(title)s“ wurde aus Ihrem Warenkorb entfernt."
+msgstr "\"%(title)s\" wurde aus Ihrem Warenkorb entfernt."
 
 #: .\shop\views.py:398
 msgid "Your cart is now empty. Browse the gallery to discover more artwork."
@@ -737,7 +764,7 @@ msgid ""
 "Best regards,\n"
 "Hearth Design Team"
 msgstr ""
-"Vielen Dank, dass Sie sich an uns gewendet haben. Wir haben Ihre Nachricht erhalten und werden uns in Kürze bei Ihnen melden.\n"
+"Vielen Dank, dass Sie sich an uns gewandt haben. Wir haben Ihre Nachricht erhalten und werden uns in Kürze bei Ihnen melden.\n"
 "\n"
 "Mit freundlichen Grüßen\n"
 "Ihr Hearth Design Team"

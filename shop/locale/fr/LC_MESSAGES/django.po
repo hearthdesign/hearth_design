@@ -51,35 +51,59 @@ msgstr "Japonais"
 msgid "Hearth Shop"
 msgstr "Hearth Shop"
 
-#: .\hearth_shop\templates\base.html:30
+#: .\hearth_shop\templates\base.html:39
+msgid "Shop"
+msgstr "Boutique"
+
+#: .\hearth_shop\templates\base.html:40
 msgid "[ SHOP ]"
 msgstr "[ BOUTIQUE ]"
 
-#: .\hearth_shop\templates\base.html:75
+#: .\hearth_shop\templates\base.html:76 .\hearth_shop\templates\base.html:109
+msgid "Close modal"
+msgstr "Fermer la fenêtre modale"
+
+#: .\hearth_shop\templates\base.html:95
 msgid "Quantity:"
 msgstr "Quantité :"
 
-#: .\hearth_shop\templates\base.html:78
+#: .\hearth_shop\templates\base.html:97
 msgid "Add to Cart"
 msgstr "Ajouter au panier"
 
-#: .\hearth_shop\templates\base.html:102 .\shop\templates\shop\contact.html:4
+#: .\hearth_shop\templates\base.html:102
+msgid "Gallery controls"
+msgstr "Contrôles de la galerie"
+
+#: .\hearth_shop\templates\base.html:103
+msgid "Previous image"
+msgstr "Image précédente"
+
+#: .\hearth_shop\templates\base.html:106
+msgid "Next image"
+msgstr "Image suivante"
+
+#: .\hearth_shop\templates\base.html:121
+msgid "Footer navigation"
+msgstr "Navigation du pied de page"
+
+#: .\hearth_shop\templates\base.html:122 .\shop\templates\shop\contact.html:4
 #: .\shop\templates\shop\contact.html:8
 msgid "Contact Us"
 msgstr "Nous contacter"
 
-#: .\hearth_shop\templates\base.html:103
+#: .\hearth_shop\templates\base.html:123
 #: .\shop\templates\shop\private_policy.html:6
 #: .\shop\templates\shop\private_policy.html:10
 msgid "Privacy Policy"
 msgstr "Politique de confidentialité"
 
-#: .\hearth_shop\templates\base.html:104 .\shop\templates\shop\terms.html:4
+#: .\hearth_shop\templates\base.html:124 .\shop\templates\shop\terms.html:4
 #: .\shop\templates\shop\terms.html:8
 msgid "Terms of Service"
 msgstr "Conditions d'utilisation"
 
-#: .\hearth_shop\templates\base.html:109
+#: .\hearth_shop\templates\base.html:129
 msgid "All rights reserved."
 msgstr "Tous droits réservés."
 
@@ -97,41 +121,46 @@ msgstr "ILLUSTRATION"
 msgid "PHOTOGRAPHY"
 msgstr "PHOTOGRAPHIE"
 
-#: .\hearth_shop\templates\includes\navbar.html:27
+#: .\hearth_shop\templates\includes\navbar.html:22
+msgid "Select Theme"
+msgstr "Sélectionner un thème"
+
+#: .\hearth_shop\templates\includes\navbar.html:31
 msgid "All Themes"
 msgstr "Tous les thèmes"
 
-#: .\hearth_shop\templates\includes\navbar.html:46
+#: .\hearth_shop\templates\includes\navbar.html:50
 #: .\shop\templates\shop\upload.html:11
 msgid "Upload"
 msgstr "Téléverser"
 
-#: .\hearth_shop\templates\includes\navbar.html:53 .\shop\models.py:138
+#: .\hearth_shop\templates\includes\navbar.html:56
+#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:138
 msgid "Cart"
 msgstr "Panier"
 
-#: .\hearth_shop\templates\includes\navbar.html:57
+#: .\hearth_shop\templates\includes\navbar.html:61
 #: .\shop\templates\shop\order_history.html:3
 #: .\shop\templates\shop\order_history.html:7
 msgid "My Orders"
 msgstr "Mes commandes"
 
-#: .\hearth_shop\templates\includes\navbar.html:62
+#: .\hearth_shop\templates\includes\navbar.html:66
 msgid "Logout"
 msgstr "Déconnexion"
 
-#: .\hearth_shop\templates\includes\navbar.html:67
+#: .\hearth_shop\templates\includes\navbar.html:71
 #: .\shop\templates\registration\login.html:6
 #: .\shop\templates\registration\login.html:10
 msgid "Login"
 msgstr "Connexion"
 
-#: .\hearth_shop\templates\includes\navbar.html:70
+#: .\hearth_shop\templates\includes\navbar.html:74
 #: .\shop\templates\registration\signup.html:6
 msgid "Sign Up"
 msgstr "S'inscrire"
 
-#: .\hearth_shop\templates\includes\navbar.html:89
+#: .\hearth_shop\templates\includes\navbar.html:93
 msgid "Select Language"
 msgstr "Choisir la langue"
 
@@ -323,17 +352,17 @@ msgstr "Confirmer le mot de passe :"
 msgid "Create Account"
 msgstr "Créer un compte"
 
-#: .\shop\templates\shop_pagination.html:7
-#: .\shop\templates\shop_pagination.html:11
+#: .\shop\templates\shop\_pagination.html:7
+#: .\shop\templates\shop\_pagination.html:11
 msgid "Previous"
 msgstr "Précédent"
 
-#: .\shop\templates\shop_pagination.html:16
+#: .\shop\templates\shop\_pagination.html:16
 msgid "Page"
 msgstr "Page"
 
-#: .\shop\templates\shop_pagination.html:21
-#: .\shop\templates\shop_pagination.html:25
+#: .\shop\templates\shop\_pagination.html:21
+#: .\shop\templates\shop\_pagination.html:25
 msgid "Next"
 msgstr "Suivant"
 
