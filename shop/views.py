@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ImproperlyConfigured
 from django.core.mail import send_mail
 from django.core.paginator import Paginator  # For pagination
-from django.http import HttpResponse, request
+from django.http import HttpResponse, request, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, translate_url
 from django.utils import timezone, translation
