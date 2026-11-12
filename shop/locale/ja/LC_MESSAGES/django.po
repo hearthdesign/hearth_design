@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-12 04:22+0100\n"
+"POT-Creation-Date: 2026-11-12 13:10+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Japanese\n"
@@ -17,31 +17,31 @@ msgstr ""
 
 #: .\hearth_shop\settings.py:224
 msgid "English"
-msgstr "英語"
+msgstr "English"
 
 #: .\hearth_shop\settings.py:225
 msgid "Deutsch"
-msgstr "ドイツ語"
+msgstr "Deutsch"
 
 #: .\hearth_shop\settings.py:226
 msgid "Français"
-msgstr "フランス語"
+msgstr "Français"
 
 #: .\hearth_shop\settings.py:227
 msgid "Español"
-msgstr "スペイン語"
+msgstr "Español"
 
 #: .\hearth_shop\settings.py:228
 msgid "Italiano"
-msgstr "イタリア語"
+msgstr "Italiano"
 
 #: .\hearth_shop\settings.py:229
 msgid "Português"
-msgstr "ポルトガル語"
+msgstr "Português"
 
 #: .\hearth_shop\settings.py:230
 msgid "简体中文"
-msgstr "簡体字中国語"
+msgstr ""
 
 #: .\hearth_shop\settings.py:231
 msgid "日本語"
@@ -788,3 +788,6 @@ msgstr ""
 "\n"
 "よろしくお願いいたします。\n"
 "Hearth Design チーム"
+
+#~ msgid "中文"
+#~ msgstr "中文"
