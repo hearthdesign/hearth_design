@@ -62,15 +62,15 @@
     </main>
 
     <!-- MODAL OVERLAY -->
-    <div id="image-modal"
-         class="modal"
-         role="dialog"
-         aria-modal="true"
-         aria-labelledby="modal-title"
-         style="display: none;">
-      
-      <!-- MODAL CONTENT BOX -->
-      <div class="modal-content">
+   <div id="image-modal"
+     class="modal"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="modal-title"
+     style="display: none;">
+     
+    <!-- MODAL CONTENT BOX -->
+    <div class="modal-content">
         
         <!-- CLOSE BUTTON (top-right corner) -->
         <button type="button" class="close" aria-label="{% trans 'Close modal' %}">
@@ -94,22 +94,22 @@
             <input type="hidden" name="print_id" id="modal-product-id">
             <label for="modal-quantity">{% trans "Quantity:" %}</label>
             <input type="number" name="quantity" id="modal-quantity" value="1" min="1">
-            <button type="submit">{% trans "Add to Cart" %}</button>
+            <button type="submit" class="cta-button">{% trans "Add to Cart" %}</button>
           </form>
         {% endif %}
 
-        <!-- NAVIGATION AND CLOSE CONTROLS -->
+        <!-- NAVIGATION CONTROLS -->
         <div class="modal-controls" role="group" aria-label="{% trans 'Gallery controls' %}">
           <button type="button" id="prev-btn" class="modal_btn" aria-label="{% trans 'Previous image' %}">
-            <span aria-hidden="true">←</span>
+            <span aria-hidden="true">&larr; Previous</span>
           </button>
           <button type="button" id="next-btn" class="modal_btn" aria-label="{% trans 'Next image' %}">
-            <span aria-hidden="true">→</span>
-          </button>
-          <button type="button" id="close-btn" class="modal_btn" aria-label="{% trans 'Close modal' %}">
-            <span aria-hidden="true">×</span>
+            <span aria-hidden="true">Next &rarr;</span>
           </button>
         </div>
+
+    </div>
+</div>
 
       </div>
     </div>
