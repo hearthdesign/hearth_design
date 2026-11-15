@@ -15,17 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
 from django.urls import path, include
-from shop import views
+from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
-from django.views.generic import TemplateView
 from django.conf.urls.i18n import i18n_patterns, set_language
-from shop.views import custom_set_language # Adjust import to the app
-from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
+from django.views.generic import TemplateView
+
+# App imports
+from shop import views
+from shop.views import custom_set_language # Adjust import to the app
 from shop.sitemaps import PrintSitemap
+from shop.sitemaps import sitemaps
 
 sitemaps = {
     "prints": PrintSitemap,
@@ -71,7 +73,7 @@ urlpatterns += i18n_patterns(
     path("shop/", include("shop.urls")),
     path('checkout/success/', views.payment_success, name='payment_success'),
     path('checkout/cancel/', views.payment_cancel, name='payment_cancel'),
-    path('checkout/thanks/', views.thank_you, name='thank_you'),
+    path('checkout/thanks/', views.checkout_thanks, name='checkout_thanks'),
     path("privacy-policy/", views.privacy_policy, name="privacy_policy",),
     )
 

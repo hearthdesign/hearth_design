@@ -213,7 +213,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LANGUAGE_CODE = 'en'
-PREFIX_DEFAULT_LANGUAGE = True
+# PREFIX_DEFAULT_LANGUAGE = True
 LANGUAGE_COOKIE_PATH = '/'
 
 TIME_ZONE = 'UTC'
