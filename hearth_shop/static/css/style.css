@@ -1,7 +1,11 @@
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   margin: 0;
   width: 100%;
   height: auto;
+
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9f9f9;
   color: #333;
@@ -12,9 +16,9 @@ h2,
 h3, 
 h4, 
 h5, 
-h6{
+h6 {
   color: rgb(5, 73, 90);
-  margin-left: 2%;
+  margin-left: 5%;
 }
 
 a {
@@ -24,11 +28,11 @@ a {
 
 p {
   color: rgb(5, 73, 90);
-  margin-left: 2%;
+  margin-left: 5%;
 }
 
 /* ======================
-        MAIN STYLING
+      MAIN STYLING
   ====================== */ 
 
 main {
@@ -45,7 +49,7 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
+  object-fit: fill;
   position: relative;
   overflow: hidden;
   min-height: clamp(250px, 50vh, 700px);
@@ -63,28 +67,24 @@ main {
 .hero::before {
   content: "";
   position: absolute;
-  inset: 0; /* shorthand for top/right/bottom/left:0 */
-  background-color: rgba(255,255,255,.4); /* white overlay at 50% transparency */
+  inset: 0;
+  background-color: rgba(255,255,255,.4);
   z-index: 0;
   margin-top: 0; 
 }
 
 .hero > * {
   position: relative;
-  z-index: 1; /* keep text above overlay */
+  z-index: 1;
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     padding: 1.5rem 3rem;
-
     background-color: rgba(255,255,255,0.70);
-
     border-radius: 1rem;
-
     box-shadow:
         0 0 8rem rgba(255,255,255,0.9),
         0 0 7rem rgba(255,255,255,0.9);
@@ -118,7 +118,6 @@ label {
   display: flex;
   width: 100%;
   margin: 0;
-  
   justify-content: center;
   align-items: center;
   position: relative;
@@ -141,7 +140,7 @@ label {
 }
 
 /* ==========================
-  NAV BUTTONS & DROPDOWNS
+   NAV BUTTONS & DROPDOWNS
 ========================== */
 
 .nav-btn,
@@ -149,7 +148,7 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box; /* Fixed from content-box for predictable sizing */
+  box-sizing: border-box;
   min-height: 1.5rem;
   min-width: 7.5rem;
   padding: 0.5rem 1rem;
@@ -173,16 +172,15 @@ label {
   text-decoration: underline;
   background-color: rgb(5, 73, 88);
   color: white;
-  }
+}
 
 #language-select,
-#theme-select{
+#theme-select {
   font-weight: bold;
   text-align: center;
   cursor: pointer;
 }
 
-/* Generic select styled safely without breaking .nav-control */
 select:not(.nav-control) {
   border-radius: 0.5rem;
   font-size: clamp(0.75rem, 2vw, 1rem);
@@ -202,7 +200,7 @@ select:not(.nav-control) {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  }
+}
 
 form {
   display: flex;
@@ -215,7 +213,7 @@ form {
 
 form input[type="text"], 
 form input[type="password"], 
-form input[type="email"]  {
+form input[type="email"] {
   border: 1px solid rgb(5, 73, 90);
   border-radius: 0.35rem;
   outline: none;
@@ -249,11 +247,11 @@ form input::placeholder {
     display: block;
     margin-top: 0.25rem;
     font-size: 0.85rem;
-    color: #2f6e82;;
+    color: #2f6e82;
 }
 
 /* =====================================
-    LABELS (Theme and Language select
+   LABELS (Theme and Language select)
    ===================================== */
 
 .visually-hidden {
@@ -334,20 +332,21 @@ form input::placeholder {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: 1rem;
   padding: 2rem;
+  justify-items: center;
 }
 
 .thumbnail {
-  width: 150px;
-  aspect-ratio: 1 / 1; /* keeps square shape */
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  border-radius: 0.25rem;
+  margin: 0.5rem;
   background-color: rgb(0, 20, 22);
   border-radius: 0.5rem;
   box-shadow: 0 0 4px rgba(0,0,0,0.2);
@@ -356,10 +355,10 @@ form input::placeholder {
 .thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
   object-position: center;
   user-select: none;
-  pointer-events: none; /* helps prevent right-click */
+  pointer-events: none;
 }
 
 img {
@@ -370,7 +369,6 @@ img {
 /* ===========================
    MODAL STYLING
 =========================== */
-
 
 .modal {
   display: none;
@@ -387,7 +385,6 @@ img {
   pointer-events: all;
 }
 
-/* Switches display to flex when opened to keep it perfectly centered */
 .modal.show {
   display: flex;
 }
@@ -419,7 +416,8 @@ img {
 }
 
 .modal-content img {
-  width: 260px;
+  width: 100%;
+  max-width: 360px;
   height: 260px;
   object-fit: contain;
   margin-bottom: 0.75rem;
@@ -430,7 +428,7 @@ img {
 .modal-content h3 {
   margin: 0 0 0.4rem 0;
   font-size: 1.25rem;
-  color: #1a1a1a;
+  color: #011d2e;
   line-height: 1.3;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -438,9 +436,16 @@ img {
   overflow: hidden;
 }
 
+.modal-content label {
+  margin: 0 0 0.4rem 0;
+  font-size: 1rem;
+  color: #011d2e;
+  line-height: 1.20;
+}
+
 .modal-content p {
   font-weight: 600;
-  color: #05495a;
+  color: #011d2e;
   font-size: 1.1rem;
   margin-bottom: 1rem;
 }
@@ -458,6 +463,7 @@ img {
   padding: 0.4rem;
   font-size: 1rem;
   text-align: center;
+  color: #011d2e;
   border: 2px solid #ccc;
   border-radius: 6px;
   outline: none;
@@ -468,10 +474,9 @@ img {
   border-color: rgb(5, 73, 90);
 }
 
-/* --- CONTROLS CONTAINER WRAPPER --- */
 .modal-controls {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 1rem;
   width: 100%;
   margin-top: 1rem;
@@ -479,7 +484,6 @@ img {
   border-top: 1px solid #eaeaea;
 }
 
-/* --- ACCESSIBLE & ELEGANT BUTTONS --- */
 .modal-content button[type="submit"] {
   background-color: rgb(5, 73, 90);
   color: #ffffff;
@@ -496,14 +500,16 @@ img {
 .modal-content button[type="submit"]:hover {
   background-color: rgb(20, 90, 120);
   border-color: rgb(20, 90, 120);
+  box-shadow: 0 0 0.35rem rgb(5, 73, 90);
 }
 
-/* Previous / Next Gallery Nav Buttons */
 .modal_btn {
   background-color: #f4f6f8;
   color: rgb(5, 73, 90);
+  width: 8rem;
   border: 1px solid #cbd5e1;
   font-weight: 600;
+  height: 2rem;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
@@ -517,10 +523,11 @@ img {
 .modal_btn:hover {
   background-color: rgb(5, 73, 90);
   color: #ffffff;
+  font-weight: 800;
   border-color: rgb(5, 73, 90);
+  box-shadow: 0 0 0.35rem rgb(5, 73, 90);
 }
 
-/* --- CLOSE BUTTON (Top-Right) --- */
 .close {
   position: absolute;
   top: 1rem;
@@ -541,8 +548,11 @@ img {
 
 .close:hover {
   background: #e2e8f0;
-  color: #0f172a;
+  border: 2px solid rgb(5, 73, 90);
+  color: rgb(5, 73, 90);
+  box-shadow: 0 0 0.35rem rgb(5, 73, 90);
 }
+
 /* ===========================
    CART PAGE STYLING
 =========================== */
@@ -554,7 +564,7 @@ img {
 .cart-item {
   display: flex;
   align-items: flex-start;
-  gap:15%;
+  gap: 15%;
   margin-top: 1rem;
   padding: 1rem;
   background-color: #fff;
@@ -566,10 +576,10 @@ img {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-
   text-align: right;
   align-items: flex-end;
 }  
+
 .cart-details h3 {
     margin: 0;
 }
@@ -587,14 +597,11 @@ img {
 
 .cart-thumbnail {
   margin-top: 0.5rem;
-  width: 135px; height: 135px;
+  width: 135px; 
+  height: 135px;
   object-fit: cover;
   border-radius: 0.35rem;
 }
-
-/*  ==========================================
-    increase and decrease quantity buttons 
-=============================================*/
 
 .qty-stack {
     display: flex;
@@ -613,20 +620,20 @@ img {
   width: 2rem;
   height: 2rem;
   font-size: 1.3rem;
-  border: 1.7px solid rgba(74, 156,177, 0.9);
+  border: 1.7px solid rgba(74, 156, 177, 0.9);
   border-radius: 0.35rem;
   background-color: rgb(247,241,225);
-  color: rgb(5, 73, 90);
+  color: rgb(20, 90, 120);
   font-weight: bold;
   cursor: pointer;
 }
 
 .checkout-btn,
-.remove-btn  {
+.remove-btn {
   width: auto;
   height: 2rem;
   font-size: 1rem;
-  border: 1.7px solid rgba(74, 156,177, 0.9);
+  border: 1.7px solid rgba(74, 156, 177, 0.9);
   border-radius: 0.35rem;
   background-color: rgb(247,241,225);
   color: rgb(5, 73, 90);
@@ -635,24 +642,6 @@ img {
 
 .cart-summary {
     margin: 2rem;
-}
-
-.qty-display {
-    min-width: 2rem;
-    text-align: center;
-    font-weight: bold;
-}
-
-.qty-stack button {
-  width: 2rem;
-  height: 2rem;
-  font-size: 1.3rem;
-  border: 1.7px solid rgba(74, 156,177, 0.9);
-  border-radius: 0.35rem;
-  background-color: rgb(247,241,225);
-  color: rgb(20, 90, 120);
-  font-weight: bold;
-  cursor: pointer;
 }
 
 /* ===========================
@@ -870,7 +859,7 @@ img {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  margin: 0; /* Clears out old conflicting margins */
+  margin: 0;
   transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
@@ -884,11 +873,10 @@ img {
   color: rgb(20, 90, 120);
   margin: 0;
 }
-/* ======================
-      PRIVACY DROPDOWN
-  ====================== */
 
-/* Dropdown styling */
+/* ======================
+     PRIVACY DROPDOWN
+  ====================== */
 
 .privacy-details {
   margin: 1rem 0;
@@ -919,8 +907,6 @@ img {
   transform: rotate(180deg);
 }
 
-/* Animated content */
-
 .privacy-content {
   max-height: 0;
   opacity: 0;
@@ -929,30 +915,13 @@ img {
 }
 
 .privacy-details[open] .privacy-content {
-  max-height: 500px; /* enough space for text */
+  max-height: 500px;
   opacity: 1;
   padding: 0.75rem;
 }
 
-/* Checkbox styling */
-
-.privacy-check {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  font-weight: bold;
-  color: rgb(20, 90, 120);
-}
-
-.privacy-check input[type="checkbox"] {
-  width: 1.2rem;
-  height: 1.2rem;
-  accent-color: rgb(20, 90, 120);
-  cursor: pointer;
-}
-
-.privacy-check, .marketing-check {
+.privacy-check, 
+.marketing-check {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -970,7 +939,7 @@ img {
 }
 
 /* ======================
-      CONTACT FORM
+     CONTACT FORM
   ====================== */
 
 .contact-container {
@@ -1007,7 +976,6 @@ img {
   font-size: 0.95rem;
 }
 
-/* Style Django form inputs and textareas */
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
@@ -1035,7 +1003,6 @@ img {
   box-shadow: 0 0 4px rgba(74, 156, 177, 0.4);
 }
 
-/* Validation Errors */
 .error-msg {
   color: #8f1d1d;
   font-size: 0.85rem;
@@ -1043,7 +1010,6 @@ img {
   margin-top: 0.15rem;
 }
 
-/* Submit Button */
 .contact-submit-btn {
   margin-top: 1rem;
   background-color: rgb(247, 241, 225);
@@ -1115,14 +1081,13 @@ img {
 }
 
 /* =========================================== 
-    MAX-WIDTH 1024PX 
-    Tablet layout: between desktop and mobile 
+   MAX-WIDTH 1024PX 
 ============================================== */
 @media (max-width: 1024px) {
   .nav-links {
     justify-content: center;
     gap: 0.5rem;
-    }
+  }
 }
 
 @media (max-width: 980px) {
@@ -1141,8 +1106,8 @@ img {
   .nav-btn,
   .nav-control,
   .nav-select {
-    min-width: auto; /* Allow full flexibility on mobile */
-    padding: 0.3rem 0.6rem; /* Tighter padding for tablets/mobiles */
+    min-width: auto;
+    padding: 0.3rem 0.6rem;
   }
 }
 
@@ -1150,16 +1115,16 @@ img {
   .gallery-grid {
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
     gap: 0.5rem;
-    padding: 0;
+    padding: 0.5rem;
   }
 
   .nav-btn,
   .nav-control,
   .nav-select {
     min-width: auto;
-    padding: 0.25rem 0.5rem; /* Compact padding for small phones */
+    padding: 0.25rem 0.5rem;
     font-size: 0.8rem;
   }
 }
