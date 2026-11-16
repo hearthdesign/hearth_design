@@ -3,12 +3,12 @@ from django.utils.safestring import mark_safe
 
 register = template.Library()
 
-FULL_STAR = '''
+FULL_STAR = """
 <svg class="star-icon star-full" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
   <path fill="#f59e0b" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-</svg>'''
+</svg>"""
 
-HALF_STAR = '''
+HALF_STAR = """
 <svg class="star-icon star-half" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
   <defs>
     <linearGradient id="half-grad">
@@ -17,7 +17,7 @@ HALF_STAR = '''
     </linearGradient>
   </defs>
   <path fill="url(#half-grad)" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-</svg>'''
+</svg>"""
 
 EMPTY_STAR = """
 <svg class="star-icon star-empty" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
@@ -29,18 +29,18 @@ def render_stars(rating):
     """
     Converts a numeric rating (0.0 to 5.0) into 5 SVG star icons.
     """
-    if rating is None:
+    try:
+        rating = max(0.0, min(5.0, float(rating))) if rating else 0.0
+    except (ValueError, TypeError):
         rating = 0.0
-    else:
-        rating = float(rating)
 
     full_stars = int(rating)
     has_half = (rating - full_stars) >= 0.4
     empty_stars = 5 - full_stars - (1 if has_half else 0)
 
-    stars_html = (FULL_STAR * full_stars)
+    stars_html = FULL_STAR * full_stars
     if has_half:
         stars_html += HALF_STAR
-    stars_html += (EMPTY_STAR * empty_stars)
+    stars_html += EMPTY_STAR * empty_stars
 
     return mark_safe(f'<span class="svg-star-group">{stars_html}</span>')

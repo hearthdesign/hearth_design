@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n rating_tags %}
 <!-- Photography gallery -->
 {% block title %}{% trans "Welcome to HEARTH Shop" %}{% endblock %}
 
 {% block content %}
- 
+<div class="gallery-page-container">
   <h1>{% trans "PHOTOGRAPHY" %}</h1>
 
   <div class="gallery-grid">
@@ -24,6 +24,18 @@
           </a>
         {% endif %}
       </div>
+      <div class="card-info">
+        <h3>{{ print.title }}</h3>
+        <p>€{{ print.price }}</p>
+
+        <!-- SVG Stars and Review Count -->
+        <div class="rating-badge">
+          {{ print.avg_rating|render_stars }}
+          {% if print.num_reviews %}
+            <span class="review-count">({{ print.num_reviews }})</span>
+          {% endif %}
+        </div>
+      </div>
     {% empty %}
       <p>{% trans "No prints found." %}</p>
     {% endfor %}
@@ -32,4 +44,5 @@
   {% block pagination %}
     {% include "shop/_pagination.html" %}
   {% endblock %}
+</div>
 {% endblock %}

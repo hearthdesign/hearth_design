@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n rating_tags %}
 <!-- Illustrations gallery -->
 {% block title %}{% trans "Welcome to HEARTH Shop" %}{% endblock %}
 
@@ -22,6 +22,43 @@
             <img src="/static/img/placeholder.jpg" alt="No image available">
           </a>
         {% endif %}
+<div class="gallery-page-container">
+{% load i18n rating_tags %}
+<!-- Photography gallery -->
+{% block title %}{% trans "Welcome to HEARTH Shop" %}{% endblock %}
+
+{% block content %}
+ 
+  <h1>{% trans "PHOTOGRAPHY" %}</h1>
+
+  <div class="gallery-grid">
+    {% for print in page_obj %}
+      <div class="thumbnail">
+        {% if print.image %}
+        <a href="#" 
+           data-image="{{ print.image.url }}" 
+           data-id="{{ print.id }}" 
+           data-title="{{ print.title }}"
+           data-price="{{ print.price }}">
+          <img src="{{ print.image.url }}" alt="{{ print.title }}" loading="lazy">
+        </a>
+        {% else %}
+          <a href="#">
+            <img src="/static/img/placeholder.jpg" alt="No image available">
+          </a>
+        {% endif %}
+      </div>
+      <div class="card-info">
+        <h3>{{ print.title }}</h3>
+        <p>€{{ print.price }}</p>
+
+        <!-- SVG Stars and Review Count -->
+        <div class="rating-badge">
+          {{ print.avg_rating|render_stars }}
+          {% if print.num_reviews %}
+            <span class="review-count">({{ print.num_reviews }})</span>
+          {% endif %}
+        </div>
       </div>
     {% empty %}
       <p>{% trans "No prints found." %}</p>
@@ -31,6 +68,7 @@
   {% block pagination %}
     {% include "shop/_pagination.html" %}
   {% endblock %}
+</div>
 {% endblock %}
 
 
