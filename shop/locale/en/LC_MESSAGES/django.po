@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-12 13:10+0100\n"
+"POT-Creation-Date: 2026-11-16 12:10+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: English\n"
@@ -40,70 +40,70 @@ msgid "Português"
 msgstr ""
 
 #: .\hearth_shop\settings.py:230
-msgid "简体中文"
+msgid "中文"
 msgstr ""
 
 #: .\hearth_shop\settings.py:231
 msgid "日本語"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:10
+#: .\hearth_shop\templates\base.html:9
 msgid "Hearth Shop"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:39
+#: .\hearth_shop\templates\base.html:38
 msgid "Shop"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:40
+#: .\hearth_shop\templates\base.html:39
 msgid "[ SHOP ]"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:76 .\hearth_shop\templates\base.html:109
+#: .\hearth_shop\templates\base.html:75
 msgid "Close modal"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:95
+#: .\hearth_shop\templates\base.html:94
 msgid "Quantity:"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:97
+#: .\hearth_shop\templates\base.html:96
 msgid "Add to Cart"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:102
+#: .\hearth_shop\templates\base.html:101
 msgid "Gallery controls"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:103
+#: .\hearth_shop\templates\base.html:102
 msgid "Previous image"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:106
+#: .\hearth_shop\templates\base.html:105
 msgid "Next image"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:121
+#: .\hearth_shop\templates\base.html:120
 msgid "Footer navigation"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:122 .\shop\templates\shop\contact.html:4
+#: .\hearth_shop\templates\base.html:121 .\shop\templates\shop\contact.html:4
 #: .\shop\templates\shop\contact.html:8
 msgid "Contact Us"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:123
-#: .\shop\templates\shop\private_policy.html:6
-#: .\shop\templates\shop\private_policy.html:10
+#: .\hearth_shop\templates\base.html:122
+#: .\shop\templates\shop\privacy_policy.html:6
+#: .\shop\templates\shop\privacy_policy.html:10
 msgid "Privacy Policy"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:124 .\shop\templates\shop\terms.html:4
+#: .\hearth_shop\templates\base.html:123 .\shop\templates\shop\terms.html:4
 #: .\shop\templates\shop\terms.html:8
 msgid "Terms of Service"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:129
+#: .\hearth_shop\templates\base.html:128
 msgid "All rights reserved."
 msgstr ""
 
@@ -135,7 +135,7 @@ msgid "Upload"
 msgstr ""
 
 #: .\hearth_shop\templates\includes\navbar.html:56
-#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:138
+#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:151
 msgid "Cart"
 msgstr ""
 
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Sign Up"
 msgstr ""
 
-#: .\hearth_shop\templates\includes\navbar.html:93
+#: .\hearth_shop\templates\includes\navbar.html:87
 msgid "Select Language"
 msgstr ""
 
@@ -196,71 +196,71 @@ msgstr ""
 msgid "I would like to receive updates about new art, offers, and newsletters"
 msgstr ""
 
-#: .\shop\models.py:15
+#: .\shop\models.py:19
 msgid "General"
 msgstr ""
 
-#: .\shop\models.py:64
+#: .\shop\models.py:68
 msgid "Theme"
 msgstr ""
 
-#: .\shop\models.py:65
+#: .\shop\models.py:69
 msgid "Themes"
 msgstr ""
 
-#: .\shop\models.py:78
+#: .\shop\models.py:82
 msgid "Photography"
 msgstr ""
 
-#: .\shop\models.py:79
+#: .\shop\models.py:83
 msgid "Illustration"
 msgstr ""
 
-#: .\shop\models.py:82
+#: .\shop\models.py:86
 msgid "Metal Print"
 msgstr ""
 
-#: .\shop\models.py:83
+#: .\shop\models.py:87
 msgid "Wood Print"
 msgstr ""
 
-#: .\shop\models.py:84
+#: .\shop\models.py:88
 msgid "Paper Print"
 msgstr ""
 
-#: .\shop\models.py:139
+#: .\shop\models.py:152
 msgid "Carts"
 msgstr ""
 
-#: .\shop\models.py:158
+#: .\shop\models.py:171
 msgid "Cart Item"
 msgstr ""
 
-#: .\shop\models.py:159
+#: .\shop\models.py:172
 msgid "Cart Items"
 msgstr ""
 
-#: .\shop\models.py:200
+#: .\shop\models.py:213
 msgid "Order"
 msgstr ""
 
-#: .\shop\models.py:201
+#: .\shop\models.py:214
 msgid "Orders"
 msgstr ""
 
-#: .\shop\models.py:214
+#: .\shop\models.py:227
 msgid "Order Item"
 msgstr ""
 
-#: .\shop\models.py:215
+#: .\shop\models.py:228
 msgid "Order Items"
 msgstr ""
 
-#: .\shop\models.py:232
+#: .\shop\models.py:245
 msgid "Contact Submission"
 msgstr ""
 
-#: .\shop\models.py:233
+#: .\shop\models.py:246
 msgid "Contact Submissions"
 msgstr ""
 
@@ -373,6 +373,25 @@ msgstr ""
 msgid "Secure Checkout with Stripe"
 msgstr ""
 
+#: .\shop\templates\shop\checkout_thanks.html:4
+#: .\shop\templates\shop\thank_you.html:4
+msgid "Thank You"
+msgstr ""
+
+#: .\shop\templates\shop\checkout_thanks.html:8
+msgid "Thank You!"
+msgstr ""
+
+#: .\shop\templates\shop\checkout_thanks.html:9
+msgid ""
+"We appreciate your support. Your submission or order has been successfully "
+"recorded."
+msgstr ""
+
+#: .\shop\templates\shop\checkout_thanks.html:12
+msgid "Back to Home"
+msgstr ""
+
 #: .\shop\templates\shop\contact.html:15
 msgid "Name:"
 msgstr ""
@@ -423,8 +442,8 @@ msgid ""
 "Browse themed prints, illustrations, and photographs curated for every taste."
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:27
-#: .\shop\templates\shop\photography_gallery.html:28
+#: .\shop\templates\shop\illustration_gallery.html:47
+#: .\shop\templates\shop\photography_gallery.html:45
 msgid "No prints found."
 msgstr ""
 
@@ -478,7 +497,7 @@ msgstr ""
 msgid "View Orders"
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:13
+#: .\shop\templates\shop\privacy_policy.html:13
 msgid ""
 "We take the protection of your personal data seriously. This website "
 "processes personal information in accordance with the General Data "
@@ -486,71 +505,83 @@ msgid ""
 "protection laws."
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:16
+#: .\shop\templates\shop\privacy_policy.html:16
 msgid "Data We Collect"
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:18
+#: .\shop\templates\shop\privacy_policy.html:18
 msgid ""
 "When you place an order, contact us through a form, or create an account, we "
 "may collect your name, email address, billing and shipping information, and "
 "details necessary to process your request."
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:21
+#: .\shop\templates\shop\privacy_policy.html:21
 msgid "Purpose of Processing"
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:23
+#: .\shop\templates\shop\privacy_policy.html:23
 msgid ""
 "Personal data is processed solely for the purpose of providing our services, "
 "fulfilling orders, responding to inquiries, maintaining security, and "
 "complying with legal obligations."
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:26
+#: .\shop\templates\shop\privacy_policy.html:26
 msgid "Payments"
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:28
+#: .\shop\templates\shop\privacy_policy.html:28
 msgid ""
 "Payments are processed through trusted third-party payment providers. We do "
 "not store complete payment card information on our servers."
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:31
+#: .\shop\templates\shop\privacy_policy.html:31
 msgid "Data Storage"
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:33
+#: .\shop\templates\shop\privacy_policy.html:33
 msgid ""
 "Personal data is stored only for as long as necessary to fulfil contractual, "
 "legal, or operational requirements and is deleted when no longer needed."
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:36
+#: .\shop\templates\shop\privacy_policy.html:36
 msgid "Your Rights"
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:38
+#: .\shop\templates\shop\privacy_policy.html:38
 msgid ""
 "Under the GDPR, you have the right to access, correct, restrict, delete, or "
 "transfer your personal data, as well as the right to object to certain "
 "processing activities."
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:41
+#: .\shop\templates\shop\privacy_policy.html:41
 msgid "Contact"
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:43
+#: .\shop\templates\shop\privacy_policy.html:43
 msgid ""
 "For questions regarding privacy or data protection, please use the contact "
 "form available on this website."
 msgstr ""
 
-#: .\shop\templates\shop\private_policy.html:47
+#: .\shop\templates\shop\privacy_policy.html:47
 msgid "Last updated:"
+msgstr ""
+
+#: .\shop\templates\shop\review_form.html:8
+msgid "Rating:"
+msgstr ""
+
+#: .\shop\templates\shop\review_form.html:14
+msgid "Your Review:"
+msgstr ""
+
+#: .\shop\templates\shop\review_form.html:24
+msgid "Post Review"
 msgstr ""
 
 #: .\shop\templates\shop\terms.html:9
@@ -598,22 +629,18 @@ msgid ""
 "contact page."
 msgstr ""
 
-#: .\shop\templates\shop\thank_you.html:4
-msgid "Thank You"
-msgstr ""
-
 #: .\shop\templates\shop\thank_you.html:8
-msgid "Thank You!"
+msgid "Thank You for Reaching Out!"
 msgstr ""
 
-#: .\shop\templates\shop\thank_you.html:9
+#: .\shop\templates\shop\thank_you.html:10
 msgid ""
-"We appreciate your support. Your submission or order has been successfully "
-"recorded."
+"We have received your message and will get back to you as soon as possible. "
+"Usually, this takes within 24 to 48 hours."
 msgstr ""
 
-#: .\shop\templates\shop\thank_you.html:12
-msgid "Back to Home"
+#: .\shop\templates\shop\thank_you.html:13
+msgid "Return to Homepage"
 msgstr ""
 
 #: .\shop\templates\shop\themed_gallery.html:6
@@ -641,78 +668,78 @@ msgstr ""
 msgid "Upload a New Print"
 msgstr ""
 
-#: .\shop\views.py:203
+#: .\shop\views.py:204
 msgid "Invalid product selection."
 msgstr ""
 
-#: .\shop\views.py:218
+#: .\shop\views.py:219
 msgid "Invalid quantity entered. Quantity has been reset to 1."
 msgstr ""
 
-#: .\shop\views.py:227
+#: .\shop\views.py:228
 msgid "Quantity must be greater than zero. Quantity has been reset to 1."
 msgstr ""
 
-#: .\shop\views.py:237
+#: .\shop\views.py:238
 #, python-format
 msgid "Only %(stock)s item(s) currently available."
 msgstr ""
 
-#: .\shop\views.py:247
+#: .\shop\views.py:248
 msgid "This item is currently out of stock."
 msgstr ""
 
-#: .\shop\views.py:270
+#: .\shop\views.py:271
 msgid "Requested quantity exceeds available stock."
 msgstr ""
 
-#: .\shop\views.py:281
+#: .\shop\views.py:282
 #, python-format
 msgid "\"%(title)s\" added to your cart."
 msgstr ""
 
-#: .\shop\views.py:325
+#: .\shop\views.py:326
 #, python-format
 msgid "Quantity of \"%(title)s\" increased to %(qty)s."
 msgstr ""
 
-#: .\shop\views.py:333
+#: .\shop\views.py:334
 msgid "No additional stock is available for this item."
 msgstr ""
 
-#: .\shop\views.py:352
+#: .\shop\views.py:353
 #, python-format
 msgid "Quantity of \"%(title)s\" decreased to %(qty)s."
 msgstr ""
 
-#: .\shop\views.py:363
+#: .\shop\views.py:364
 #, python-format
 msgid "'%(title)s' has been removed from your cart."
 msgstr ""
 
-#: .\shop\views.py:389
+#: .\shop\views.py:390
 #, python-format
 msgid "\"%(title)s\" has been removed from your cart."
 msgstr ""
 
-#: .\shop\views.py:398
+#: .\shop\views.py:399
 msgid "Your cart is now empty. Browse the gallery to discover more artwork."
 msgstr ""
 
-#: .\shop\views.py:472
+#: .\shop\views.py:531
 msgid "You must agree to the Privacy Notice"
 msgstr ""
 
-#: .\shop\views.py:492
+#: .\shop\views.py:551
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
 msgstr ""
 
-#: .\shop\views.py:499
+#: .\shop\views.py:558
 msgid "Thank you for contacting Hearth Design"
 msgstr ""
 
-#: .\shop\views.py:502
+#: .\shop\views.py:561
 msgid ""
 "Thank you for reaching out to us. We've received your message and will get "
 "back to you shortly.\n"
