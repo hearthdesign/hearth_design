@@ -236,10 +236,10 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  // ====================
+  // ====================================
   // Keyboard navigation
   // Runs only while the modal is open
-  // ====================
+  // ====================================
   document.addEventListener('keydown', (e) => {
     const modal = document.getElementById('image-modal');
     // Exit gracefully when the modal is not available
@@ -255,4 +255,33 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal();
     }
   });
+});
+
+// ====================================
+// Back to top button
+// ====================================
+document.addEventListener('DOMContentLoaded', () => {
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (!backToTopBtn) return;
+
+    window.addEventListener('scroll', () => {
+        // Total scrollable height minus the viewport height
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const currentScroll = window.scrollY;
+
+        // Show button when the user is within 100px of the bottom of the page
+        if (currentScroll >= scrollableHeight - 100) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    // Smooth scroll back to top when clicked
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });
