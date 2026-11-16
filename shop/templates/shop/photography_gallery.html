@@ -9,6 +9,8 @@
 
   <div class="gallery-grid">
     {% for print in page_obj %}
+    <!-- Parent wrapper to stack image and text vertically -->
+    <div class="gallery-card">
       <div class="thumbnail">
         {% if print.image %}
         <a href="#" 
@@ -24,6 +26,8 @@
           </a>
         {% endif %}
       </div>
+
+      <!-- Card Info (Underneath) -->
       <div class="card-info">
         <h3>{{ print.title }}</h3>
         <p>€{{ print.price }}</p>
@@ -36,6 +40,7 @@
           {% endif %}
         </div>
       </div>
+    </div>
     {% empty %}
       <p>{% trans "No prints found." %}</p>
     {% endfor %}
