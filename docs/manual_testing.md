@@ -191,8 +191,11 @@ PAYMENT
 PAYAMENT CONFIRMATION
 ![alt text](image-11.png)
 
-ORDER
+ORDER (OLD)
 ![alt text](image-12.png)
+
+ORDER (NEW)
+![alt text](image-13.png)
 
 REGISTRATION
 

@@ -1,21 +1,69 @@
 // ===============================
-// NAVBAR: Hamburger Menu
-// ===============================
-const hamburger = document.getElementById("hamburger-btn");
-const navLinks = document.getElementById("nav-links");
-
-if (hamburger && navLinks) {
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navLinks.classList.toggle("show");
-  });
-}
-
-// ===============================
-// LOADS AFTER DOM CONTENT TO 
+// MAIN JAVASCRIP
+// Runs after the DOM has fully loaded
 // ENSURE ELEMENTS ARE AVAILABLE
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
+
+    // =====================================================
+    // NAVBAR: THEME SWITCHER
+    // Automatically submits the form when a theme is selected
+    // =====================================================
+    const galleryCards = document.querySelectorAll(".gallery-card"); // Ensure this matches your CSS/HTML class
+    let currentIndex = 0;
+    const imagesData = [];
+
+    // Collect data from all visible cards
+    galleryCards.forEach((card, index) => {
+        card.setAttribute("data-index", index);
+        const img = card.querySelector("img");
+        const title = card.querySelector(".print-title") ? card.querySelector(".print-title").textContent : "";
+        const price = card.querySelector(".print-price") ? card.querySelector(".print-price").textContent : "";
+        
+        imagesData.push({
+            src: img ? img.src : "",
+            title: title,
+            price: price
+        });
+
+        // Open modal on click
+        card.addEventListener("click", () => {
+            currentIndex = index;
+            openModal(imagesData[currentIndex]);
+        });
+    });
+
+    const modal = document.getElementById("imageModal"); // Adjust to your modal ID
+    const modalImg = modal ? modal.querySelector(".modal-image") : null;
+    const modalTitle = modal ? modal.querySelector(".modal-title") : null;
+    const modalPrice = modal ? modal.querySelector(".modal-price") : null;
+
+    function openModal(data) {
+        if (!modal) return;
+        if (modalImg) modalImg.src = data.src;
+        if (modalTitle) modalTitle.textContent = data.title;
+        if (modalPrice) modalPrice.textContent = data.price;
+        modal.style.display = "block"; // or your active modal class toggle
+    }
+
+    // Fix the Next / Previous buttons
+    const prevBtn = document.querySelector(".gallery-prev");
+    const nextBtn = document.querySelector(".gallery-next");
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + imagesData.length) % imagesData.length;
+            openModal(imagesData[currentIndex]);
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % imagesData.length;
+            openModal(imagesData[currentIndex]);
+        });
+    }
+});
   // ===============================
   // NAVBAR: Theme Switcher
   // ===============================
@@ -72,26 +120,51 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 0;
 
   // =============================================
-  // Attach click listeners to all thumbnail links
-  // to open the modal with the correct image
-  // =============================================
-  galleryLinks.forEach((link, index) => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault(); // Prevent default link behavior
-      if (!this.dataset.image) {
-        return;
-      }
-      // Extract image URL, product ID, and title from data attributes
-      currentIndex = index; // stores the currentIndex for navigation 
-      // Open modal with the data attributes 
-      openModal(
-        this.dataset.image,
-        this.dataset.id,
-        this.dataset.title,
-        this.dataset.price
-      );
-    });
+// Attach click listeners to all gallery items
+// Open modal using data attributes when available
+// Fall back to visible card text if necessary
+// =============================================
+
+galleryLinks.forEach((link, index) => {
+
+  link.addEventListener("click", function (e) {
+
+    e.preventDefault();
+
+    if (!this.dataset.image) {
+      return;
+    }
+
+    currentIndex = index;
+
+    // Find the surrounding gallery card
+    const card = this.closest(".gallery-card");
+
+    // Prefer data attributes.
+    // If they are missing, use the visible text.
+    const title =
+      this.dataset.title ||
+      card?.querySelector(".print-title")
+        ?.textContent
+        ?.trim() ||
+      "";
+
+    const price =
+      this.dataset.price ||
+      card?.querySelector(".print-price")
+        ?.textContent
+        ?.trim() ||
+      "";
+
+    openModal(
+      this.dataset.image,
+      this.dataset.id,
+      title,
+      price
+    );
   });
+
+});
   // =======================================
   // Preload Images for Smoother Navigation
   // ======================================
@@ -255,7 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal();
     }
   });
-});
+
 
 // ====================================
 // Back to top button
