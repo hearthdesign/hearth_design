@@ -27,7 +27,7 @@ from django.views.generic import TemplateView
 from shop import views
 from shop.views import custom_set_language # Adjust import to the app
 from shop.sitemaps import PrintSitemap
-from shop.sitemaps import sitemaps
+# from shop.sitemaps import sitemaps
 
 sitemaps = {
     "prints": PrintSitemap,
