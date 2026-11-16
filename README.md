@@ -395,9 +395,10 @@ shop/
         ├── cart.html
         ├── order_history.html
         ├── contact.html
-        ├── upload.html
         ├── thank_you.html
+        ├── upload.html
         ├── payment_success.html
+        ├── checkout_thanks.html
         ├── payment_cancel.html
         └── _pagination.html
 ```
