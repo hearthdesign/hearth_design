@@ -12,6 +12,7 @@ from django.utils import timezone, translation
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
+from django.views.i18n import set_language
 
 import hashlib
 import stripe
@@ -28,7 +29,7 @@ from .models import (
     CartItem,
 )
 
-from .forms import PrintForm, ContactForm, CustomSignupForm
+from .forms import PrintForm, ContactForm, CustomSignupForm, ReviewForm
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -458,6 +459,30 @@ def order_history(request):
     return render(
         request, "shop/order_history.html", {"orders": orders})
 
+@login_required  # Ensures only logged-in users can leave reviews
+def add_review(request, print_id):
+    print_item = get_object_or_404(Print, id=print_id)
+    
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            # Create the review object but don't save to DB yet
+            review = form.save(commit=False)
+            
+            # Attach the print item and the currently logged-in user
+            review.print_item = print_item
+            review.user = request.user
+            
+            # Now save it permanently to the database
+            review.save()
+            
+            # Redirect back to the print detail page or gallery
+            return redirect('homepage')  # Replace with your actual detail or redirect URL
+    else:
+        form = ReviewForm()
+
+    return render(request, 'shop/add_review.html', {'form': form, 'print_item': print_item})
+
 # SET LANGUAGE
 def custom_set_language(request):
     """
@@ -472,12 +497,13 @@ def custom_set_language(request):
         translation.activate(lang_code)
         
         # Strip current language prefix from next_url if present (e.g., '/de/about/' -> '/about/')
+        # FIX: Use .lower() to match lowercase URL prefixes like '/zh-hans/'
         for lang in [lang[0] for lang in settings.LANGUAGES]:
-            prefix = f"/{lang}/"
-            if next_url.startswith(prefix):
+            prefix = f"/{lang}/".lower()
+            if next_url.lower().startswith(prefix):
                 next_url = next_url[len(prefix)-1:] # Keeps the leading slash
                 break
-            elif next_url == f"/{lang}":
+            elif next_url.lower() == f"/{lang}".lower():
                 next_url = "/"
                 break
                 
@@ -565,6 +591,9 @@ def signup(request):
         form = CustomSignupForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+@login_required
+def thank_you(request):
+    return render(request, 'shop/thank_you.html')
 
 @csrf_exempt
 def stripe_webhook_view(request):
@@ -594,8 +623,8 @@ def payment_cancel(request):
 
 
 @login_required
-def thank_you(request):
-    return render(request, 'shop/thank_you.html')
+def checkout_thanks(request):
+    return render(request, 'shop/checkout_thanks.html')
 
 # Terms of Service
 def terms_of_service(request):

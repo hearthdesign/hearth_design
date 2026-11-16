@@ -1041,6 +1041,33 @@ img {
   font-weight: 500;
 }
 
+.rating-badge {
+  font-size: 0.9rem;
+  color: #f59e0b; /* Warm gold color for stars */
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.review-count {
+  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+.no-reviews {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* =========================================
+    Hide honeypot field from real users 
+==========================================*/
+
+input[name="website"] {
+  display: none !important;
+}
+
 /* ===========================
    LEGAL / TERMS PAGE STYLING
 =========================== */

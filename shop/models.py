@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Avg
 from django.utils.text import slugify
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _ 
@@ -6,6 +7,9 @@ from django.conf import settings
 from shop.storage_cloudinary import CloudinaryMediaStorage
 from django.core.exceptions import ValidationError
 from decimal import Decimal
+from django.contrib.auth.models import User
+# from shop.models import Print
+
 # Parent Category Model
 class Category(models.Model):
     TYPE_CHOICES = [
@@ -115,8 +119,17 @@ class Print(models.Model):
         verbose_name_plural = "Prints"
         indexes = [
             models.Index(fields=['price']),
-        ]
 
+        ]
+    @property
+    def avg_rating(self):
+        result = self.reviews.aggregate(avg=Avg('rating'))
+        return round(result['avg'], 1) if result['avg'] else 0.0
+
+    @property
+    def num_reviews(self):
+        return self.reviews.count()
+            
     # Save method to auto generated slug
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -234,3 +247,13 @@ class ContactSubmission(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.email}) - {self.submitted_at.strftime('%Y-%m-%d %H:%M')}"
+
+class Review(models.Model):
+    print_item = models.ForeignKey(Print, on_delete=models.CASCADE, related_name='reviews')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    rating = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)])  # 1 to 5 stars
+    comment = models.TextField(max_length=500)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.rating} Stars by {self.name or self.user.username} for {self.print_item.title}"
