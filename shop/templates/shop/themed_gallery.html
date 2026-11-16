@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load rating_tags %}
 <!-- Themed gallery -->
 {% block title %}
   {% if theme %}
@@ -24,34 +25,75 @@
 
   <div class="gallery-grid">
     {% for print in page_obj %}
-      <div class="thumbnail">
-        {% if print.image %}
-          <a href="#"
-            data-image="{{ print.image.url }}"
-            data-id="{{ print.id }}"
-            data-title="{{ print.title }}"
-            data-price="{{ print.price }}">
-            <img src="{{ print.image.url }}" alt="{{ print.title }}"
-              loading="lazy">
-          <a/>          
-        {% else %}
-          <a href="#">
-            <img src="/static/img/placeholder.jpg" alt="{% trans 'No image available' %}">
-          </a>
-        {% endif %} 
-          
-        <h3>{{ print.title }}</h3>
-        
-        {% if print.description %}
-          <p>{{ print.description }}</p>
-        {% endif %}
-      </div>
-    {% empty %}
-      <p>{% trans "No prints found for this theme." %}</p>
-    {% endfor %}
-  </div>
+      <div class="gallery-card">
 
-    {% block pagination %}
+        <!-- ===========================
+                 THUMBNAIL
+        ============================ -->
+          <div class="thumbnail">
+            {% if print.image %}
+              <a href="#"
+                  data-image="{{ print.image.url }}"
+                  data-id="{{ print.id }}"
+                  data-title="{{ print.title }}"
+                  data-price="{{ print.price }}">
+
+                    <img
+                        src="{{ print.image.url }}"
+                        alt="{{ print.title }}"
+                        loading="lazy">
+              </a>
+
+            {% else %}
+                <a href="#">
+                  <img
+                      src="/static/img/placeholder.jpg"
+                      alt="{% trans 'No image available' %}"
+                      loading="lazy">
+                </a>
+            {% endif %}
+
+            </div>
+
+            <!-- ===========================
+                 CARD INFORMATION
+            ============================ -->
+
+            <div class="card-info">
+                <h3 class="print-title">
+                    {{ print.title }}
+                </h3>
+                <p class="print-price">
+                    €{{ print.price }}
+                </p>
+
+                <!-- ===========================
+                     RATING
+                ============================ -->
+                <div class="rating-badge">
+                    {{ print.avg_rating|render_stars }}
+                    {% if print.num_reviews %}
+                        <span class="review-count">
+                            ({{ print.num_reviews }})
+                        </span>
+                    {% else %}
+                        <span class="no-reviews">
+                            {% trans "No reviews" %}
+                        </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% empty %}
+
+        <p>
+            {% trans "No prints found for this theme." %}
+        </p>
+    {% endfor %}
+
+</div>
+{% block pagination %}
     {% include "shop/_pagination.html" %}
-  {% endblock %}
+{% endblock %}
+
 {% endblock %}
