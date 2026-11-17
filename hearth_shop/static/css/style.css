@@ -404,9 +404,17 @@ img {
   color: #f59e0b; /* Warm gold color for stars */
   font-weight: 600;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.2rem;
   margin-top: 0.05rem;
+}
+
+/* The review count text itself is forced a new line underneath the stars: */
+.rating-badge .review-count {
+  flex-basis: 100%; /* Forces the review count to a new line */
+  font-size: 0.85rem;
+  color: var(--text-muted, #666);
 }
 
 .review-count {
@@ -1195,7 +1203,7 @@ input[name="website"] {
 
 @media (max-width: 480px) {
     .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
         gap: 0.75rem;
         padding: 0.75rem;
     }
