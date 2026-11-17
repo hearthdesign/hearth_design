@@ -141,7 +141,22 @@ class Print(models.Model):
     @property
     def in_stock(self):
         return self.stock > 0
-        
+
+# Resized Modal and thumbnails images
+@property
+def thumbnail_url(self):
+    return self.image.url.replace(
+        "/upload/",
+        "/upload/f_auto,q_auto,w_300,c_fill/"
+    )
+
+@property
+def modal_url(self):
+    return self.image.url.replace(
+        "/upload/",
+        "/upload/f_auto,q_auto,w_1200/"
+    )
+
 # Cart model
 class Cart(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

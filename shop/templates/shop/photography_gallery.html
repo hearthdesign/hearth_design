@@ -14,19 +14,16 @@
       <div class="thumbnail">
         {% if print.image %}
         <a href="#" 
-           data-image="{% cloudinary print.image 
-                            width=1200 
-                            quality='auto' 
-                            fetch_format='auto' %}" 
+           data-image="{{ print.modal_url }}"
            data-id="{{ print.id }}" 
            data-title="{{ print.title }}"
            data-price="{{ print.price }}">
-
-          <img
-              src="{% cloudinary 
-                    print.image width=300
-                    crop='fill' quality='auto'
-                    fetch_format='auto' %}">
+          <img src="{{ print.thumbnail_url }}"
+               alt="{{ print.title }}"
+               loading="lazy"
+               decoding="async"
+               width="150"
+               height="150">
             
         </a>
         {% else %}
