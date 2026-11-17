@@ -1155,6 +1155,7 @@ input[name="website"] {
 /* =========================================== 
    MAX-WIDTH 1024PX 
 ============================================== */
+
 @media (max-width: 1024px) {
   .nav-links {
     justify-content: center;
@@ -1184,14 +1185,6 @@ input[name="website"] {
 }
 
 @media (max-width: 600px) {
-  .gallery-grid {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
-    gap: 0.5rem;
-    padding: 0.5rem;
-  }
-
   .nav-btn,
   .nav-control,
   .nav-select {
