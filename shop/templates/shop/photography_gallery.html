@@ -23,7 +23,7 @@
            data-price="{{ print.price }}">
 
           <img
-              src="{% cloudinary_url
+              src="{% cloudinary 
                     print.image width=300
                     crop='fill' quality='auto'
                     fetch_format='auto' %}">

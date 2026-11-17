@@ -23,8 +23,7 @@
            data-id="{{ print.id }}" 
            data-title="{{ print.title }}"
            data-price="{{ print.price }}">
-          <img src="{% cloudinary_url 
-                    print.image
+          <img src="{% cloudinary print.image
                     width=300
                     crop='fill'
                     quality='auto'
