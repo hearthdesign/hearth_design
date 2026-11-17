@@ -14,6 +14,9 @@
 
       <!-- Thumbnail (Top) -->
       <div class="thumbnail">
+    <!-- Parent wrapper to stack image and text vertically -->
+    <div class="gallery-card">
+      <div class="thumbnail">
         {% if print.image %}
         <a href="#" 
            data-image="{{ print.modal_url }}"
@@ -21,15 +24,13 @@
            data-title="{{ print.title }}"
            data-price="{{ print.price }}">
           <img src="{{ print.thumbnail_url }}"
-
                alt="{{ print.title }}"
                loading="lazy"
                decoding="async"
                width="150"
                height="150">       
         </a>
-<p>{{ print.image }}</p>
-<p>{{ print.image.url }}</p>
+        
         {% else %}
           <a href="#">
             <img src="/static/img/placeholder.jpg" alt="No image available">
