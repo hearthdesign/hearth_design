@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n rating_tags %}
+{% load i18n rating_tags cloudinary %}
 <!-- Illustrations gallery -->
 {% block title %}{% trans "Welcome to HEARTH Shop" %}{% endblock %}
 
@@ -16,18 +16,26 @@
       <div class="thumbnail">
         {% if print.image %}
         <a href="#" 
-           data-image="{{ print.image.url }}" 
+           data-image="{% cloudinary_url print.image
+                        width=1200
+                        quality='auto' 
+                        fetch_format='auto' %}" 
            data-id="{{ print.id }}" 
            data-title="{{ print.title }}"
            data-price="{{ print.price }}">
-          <img
-              src="{{ print.image.url }}"
-              alt="{{ print.title }}"
-              loading="lazy"
-              decoding="async"
-              width="150"
-              height="150">
+          <img src="{% cloudinary_url 
+                    print.image
+                    width=300
+                    crop='fill'
+                    quality='auto'
+                    fetch_format='auto' %}"
+               alt="{{ print.title }}"
+               loading="lazy"
+               decoding="async"
+               width="150"
+               height="150">       
         </a>
+
         {% else %}
           <a href="#">
             <img src="/static/img/placeholder.jpg" alt="No image available">

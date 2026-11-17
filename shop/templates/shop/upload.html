@@ -8,6 +8,9 @@
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">{% trans "Upload" %}</button>
+    <div class="form-actions">
+        <button type="submit" class="btn-primary">{% trans "Upload" %}</button>
+        <a href="javascript:history.back()" class="btn-secondary">{% trans "Cancel" %}</a>
+    </div>
 </form>
 {% endblock %}
