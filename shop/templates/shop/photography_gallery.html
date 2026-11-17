@@ -18,7 +18,13 @@
            data-id="{{ print.id }}" 
            data-title="{{ print.title }}"
            data-price="{{ print.price }}">
-          <img src="{{ print.image.url }}" alt="{{ print.title }}" loading="lazy">
+          <img
+              src="{{ print.image.url }}"
+              alt="{{ print.title }}"
+              loading="lazy"
+              decoding="async"
+              width="150"
+              height="150">
         </a>
         {% else %}
           <a href="#">
