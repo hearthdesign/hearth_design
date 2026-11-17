@@ -141,21 +141,91 @@ class Print(models.Model):
     @property
     def in_stock(self):
         return self.stock > 0
-
-# Resized Modal and thumbnails images
-@property
-def thumbnail_url(self):
-    return self.image.url.replace(
-        "/upload/",
-        "/upload/f_auto,q_auto,w_300,c_fill/"
+    
+        # Base Print model
+class Print(models.Model):
+    TYPE_CHOICES = [
+        ('photo', _('Photography')),
+        ('illustration', _('Illustration')),
+    ]
+    FORMAT_CHOICES = [
+        ('metal', _('Metal Print')),
+        ('wood', _('Wood Print')),
+        ('paper', _('Paper Print')),
+    ]
+    id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True, blank=True, max_length=200)
+    type = models.CharField(max_length=20, choices=TYPE_CHOICES)
+    format = models.CharField(max_length=50, choices=FORMAT_CHOICES, blank=True)
+    size = models.CharField(max_length=50, blank=True)
+    date = models.DateField(default=timezone.now)
+    description = models.TextField(blank=True)
+    # Cloudinary for images
+    image = models.ImageField(
+        upload_to='prints/%Y/%m%d',
+        storage=CloudinaryMediaStorage(),
+        blank=True,
+        null=True
     )
 
-@property
-def modal_url(self):
-    return self.image.url.replace(
-        "/upload/",
-        "/upload/f_auto,q_auto,w_1200/"
-    )
+    price = models.DecimalField(
+        max_digits=8,
+        decimal_places=2,
+        default=Decimal("50.00")
+    ) 
+    stock = models.PositiveIntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+    themes = models.ManyToManyField("Theme", blank=True)
+    category = models.ForeignKey("Category", on_delete=models.SET_NULL, null=True, blank=True)
+
+    class Meta:
+        ordering = ['title']
+        verbose_name = "Print"
+        verbose_name_plural = "Prints"
+        indexes = [
+            models.Index(fields=['price']),
+
+        ]
+    @property
+    def avg_rating(self):
+        result = self.reviews.aggregate(avg=Avg('rating'))
+        return round(result['avg'], 1) if result['avg'] else 0.0
+
+    @property
+    def num_reviews(self):
+        return self.reviews.count()
+            
+    # Save method to auto generated slug
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
+    @property
+    def in_stock(self):
+        return self.stock > 0
+    
+    # Resized Modal and thumbnails images
+    @property
+    def thumbnail_url(self):
+        if self.image:
+            return self.image.url.replace(
+                "/upload/",
+                "/upload/f_auto,q_auto,c_fill,w_300,h_300/"
+            )
+        return ""
+    
+    @property
+    def modal_url(self):
+        if self.image:
+            return self.image.url.replace(
+                "/upload/",
+                "/upload/f_auto,q_auto,w_1200/"
+            )
+        return ""
 
 # Cart model
 class Cart(models.Model):
