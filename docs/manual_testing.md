@@ -183,26 +183,41 @@ Pass
 Artwork titles and theme names remain editor-defined content and are not translated.
 
 CHECK OUT
+![alt text](image-23.png)
+![alt text](image-24.png)
+
 CART
+![alt text](image-22.png)
 
 PAYMENT
 ![alt text](image-10.png)
 
 PAYAMENT CONFIRMATION
 ![alt text](image-11.png)
+![alt text](image-25.png)
 
 ORDER (OLD)
 ![alt text](image-12.png)
 
 ORDER (NEW)
 ![alt text](image-13.png)
+![alt text](image-26.png)
 
 REGISTRATION
+![alt text](image-21.png)
 
 LOGIN
+![alt text](image-14.png)
+![alt text](image-15.png)
 
 UPLOAD IMAGES
+![alt text](image-16.png)
+![alt text](image-17.png)
 
+DJANGO ADMIN
+![alt text](image-18.png)
+![alt text](image-19.png)
+![alt text](image-20.png)
 ---
 
 ## System Validation
