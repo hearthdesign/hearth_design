@@ -1,3 +1,5 @@
+// jshint esversion: 11 
+
 // ===============================
 // MAIN JAVASCRIP
 // Runs after the DOM has fully loaded
@@ -64,35 +66,33 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-  // ===============================
-  // NAVBAR: Theme Switcher
-  // ===============================
+// ===============================
+// NAVBAR: Theme Switcher
+// Automatically submit the form
+// when a new theme is selected
+// ===============================
 
-  const themeBtn = 
-    document.getElementById("theme-btn");
-  const themeForm = 
+const themeForm =
     document.getElementById("theme-form");
-  const themeSelect = 
+
+const themeSelect =
     document.getElementById("theme-select");
 
-  if (themeSelect) {
+if (themeSelect && themeForm) {
     themeSelect.addEventListener("change", () => {
-        themeSelect.form.submit();
-    });
-  }
-
-  if (themeSelect && themeForm) {
-    themeSelect.addEventListener("change", () => {
-      console.log("Theme changed:", themeSelect.value);
+        console.log("Theme changed:", themeSelect.value);
         console.log("Submitting to:", themeForm.action);
-  //     if (themeSelect.value === "") {
-  //       window.location.href = themeForm.action.replace("theme-filter/", "");
-  //       return;
-  // }
 
-      themeForm.submit();
+        // Optional reset logic if needed in future:
+        // if (themeSelect.value === "") {
+        //     window.location.href =
+        //         themeForm.action.replace("theme-filter/", "");
+        //     return;
+        // }
+
+        themeForm.submit();
     });
-  }
+}
 
 
   // ===============================
