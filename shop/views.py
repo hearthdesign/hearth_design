@@ -256,7 +256,7 @@ def add_to_cart(request):
 
     cart, _created = Cart.objects.get_or_create(user=request.user)
 
-    cart_item, created = CartItem.objects.get_or_create(
+    cart_item, _created = CartItem.objects.get_or_create(
         cart=cart,
         print=print_obj,
         defaults={"price_at_time": print_obj.price},
