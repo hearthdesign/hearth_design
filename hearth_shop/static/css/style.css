@@ -361,6 +361,9 @@ img {
   user-select: none;
 }
 
+/* ===========================
+   CARD INFORMATION
+=========================== */
 /* Info container directly underneath */
 .card-info {
   width: 100%;
@@ -371,49 +374,57 @@ img {
   gap: 0.1rem;  /* Space between title, price, and stars */
 }
 
-.card-info h2 {
-  font-size: 0.95rem;
+/* Print title */
+.print-title {
+  font-size: 0.85rem;
   margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+  color: rgb(5, 73, 90);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-
-.card-info p {
-  font-size: 0.85rem;
+/* Price */
+.print-price {
   margin: 0 0 0.2rem 0;
+  font-size: 0.85rem;
   font-weight: bold;
+  color: rgb(5, 73, 90);
 }
 
+/* Rating block */
 .rating-badge {
-  font-size: 0.85rem;
-  color: #f59e0b; /* Warm gold color for stars */
-  font-weight: 600;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f59e0b; /* Warm gold color for stars */
   gap: 0.2rem;
   margin-top: 0.05rem;
 }
 
-/* The review count text itself is forced a new line underneath the stars: */
+/* Review count */
 .rating-badge .review-count {
-  flex-basis: 100%; /* Forces the review count to a new line */
-  font-size: 0.85rem;
-  color: var(--text-muted, #666);
-}
-
-.review-count {
-  color: #64748b;
+  flex-basis: 100%;
+  margin-top: 0.15rem;
+  margin-bottom: 1rem;
   font-size: 0.75rem;
   font-weight: normal;
+  color: #64748b;
 }
 
-.no-reviews {
-  color: #94a3b8;
+/* No reviews */
+.rating-badge .no-reviews {
+  flex-basis: 100%;
+  margin-top: 0.15rem;
+  margin-bottom: 1rem;
   font-size: 0.75rem;
   font-style: italic;
+  font-weight: normal;
+  color: #102f3f;
 }
 
 /* ===========================
