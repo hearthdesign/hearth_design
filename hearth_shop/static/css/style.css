@@ -261,7 +261,7 @@ form input::placeholder {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
@@ -358,7 +358,6 @@ form input::placeholder {
 }
 
 img {
-  pointer-events: auto;
   user-select: none;
 }
 
@@ -492,10 +491,9 @@ img {
   font-size: 1.25rem;
   color: #011d2e;
   line-height: 1.3;
-  display: -webkit-box;
+  /* display: -webki t-box;
   -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: vertical; */
   overflow: hidden;
 }
 
