@@ -23,6 +23,7 @@ Disallow: /checkout/
 Disallow: /upload/
 
 # Payment pages
+Disallow: /shop/stripe/webhook/
 Disallow: /payment-success/
 Disallow: /payment-cancel/
 
