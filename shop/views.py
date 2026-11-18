@@ -262,7 +262,7 @@ def add_to_cart(request):
         defaults={"price_at_time": print_obj.price},
     )
 
-    if created:
+    if _created:
         cart_item.quantity = quantity
 
     else:
@@ -286,7 +286,7 @@ def add_to_cart(request):
 # Require user to be logged in to view their cart
 @login_required
 def cart_view(request):
-    cart, created = Cart.objects.get_or_create(user=request.user)
+    cart, _created = Cart.objects.get_or_create(user=request.user)
     cart_items = cart.cartitem_set.select_related("print")
 
     items = []
