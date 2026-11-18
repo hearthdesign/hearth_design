@@ -4,18 +4,17 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0006_remove_photography_print_remove_photography_themes_and_more'),
+        ("shop", "0006_remove_photography_print_remove_photography_themes_and_more"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='print',
-            name='backup',
+            model_name="print",
+            name="backup",
         ),
         migrations.RemoveField(
-            model_name='print',
-            name='manual',
+            model_name="print",
+            name="manual",
         ),
     ]

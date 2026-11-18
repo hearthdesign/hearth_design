@@ -24,7 +24,8 @@ EMPTY_STAR = """
   <path fill="#cbd5e1" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
 </svg>"""
 
-@register.filter(name='render_stars')
+
+@register.filter(name="render_stars")
 def render_stars(rating):
     """
     Converts a numeric rating (0.0 to 5.0) into 5 SVG star icons.

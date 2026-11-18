@@ -709,12 +709,7 @@ Translations are implemented using:
 
 ```python
 USE_I18N = True
-LANGUAGES = [
-    ('en', 'English'),
-    ('de', 'Deutsch'),
-    ('fr', 'Français'),
-    ...
-]
+LANGUAGES = [("en", "English"), ("de", "Deutsch"), ("fr", "Français"), ...]
 ```
 
 ---

@@ -60,7 +60,6 @@ The following test verifies successful creation of a Theme object.
 
 ```python
 class ThemeModelTest(TestCase):
-
     def test_theme_creation(self):
 
         theme = Theme.objects.create(
@@ -81,9 +80,7 @@ The following test verifies that cart items can be created and associated with a
 ```python
 def test_cart_item_creation(self):
 
-    cart = Cart.objects.create(
-        user=self.user
-    )
+    cart = Cart.objects.create(user=self.user)
 
     item = CartItem.objects.create(
         cart=cart,
@@ -142,10 +139,7 @@ def test_webhook_does_not_create_duplicate_orders(self):
 
     handle_checkout_session(session)
 
-    self.assertEqual(
-        Order.objects.count(),
-        1
-    )
+    self.assertEqual(Order.objects.count(), 1)
 ```
 
 ###Example: Cart Cleanup After Checkout
@@ -157,10 +151,7 @@ def test_cart_is_cleared_after_checkout(self):
 
     handle_checkout_session(session)
 
-    self.assertEqual(
-        cart.cartitem_set.count(),
-        0
-    )
+    self.assertEqual(cart.cartitem_set.count(), 0)
 ```
 
 ### Example: Order Total Validation
@@ -170,10 +161,7 @@ The following test verifies accurate calculation of order totals based on associ
 ```Python
 def test_order_total_calculation(self):
 
-    self.assertEqual(
-        order.calculate_total(),
-        Decimal("70.00")
-    )
+    self.assertEqual(order.calculate_total(), Decimal("70.00"))
 ```
 
 ---
@@ -185,14 +173,9 @@ The following test verifies access protection for authenticated pages.
 ```python
 def test_cart_requires_login(self):
 
-    response = self.client.get(
-        reverse("cart_view")
-    )
+    response = self.client.get(reverse("cart_view"))
 
-    self.assertEqual(
-        response.status_code,
-        302
-    )
+    self.assertEqual(response.status_code, 302)
 ```
 
 ---
@@ -209,8 +192,5 @@ def test_theme_filter_returns_print(self):
         {"theme": "nature"},
     )
 
-    self.assertContains(
-        response,
-        "Forest"
-    )
+    self.assertContains(response, "Forest")
 ```

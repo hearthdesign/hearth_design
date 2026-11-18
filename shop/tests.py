@@ -1,27 +1,27 @@
 from decimal import Decimal
 
+from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.test import TestCase
-from django.contrib.auth.models import User
 from django.urls import reverse
 
+from shop.services.webhooks import handle_checkout_session
+
 from .models import (
-    Theme,
-    Print,
     Cart,
     CartItem,
     Order,
     OrderItem,
+    Print,
+    Theme,
 )
-
-from shop.services.webhooks import handle_checkout_session
 
 # ======================================================
 # Model Tests
 # ======================================================
 
-class ThemeModelTest(TestCase):
 
+class ThemeModelTest(TestCase):
     def test_theme_creation(self):
 
         theme = Theme.objects.create(
@@ -34,7 +34,6 @@ class ThemeModelTest(TestCase):
 
 
 class PrintModelTest(TestCase):
-
     def test_print_creation(self):
 
         print_obj = Print.objects.create(
@@ -44,27 +43,19 @@ class PrintModelTest(TestCase):
             price=Decimal("25.00"),
         )
 
-        self.assertEqual(
-            print_obj.title,
-            "Forest Path"
-        )
+        self.assertEqual(print_obj.title, "Forest Path")
 
-        self.assertEqual(
-            print_obj.stock,
-            5
-        )
+        self.assertEqual(print_obj.stock, 5)
 
-        self.assertTrue(
-            print_obj.in_stock
-        )
+        self.assertTrue(print_obj.in_stock)
 
 
 # ======================================================
 # Cart Tests
 # ======================================================
 
-class CartTest(TestCase):
 
+class CartTest(TestCase):
     def setUp(self):
 
         self.user = User.objects.create_user(
@@ -81,20 +72,13 @@ class CartTest(TestCase):
 
     def test_cart_creation(self):
 
-        cart = Cart.objects.create(
-            user=self.user
-        )
+        cart = Cart.objects.create(user=self.user)
 
-        self.assertEqual(
-            cart.user,
-            self.user
-        )
+        self.assertEqual(cart.user, self.user)
 
     def test_cart_item_creation(self):
 
-        cart = Cart.objects.create(
-            user=self.user
-        )
+        cart = Cart.objects.create(user=self.user)
 
         item = CartItem.objects.create(
             cart=cart,
@@ -103,16 +87,11 @@ class CartTest(TestCase):
             price_at_time=self.print_obj.price,
         )
 
-        self.assertEqual(
-            item.quantity,
-            2
-        )
+        self.assertEqual(item.quantity, 2)
 
     def test_cartitem_string_representation(self):
 
-        cart = Cart.objects.create(
-            user=self.user
-        )
+        cart = Cart.objects.create(user=self.user)
 
         item = CartItem.objects.create(
             cart=cart,
@@ -121,18 +100,15 @@ class CartTest(TestCase):
             price_at_time=self.print_obj.price,
         )
 
-        self.assertIn(
-            self.print_obj.title,
-            str(item)
-        )
+        self.assertIn(self.print_obj.title, str(item))
 
 
 # ======================================================
 # Order Tests
 # ======================================================
 
-class OrderTest(TestCase):
 
+class OrderTest(TestCase):
     def setUp(self):
 
         self.print_obj = Print.objects.create(
@@ -159,9 +135,7 @@ class OrderTest(TestCase):
             customer_email="john@example.com",
         )
 
-        self.assertFalse(
-            order.is_paid
-        )
+        self.assertFalse(order.is_paid)
 
     def test_order_item_creation(self):
 
@@ -177,15 +151,12 @@ class OrderTest(TestCase):
             price=self.print_obj.price,
         )
 
-        self.assertEqual(
-            item.quantity,
-            1
-        )
+        self.assertEqual(item.quantity, 1)
 
     # ======================================================
     # Duplicate order prevention Test
     # ======================================================
-        
+
     def test_order_session_id_must_be_unique(self):
 
         Order.objects.create(
@@ -201,12 +172,13 @@ class OrderTest(TestCase):
                 stripe_session_id="cs_test_123",
             )
 
+
 # ======================================================
 # Authentication Tests
 # ======================================================
 
-class AuthenticationTest(TestCase):
 
+class AuthenticationTest(TestCase):
     def setUp(self):
 
         self.user = User.objects.create_user(
@@ -216,14 +188,9 @@ class AuthenticationTest(TestCase):
 
     def test_cart_requires_login(self):
 
-        response = self.client.get(
-            reverse("cart_view")
-        )
+        response = self.client.get(reverse("cart_view"))
 
-        self.assertEqual(
-            response.status_code,
-            302
-        )
+        self.assertEqual(response.status_code, 302)
 
     def test_logged_in_user_can_access_cart(self):
 
@@ -232,22 +199,17 @@ class AuthenticationTest(TestCase):
             password="password123",
         )
 
-        response = self.client.get(
-            reverse("cart_view")
-        )
+        response = self.client.get(reverse("cart_view"))
 
-        self.assertEqual(
-            response.status_code,
-            200
-        )
+        self.assertEqual(response.status_code, 200)
 
 
 # ======================================================
 # Theme Filter Tests
 # ======================================================
 
-class ThemeFilterTest(TestCase):
 
+class ThemeFilterTest(TestCase):
     def setUp(self):
 
         self.theme = Theme.objects.create(
@@ -262,9 +224,7 @@ class ThemeFilterTest(TestCase):
             price=Decimal("10.00"),
         )
 
-        self.print_obj.themes.add(
-            self.theme
-        )
+        self.print_obj.themes.add(self.theme)
 
     def test_theme_filter_page_loads(self):
 
@@ -273,10 +233,7 @@ class ThemeFilterTest(TestCase):
             {"theme": "nature"},
         )
 
-        self.assertEqual(
-            response.status_code,
-            200
-        )
+        self.assertEqual(response.status_code, 200)
 
     def test_theme_filter_returns_print(self):
 
@@ -285,36 +242,28 @@ class ThemeFilterTest(TestCase):
             {"theme": "nature"},
         )
 
-        self.assertContains(
-            response,
-            "Forest"
-        )
+        self.assertContains(response, "Forest")
 
 
 # ======================================================
 # Homepage Test
 # ======================================================
 
-class HomepageTest(TestCase):
 
+class HomepageTest(TestCase):
     def test_homepage_loads(self):
 
-        response = self.client.get(
-            reverse("homepage")
-        )
+        response = self.client.get(reverse("homepage"))
 
-        self.assertEqual(
-            response.status_code,
-            200
-        )
+        self.assertEqual(response.status_code, 200)
 
 
 # ======================================================
 # Checkout and Webhook Tests
 # ======================================================
 
-class CheckoutTest(TestCase):
 
+class CheckoutTest(TestCase):
     def setUp(self):
 
         self.user = User.objects.create_user(
@@ -329,9 +278,7 @@ class CheckoutTest(TestCase):
             price=Decimal("35.00"),
         )
 
-        self.cart = Cart.objects.create(
-            user=self.user
-        )
+        self.cart = Cart.objects.create(user=self.user)
 
         CartItem.objects.create(
             cart=self.cart,
@@ -352,9 +299,7 @@ class CheckoutTest(TestCase):
             password="password123",
         )
 
-        cart = Cart.objects.create(
-            user=user
-        )
+        cart = Cart.objects.create(user=user)
 
         CartItem.objects.create(
             cart=cart,
@@ -370,30 +315,20 @@ class CheckoutTest(TestCase):
 
         handle_checkout_session(session)
 
-        self.assertEqual(
-            Order.objects.count(),
-            1
-        )
+        self.assertEqual(Order.objects.count(), 1)
 
         order = Order.objects.first()
 
-        self.assertEqual(
-            order.total_price,
-            Decimal("70.00")
-        )
+        self.assertEqual(order.total_price, Decimal("70.00"))
 
         self.assertTrue(order.is_paid)
 
-        self.assertEqual(
-            order.customer_name,
-            "john"
-        )
-
+        self.assertEqual(order.customer_name, "john")
 
     # ======================================================
     # Webhook does not create duplicate Orders Test
     # ======================================================
-    
+
     def test_webhook_does_not_create_duplicate_orders(self):
 
         user = User.objects.create_user(
@@ -402,9 +337,7 @@ class CheckoutTest(TestCase):
             password="password123",
         )
 
-        cart = Cart.objects.create(
-            user=user
-        )
+        cart = Cart.objects.create(user=user)
 
         CartItem.objects.create(
             cart=cart,
@@ -422,10 +355,7 @@ class CheckoutTest(TestCase):
 
         handle_checkout_session(session)
 
-        self.assertEqual(
-            Order.objects.count(),
-            1
-        )
+        self.assertEqual(Order.objects.count(), 1)
 
     # ======================================================
     # Cart is cleared after Checkout Test
@@ -439,9 +369,7 @@ class CheckoutTest(TestCase):
             password="password123",
         )
 
-        cart = Cart.objects.create(
-            user=user
-        )
+        cart = Cart.objects.create(user=user)
 
         CartItem.objects.create(
             cart=cart,
@@ -456,20 +384,13 @@ class CheckoutTest(TestCase):
         }
 
         handle_checkout_session(session)
-        self.assertEqual(
-            Order.objects.count(),
-            1
-        )
-        self.assertEqual(
-            cart.cartitem_set.count(),
-            0
-        )
-        
+        self.assertEqual(Order.objects.count(), 1)
+        self.assertEqual(cart.cartitem_set.count(), 0)
 
     # ======================================================
     # Paid Order Creation Tests
     # ======================================================
-    
+
     def test_webhook_creates_paid_order(self):
 
         session = {
@@ -479,15 +400,13 @@ class CheckoutTest(TestCase):
 
         handle_checkout_session(session)
 
-        order = Order.objects.get(
-            stripe_session_id="cs_test_paid"
-        )
+        order = Order.objects.get(stripe_session_id="cs_test_paid")
 
         self.assertTrue(order.is_paid)
 
-# ======================================================
-# Order Total Validation Tests
-# ======================================================
+    # ======================================================
+    # Order Total Validation Tests
+    # ======================================================
 
     # ======================================================
     # Order Total CALCULATIONTest
@@ -507,10 +426,7 @@ class CheckoutTest(TestCase):
             price=Decimal("35.00"),
         )
 
-        self.assertEqual(
-            order.calculate_total(),
-            Decimal("70.00")
-        )
+        self.assertEqual(order.calculate_total(), Decimal("70.00"))
 
     # ======================================================
     # Order Total Consistency Tests
@@ -521,17 +437,11 @@ class CheckoutTest(TestCase):
         order = Order.objects.create(
             customer_name="John",
             customer_email="john@example.com",
-            total_price=Decimal("70.00")
+            total_price=Decimal("70.00"),
         )
 
         OrderItem.objects.create(
-            order=order,
-            print=self.print_obj,
-            quantity=2,
-            price=Decimal("35.00")
+            order=order, print=self.print_obj, quantity=2, price=Decimal("35.00")
         )
 
-        self.assertEqual(
-            order.total_price,
-            Decimal("70.00")
-        )
+        self.assertEqual(order.total_price, Decimal("70.00"))

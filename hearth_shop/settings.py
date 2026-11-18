@@ -9,15 +9,14 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 import os
 import sys
-import logging
 from pathlib import Path
-from urllib.parse import urlparse, parse_qsl
+from urllib.parse import parse_qsl, urlparse
 
-from decouple import config
-from dotenv import load_dotenv
-import dj_database_url
 import cloudinary
+import dj_database_url
+from decouple import config
 from django.utils.translation import gettext_lazy as _
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -26,18 +25,18 @@ load_dotenv()
 # ---------------------------------------------------------
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config("DEBUG", default=False, cast=bool)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 # SECURITY WARNING: don't run with debug turned on in production!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config("SECRET_KEY")
 
 # LOCALE_PATHS = [
 #     BASE_DIR / "locale",
 # ]
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_SSL_REDIRECT = True
 
 SESSION_COOKIE_SECURE = True
@@ -51,17 +50,17 @@ SECURE_HSTS_PRELOAD = True
 # LOGGING
 # ---------------------------------------------------------
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'stream': sys.stdout,
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "stream": sys.stdout,
         },
     },
-    'root': {
-        'handlers': ['console'],
-        'level': 'ERROR',
+    "root": {
+        "handlers": ["console"],
+        "level": "ERROR",
     },
 }
 
@@ -69,86 +68,85 @@ LOGGING = {
 # INSTALLED APPS
 # -------------------------
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'shop.apps.ShopConfig',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "shop.apps.ShopConfig",
     # 'django_extensions',
-    'cloudinary',
-    'cloudinary_storage',
+    "cloudinary",
+    "cloudinary_storage",
     "django.contrib.sitemaps",
 ]
 
 # -------------------------
 # AUTHENTICATION REDIRECTS
 # -------------------------
-LOGIN_REDIRECT_URL = 'illustration_gallery'
-LOGOUT_REDIRECT_URL = 'login'
+LOGIN_REDIRECT_URL = "illustration_gallery"
+LOGOUT_REDIRECT_URL = "login"
 
 # ---------------------------------------------------------
 # MIDDLEWARE
 # ---------------------------------------------------------
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # For serving static files in production
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',  # For i18n
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # For serving static files in production
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",  # For i18n
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'hearth_shop.urls'
+ROOT_URLCONF = "hearth_shop.urls"
 
 # ---------------------------------------------------------
 # TEMPLATES
 # ---------------------------------------------------------
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'hearth_shop' / 'templates',
-                 BASE_DIR / 'shop' / 'templates',
-                 ],
-        
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [
+            BASE_DIR / "hearth_shop" / "templates",
+            BASE_DIR / "shop" / "templates",
+        ],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
                 # Injects cart item count
-                'shop.context_processors.cart_count',
+                "shop.context_processors.cart_count",
                 # Injects cart total price
-                'shop.context_processors.cart_total',
+                "shop.context_processors.cart_total",
                 # Injects user info if logged in
-                'shop.context_processors.user_profile',
+                "shop.context_processors.user_profile",
                 # Injects site-wide settings like name and currency
-                'shop.context_processors.site_settings',
+                "shop.context_processors.site_settings",
                 # Injects themes for the theme filter
-                'shop.context_processors.themes',
+                "shop.context_processors.themes",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'hearth_shop.wsgi.application'
+WSGI_APPLICATION = "hearth_shop.wsgi.application"
 
 # -------------------------
 # ALLOWED HOSTS
 # -------------------------
 if DEBUG:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 else:
     ALLOWED_HOSTS = config(
-        'ALLOWED_HOSTS',
-        default='hearth-design-044ecd91e469.herokuapp.com'
-    ).split(',')
+        "ALLOWED_HOSTS", default="hearth-design-044ecd91e469.herokuapp.com"
+    ).split(",")
     # Secure cookies for production (Heroku uses HTTPS)
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
@@ -161,33 +159,28 @@ if DEBUG:
     tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': tmpPostgres.path.replace('/', ''),
-            'USER': tmpPostgres.username,
-            'PASSWORD': tmpPostgres.password,
-            'HOST': tmpPostgres.hostname,
-            'PORT': tmpPostgres.port or 5432,
-            'OPTIONS': dict(parse_qsl(tmpPostgres.query)),
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": tmpPostgres.path.replace("/", ""),
+            "USER": tmpPostgres.username,
+            "PASSWORD": tmpPostgres.password,
+            "HOST": tmpPostgres.hostname,
+            "PORT": tmpPostgres.port or 5432,
+            "OPTIONS": dict(parse_qsl(tmpPostgres.query)),
         }
     }
 
 else:
     # Production on Heroku — Heroku injects DATABASE_URL automatically
-    DATABASES = {
-        'default': dj_database_url.config(
-            conn_max_age=600,
-            ssl_require=True
-        )
-    }
+    DATABASES = {"default": dj_database_url.config(conn_max_age=600, ssl_require=True)}
 
 # -----------------------------
 # MEDIA STORAGE CONFIGURATION
 # -----------------------------
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
-    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+    "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME"),
+    "API_KEY": os.getenv("CLOUDINARY_API_KEY"),
+    "API_SECRET": os.getenv("CLOUDINARY_API_SECRET"),
 }
 
 cloudinary.config(
@@ -202,16 +195,16 @@ cloudinary.config(
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -220,52 +213,51 @@ AUTH_PASSWORD_VALIDATORS = [
 # ---------------------------------------------------------
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = "en"
 # PREFIX_DEFAULT_LANGUAGE = True
-LANGUAGE_COOKIE_PATH = '/'
+LANGUAGE_COOKIE_PATH = "/"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 USE_TZ = True
 # Enable i18n
 USE_I18N = True
 LANGUAGES = [
-    ('en', _('English')),
-    ('de', _('Deutsch')),
-    ('fr', _('Français')),
-    ('es', _('Español')),
-    ('it', _('Italiano')),
-    ('pt', _('Português')),
-    ('zh-Hans', _('中文')),
-    ('ja', _('日本語')),
+    ("en", _("English")),
+    ("de", _("Deutsch")),
+    ("fr", _("Français")),
+    ("es", _("Español")),
+    ("it", _("Italiano")),
+    ("pt", _("Português")),
+    ("zh-Hans", _("中文")),
+    ("ja", _("日本語")),
 ]
-LANGUAGE_COOKIE_NAME = 'django_language'
-LANGUAGE_COOKIE_PATH = '/'
-LANGUAGE_COOKIE_SAMESITE = 'Lax'
+LANGUAGE_COOKIE_NAME = "django_language"
+LANGUAGE_COOKIE_PATH = "/"
+LANGUAGE_COOKIE_SAMESITE = "Lax"
 LANGUAGE_COOKIE_AGE = 31536000  # 1 year
 LANGUAGE_COOKIE_USE_SESSION = False
 
 LOCALE_PATHS = [
-    BASE_DIR / 'shop' / 'locale',
+    BASE_DIR / "shop" / "locale",
 ]
 
 # ---------------------------------------------------------
 # STATIC FILES
 # ---------------------------------------------------------
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 # Local development: static file locations
 STATICFILES_DIRS = [
-    BASE_DIR / 'hearth_shop' / 'static',
-    ]
+    BASE_DIR / "hearth_shop" / "static",
+]
 # Production: where collectstatic will put everything
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # WhiteNoise storage backend for Heroku
 STORAGES = {
     "staticfiles": {
-        "BACKEND":
-        "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
 
@@ -274,24 +266,27 @@ WHITENOISE_MAX_AGE = 31536000  # 1 year
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
-STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
-STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET')
+STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY")
+STRIPE_PUBLISHABLE_KEY = config("STRIPE_PUBLISHABLE_KEY")
+STRIPE_WEBHOOK_SECRET = config("STRIPE_WEBHOOK_SECRET")
 # ---------------------------------------------------------
 # MEDIA
 # ---------------------------------------------------------
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media', ) 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(
+    BASE_DIR,
+    "media",
+)
 
 # ---------------------------------------------------------
 # EMAIL
 # ---------------------------------------------------------
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.environ.get('EMAIL_HOST')
-EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
-EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT", 587))
+EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", "True") == "True"
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")

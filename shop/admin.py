@@ -1,7 +1,16 @@
 from django.contrib import admin
+
 from .models import (
-    Category, Theme, Print, Cart, CartItem, Order, OrderItem, ContactSubmission
-    )
+    Cart,
+    CartItem,
+    Category,
+    ContactSubmission,
+    Order,
+    OrderItem,
+    Print,
+    Theme,
+)
+
 
 # Register the Category Model with the Admin site
 @admin.register(Category)
@@ -11,12 +20,14 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ("title", "slug", "description")
     prepopulated_fields = {"slug": ("title",)}
 
+
 # Register the Theme Model with the admin site
 @admin.register(Theme)
 class ThemeAdmin(admin.ModelAdmin):
     list_display = ("name", "slug")
     search_fields = ("name", "description")
     prepopulated_fields = {"slug": ("name",)}
+
 
 # Register the Print Model with the Admin site
 @admin.register(Print)
@@ -26,13 +37,15 @@ class PrintAdmin(admin.ModelAdmin):
     search_fields = ("title", "slug", "description")
     prepopulated_fields = {"slug": ("title",)}
     ordering = ("title",)
-    filter_horizontal = ('themes',)
+    filter_horizontal = ("themes",)
+
 
 # Register the Cart Model with the Admin site
 @admin.register(Cart)
 class CartAdmin(admin.ModelAdmin):
     list_display = ("user",)
     search_fields = ("user__username", "user__email")
+
 
 # Register the CartItem Model with the Admin site
 @admin.register(CartItem)
@@ -41,13 +54,22 @@ class CartItemAdmin(admin.ModelAdmin):
     list_filter = ("print",)
     search_fields = ("cart__user__username", "print__title")
 
+
 # Register the Order Model with the Admin site
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('id', 'customer_name', 'customer_email', 'total_price', 'is_paid', 'created_at')
-    list_filter = ('is_paid', 'created_at')
-    search_fields = ('customer_name', 'customer_email')
-    date_hierarchy = "created_at"    
+    list_display = (
+        "id",
+        "customer_name",
+        "customer_email",
+        "total_price",
+        "is_paid",
+        "created_at",
+    )
+    list_filter = ("is_paid", "created_at")
+    search_fields = ("customer_name", "customer_email")
+    date_hierarchy = "created_at"
+
 
 # Register the OrderItem Model with the Admin site
 @admin.register(OrderItem)
@@ -56,12 +78,12 @@ class OrderItemAdmin(admin.ModelAdmin):
     list_filter = ("print",)
     search_fields = ("order__customer_name", "print__title")
 
+
 # Register the ContactSubmission Model with the Admin site
 @admin.register(ContactSubmission)
 class ContactSubmissionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'submitted_at', 'marketing_consent')
-    readonly_fields = ('submitted_at', 'ip_hash', 'user_agent')
-    search_fields = ('name', 'email', 'message')
+    list_display = ("name", "email", "submitted_at", "marketing_consent")
+    readonly_fields = ("submitted_at", "ip_hash", "user_agent")
+    search_fields = ("name", "email", "message")
     list_filter = ("marketing_consent", "submitted_at")
     date_hierarchy = "submitted_at"
-

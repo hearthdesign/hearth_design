@@ -4,24 +4,23 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0005_order_stripe_session_id'),
+        ("shop", "0005_order_stripe_session_id"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='photography',
-            name='print',
+            model_name="photography",
+            name="print",
         ),
         migrations.RemoveField(
-            model_name='photography',
-            name='themes',
+            model_name="photography",
+            name="themes",
         ),
         migrations.DeleteModel(
-            name='Illustration',
+            name="Illustration",
         ),
         migrations.DeleteModel(
-            name='Photography',
+            name="Photography",
         ),
     ]

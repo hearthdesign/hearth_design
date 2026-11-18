@@ -5,23 +5,30 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0003_cartitem_price_at_time_alter_cartitem_print'),
+        ("shop", "0003_cartitem_price_at_time_alter_cartitem_print"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='cartitem',
-            name='print',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='cart_items', to='shop.print'),
+            model_name="cartitem",
+            name="print",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="cart_items",
+                to="shop.print",
+            ),
         ),
         migrations.AddConstraint(
-            model_name='cartitem',
-            constraint=models.UniqueConstraint(fields=('cart', 'print'), name='unique_cart_print'),
+            model_name="cartitem",
+            constraint=models.UniqueConstraint(
+                fields=("cart", "print"), name="unique_cart_print"
+            ),
         ),
         migrations.AddConstraint(
-            model_name='cartitem',
-            constraint=models.CheckConstraint(condition=models.Q(('quantity__gt', 0)), name='cartitem_quantity_gt_0'),
+            model_name="cartitem",
+            constraint=models.CheckConstraint(
+                condition=models.Q(("quantity__gt", 0)), name="cartitem_quantity_gt_0"
+            ),
         ),
     ]

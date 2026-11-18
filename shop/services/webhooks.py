@@ -1,7 +1,9 @@
 import stripe
 from django.conf import settings
 from django.contrib.auth import get_user_model
+
 from shop.models import Cart, Order, OrderItem
+
 
 def handle_stripe_webhook(payload, sig_header):
     print("WEBHOOK RECEIVED")
@@ -22,19 +24,19 @@ def handle_stripe_webhook(payload, sig_header):
         return None, 400
 
     # Handle the event
-    if event['type'] == 'checkout.session.completed':
-
+    if event["type"] == "checkout.session.completed":
         print("WEBHOOK RECEIVED")
-        print("EVENT TYPE:", event['type'])
+        print("EVENT TYPE:", event["type"])
 
-        session = event['data']['object']
+        session = event["data"]["object"]
 
         handle_checkout_session(session)
 
     return event, 200
 
+
 # The function handels the checkout session after the payment is completed.
-# It creates an order and order items based on the cart items, and then 
+# It creates an order and order items based on the cart items, and then
 # clears the cart.
 def handle_checkout_session(session):
 
@@ -61,17 +63,12 @@ def handle_checkout_session(session):
         return
 
     total_price = sum(
-        item.price_at_time * item.quantity
-        for item in cart.cartitem_set.all()
+        item.price_at_time * item.quantity for item in cart.cartitem_set.all()
     )
-    existing_order = Order.objects.filter(
-        stripe_session_id=session["id"]
-        ).first()
+    existing_order = Order.objects.filter(stripe_session_id=session["id"]).first()
 
     if existing_order:
-        print(
-            f"ORDER ALREADY EXISTS FOR SESSION {session['id']}"
-        )
+        print(f"ORDER ALREADY EXISTS FOR SESSION {session['id']}")
         return
     print("Creating order...")
     order = Order.objects.create(
@@ -90,6 +87,6 @@ def handle_checkout_session(session):
             # Stores the purchase price permanently.
             price=cart_item.price_at_time,
         )
-    
+
     cart.cartitem_set.all().delete()
     print("ORDER CREATED:", order.id)

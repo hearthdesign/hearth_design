@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0007_remove_print_backup_remove_print_manual'),
+        ("shop", "0007_remove_print_backup_remove_print_manual"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='order',
-            name='stripe_session_id',
-            field=models.CharField(blank=True, default='', max_length=255, unique=True),
+            model_name="order",
+            name="stripe_session_id",
+            field=models.CharField(blank=True, default="", max_length=255, unique=True),
         ),
     ]

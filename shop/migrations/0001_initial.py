@@ -7,7 +7,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -16,193 +15,376 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='ContactSubmission',
+            name="ContactSubmission",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('email', models.EmailField(max_length=254)),
-                ('message', models.TextField()),
-                ('ip_hash', models.CharField(default='unknown', max_length=64)),
-                ('user_agent', models.TextField(default='unknown')),
-                ('submitted_at', models.DateTimeField(default=django.utils.timezone.now)),
-                ('marketing_consent', models.BooleanField(default=False)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("email", models.EmailField(max_length=254)),
+                ("message", models.TextField()),
+                ("ip_hash", models.CharField(default="unknown", max_length=64)),
+                ("user_agent", models.TextField(default="unknown")),
+                (
+                    "submitted_at",
+                    models.DateTimeField(default=django.utils.timezone.now),
+                ),
+                ("marketing_consent", models.BooleanField(default=False)),
             ],
             options={
-                'verbose_name': 'Contact Submission',
-                'verbose_name_plural': 'Contact Submissions',
+                "verbose_name": "Contact Submission",
+                "verbose_name_plural": "Contact Submissions",
             },
         ),
         migrations.CreateModel(
-            name='Order',
+            name="Order",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('customer_name', models.CharField(max_length=100)),
-                ('customer_email', models.EmailField(max_length=254)),
-                ('total_price', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('is_paid', models.BooleanField(default=False)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("customer_name", models.CharField(max_length=100)),
+                ("customer_email", models.EmailField(max_length=254)),
+                (
+                    "total_price",
+                    models.DecimalField(decimal_places=2, default=0, max_digits=10),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("is_paid", models.BooleanField(default=False)),
             ],
             options={
-                'verbose_name': 'Order',
-                'verbose_name_plural': 'Orders',
-                'ordering': ['-created_at'],
+                "verbose_name": "Order",
+                "verbose_name_plural": "Orders",
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='Theme',
+            name="Theme",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True)),
-                ('description', models.TextField(blank=True)),
-                ('slug', models.SlugField(unique=True)),
-                ('icon', models.ImageField(blank=True, null=True, upload_to='theme_icons/')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100, unique=True)),
+                ("description", models.TextField(blank=True)),
+                ("slug", models.SlugField(unique=True)),
+                (
+                    "icon",
+                    models.ImageField(blank=True, null=True, upload_to="theme_icons/"),
+                ),
             ],
             options={
-                'verbose_name': 'Theme',
-                'verbose_name_plural': 'Themes',
+                "verbose_name": "Theme",
+                "verbose_name_plural": "Themes",
             },
         ),
         migrations.CreateModel(
-            name='Cart',
+            name="Cart",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Cart',
-                'verbose_name_plural': 'Carts',
+                "verbose_name": "Cart",
+                "verbose_name_plural": "Carts",
             },
         ),
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100, unique=True)),
-                ('slug', models.SlugField(blank=True, max_length=200, unique=True)),
-                ('description', models.TextField(blank=True)),
-                ('type', models.CharField(choices=[('info', 'Info'), ('print', 'Print'), ('blog', 'Blog'), ('general', 'General')], default='general', max_length=20)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='category_images/')),
-                ('is_active', models.BooleanField(default=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('parent', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='subcategories', to='shop.category')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=100, unique=True)),
+                ("slug", models.SlugField(blank=True, max_length=200, unique=True)),
+                ("description", models.TextField(blank=True)),
+                (
+                    "type",
+                    models.CharField(
+                        choices=[
+                            ("info", "Info"),
+                            ("print", "Print"),
+                            ("blog", "Blog"),
+                            ("general", "General"),
+                        ],
+                        default="general",
+                        max_length=20,
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="category_images/"
+                    ),
+                ),
+                ("is_active", models.BooleanField(default=True)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "parent",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="subcategories",
+                        to="shop.category",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Category',
-                'verbose_name_plural': 'Categories',
-                'ordering': ['title'],
+                "verbose_name": "Category",
+                "verbose_name_plural": "Categories",
+                "ordering": ["title"],
             },
         ),
         migrations.CreateModel(
-            name='Print',
+            name="Print",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('title', models.CharField(max_length=200)),
-                ('slug', models.SlugField(blank=True, max_length=200, unique=True)),
-                ('type', models.CharField(choices=[('photo', 'Photography'), ('illustration', 'Illustration')], max_length=20)),
-                ('format', models.CharField(blank=True, choices=[('metal', 'Metal Print'), ('wood', 'Wood Print'), ('paper', 'Paper Print')], max_length=50)),
-                ('size', models.CharField(blank=True, max_length=50)),
-                ('date', models.DateField(default=django.utils.timezone.now)),
-                ('description', models.TextField(blank=True)),
-                ('image', models.ImageField(blank=True, upload_to='prints/%Y/%m%d')),
-                ('price', models.DecimalField(decimal_places=2, default=50.0, max_digits=8)),
-                ('stock', models.PositiveIntegerField(default=0)),
-                ('is_active', models.BooleanField(default=True)),
-                ('category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='shop.category')),
-                ('themes', models.ManyToManyField(blank=True, to='shop.theme')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("title", models.CharField(max_length=200)),
+                ("slug", models.SlugField(blank=True, max_length=200, unique=True)),
+                (
+                    "type",
+                    models.CharField(
+                        choices=[
+                            ("photo", "Photography"),
+                            ("illustration", "Illustration"),
+                        ],
+                        max_length=20,
+                    ),
+                ),
+                (
+                    "format",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("metal", "Metal Print"),
+                            ("wood", "Wood Print"),
+                            ("paper", "Paper Print"),
+                        ],
+                        max_length=50,
+                    ),
+                ),
+                ("size", models.CharField(blank=True, max_length=50)),
+                ("date", models.DateField(default=django.utils.timezone.now)),
+                ("description", models.TextField(blank=True)),
+                ("image", models.ImageField(blank=True, upload_to="prints/%Y/%m%d")),
+                (
+                    "price",
+                    models.DecimalField(decimal_places=2, default=50.0, max_digits=8),
+                ),
+                ("stock", models.PositiveIntegerField(default=0)),
+                ("is_active", models.BooleanField(default=True)),
+                (
+                    "category",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="shop.category",
+                    ),
+                ),
+                ("themes", models.ManyToManyField(blank=True, to="shop.theme")),
             ],
             options={
-                'verbose_name': 'Print',
-                'verbose_name_plural': 'Prints',
-                'ordering': ['title'],
+                "verbose_name": "Print",
+                "verbose_name_plural": "Prints",
+                "ordering": ["title"],
             },
         ),
         migrations.CreateModel(
-            name='OrderItem',
+            name="OrderItem",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('quantity', models.PositiveIntegerField(default=1)),
-                ('price', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='items', to='shop.order')),
-                ('print', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='shop.print')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("quantity", models.PositiveIntegerField(default=1)),
+                ("price", models.DecimalField(decimal_places=2, max_digits=10)),
+                (
+                    "order",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="items",
+                        to="shop.order",
+                    ),
+                ),
+                (
+                    "print",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="shop.print"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Order Item',
-                'verbose_name_plural': 'Order Items',
+                "verbose_name": "Order Item",
+                "verbose_name_plural": "Order Items",
             },
         ),
         migrations.AddField(
-            model_name='order',
-            name='prints',
-            field=models.ManyToManyField(through='shop.OrderItem', to='shop.print'),
+            model_name="order",
+            name="prints",
+            field=models.ManyToManyField(through="shop.OrderItem", to="shop.print"),
         ),
         migrations.CreateModel(
-            name='CartItem',
+            name="CartItem",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('quantity', models.PositiveIntegerField(default=1)),
-                ('cart', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='shop.cart')),
-                ('print', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='shop.print')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("quantity", models.PositiveIntegerField(default=1)),
+                (
+                    "cart",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="shop.cart"
+                    ),
+                ),
+                (
+                    "print",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="shop.print",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Cart Item',
-                'verbose_name_plural': 'Cart Items',
+                "verbose_name": "Cart Item",
+                "verbose_name_plural": "Cart Items",
             },
         ),
         migrations.AddField(
-            model_name='cart',
-            name='prints',
-            field=models.ManyToManyField(through='shop.CartItem', to='shop.print'),
+            model_name="cart",
+            name="prints",
+            field=models.ManyToManyField(through="shop.CartItem", to="shop.print"),
         ),
         migrations.CreateModel(
-            name='Photography',
+            name="Photography",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('quantity', models.PositiveIntegerField(default=0)),
-                ('price', models.DecimalField(decimal_places=2, max_digits=8)),
-                ('image', models.ImageField(blank=True, upload_to='photographies/')),
-                ('description', models.TextField(blank=True)),
-                ('slug', models.SlugField(blank=True, max_length=200, unique=True)),
-                ('print', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='photographies', to='shop.print')),
-                ('themes', models.ManyToManyField(blank=True, to='shop.theme')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("quantity", models.PositiveIntegerField(default=0)),
+                ("price", models.DecimalField(decimal_places=2, max_digits=8)),
+                ("image", models.ImageField(blank=True, upload_to="photographies/")),
+                ("description", models.TextField(blank=True)),
+                ("slug", models.SlugField(blank=True, max_length=200, unique=True)),
+                (
+                    "print",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="photographies",
+                        to="shop.print",
+                    ),
+                ),
+                ("themes", models.ManyToManyField(blank=True, to="shop.theme")),
             ],
             options={
-                'verbose_name': 'Photography',
-                'verbose_name_plural': 'Photographies',
+                "verbose_name": "Photography",
+                "verbose_name_plural": "Photographies",
             },
         ),
         migrations.CreateModel(
-            name='Illustration',
+            name="Illustration",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('quantity', models.PositiveIntegerField(default=0)),
-                ('price', models.DecimalField(decimal_places=2, max_digits=8)),
-                ('image', models.ImageField(blank=True, upload_to='illustrations/')),
-                ('description', models.TextField(blank=True)),
-                ('slug', models.SlugField(blank=True, max_length=200, unique=True)),
-                ('print', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='illustrations', to='shop.print')),
-                ('themes', models.ManyToManyField(blank=True, to='shop.theme')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("quantity", models.PositiveIntegerField(default=0)),
+                ("price", models.DecimalField(decimal_places=2, max_digits=8)),
+                ("image", models.ImageField(blank=True, upload_to="illustrations/")),
+                ("description", models.TextField(blank=True)),
+                ("slug", models.SlugField(blank=True, max_length=200, unique=True)),
+                (
+                    "print",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="illustrations",
+                        to="shop.print",
+                    ),
+                ),
+                ("themes", models.ManyToManyField(blank=True, to="shop.theme")),
             ],
             options={
-                'verbose_name': 'Illustration',
-                'verbose_name_plural': 'Illustrations',
+                "verbose_name": "Illustration",
+                "verbose_name_plural": "Illustrations",
             },
         ),
         migrations.AddIndex(
-            model_name='category',
-            index=models.Index(fields=['slug'], name='shop_catego_slug_5ac49f_idx'),
+            model_name="category",
+            index=models.Index(fields=["slug"], name="shop_catego_slug_5ac49f_idx"),
         ),
         migrations.AddIndex(
-            model_name='category',
-            index=models.Index(fields=['type'], name='shop_catego_type_682f7e_idx'),
+            model_name="category",
+            index=models.Index(fields=["type"], name="shop_catego_type_682f7e_idx"),
         ),
         migrations.AddIndex(
-            model_name='category',
-            index=models.Index(fields=['title'], name='shop_catego_title_e4a1b6_idx'),
+            model_name="category",
+            index=models.Index(fields=["title"], name="shop_catego_title_e4a1b6_idx"),
         ),
         migrations.AddIndex(
-            model_name='print',
-            index=models.Index(fields=['price'], name='shop_print_price_4928d5_idx'),
+            model_name="print",
+            index=models.Index(fields=["price"], name="shop_print_price_4928d5_idx"),
         ),
     ]

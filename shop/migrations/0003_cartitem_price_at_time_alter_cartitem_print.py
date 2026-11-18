@@ -5,21 +5,22 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shop', '0002_print_backup_print_manual_alter_category_image_and_more'),
+        ("shop", "0002_print_backup_print_manual_alter_category_image_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='cartitem',
-            name='price_at_time',
+            model_name="cartitem",
+            name="price_at_time",
             field=models.DecimalField(decimal_places=2, default=0, max_digits=8),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='cartitem',
-            name='print',
-            field=models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='shop.print'),
+            model_name="cartitem",
+            name="print",
+            field=models.ForeignKey(
+                blank=True, on_delete=django.db.models.deletion.CASCADE, to="shop.print"
+            ),
         ),
     ]

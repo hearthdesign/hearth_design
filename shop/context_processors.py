@@ -1,10 +1,11 @@
-from django.conf import settings 
+from django.conf import settings
+
 from .models import Cart, Theme
 
+
 def themes(request):
-    return {
-        "themes": Theme.objects.all()
-    }
+    return {"themes": Theme.objects.all()}
+
 
 def cart_count(request):
 
@@ -16,41 +17,41 @@ def cart_count(request):
     except Cart.DoesNotExist:
         return {"cart_count": 0}
 
-    count = sum(
-        item.quantity
-        for item in cart.cartitem_set.all()
-    )
+    count = sum(item.quantity for item in cart.cartitem_set.all())
 
     return {"cart_count": count}
 
+
 def cart_total(request):
     if not request.user.is_authenticated:
-        return {'cart_total': 0}
+        return {"cart_total": 0}
 
     try:
         cart = Cart.objects.get(user=request.user)
     except Cart.DoesNotExist:
-        return {'cart_total': 0}
+        return {"cart_total": 0}
 
     total = 0
-    for item in cart.cartitem_set.select_related('print'):
+    for item in cart.cartitem_set.select_related("print"):
         total += item.print.price * item.quantity
 
-    return {'cart_total': total}
+    return {"cart_total": total}
+
 
 # Injects basic user info into templates if logged in
 def user_profile(request):
     # Only include user info if authenticated
     if request.user.is_authenticated:
-        return {'user_profile': request.user}
+        return {"user_profile": request.user}
     # Otherwise return empty dict
     return {}
+
 
 # Injects site-wide settings like name and currency
 def site_settings(request):
     return {
         # Use SITE_NAME from settings.py or default to 'Art Shop'
-        'site_name': getattr(settings, 'SITE_NAME', 'Art Shop'),
+        "site_name": getattr(settings, "SITE_NAME", "Art Shop"),
         # Use CURRENCY from settings.py or default to '€'
-        'currency': getattr(settings, 'CURRENCY', '€'),
+        "currency": getattr(settings, "CURRENCY", "€"),
     }
