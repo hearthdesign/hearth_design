@@ -550,7 +550,7 @@ img {
   color: #ffffff;
   font-weight: bold;
   padding: 0.6rem 1.5rem;
-  border: 2px solid rgb(5, 73, 90);
+  border: 2px solid rgb(74, 156, 177);
   border-radius: 6px;
   cursor: pointer;
   font-size: 1rem;
@@ -560,7 +560,7 @@ img {
 
 .modal-content button[type="submit"]:hover {
   background-color: rgb(20, 90, 120);
-  border-color: rgb(20, 90, 120);
+  border: 2px solid rgb(74, 156, 177);
   box-shadow: 0 0 0.35rem rgb(5, 73, 90);
 }
 
@@ -585,7 +585,7 @@ img {
   background-color: rgb(5, 73, 90);
   color: #ffffff;
   font-weight: 800;
-  border-color: rgb(5, 73, 90);
+border: 2px solid rgb(74, 156, 177);
   box-shadow: 0 0 0.35rem rgb(5, 73, 90);
 }
 
@@ -609,7 +609,7 @@ img {
 
 .close:hover {
   background: #e2e8f0;
-  border: 2px solid rgb(5, 73, 90);
+  border: 2px solid rgb(74, 156, 177);
   color: rgb(5, 73, 90);
   box-shadow: 0 0 0.35rem rgb(5, 73, 90);
 }
