@@ -15,6 +15,7 @@ from django.urls import reverse, translate_url
 from django.utils import timezone, translation
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import TemplateView
 
 from shop.services.webhooks import handle_stripe_webhook
 
@@ -629,3 +630,7 @@ def terms_of_service(request):
 # Private Policy
 def privacy_policy(request):
     return render(request, "shop/privacy_policy.html")
+
+
+class RobotsTxtView(TemplateView):
+    template_name = "robots.txt"

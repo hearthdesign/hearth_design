@@ -19,9 +19,9 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.sitemaps.views import sitemap
+from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import include, path
-from django.views.generic import TemplateView
+from django.views.generic import RedirectView, TemplateView
 
 # App imports
 from shop import views
@@ -44,15 +44,20 @@ urlpatterns = [
     # Keeping this endpoint outside i18n_patterns ensures a
     # stable webhook URL and prevents 302 redirects.
     path("shop/stripe/webhook/", views.stripe_webhook_view, name="stripe-webhook"),
+    # 1. Serve static sitemap.xml from hearth_shop/static/
     path(
         "sitemap.xml",
-        sitemap,
-        {"sitemaps": sitemaps},
-        name="django.contrib.sitemaps.views.sitemap",
+        RedirectView.as_view(
+            url=staticfiles_storage.url("sitemap.xml"),
+            permanent=True,
+        ),
+        name="sitemap",
     ),
+    # 2. Serve dynamic robots.txt from the 'pages' app templates
     path(
         "robots.txt",
         TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
+        name="robots",
     ),
 ]
 
