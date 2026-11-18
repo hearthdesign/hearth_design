@@ -7,5 +7,5 @@ exclude = [
 [tool.ruff.lint]
 
 ignore = [
-    "RUF012",
+    "RUF012", # Django Meta classes, choices, widgets, admin settings
 ]
