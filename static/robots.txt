@@ -34,4 +34,4 @@ Disallow: /*?page=
 Disallow: /*?theme=
 
 # Sitemap
-Sitemap: https://hearth-design-044ecd91e469.herokuapp.com//sitemap.xml
+Sitemap: https://hearth-design-044ecd91e469.herokuapp.com/sitemap.xml
