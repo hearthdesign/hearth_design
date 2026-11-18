@@ -23,46 +23,46 @@
     {% trans "Themed Gallery" %}
   </h1>
 
+  <!-- ===========================
+          GALLERY GRID
+  ============================ -->
   <div class="gallery-grid">
-    {% for print in page_obj %}
+      {% for print in page_obj %}
+      <!-- Parent wrapper to stack image and text vertically -->
       <div class="gallery-card">
 
         <!-- ===========================
                  THUMBNAIL
         ============================ -->
-          <div class="thumbnail">
-            {% if print.image %}
-              <a href="#"
-                  data-image="{{ print.image.url }}"
-                  data-id="{{ print.id }}"
-                  data-title="{{ print.title }}"
-                  data-price="{{ print.price }}">
+        <div class="thumbnail">
+          {% if print.image %}
+          <a href="#" 
+             data-image="{{ print.modal_url }}"
+             data-id="{{ print.id }}" 
+             data-title="{{ print.title }}"
+             data-price="{{ print.price }}">
+            <img
+                 src="{{ print.thumbnail_url }}"
+                 alt="{{ print.title }}"
+                 loading="lazy"
+                 decoding="async"
+                 width="150"
+                 height="150">       
+          </a>
 
-                    <img
-                        src="{{ print.image.url }}"
-                        alt="{{ print.title }}"
-                        loading="lazy">
-              </a>
-
-            {% else %}
-                <a href="#">
-                  <img
-                      src="/static/img/placeholder.jpg"
-                      alt="{% trans 'No image available' %}"
-                      loading="lazy">
-                </a>
-            {% endif %}
-
-            </div>
-
-            <!-- ===========================
-                 CARD INFORMATION
-            ============================ -->
-
+          {% else %}
+            <a href="#">
+              <img src="/static/img/placeholder.jpg" alt="No image available">
+            </a>
+          {% endif %}
+        </div>
+      <!-- ===========================
+            CARD INFORMATION
+      ============================ -->
             <div class="card-info">
-                <h3 class="print-title">
+                <h2 class="print-title">
                     {{ print.title }}
-                </h3>
+                </h2>
                 <p class="print-price">
                     €{{ print.price }}
                 </p>
@@ -91,9 +91,11 @@
         </p>
     {% endfor %}
 
-</div>
-{% block pagination %}
-    {% include "shop/_pagination.html" %}
-{% endblock %}
+  </div>
+  {% block pagination %}
+    <div class="pagination-wrapper">
+        {% include "shop/_pagination.html" %}
+    </div>
+  {% endblock %}
 
 {% endblock %}
