@@ -19,9 +19,8 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import include, path
-from django.views.generic import RedirectView, TemplateView
+from django.views.generic import TemplateView
 
 # App imports
 from shop import views
@@ -47,9 +46,8 @@ urlpatterns = [
     # 1. Serve static sitemap.xml from hearth_shop/static/
     path(
         "sitemap.xml",
-        RedirectView.as_view(
-            url=staticfiles_storage.url("sitemap.xml"),
-            permanent=True,
+        TemplateView.as_view(
+            template_name="sitemap.xml", content_type="application/xml"
         ),
         name="sitemap",
     ),

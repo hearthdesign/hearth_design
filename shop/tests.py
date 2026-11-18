@@ -6,6 +6,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from shop.services.webhooks import handle_checkout_session
+from shop.views import fulfill_order_from_stripe_session
 
 from .models import (
     Cart,
@@ -405,11 +406,7 @@ class CheckoutTest(TestCase):
         self.assertTrue(order.is_paid)
 
     # ======================================================
-    # Order Total Validation Tests
-    # ======================================================
-
-    # ======================================================
-    # Order Total CALCULATIONTest
+    #           Order Total CALCULATION Test
     # ======================================================
 
     def test_order_total_calculation(self):
@@ -429,7 +426,7 @@ class CheckoutTest(TestCase):
         self.assertEqual(order.calculate_total(), Decimal("70.00"))
 
     # ======================================================
-    # Order Total Consistency Tests
+    #           Order Total Consistency Tests
     # ======================================================
 
     def test_order_has_correct_total(self):
@@ -445,3 +442,77 @@ class CheckoutTest(TestCase):
         )
 
         self.assertEqual(order.total_price, Decimal("70.00"))
+
+
+# ======================================================
+#           Order Total Consistency Tests
+# ======================================================
+
+
+class CheckoutCartClearingAndStockTest(TestCase):
+    def setUp(self):
+        # 1. Create a test user
+        self.user = User.objects.create_user(
+            username="testbuyer", email="buyer@example.com", password="password123"
+        )
+
+        # 2. Create a test product with initial stock
+        self.print_item = Print.objects.create(
+            title="Sunset Painting", price=Decimal("50.00"), stock=10
+        )
+
+        # 3. Add item to user's cart
+        self.cart, _ = Cart.objects.get_or_create(user=self.user)
+        self.cart_item = CartItem.objects.create(
+            cart=self.cart,
+            print=self.print_item,
+            quantity=2,
+            price_at_time=self.print_item.price,
+        )
+
+        # 4. Create a mock Order linked to a Stripe session ID
+        self.stripe_session_id = "cs_test_mocksession123"
+        self.order = Order.objects.create(
+            customer_name="Test Buyer",
+            customer_email=self.user.email,
+            stripe_session_id=self.stripe_session_id,
+            total_price=Decimal("100.00"),
+            is_paid=False,
+        )
+        self.order_item = OrderItem.objects.create(
+            order=self.order,
+            print=self.print_item,
+            quantity=2,
+            price=self.print_item.price,
+        )
+
+
+# ======================================================
+#        ORDER FULLFILLMENT AND CLEAR CART
+# ======================================================
+
+
+def test_fulfill_order_clears_cart_and_reduces_stock(self):
+    """Test that fulfilling a Stripe session clears the cart and decrements stock."""
+    # Mock Stripe session object passed to fulfillment logic
+    mock_stripe_session = {
+        "id": self.stripe_session_id,
+        "client_reference_id": str(self.user.id),
+    }
+
+    # Run the fulfillment function (same one called by the webhook)
+    fulfill_order_from_stripe_session(mock_stripe_session)
+
+    # 1. Assert order is marked as paid
+    self.order.refresh_from_db()
+    self.assertTrue(self.order.is_paid)
+
+    # 2. Assert product stock was reduced from 10 to 8 (10 - 2 purchased)
+    self.print_item.refresh_from_db()
+    self.assertEqual(self.print_item.stock, 8)
+
+    # 3. Assert the user's cart items have been cleared/deleted
+    cart_item_exists = CartItem.objects.filter(cart=self.cart).exists()
+    self.assertFalse(
+        cart_item_exists, "Cart items should be deleted after successful payment."
+    )

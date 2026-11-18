@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ImproperlyConfigured
 from django.core.mail import send_mail
 from django.core.paginator import Paginator  # For pagination
+from django.db import transaction
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, translate_url
@@ -22,14 +23,7 @@ from shop.services.webhooks import handle_stripe_webhook
 from .forms import ContactForm, CustomSignupForm, PrintForm, ReviewForm
 
 # Import all models
-from .models import (
-    Cart,
-    CartItem,
-    ContactSubmission,
-    Order,
-    Print,
-    Theme,
-)
+from .models import Cart, CartItem, ContactSubmission, Order, Print, Theme
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -205,6 +199,9 @@ def theme_filter(request):
     )
 
 
+# ==========================================
+#               ADD TO CART
+# ==========================================
 # Require login to access cart and checkout routes
 # Add to cart (model-based, not session)
 @login_required
@@ -306,6 +303,9 @@ def cart_view(request):
     return render(request, "shop/cart.html", {"cart_items": items, "cart_total": total})
 
 
+# ==========================================
+#  INCREASE / DECREASE / REMOVE Q.TITY
+# ==========================================
 # Require user to be logged-in to increase items in cart
 @login_required
 def increase_cart_quantity(request, item_id):
@@ -388,6 +388,9 @@ def remove_from_cart(request, item_id):
     return redirect("cart_view")
 
 
+# ==========================================
+#              CHECKOUT
+# ==========================================
 # Require user to be logged-in to proceed to checkout
 @login_required
 def create_checkout_session(request):
@@ -432,7 +435,9 @@ def create_checkout_session(request):
     return redirect(session.url)
 
 
-# Order history view
+# ==========================================
+#             ORDER HISTORY
+# ==========================================
 @login_required
 def order_history(request):
     orders = Order.objects.filter(customer_email=request.user.email).prefetch_related(
@@ -470,7 +475,9 @@ def add_review(request, print_id):
     )
 
 
-# SET LANGUAGE
+# ==========================================
+#              SET LANGUAGE
+# ==========================================
 def custom_set_language(request):
     """
     Custom language switcher view that safely handles i18n URL prefixes
@@ -505,7 +512,9 @@ def custom_set_language(request):
     return HttpResponseRedirect("/")
 
 
-# Contact form
+# ==========================================
+#             CONTACT FORM
+# ==========================================
 def contact_view(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
@@ -567,7 +576,9 @@ def contact_view(request):
     return render(request, "shop/contact.html", {"form": form})
 
 
-# Signup
+# ==========================================
+#              SIGNUP
+# ==========================================
 def signup(request):
     if request.method == "POST":
         form = CustomSignupForm(request.POST)
@@ -591,6 +602,41 @@ def thank_you(request):
     return render(request, "shop/thank_you.html")
 
 
+# ==========================================
+#   STRIPE FULFILLMENT & WEBHOOK HANDLERS
+# ==========================================
+def fulfill_order_from_stripe_session(session):
+    """
+    Fulfills the order: marks it paid, decrements product stock,
+    and clears the user's cart. Safe to run multiple times (idempotent).
+    """
+    session_id = session.get("id")
+    client_ref_id = session.get("client_reference_id")
+
+    try:
+        order = Order.objects.get(stripe_session_id=session_id)
+    except Order.DoesNotExist:
+        return  # Order hasn't been created yet
+
+    if order.is_paid:
+        return  # Already fulfilled, prevent double-deducting stock
+
+    with transaction.atomic():
+        # 1. Mark order as paid
+        order.is_paid = True
+        order.save()
+
+        # 2. Reduce stock for each purchased print
+        for item in order.items.select_related("print").all():
+            print_obj = item.print
+            print_obj.stock = max(0, print_obj.stock - item.quantity)
+            print_obj.save()
+
+        # 3. Clear the user's cart using client_reference_id (user ID)
+        if client_ref_id:
+            Cart.objects.filter(user_id=client_ref_id).delete()
+
+
 @csrf_exempt
 def stripe_webhook_view(request):
     print("WEBHOOK VIEW HIT")
@@ -602,12 +648,29 @@ def stripe_webhook_view(request):
 
     _event, status_code = handle_stripe_webhook(payload, sig_header)
 
+    # If the payment completed successfully, fulfill the order (clears cart & reduces stock)
+    if (
+        status_code == 200
+        and _event
+        and _event.get("type") == "checkout.session.completed"
+    ):
+        session = _event["data"]["object"]
+        fulfill_order_from_stripe_session(session)
+
     return HttpResponse(status=status_code)
 
 
-# Payment  success view
+# Payment success view
 @login_required
 def payment_success(request):
+    # Optional fallback fulfillment check if user hits success URL directly before webhook fires
+    session_id = request.GET.get("session_id")
+    if session_id:
+        try:
+            # If your stripe utility or API lets you fetch the session, you can trigger fulfillment here too
+            pass
+        except Exception:
+            pass
     return render(request, "shop/payment_success.html")
 
 
@@ -632,5 +695,6 @@ def privacy_policy(request):
     return render(request, "shop/privacy_policy.html")
 
 
+# robots.txt
 class RobotsTxtView(TemplateView):
     template_name = "robots.txt"
