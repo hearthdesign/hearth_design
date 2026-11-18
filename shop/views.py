@@ -254,7 +254,7 @@ def add_to_cart(request):
         messages.error(request, _("This item is currently out of stock."))
         return redirect("cart_view")
 
-    cart, _ = Cart.objects.get_or_create(user=request.user)
+    cart, _created = Cart.objects.get_or_create(user=request.user)
 
     cart_item, created = CartItem.objects.get_or_create(
         cart=cart,
