@@ -20,16 +20,17 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
+from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import include, path
-from django.views.generic import TemplateView
+from django.views.generic import RedirectView, TemplateView
 
 # App imports
 from shop import views
-from shop.sitemaps import PrintSitemap
+from shop.sitemaps import StaticViewSitemap
 from shop.views import custom_set_language  # Adjust import to the app
 
 sitemaps = {
-    "prints": PrintSitemap,
+    "static": StaticViewSitemap,
 }
 
 urlpatterns = [
@@ -49,6 +50,13 @@ urlpatterns = [
         sitemap,
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
+    ),
+    path(
+        "robots.txt",
+        RedirectView.as_view(
+            url=staticfiles_storage.url("robots.txt"),
+            permanent=True,
+        ),
     ),
 ]
 
