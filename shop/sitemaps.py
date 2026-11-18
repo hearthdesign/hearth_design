@@ -1,5 +1,4 @@
 from django.contrib.sitemaps import Sitemap
-from django.urls import reverse
 
 
 class StaticViewSitemap(Sitemap):
@@ -7,15 +6,15 @@ class StaticViewSitemap(Sitemap):
     priority = 0.8
 
     def items(self):
-        # List all the main named URL routes on your site
+        # Return root-relative paths for your main pages (Django i18n middleware will prefix them automatically if configured, or you can supply them directly)
         return [
-            "homepage",
-            "illustration_gallery",
-            "photography_gallery",
-            "contact",
-            "terms_of_service",
-            "privacy_policy",
+            "/",
+            "/gallery/illustrations/",
+            "/gallery/photography/",
+            "/contact/",
+            "/terms/",
+            "/privacy-policy/",
         ]
 
     def location(self, item):
-        return reverse(item)
+        return item
