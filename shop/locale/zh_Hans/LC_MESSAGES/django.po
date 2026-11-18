@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-16 12:43+0100\n"
+"POT-Creation-Date: 2026-11-18 11:33+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Chinese\n"
@@ -15,35 +15,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\hearth_shop\settings.py:224
+#: .\hearth_shop\settings.py:225
 msgid "English"
 msgstr "English"
 
-#: .\hearth_shop\settings.py:225
+#: .\hearth_shop\settings.py:226
 msgid "Deutsch"
 msgstr "Deutsch"
 
-#: .\hearth_shop\settings.py:226
+#: .\hearth_shop\settings.py:227
 msgid "Français"
 msgstr "Français"
 
-#: .\hearth_shop\settings.py:227
+#: .\hearth_shop\settings.py:228
 msgid "Español"
 msgstr "Español"
 
-#: .\hearth_shop\settings.py:228
+#: .\hearth_shop\settings.py:229
 msgid "Italiano"
 msgstr "Italiano"
 
-#: .\hearth_shop\settings.py:229
+#: .\hearth_shop\settings.py:230
 msgid "Português"
 msgstr "Português"
 
-#: .\hearth_shop\settings.py:230
+#: .\hearth_shop\settings.py:231
 msgid "中文"
 msgstr "中文"
 
-#: .\hearth_shop\settings.py:231
+#: .\hearth_shop\settings.py:232
 msgid "日本語"
 msgstr "日本語"
 
@@ -51,59 +51,63 @@ msgstr "日本語"
 msgid "Hearth Shop"
 msgstr "Hearth Shop"
 
-#: .\hearth_shop\templates\base.html:38
+#: .\hearth_shop\templates\base.html:48
 msgid "Shop"
 msgstr "商店"
 
-#: .\hearth_shop\templates\base.html:39
+#: .\hearth_shop\templates\base.html:49
 msgid "[ SHOP ]"
 msgstr "[ 商店 ]"
 
-#: .\hearth_shop\templates\base.html:75
+#: .\hearth_shop\templates\base.html:85
 msgid "Close modal"
 msgstr "关闭弹窗"
 
-#: .\hearth_shop\templates\base.html:94
+#: .\hearth_shop\templates\base.html:104
 msgid "Quantity:"
 msgstr "数量："
 
-#: .\hearth_shop\templates\base.html:96
+#: .\hearth_shop\templates\base.html:106
 msgid "Add to Cart"
 msgstr "加入购物车"
 
-#: .\hearth_shop\templates\base.html:101
+#: .\hearth_shop\templates\base.html:111
 msgid "Gallery controls"
 msgstr "画廊控制"
 
-#: .\hearth_shop\templates\base.html:102
+#: .\hearth_shop\templates\base.html:112
 msgid "Previous image"
 msgstr "上一张图片"
 
-#: .\hearth_shop\templates\base.html:105
+#: .\hearth_shop\templates\base.html:115
 msgid "Next image"
 msgstr "下一张图片"
 
-#: .\hearth_shop\templates\base.html:120
+#: .\hearth_shop\templates\base.html:126
+msgid "Back to top"
+msgstr "返回顶部"
+
+#: .\hearth_shop\templates\base.html:133
 msgid "Footer navigation"
 msgstr "页脚导航"
 
-#: .\hearth_shop\templates\base.html:121 .\shop\templates\shop\contact.html:4
+#: .\hearth_shop\templates\base.html:134 .\shop\templates\shop\contact.html:4
 #: .\shop\templates\shop\contact.html:8
 msgid "Contact Us"
 msgstr "联系我们"
 
-#: .\hearth_shop\templates\base.html:122
+#: .\hearth_shop\templates\base.html:135
 #: .\shop\templates\shop\privacy_policy.html:6
 #: .\shop\templates\shop\privacy_policy.html:10
 msgid "Privacy Policy"
 msgstr "隐私政策"
 
-#: .\hearth_shop\templates\base.html:123 .\shop\templates\shop\terms.html:4
+#: .\hearth_shop\templates\base.html:136 .\shop\templates\shop\terms.html:4
 #: .\shop\templates\shop\terms.html:8
 msgid "Terms of Service"
 msgstr "服务条款"
 
-#: .\hearth_shop\templates\base.html:128
+#: .\hearth_shop\templates\base.html:141
 msgid "All rights reserved."
 msgstr "版权所有。"
 
@@ -130,12 +134,12 @@ msgid "All Themes"
 msgstr "所有主题"
 
 #: .\hearth_shop\templates\includes\navbar.html:50
-#: .\shop\templates\shop\upload.html:11
+#: .\shop\templates\shop\upload.html:12
 msgid "Upload"
 msgstr "上传"
 
 #: .\hearth_shop\templates\includes\navbar.html:56
-#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:151
+#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:182
 msgid "Cart"
 msgstr "购物车"
 
@@ -164,103 +168,103 @@ msgstr "注册"
 msgid "Select Language"
 msgstr "选择语言"
 
-#: .\shop\forms.py:17
+#: .\shop\forms.py:28
 msgid "Name"
 msgstr "姓名"
 
-#: .\shop\forms.py:18
+#: .\shop\forms.py:30
 msgid "Your name"
 msgstr "您的姓名"
 
-#: .\shop\forms.py:21
+#: .\shop\forms.py:34
 msgid "Email"
 msgstr "电子邮箱"
 
-#: .\shop\forms.py:22
+#: .\shop\forms.py:36
 msgid "Your email"
 msgstr "您的电子邮箱"
 
-#: .\shop\forms.py:25
+#: .\shop\forms.py:40
 msgid "Message"
 msgstr "留言"
 
-#: .\shop\forms.py:26
+#: .\shop\forms.py:42
 msgid "Your message"
 msgstr "您的留言"
 
-#: .\shop\forms.py:30 .\shop\templates\shop\contact.html:72
+#: .\shop\forms.py:47 .\shop\templates\shop\contact.html:72
 msgid "I have read and agree to the Privacy Notice"
 msgstr "我已阅读并同意隐私声明"
 
-#: .\shop\forms.py:34 .\shop\templates\shop\contact.html:78
+#: .\shop\forms.py:51 .\shop\templates\shop\contact.html:78
 msgid "I would like to receive updates about new art, offers, and newsletters"
 msgstr "我希望接收有关新艺术品、优惠和通讯的更新"
 
-#: .\shop\models.py:19
+#: .\shop\models.py:22
 msgid "General"
 msgstr "通用"
 
-#: .\shop\models.py:68
+#: .\shop\models.py:81
 msgid "Theme"
 msgstr "主题"
 
-#: .\shop\models.py:69
+#: .\shop\models.py:82
 msgid "Themes"
 msgstr "主题列表"
 
-#: .\shop\models.py:82
+#: .\shop\models.py:96
 msgid "Photography"
 msgstr "摄影"
 
-#: .\shop\models.py:83
+#: .\shop\models.py:97
 msgid "Illustration"
 msgstr "插画"
 
-#: .\shop\models.py:86
+#: .\shop\models.py:100
 msgid "Metal Print"
 msgstr "金属印品"
 
-#: .\shop\models.py:87
+#: .\shop\models.py:101
 msgid "Wood Print"
 msgstr "木质印品"
 
-#: .\shop\models.py:88
+#: .\shop\models.py:102
 msgid "Paper Print"
 msgstr "纸质印品"
 
-#: .\shop\models.py:152
+#: .\shop\models.py:183
 msgid "Carts"
 msgstr "购物车列表"
 
-#: .\shop\models.py:171
+#: .\shop\models.py:203
 msgid "Cart Item"
 msgstr "购物车商品"
 
-#: .\shop\models.py:172
+#: .\shop\models.py:204
 msgid "Cart Items"
 msgstr "购物车商品列表"
 
-#: .\shop\models.py:213
+#: .\shop\models.py:239
 msgid "Order"
 msgstr "订单"
 
-#: .\shop\models.py:214
+#: .\shop\models.py:240
 msgid "Orders"
 msgstr "订单列表"
 
-#: .\shop\models.py:227
+#: .\shop\models.py:254
 msgid "Order Item"
 msgstr "订单商品"
 
-#: .\shop\models.py:228
+#: .\shop\models.py:255
 msgid "Order Items"
 msgstr "订单商品列表"
 
-#: .\shop\models.py:245
+#: .\shop\models.py:272
 msgid "Contact Submission"
 msgstr "联系表单提交"
 
-#: .\shop\models.py:246
+#: .\shop\models.py:273
 msgid "Contact Submissions"
 msgstr "联系表单提交列表"
 
@@ -423,11 +427,11 @@ msgid ""
 "          "
 msgstr ""
 "\n"
-"          当您提交此表单时，我们仅会收集您的姓名、电子邮箱地址和留言内容，用"
-"于回复您的咨询。为确保安全和防止滥用，我们还可能会处理技术元数据\n"
+"          当您提交此表单时，我们仅会收集您的姓名、电子邮箱地址和留言内容，"
+"用于回复您的咨询。为确保安全和防止滥用，我们还可能会处理技术元数据\n"
 "          （例如经过哈希处理的IP地址和浏览器信息）。\n"
-"          未经您的明确同意，您的数据不会用于营销目的。提交的数据将被安全存"
-"储，并在不再需要时予以删除。\n"
+"          未经您的明确同意，您的数据不会用于营销目的。提交的数据将被安全存储，"
+"并在不再需要时予以删除。\n"
 "          您有权随时请求访问、更正或删除您的数据。\n"
 "          "
 
@@ -450,8 +454,14 @@ msgid ""
 "Browse themed prints, illustrations, and photographs curated for every taste."
 msgstr "浏览为各种品味精心挑选的主题印品、插画和摄影作品。"
 
-#: .\shop\templates\shop\illustration_gallery.html:47
-#: .\shop\templates\shop\photography_gallery.html:45
+#: .\shop\templates\shop\illustration_gallery.html:65
+#: .\shop\templates\shop\photography_gallery.html:66
+#: .\shop\templates\shop\themed_gallery.html:81
+msgid "No reviews"
+msgstr "暂无评价"
+
+#: .\shop\templates\shop\illustration_gallery.html:74
+#: .\shop\templates\shop\photography_gallery.html:73
 msgid "No prints found."
 msgstr "未找到印品。"
 
@@ -511,9 +521,7 @@ msgid ""
 "processes personal information in accordance with the General Data "
 "Protection Regulation (GDPR) and applicable German and European data "
 "protection laws."
-msgstr ""
-"我们高度重视您的个人数据保护。本网站根据《通用数据保护条例》(GDPR) 以及适用的"
-"德国和欧洲数据保护法律处理个人信息。"
+msgstr "我们高度重视您的个人数据保护。本网站根据《通用数据保护条例》(GDPR) 以及适用的德国和欧洲数据保护法律处理个人信息。"
 
 #: .\shop\templates\shop\privacy_policy.html:16
 msgid "Data We Collect"
@@ -524,9 +532,7 @@ msgid ""
 "When you place an order, contact us through a form, or create an account, we "
 "may collect your name, email address, billing and shipping information, and "
 "details necessary to process your request."
-msgstr ""
-"当您下单、通过表单联系我们或创建账户时，我们可能会收集您的姓名、电子邮箱地"
-"址、账单与配送信息，以及处理您请求所需的详细信息。"
+msgstr "当您下单、通过表单联系我们或创建账户时，我们可能会收集您的姓名、电子邮箱地址、账单与配送信息，以及处理您请求所需的详细信息。"
 
 #: .\shop\templates\shop\privacy_policy.html:21
 msgid "Purpose of Processing"
@@ -537,9 +543,7 @@ msgid ""
 "Personal data is processed solely for the purpose of providing our services, "
 "fulfilling orders, responding to inquiries, maintaining security, and "
 "complying with legal obligations."
-msgstr ""
-"个人数据的处理仅限于提供我们的服务、履行订单、回复咨询、维护安全以及履行法律"
-"义务。"
+msgstr "个人数据的处理仅限于提供我们的服务、履行订单、回复咨询、维护安全以及履行法律义务。"
 
 #: .\shop\templates\shop\privacy_policy.html:26
 msgid "Payments"
@@ -549,9 +553,7 @@ msgstr "支付"
 msgid ""
 "Payments are processed through trusted third-party payment providers. We do "
 "not store complete payment card information on our servers."
-msgstr ""
-"支付通过受信任的第三方支付服务商处理。我们不会在服务器上存储完整的支付卡信"
-"息。"
+msgstr "支付通过受信任的第三方支付服务商处理。我们不会在服务器上存储完整的支付卡信息。"
 
 #: .\shop\templates\shop\privacy_policy.html:31
 msgid "Data Storage"
@@ -561,27 +563,18 @@ msgstr "数据存储"
 msgid ""
 "Personal data is stored only for as long as necessary to fulfil contractual, "
 "legal, or operational requirements and is deleted when no longer needed."
-msgstr ""
-"个人数据的存储时间仅限于履行合同、法律或运营要求所需的期限，并在不再需要时予"
-"以删除。"
+msgstr "个人数据的存储时间仅限于履行合同、法律或运营要求所需的期限，并在不再需要时予以删除。"
 
 #: .\shop\templates\shop\privacy_policy.html:36
 msgid "Your Rights"
 msgstr "您的权利"
 
 #: .\shop\templates\shop\privacy_policy.html:38
-#, fuzzy
-#| msgid ""
-#| "The GDPR grants you the right to access, correct, restrict, delete, or "
-#| "transfer your personal data, as well as the right to object to certain "
-#| "processing activities."
 msgid ""
-"Under the GDPR, you have the right to access, correct, restrict, delete, or "
+"The GDPR grants you the right to access, correct, restrict, delete, or "
 "transfer your personal data, as well as the right to object to certain "
 "processing activities."
-msgstr ""
-"根据 GDPR，您有权访问、更正、限制、删除或转移您的个人数据，以及有权反对某些处"
-"理活动。"
+msgstr "根据 GDPR，您有权访问、更正、限制、删除或转移您的个人数据，以及有权反对某些处理活动。"
 
 #: .\shop\templates\shop\privacy_policy.html:41
 msgid "Contact"
@@ -599,17 +592,15 @@ msgstr "最后更新时间："
 
 #: .\shop\templates\shop\review_form.html:8
 msgid "Rating:"
-msgstr ""
+msgstr "评分："
 
 #: .\shop\templates\shop\review_form.html:14
-#, fuzzy
-#| msgid "Your email"
 msgid "Your Review:"
-msgstr "您的电子邮箱"
+msgstr "您的评价："
 
 #: .\shop\templates\shop\review_form.html:24
 msgid "Post Review"
-msgstr ""
+msgstr "发布评价"
 
 #: .\shop\templates\shop\terms.html:9
 msgid "Last updated: November 2026"
@@ -633,9 +624,7 @@ msgstr "产品与订单"
 msgid ""
 "All orders are subject to availability and confirmation of the order price. "
 "We reserve the right to refuse any order placed with us."
-msgstr ""
-"所有订单均需视供应情况及订单价格确认而定。我们保留拒绝向任何人提供服务的权"
-"利。"
+msgstr "所有订单均需视供应情况及订单价格确认而定。我们保留拒绝向任何人提供服务的权利。"
 
 #: .\shop\templates\shop\terms.html:22
 msgid "User Accounts"
@@ -646,9 +635,7 @@ msgid ""
 "If you create an account on the website, you are responsible for maintaining "
 "the security of your account and you are fully responsible for all "
 "activities that occur under the account."
-msgstr ""
-"如果您在网站上创建账户，您有责任维护账户的安全，并对在账户下发生的所有活动承"
-"担全部责任。"
+msgstr "如果您在网站上创建账户，您有责任维护账户的安全，并对在账户下发生的所有活动承担全部责任。"
 
 #: .\shop\templates\shop\terms.html:27
 msgid "Contact Information"
@@ -661,24 +648,20 @@ msgid ""
 msgstr "如果您对这些条款有任何疑问，请通过我们的联系页面与我们联系。"
 
 #: .\shop\templates\shop\thank_you.html:8
-#, fuzzy
-#| msgid "Thank you for contacting Hearth Design"
 msgid "Thank You for Reaching Out!"
-msgstr "感谢联系 Hearth Design"
+msgstr "感谢您的联系！"
 
 #: .\shop\templates\shop\thank_you.html:10
 msgid ""
 "We have received your message and will get back to you as soon as possible. "
 "Usually, this takes within 24 to 48 hours."
-msgstr ""
+msgstr "我们已收到您的留言，将尽快给您回复。通常这需要 24 到 48 小时。"
 
 #: .\shop\templates\shop\thank_you.html:13
-#, fuzzy
-#| msgid "Return to Cart"
 msgid "Return to Homepage"
-msgstr "返回购物车"
+msgstr "返回首页"
 
-#: .\shop\templates\shop\themed_gallery.html:6
+#: .\shop\templates\shop\themed_gallery.html:7
 #, python-format
 msgid ""
 "\n"
@@ -689,16 +672,12 @@ msgstr ""
 "      %(theme_name)s 画廊\n"
 "    "
 
-#: .\shop\templates\shop\themed_gallery.html:10
-#: .\shop\templates\shop\themed_gallery.html:22
+#: .\shop\templates\shop\themed_gallery.html:11
+#: .\shop\templates\shop\themed_gallery.html:23
 msgid "Themed Gallery"
 msgstr "主题画廊"
 
-#: .\shop\templates\shop\themed_gallery.html:39
-msgid "No image available"
-msgstr "暂无图片"
-
-#: .\shop\templates\shop\themed_gallery.html:50
+#: .\shop\templates\shop\themed_gallery.html:90
 msgid "No prints found for this theme."
 msgstr "未找到该主题的印品。"
 
@@ -706,85 +685,94 @@ msgstr "未找到该主题的印品。"
 msgid "Upload a New Print"
 msgstr "上传新印品"
 
-#: .\shop\views.py:204
+#: .\shop\templates\shop\upload.html:13
+msgid "Cancel"
+msgstr "取消"
+
+#: .\shop\views.py:217
 msgid "Invalid product selection."
 msgstr "产品选择无效。"
 
-#: .\shop\views.py:219
+#: .\shop\views.py:229
 msgid "Invalid quantity entered. Quantity has been reset to 1."
 msgstr "输入的数量无效。数量已重置为 1。"
 
-#: .\shop\views.py:228
+#: .\shop\views.py:238
 msgid "Quantity must be greater than zero. Quantity has been reset to 1."
 msgstr "数量必须大于零。数量已重置为 1。"
 
-#: .\shop\views.py:238
+#: .\shop\views.py:247
 #, python-format
 msgid "Only %(stock)s item(s) currently available."
 msgstr "当前仅剩 %(stock)s 件商品可用。"
 
-#: .\shop\views.py:248
+#: .\shop\views.py:254
 msgid "This item is currently out of stock."
 msgstr "该商品目前已售罄。"
 
-#: .\shop\views.py:271
+#: .\shop\views.py:272
 msgid "Requested quantity exceeds available stock."
 msgstr "请求的数量超过了可用库存。"
 
-#: .\shop\views.py:282
+#: .\shop\views.py:281
 #, python-format
 msgid "\"%(title)s\" added to your cart."
 msgstr "\"%(title)s\" 已加入您的购物车。"
 
-#: .\shop\views.py:326
+#: .\shop\views.py:323
 #, python-format
 msgid "Quantity of \"%(title)s\" increased to %(qty)s."
 msgstr "\"%(title)s\" 的数量已增加至 %(qty)s。"
 
-#: .\shop\views.py:334
+#: .\shop\views.py:330
 msgid "No additional stock is available for this item."
 msgstr "该商品没有更多可用库存。"
 
-#: .\shop\views.py:353
+#: .\shop\views.py:345
 #, python-format
 msgid "Quantity of \"%(title)s\" decreased to %(qty)s."
 msgstr "\"%(title)s\" 的数量已减少至 %(qty)s。"
 
-#: .\shop\views.py:364
+#: .\shop\views.py:357
 #, python-format
 msgid "'%(title)s' has been removed from your cart."
 msgstr "'%(title)s' 已从您的购物车中移除。"
 
-#: .\shop\views.py:390
+#: .\shop\views.py:376
 #, python-format
 msgid "\"%(title)s\" has been removed from your cart."
 msgstr "\"%(title)s\" 已从您的购物车中移除。"
 
-#: .\shop\views.py:399
+#: .\shop\views.py:383
 msgid "Your cart is now empty. Browse the gallery to discover more artwork."
 msgstr "您的购物车现在是空的。浏览画廊以发现更多艺术作品。"
 
-#: .\shop\views.py:531
+#: .\shop\views.py:519
 msgid "You must agree to the Privacy Notice"
 msgstr "您必须同意隐私声明"
 
-#: .\shop\views.py:551
+#: .\shop\views.py:540
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
 msgstr "来自 %(name)s 的新联系表单提交"
 
-#: .\shop\views.py:558
+#: .\shop\views.py:548
 msgid "Thank you for contacting Hearth Design"
 msgstr "感谢联系 Hearth Design"
 
-#: .\shop\views.py:561
+#: .\shop\views.py:550
+#, python-format
 msgid ""
+"Hi %(name)s,\n"
+"\n"
 "Thank you for reaching out to us. We've received your message and will get "
 "back to you shortly.\n"
 "\n"
 "Best regards,\n"
 "Hearth Design Team"
 msgstr ""
+"您好 %(name)s，\n"
+"\n"
 "感谢您联系我们。我们已收到您的留言，并将尽快回复您。\n"
 "\n"
 "此致，\n"

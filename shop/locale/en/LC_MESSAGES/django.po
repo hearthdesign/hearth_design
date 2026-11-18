@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-16 12:10+0100\n"
+"POT-Creation-Date: 2026-11-18 11:25+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: English\n"
@@ -15,35 +15,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\hearth_shop\settings.py:224
+#: .\hearth_shop\settings.py:225
 msgid "English"
 msgstr ""
 
-#: .\hearth_shop\settings.py:225
+#: .\hearth_shop\settings.py:226
 msgid "Deutsch"
 msgstr ""
 
-#: .\hearth_shop\settings.py:226
+#: .\hearth_shop\settings.py:227
 msgid "Français"
 msgstr ""
 
-#: .\hearth_shop\settings.py:227
+#: .\hearth_shop\settings.py:228
 msgid "Español"
 msgstr ""
 
-#: .\hearth_shop\settings.py:228
+#: .\hearth_shop\settings.py:229
 msgid "Italiano"
 msgstr ""
 
-#: .\hearth_shop\settings.py:229
+#: .\hearth_shop\settings.py:230
 msgid "Português"
 msgstr ""
 
-#: .\hearth_shop\settings.py:230
+#: .\hearth_shop\settings.py:231
 msgid "中文"
 msgstr ""
 
-#: .\hearth_shop\settings.py:231
+#: .\hearth_shop\settings.py:232
 msgid "日本語"
 msgstr ""
 
@@ -51,59 +51,63 @@ msgstr ""
 msgid "Hearth Shop"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:38
+#: .\hearth_shop\templates\base.html:48
 msgid "Shop"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:39
+#: .\hearth_shop\templates\base.html:49
 msgid "[ SHOP ]"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:75
+#: .\hearth_shop\templates\base.html:85
 msgid "Close modal"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:94
+#: .\hearth_shop\templates\base.html:104
 msgid "Quantity:"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:96
+#: .\hearth_shop\templates\base.html:106
 msgid "Add to Cart"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:101
+#: .\hearth_shop\templates\base.html:111
 msgid "Gallery controls"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:102
+#: .\hearth_shop\templates\base.html:112
 msgid "Previous image"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:105
+#: .\hearth_shop\templates\base.html:115
 msgid "Next image"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:120
+#: .\hearth_shop\templates\base.html:126
+msgid "Back to top"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:133
 msgid "Footer navigation"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:121 .\shop\templates\shop\contact.html:4
+#: .\hearth_shop\templates\base.html:134 .\shop\templates\shop\contact.html:4
 #: .\shop\templates\shop\contact.html:8
 msgid "Contact Us"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:122
+#: .\hearth_shop\templates\base.html:135
 #: .\shop\templates\shop\privacy_policy.html:6
 #: .\shop\templates\shop\privacy_policy.html:10
 msgid "Privacy Policy"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:123 .\shop\templates\shop\terms.html:4
+#: .\hearth_shop\templates\base.html:136 .\shop\templates\shop\terms.html:4
 #: .\shop\templates\shop\terms.html:8
 msgid "Terms of Service"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:128
+#: .\hearth_shop\templates\base.html:141
 msgid "All rights reserved."
 msgstr ""
 
@@ -130,12 +134,12 @@ msgid "All Themes"
 msgstr ""
 
 #: .\hearth_shop\templates\includes\navbar.html:50
-#: .\shop\templates\shop\upload.html:11
+#: .\shop\templates\shop\upload.html:12
 msgid "Upload"
 msgstr ""
 
 #: .\hearth_shop\templates\includes\navbar.html:56
-#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:151
+#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:182
 msgid "Cart"
 msgstr ""
 
@@ -164,103 +168,103 @@ msgstr ""
 msgid "Select Language"
 msgstr ""
 
-#: .\shop\forms.py:17
+#: .\shop\forms.py:28
 msgid "Name"
 msgstr ""
 
-#: .\shop\forms.py:18
+#: .\shop\forms.py:30
 msgid "Your name"
 msgstr ""
 
-#: .\shop\forms.py:21
+#: .\shop\forms.py:34
 msgid "Email"
 msgstr ""
 
-#: .\shop\forms.py:22
+#: .\shop\forms.py:36
 msgid "Your email"
 msgstr ""
 
-#: .\shop\forms.py:25
+#: .\shop\forms.py:40
 msgid "Message"
 msgstr ""
 
-#: .\shop\forms.py:26
+#: .\shop\forms.py:42
 msgid "Your message"
 msgstr ""
 
-#: .\shop\forms.py:30 .\shop\templates\shop\contact.html:72
+#: .\shop\forms.py:47 .\shop\templates\shop\contact.html:72
 msgid "I have read and agree to the Privacy Notice"
 msgstr ""
 
-#: .\shop\forms.py:34 .\shop\templates\shop\contact.html:78
+#: .\shop\forms.py:51 .\shop\templates\shop\contact.html:78
 msgid "I would like to receive updates about new art, offers, and newsletters"
 msgstr ""
 
-#: .\shop\models.py:19
+#: .\shop\models.py:22
 msgid "General"
 msgstr ""
 
-#: .\shop\models.py:68
+#: .\shop\models.py:81
 msgid "Theme"
 msgstr ""
 
-#: .\shop\models.py:69
+#: .\shop\models.py:82
 msgid "Themes"
 msgstr ""
 
-#: .\shop\models.py:82
+#: .\shop\models.py:96
 msgid "Photography"
 msgstr ""
 
-#: .\shop\models.py:83
+#: .\shop\models.py:97
 msgid "Illustration"
 msgstr ""
 
-#: .\shop\models.py:86
+#: .\shop\models.py:100
 msgid "Metal Print"
 msgstr ""
 
-#: .\shop\models.py:87
+#: .\shop\models.py:101
 msgid "Wood Print"
 msgstr ""
 
-#: .\shop\models.py:88
+#: .\shop\models.py:102
 msgid "Paper Print"
 msgstr ""
 
-#: .\shop\models.py:152
+#: .\shop\models.py:183
 msgid "Carts"
 msgstr ""
 
-#: .\shop\models.py:171
+#: .\shop\models.py:203
 msgid "Cart Item"
 msgstr ""
 
-#: .\shop\models.py:172
+#: .\shop\models.py:204
 msgid "Cart Items"
 msgstr ""
 
-#: .\shop\models.py:213
+#: .\shop\models.py:239
 msgid "Order"
 msgstr ""
 
-#: .\shop\models.py:214
+#: .\shop\models.py:240
 msgid "Orders"
 msgstr ""
 
-#: .\shop\models.py:227
+#: .\shop\models.py:254
 msgid "Order Item"
 msgstr ""
 
-#: .\shop\models.py:228
+#: .\shop\models.py:255
 msgid "Order Items"
 msgstr ""
 
-#: .\shop\models.py:245
+#: .\shop\models.py:272
 msgid "Contact Submission"
 msgstr ""
 
-#: .\shop\models.py:246
+#: .\shop\models.py:273
 msgid "Contact Submissions"
 msgstr ""
 
@@ -442,8 +446,14 @@ msgid ""
 "Browse themed prints, illustrations, and photographs curated for every taste."
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:47
-#: .\shop\templates\shop\photography_gallery.html:45
+#: .\shop\templates\shop\illustration_gallery.html:65
+#: .\shop\templates\shop\photography_gallery.html:66
+#: .\shop\templates\shop\themed_gallery.html:81
+msgid "No reviews"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:74
+#: .\shop\templates\shop\photography_gallery.html:73
 msgid "No prints found."
 msgstr ""
 
@@ -643,7 +653,7 @@ msgstr ""
 msgid "Return to Homepage"
 msgstr ""
 
-#: .\shop\templates\shop\themed_gallery.html:6
+#: .\shop\templates\shop\themed_gallery.html:7
 #, python-format
 msgid ""
 "\n"
@@ -651,16 +661,12 @@ msgid ""
 "    "
 msgstr ""
 
-#: .\shop\templates\shop\themed_gallery.html:10
-#: .\shop\templates\shop\themed_gallery.html:22
+#: .\shop\templates\shop\themed_gallery.html:11
+#: .\shop\templates\shop\themed_gallery.html:23
 msgid "Themed Gallery"
 msgstr ""
 
-#: .\shop\templates\shop\themed_gallery.html:39
-msgid "No image available"
-msgstr ""
-
-#: .\shop\templates\shop\themed_gallery.html:50
+#: .\shop\templates\shop\themed_gallery.html:90
 msgid "No prints found for this theme."
 msgstr ""
 
@@ -668,79 +674,86 @@ msgstr ""
 msgid "Upload a New Print"
 msgstr ""
 
-#: .\shop\views.py:204
+#: .\shop\templates\shop\upload.html:13
+msgid "Cancel"
+msgstr ""
+
+#: .\shop\views.py:217
 msgid "Invalid product selection."
 msgstr ""
 
-#: .\shop\views.py:219
+#: .\shop\views.py:229
 msgid "Invalid quantity entered. Quantity has been reset to 1."
 msgstr ""
 
-#: .\shop\views.py:228
+#: .\shop\views.py:238
 msgid "Quantity must be greater than zero. Quantity has been reset to 1."
 msgstr ""
 
-#: .\shop\views.py:238
+#: .\shop\views.py:247
 #, python-format
 msgid "Only %(stock)s item(s) currently available."
 msgstr ""
 
-#: .\shop\views.py:248
+#: .\shop\views.py:254
 msgid "This item is currently out of stock."
 msgstr ""
 
-#: .\shop\views.py:271
+#: .\shop\views.py:272
 msgid "Requested quantity exceeds available stock."
 msgstr ""
 
-#: .\shop\views.py:282
+#: .\shop\views.py:281
 #, python-format
 msgid "\"%(title)s\" added to your cart."
 msgstr ""
 
-#: .\shop\views.py:326
+#: .\shop\views.py:323
 #, python-format
 msgid "Quantity of \"%(title)s\" increased to %(qty)s."
 msgstr ""
 
-#: .\shop\views.py:334
+#: .\shop\views.py:330
 msgid "No additional stock is available for this item."
 msgstr ""
 
-#: .\shop\views.py:353
+#: .\shop\views.py:345
 #, python-format
 msgid "Quantity of \"%(title)s\" decreased to %(qty)s."
 msgstr ""
 
-#: .\shop\views.py:364
+#: .\shop\views.py:357
 #, python-format
 msgid "'%(title)s' has been removed from your cart."
 msgstr ""
 
-#: .\shop\views.py:390
+#: .\shop\views.py:376
 #, python-format
 msgid "\"%(title)s\" has been removed from your cart."
 msgstr ""
 
-#: .\shop\views.py:399
+#: .\shop\views.py:383
 msgid "Your cart is now empty. Browse the gallery to discover more artwork."
 msgstr ""
 
-#: .\shop\views.py:531
+#: .\shop\views.py:519
 msgid "You must agree to the Privacy Notice"
 msgstr ""
 
-#: .\shop\views.py:551
+#: .\shop\views.py:540
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
 msgstr ""
 
-#: .\shop\views.py:558
+#: .\shop\views.py:548
 msgid "Thank you for contacting Hearth Design"
 msgstr ""
 
-#: .\shop\views.py:561
+#: .\shop\views.py:550
+#, python-format
 msgid ""
+"Hi %(name)s,\n"
+"\n"
 "Thank you for reaching out to us. We've received your message and will get "
 "back to you shortly.\n"
 "\n"
