@@ -1,6 +1,7 @@
 # shop views
 
 import hashlib
+import logging
 
 import stripe
 from django.conf import settings
@@ -26,6 +27,7 @@ from .forms import ContactForm, CustomSignupForm, PrintForm, ReviewForm
 from .models import Cart, CartItem, ContactSubmission, Order, Print, Theme
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
+logger = logging.getLogger(__name__)
 
 
 # Homepage view
@@ -665,12 +667,18 @@ def stripe_webhook_view(request):
 def payment_success(request):
     # Optional fallback fulfillment check if user hits success URL directly before webhook fires
     session_id = request.GET.get("session_id")
-    if session_id:
+    if session_id and settings.STRIPE_SECRET_KEY:
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        session = None
         try:
             # If your stripe utility or API lets you fetch the session, you can trigger fulfillment here too
-            pass
-        except Exception:
-            pass
+            if session.get("payment_status") == "paid":
+                fulfill_order_from_stripe_session(session)
+        except stripe.error.StripeError:
+            logger.exception(
+                "Failed to retrieve Stripe checkout session %s", session_id
+            )
+
     return render(request, "shop/payment_success.html")
 
 
