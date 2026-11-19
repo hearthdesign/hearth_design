@@ -26,6 +26,14 @@
               <li class="order-item-row">
                 <span class="item-desc">{{ item.quantity }}x {{ item.print.title }}</span>
                 <span class="item-price">{{ item.price }} €</span>
+                {% if order.is_paid %}
+                  <a
+                    href="{% url 'add_review' item.print.id %}"
+                    class="review-link"
+                    aria-label="{% blocktrans trimmed with title=item.print.title %}Write a review for {{ title }}{% endblocktrans %}">
+                    {% trans "Write a review" %}
+                  </a>
+                {% endif %}
               </li>
             {% endfor %}
           </ul>
@@ -44,5 +52,3 @@
   {% endif %}
 </div>
 {% endblock %}
-
-

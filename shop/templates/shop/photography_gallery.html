@@ -1,83 +1,104 @@
 {% extends 'base.html' %}
-{% load i18n rating_tags cloudinary %}
+{% load static i18n rating_tags cloudinary %}
 <!-- Photography gallery -->
-{% block title %}{% trans "Welcome to HEARTH Shop" %}{% endblock %}
+{% block title %}{% trans "Photography — HEARTH Shop" %}{% endblock %}
 
 {% block content %}
-<div class="gallery-page-container">
-  <h1>{% trans "PHOTOGRAPHY" %}</h1>
+<section class="gallery-page-container" aria-labelledby="photography-heading">
+  <h1 id="photography-heading">{% trans "PHOTOGRAPHY" %}</h1>
+  <p class="gallery-subtitle">
+    {% blocktranslate trimmed %}
+    Printed on metal in A4 format. If you would like other sizes or formats, please
+    reach out through the contact form in the navigation bar.
+    {% endblocktranslate %}
+  </p>
 
   <!-- ===========================
           GALLERY GRID
   ============================ -->
-  <div class="gallery-grid">
-      {% for print in page_obj %}
-      <!-- Parent wrapper to stack image and text vertically -->
-      <div class="gallery-card">
-
+  <div
+    class="gallery-grid"
+    role="list"
+    aria-label="{% trans 'Photography prints gallery' %}">
+    {% for print in page_obj %}
+      <article class="gallery-card" role="listitem">
         <!-- ===========================
                  THUMBNAIL
         ============================ -->
         <div class="thumbnail">
           {% if print.image %}
-          <a href="#" 
-             data-image="{{ print.modal_url }}"
-             data-id="{{ print.id }}" 
-             data-title="{{ print.title }}"
-             data-price="{{ print.price }}">
-            <img
-                 src="{{ print.thumbnail_url }}"
-                 alt="{{ print.title }}"
-                 loading="lazy"
-                 decoding="async"
-                 width="150"
-                 height="150">       
-          </a>
-
+            <a
+              href="#"
+              data-image="{{ print.modal_url }}"
+              data-id="{{ print.id }}"
+              data-title="{{ print.title }}"
+              data-price="{{ print.price }}"
+              aria-label="{% blocktrans trimmed with title=print.title price=print.price %}View larger preview of {{ title }} (€{{ price }}){% endblocktranslate %}">
+              <img
+                src="{{ print.thumbnail_url }}"
+                alt="{{ print.title }}"
+                loading="lazy"
+                decoding="async"
+                width="150"
+                height="150">
+            </a>
           {% else %}
-            <a href="#">
-              <img src="/static/img/placeholder.jpg" alt="No image available">
+            <a
+              href="#"
+              aria-label="{% blocktrans trimmed with title=print.title %}Preview unavailable for {{ title }}{% endblocktranslate %}">
+              <img
+                src="{% static 'images/placeholder.jpg' %}"
+                alt="{% trans 'No image available' %}"
+                loading="lazy"
+                decoding="async"
+                width="150"
+                height="150">
             </a>
           {% endif %}
         </div>
-      <!-- ===========================
-            CARD INFORMATION
-      ============================ -->
-            <div class="card-info">
-                <h2 class="print-title">
-                    {{ print.title }}
-                </h2>
-                <p class="print-price">
-                    €{{ print.price }}
-                </p>
 
         <!-- ===========================
-                  RATING
+            CARD INFORMATION
         ============================ -->
-        <!-- SVG Stars and Review Count -->
-        <div class="rating-badge">
+        <div class="card-info">
+          <h2 class="print-title">
+            {{ print.title }}
+          </h2>
+          <p class="print-price" aria-label="{% blocktrans trimmed with price=print.price %}Price: {{ price }} euros{% endblocktranslate %}">
+            &euro;{{ print.price }}
+          </p>
+
+          <!-- ===========================
+                  RATING
+          ============================ -->
+          <div
+            class="rating-badge"
+            role="img"
+            aria-label="{% if print.num_reviews %}{% blocktrans trimmed with rating=print.avg_rating count=print.num_reviews %}Average rating {{ rating }} out of 5 from {{ count }} reviews{% endblocktrans %}{% else %}{% trans 'No reviews yet' %}{% endif %}">
             {{ print.avg_rating|render_stars }}
             {% if print.num_reviews %}
-                <span class="review-count">
-                    ({{ print.num_reviews }})
-                </span>
+              <span class="review-count" aria-hidden="true">
+                ({{ print.num_reviews }})
+              </span>
             {% else %}
-                <span class="no-reviews">
-                    {% trans "No reviews" %}
-                </span>
+              <span class="no-reviews" aria-hidden="true">
+                {% trans "No reviews" %}
+              </span>
             {% endif %}
+          </div>
         </div>
-      </div>
-    </div>
+      </article>
     {% empty %}
-      <p>{% trans "No prints found." %}</p>
+      <p role="status">{% trans "No prints found." %}</p>
     {% endfor %}
   </div>
 
   {% block pagination %}
-    <div class="pagination-wrapper">
-        {% include "shop/_pagination.html" %}
-    </div>
+    <nav
+      class="pagination-wrapper"
+      aria-label="{% trans 'Photography pagination' %}">
+      {% include "shop/_pagination.html" %}
+    </nav>
   {% endblock %}
-</div>
+</section>
 {% endblock %}
