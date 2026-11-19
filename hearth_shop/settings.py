@@ -170,7 +170,6 @@ if DEBUG:
             "OPTIONS": dict(parse_qsl(tmpPostgres.query)),
         }
     }
-
 else:
     # Production on Heroku — Heroku injects DATABASE_URL automatically
     DATABASES = {"default": dj_database_url.config(conn_max_age=600, ssl_require=True)}
@@ -191,7 +190,7 @@ cloudinary.config(
 )
 
 # ---------------------------------------------------------
-# TEMPLATES
+# PASSWORD VALIDATION
 # ---------------------------------------------------------
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
@@ -233,7 +232,6 @@ LANGUAGES = [
     ("ja", _("日本語")),
 ]
 LANGUAGE_COOKIE_NAME = "django_language"
-LANGUAGE_COOKIE_PATH = "/"
 LANGUAGE_COOKIE_SAMESITE = "Lax"
 LANGUAGE_COOKIE_AGE = 31536000  # 1 year
 LANGUAGE_COOKIE_USE_SESSION = False
@@ -272,6 +270,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY")
 STRIPE_PUBLISHABLE_KEY = config("STRIPE_PUBLISHABLE_KEY")
 STRIPE_WEBHOOK_SECRET = config("STRIPE_WEBHOOK_SECRET")
+
 # ---------------------------------------------------------
 # MEDIA
 # ---------------------------------------------------------

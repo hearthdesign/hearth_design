@@ -4,6 +4,43 @@
 {% block title %}{% trans "Welcome to HEARTH Shop" %}{% endblock %}
 
 {% block content %}
-    <h2>{% trans "Discover Our Art" %}</h2>
-    <p>{% trans "Browse themed prints, illustrations, and photographs curated for every taste." %}</p>
+    <section class="home-intro" aria-labelledby="home-welcome-heading">
+        <h2 id="home-welcome-heading">{% trans "Welcome to HEARTH Shop" %}</h2>
+        <p class="home-scope">
+            {% trans "A nature, family, and kid-friendly selection of illustrations and photographs made to bring calm and warmth into everyday spaces. Feel free to browse through the collections at your own pace." %}
+        </p>
+
+        <div class="about-dropdown-wrap">
+            <button
+                type="button"
+                id="about-hearth-toggle"
+                class="discover-trigger"
+                aria-expanded="false"
+                aria-controls="about-hearth-panel"
+                aria-label="{% trans 'Discover Our Art — read the story behind HEARTH' %}">
+                <span>{% trans "Discover Our Art" %}</span>
+                <span class="discover-cue" aria-hidden="true">&#9662;</span>
+            </button>
+
+            <div
+                id="about-hearth-panel"
+                class="about-dropdown-panel"
+                role="region"
+                aria-labelledby="about-hearth-toggle"
+                hidden>
+                <p class="about-lead">
+                    {% trans "A place for art between the earth and the heart." %}
+                </p>
+                <p>
+                    {% trans "While a hearth already carries its own quiet meaning, HEARTH is also a gentle wordplay on two values behind our work: heart and earth." %}
+                </p>
+                <blockquote class="artist-quote">
+                    <p>
+                        {% trans "“Whoever wants to know something about me—as an artist, which alone is significant—should look attentively at my pictures and there seek to recognize what I am and what I want.”" %}
+                    </p>
+                    <footer>— {% trans "Gustav Klimt" %}</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
 {% endblock %}

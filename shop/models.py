@@ -1,7 +1,6 @@
 from decimal import Decimal
 
 from django.conf import settings
-from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Avg
 from django.utils import timezone
@@ -10,15 +9,25 @@ from django.utils.translation import gettext_lazy as _
 
 from shop.storage_cloudinary import CloudinaryMediaStorage
 
-# from shop.models import Print
+
+def _generate_unique_slug(instance, source_value, max_length=200):
+    base_slug = slugify(source_value)[:max_length] or "item"
+    slug = base_slug
+    model_cls = instance.__class__
+    counter = 2
+    while model_cls.objects.filter(slug=slug).exclude(pk=instance.pk).exists():
+        suffix = f"-{counter}"
+        slug = f"{base_slug[: max_length - len(suffix)]}{suffix}"
+        counter += 1
+    return slug
 
 
 # Parent Category Model
 class Category(models.Model):
     TYPE_CHOICES = [
-        ("info", "Info"),
-        ("print", "Print"),
-        ("blog", "Blog"),
+        ("info", _("Info")),
+        ("print", _("Print")),
+        ("blog", _("Blog")),
         ("general", _("General")),
     ]
     title = models.CharField(max_length=100, unique=True)
@@ -35,21 +44,21 @@ class Category(models.Model):
         on_delete=models.SET_NULL,
         related_name="subcategories",
     )
-    # (Optional) visual representation for category
+    # Optional visual representation for category
     image = models.ImageField(
         upload_to="category_images/",
         storage=CloudinaryMediaStorage(),
         blank=True,
         null=True,
     )
-    # Hide category without delete if is not in use
+    # Hide category without deleting if not in use
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ["title"]
-        verbose_name = "Category"
-        verbose_name_plural = "Categories"
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
         indexes = [
             models.Index(fields=["slug"]),
             models.Index(fields=["type"]),
@@ -58,7 +67,7 @@ class Category(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
+            self.slug = _generate_unique_slug(self, self.title, max_length=200)
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -69,7 +78,7 @@ class Category(models.Model):
 class Theme(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, blank=True, max_length=120)
     icon = models.ImageField(
         upload_to="theme_icons/",
         storage=CloudinaryMediaStorage(),
@@ -83,7 +92,7 @@ class Theme(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.name)
+            self.slug = _generate_unique_slug(self, self.name, max_length=120)
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -101,7 +110,6 @@ class Print(models.Model):
         ("wood", _("Wood Print")),
         ("paper", _("Paper Print")),
     ]
-    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, blank=True, max_length=200)
     type = models.CharField(max_length=20, choices=TYPE_CHOICES)
@@ -111,12 +119,11 @@ class Print(models.Model):
     description = models.TextField(blank=True)
     # Cloudinary for images
     image = models.ImageField(
-        upload_to="prints/%Y/%m%d",
+        upload_to="prints/%Y/%m/%d",
         storage=CloudinaryMediaStorage(),
         blank=True,
         null=True,
     )
-
     price = models.DecimalField(
         max_digits=8, decimal_places=2, default=Decimal("50.00")
     )
@@ -129,8 +136,8 @@ class Print(models.Model):
 
     class Meta:
         ordering = ["title"]
-        verbose_name = "Print"
-        verbose_name_plural = "Prints"
+        verbose_name = _("Print")
+        verbose_name_plural = _("Prints")
         indexes = [
             models.Index(fields=["price"]),
         ]
@@ -144,20 +151,10 @@ class Print(models.Model):
     def num_reviews(self):
         return self.reviews.count()
 
-    # Save method to auto generated slug
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.title
-
     @property
     def in_stock(self):
         return self.stock > 0
 
-    # Resized Modal and thumbnails images
     @property
     def thumbnail_url(self):
         if self.image:
@@ -171,6 +168,14 @@ class Print(models.Model):
         if self.image:
             return self.image.url.replace("/upload/", "/upload/f_auto,q_auto,w_1200/")
         return ""
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = _generate_unique_slug(self, self.title, max_length=200)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
 
 
 # Cart model
@@ -192,8 +197,6 @@ class CartItem(models.Model):
     print = models.ForeignKey(
         Print,
         on_delete=models.CASCADE,
-        null=False,
-        blank=False,
         related_name="cart_items",
     )
     quantity = models.PositiveIntegerField(default=1)
@@ -205,7 +208,7 @@ class CartItem(models.Model):
         constraints = [
             models.UniqueConstraint(fields=["cart", "print"], name="unique_cart_print"),
             models.CheckConstraint(
-                check=models.Q(quantity__gt=0), name="cartitem_quantity_gt_0"
+                condition=models.Q(quantity__gt=0), name="cartitem_quantity_gt_0"
             ),
         ]
 
@@ -217,6 +220,13 @@ class CartItem(models.Model):
 
 # Order model
 class Order(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="orders",
+    )
     customer_name = models.CharField(max_length=100)
     customer_email = models.EmailField()
     stripe_session_id = models.CharField(
@@ -225,19 +235,21 @@ class Order(models.Model):
         default="",
         unique=True,
     )
-
     prints = models.ManyToManyField(Print, through="OrderItem")
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     is_paid = models.BooleanField(default=False)
 
-    def calculate_total(self):
-        return sum(item.price * item.quantity for item in self.items.all())
-
     class Meta:
         ordering = ["-created_at"]
         verbose_name = _("Order")
         verbose_name_plural = _("Orders")
+
+    def calculate_total(self):
+        return sum(
+            (item.price * item.quantity for item in self.items.all()),
+            Decimal("0.00"),
+        )
 
     def __str__(self):
         return f"Order #{self.id} - {self.customer_name}"
@@ -266,7 +278,7 @@ class ContactSubmission(models.Model):
     ip_hash = models.CharField(max_length=64, default="unknown")  # SHA-256 hash of IP
     user_agent = models.TextField(default="unknown")
     submitted_at = models.DateTimeField(default=timezone.now)
-    marketing_consent = models.BooleanField(default=False)  # Marketing consent field
+    marketing_consent = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = _("Contact Submission")
@@ -280,12 +292,20 @@ class Review(models.Model):
     print_item = models.ForeignKey(
         Print, on_delete=models.CASCADE, related_name="reviews"
     )
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True
+    )
     rating = models.IntegerField(
         choices=[(i, str(i)) for i in range(1, 6)]
     )  # 1 to 5 stars
     comment = models.TextField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = _("Review")
+        verbose_name_plural = _("Reviews")
+
     def __str__(self):
-        return f"{self.rating} Stars by {self.name or self.user.username} for {self.print_item.title}"
+        reviewer = self.user.username if self.user else _("Anonymous")
+        return f"{self.rating} Stars by {reviewer} for {self.print_item.title}"

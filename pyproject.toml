@@ -1,10 +1,12 @@
 [tool.ruff]
+line-length = 79
 
 exclude = [
     "*/migrations/*",
 ]
 
 [tool.ruff.lint]
+select = ["E", "F", "I", "W"]
 
 ignore = [
     "RUF012", # Django Meta classes, choices, widgets, admin settings

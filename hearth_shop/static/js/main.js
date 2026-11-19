@@ -358,3 +358,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function initAboutHearthToggle() {
+  const toggleBtn = document.getElementById("about-hearth-toggle");
+  const panel = document.getElementById("about-hearth-panel");
+
+  if (!toggleBtn || !panel) return;
+
+  toggleBtn.addEventListener("click", () => {
+    const isExpanded = toggleBtn.getAttribute("aria-expanded") === "true";
+    const nextExpanded = !isExpanded;
+
+    toggleBtn.setAttribute("aria-expanded", String(nextExpanded));
+    toggleBtn.classList.toggle("is-open", nextExpanded);
+    panel.hidden = !nextExpanded;
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initAboutHearthToggle);
+} else {
+  initAboutHearthToggle();
+}
