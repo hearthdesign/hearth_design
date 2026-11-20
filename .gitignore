@@ -28,3 +28,6 @@ venv/
 
 # Static files
 staticfiles/
+
+# Ruff
+.ruff_cache

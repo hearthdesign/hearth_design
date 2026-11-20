@@ -239,3 +239,55 @@ System check identified no issues (0 silenced).
 
 Actual Result
 System check identified no issues (0 silenced).
+
+
+## SEO files test 
+
+### robots.txt and sitemap.xml
+(pages/tests.py)
+
+```python
+# pages/tests.py
+from django.test import TestCase
+from django.urls import reverse
+
+class SEOFilesTestCase(TestCase):
+    
+    def test_robots_txt_returns_200(self):
+        """Test that robots.txt is accessible and returns HTTP 200"""
+        response = self.client.get("/robots.txt")
+        self.assertEqual(response.status_code, 200)
+        # Verify it's served as plain text
+        self.assertIn("text/plain", response["Content-Type"])
+
+    def test_sitemap_xml_returns_200(self):
+        """Test that sitemap.xml is accessible and returns HTTP 200"""
+        response = self.client.get("/sitemap.xml")
+        self.assertEqual(response.status_code, 200)
+        # Verify it's served as XML
+        self.assertIn("xml", response["Content-Type"])
+```
+
+run:
+```python
+python manage.py test
+```
+#### Problem
+in execute raise ex.with_traceback(None)
+django.db.utils.OperationalError: 
+database "test_neondb" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+
+#### Solution Use --keepdb to Reuse the Test Database
+
+```python
+python manage.py test --keepdb
+```
+
+#### Result
+Found 22 test(s).
+Using existing test database for alias 'default'...
+System check identified no issues (0 silenced).
+...
+Ran 22 tests in 22.110s
+OK

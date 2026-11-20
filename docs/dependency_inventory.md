@@ -1,5 +1,14 @@
 # Dependency Inventory
 
+# Direct Dependencies
+ * Web & Database: Django==5.2.6, psycopg==3.2.10, dj-database-url==3.0.1, django-extensions==4.1
+
+ * Payments & Media: stripe==12.5.1, cloudinary==1.44.1, django-cloudinary-storage==0.3.0, django-storages==1.14.6, pillow==11.3.0
+
+ * Static Files, Server & Env: whitenoise==6.11.0, gunicorn==23.0.0, python-decouple==3.8, python-dotenv==1.1.1
+
+ * HTTP (if making external API calls directly): requests==2.32.5 (or httpx==0.28.1 if used directly)
+
 ## Framework and Application Configuration
 
 ### Django 5.2.6

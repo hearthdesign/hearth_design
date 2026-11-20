@@ -58,7 +58,7 @@ Revenue is generated through:
 - Curated themed collections
 - Potential future commissioned artwork services
 
-The platform enables artists to manage pricing, inventory, themes, and product presentation while maintaining full ownership and control over their catalog.
+The platform enables the artist to manage pricing, inventory, themes, and product presentation while maintaining full ownership and control over the catalog.
 
 Potential future revenue streams include:
 
@@ -122,7 +122,7 @@ The platform provides customers with an engaging shopping experience while givin
 As a customer, I can:
 
   - Browse available prints and artwork collections.
-  - View artwork details including title, image, description, and price.
+  - View artwork details including title, image and price.
   - Filter artwork by theme and medium.
   - Add items to a shopping cart.
   - Complete purchases through Stripe Checkout.
@@ -483,13 +483,9 @@ Defines the artwork subject:
   - Abstract
 
 ### Category
-Defines the artwork subject:
-
-  - Nature
-  - Animals
-  - Architecture
-  - Family
-  - Abstract
+Defines the subject of a section:
+- Artworks (Prints)
+- Blog (future development)
 
 ## Single Source of Truth
 The `Print` model acts as the single source of truth for:
@@ -709,10 +705,26 @@ Translations are implemented using:
 
 ```python
 USE_I18N = True
-LANGUAGES = [("en", "English"), ("de", "Deutsch"), ("fr", "Français"), ...]
+LANGUAGES = [
+    ('en', 'English'),
+    ('de', 'Deutsch'),
+    ('fr', 'Français'),
+    ...
+]
 ```
 
 ---
+
+# Manual Testing
+
+## Gallery
+
+| Test | Expected Result | Pass |
+|--------|--------|--------|
+| Open gallery page | Gallery loads correctly | ✅ |
+| Open modal | Larger image opens | ✅ |
+| Change language | Language changes | ✅ |
+| Add to cart | Product added correctly | ✅ |
 
 ### Reusable Templates
 _gallery_grid.html → renders thumbnails. 
@@ -736,16 +748,265 @@ Specialized templates (homepage.html, illustration_gallery.html, photography_gal
 ### Shopping Experience
 
 - Add items to the cart.
+![alt text](docs\readme\image-12.png)
+
 - Update quantities.
+![alt text](docs\readme\image-13.png)
+![alt text](docs\readme\image-14.png)
+![alt text](docs\readme\image-15.png)
+
 - Remove items.
+![alt text](docs\readme\image-16.png)
 
 ### Checkout
 
 - Complete a Stripe test transaction.
-- Verify order creation.
-- Confirm order history functionality.
+![alt text](docs\readme\image-17.png)
+![alt text](docs\readme\image-18.png)
+![alt text](docs\readme\image-19.png)
 
---- 
+- Verify order creation.
+![alt text](docs\readme\image-20.png)
+
+- Confirm order history functionality.
+![alt text](docs\readme\image-21.png)
+
+- Payment Cancelled
+![alt text](docs\readme\image-11.png)
+
+---
+
+# Automated Testing
+
+## Django Tests
+
+Run:
+python manage.py test
+
+Result:
+All tests passed successfully.
+
+---
+
+# Validation Testing
+
+## HTML Validation
+
+All pages were validated using the W3C HTML Validator.
+Minor warnings were reviewed and deemed acceptable where applicable.
+
+## CSS Validation
+
+The stylesheet was tested using the W3C CSS Validator.
+
+Result:
+
+- 0 CSS errors
+- Remaining warnings relate to browser-supported vendor extensions and intentional styling choices.
+
+Validator:
+https://jigsaw.w3.org/css-validator/
+
+![CSS Validation](assets/testing/css-validator.webp)
+
+---
+
+## JSHint results
+
+Result
+
+Metrics
+
+There are 23 functions in this file.
+Function with the largest signature take 4 arguments, while the median is 0.
+Largest function has 15 statements in it, while the median is 4.
+The most complex function has a cyclomatic complexity value of 6 while the median is 2.
+
+---
+
+## Lighthouse
+
+![alt text](docs\readme\image.png)
+
+![alt text](docs\readme\image-1.png)
+
+![alt text](docs\readme\image-2.png)
+
+![alt text](docs\readme\image-7.png)
+
+![alt text](docs\readme\image-8.png)
+
+![alt text](docs\readme\image-6.png)
+
+### Passed audits (21)
+
+- Use efficient cache lifetimes
+- Layout shift culprits
+- Optimize DOM size
+- Duplicated JavaScript
+- Font display
+- Forced reflow
+- INP breakdown
+- LCP request discovery
+- Legacy JavaScript
+- Modern HTTP
+- Optimize viewport for mobile
+- Minify CSS
+- Reduce unused CSS
+- Reduce unused JavaScript
+- Avoids enormous network payloads Total size was 200 KiB
+- User Timing marks and measures
+- JavaScript execution time 0.1 s
+- Minimizes main-thread work 0.6 s
+- Avoid non-composited animations
+- Image elements have explicit width and height
+- Page didn't prevent back/forward cache restoration
+
+
+![alt text](docs\readme\image-9.png)
+
+Passed audits (21)
+
+- [aria-*] attributes match their roles
+- [aria-hidden="true"] is not present on the document <body>
+- [aria-*] attributes have valid values
+- [aria-*] attributes are valid and not misspelled
+- Image elements have [alt] attributes
+- [user-scalable="no"] is not used in the <meta name="viewport"> element and the [maximum-scale] attribute is not less than 5.
+- Select elements have associated label elements.
+- ARIA attributes are used as specified for the element's role
+- [aria-hidden="true"] elements do not contain focusable descendents
+- Elements use only permitted ARIA attributes
+- Background and foreground colors have a sufficient contrast ratio
+- Document has a <title> element
+- <html> element has a [lang] attribute
+- <html> element has a valid value for its [lang] attribute
+- Links have a discernible name
+- Lists contain only <li> elements and script supporting elements (<script> and <template>).
+- List items (<li>) are contained within <ul>, <ol> or <menu> parent elements
+- Touch targets have sufficient size and spacing.
+- Heading elements appear in a sequentially-descending order
+- Document has a main landmark.
+- Elements with role="none" or role="presentation" do not have conflicts
+
+![alt text](docs\readme\image-10.png)
+
+Passed audits (13)
+
+- Uses HTTPS
+- Avoids deprecated APIs
+- Avoids third-party cookies
+- Allows users to paste into input fields
+- Avoids requesting the geolocation permission on page load
+- Avoids requesting the notification permission on page load
+- Displays images with correct aspect ratio
+- Serves images with appropriate resolution
+- Page has the HTML doctype
+- Properly defines charset
+- No browser errors logged to the console
+- No issues in the Issues panel in Chrome Devtools
+- Page has valid source maps
+
+
+![alt text](docs\readme\image-22.png)
+
+Passed audits (8)
+
+- Page isn’t blocked from indexing
+- Document has a <title> element
+- Document has a meta description
+- Page has successful HTTP status code
+- Links have descriptive text
+- Links are crawlable
+- Image elements have [alt] attributes
+- Document has a valid hreflang
+
+---
+
+### HTTPS Testing
+
+The application enforces HTTPS in production using Django security settings:
+
+- SECURE_SSL_REDIRECT
+- SECURE_PROXY_SSL_HEADER
+- Secure session cookies
+- Secure CSRF cookies
+
+Testing confirmed that HTTP requests are automatically redirected to HTTPS.
+
+---
+
+## PEP8 tested with **Ruff** (`charliermarsh.ruff`) extension 
+
+```python
+ruff check .
+```
+
+### After running the first test the following problems have been found:
+
+### 1. Unused variable created:
+```python
+cart, created = Cart.objects.get_or_create(
+user=request.user
+)
+```
+
+Has been changed to:
+```python
+cart, _ = Cart.objects.get_or_create(
+user=request.user
+)
+```
+
+### 2. Unused variable event:
+```python
+event, status_code = handle_stripe_webhook(
+payload,
+sig_header
+)
+```
+
+Has been changed to:
+```python
+_event, status_code = handle_stripe_webhook(
+payload,
+sig_header
+)
+```
+
+### 3. Translation warning (INT001):
+```Python
+message = _(
+f"Hi {form.cleaned_data['name']},\n\n"
+"Thank you for reaching out..."
+)
+```
+Wrong for Django i18n.
+
+Has been replaced with:
+
+```python
+message = _(
+"Hi %(name)s,\n\n"
+"Thank you for reaching out to us. "
+"We've received your message and will get back to you shortly.\n\n"
+"Best regards,\n"
+"Hearth Design Team"
+) % {
+"name": form.cleaned_data["name"]
+}
+```
+
+### 4, Variable name change:
+
+The variable "created" has been replaced with "_created"
+
+### After executing the test (ruff check .)
+
+Result:
+All checks passed!
+
+---
 
 ## Project Documentation
 
