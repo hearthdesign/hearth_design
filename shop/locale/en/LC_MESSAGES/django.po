@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-18 11:25+0100\n"
+"POT-Creation-Date: 2026-11-19 14:17+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: English\n"
@@ -47,67 +47,80 @@ msgstr ""
 msgid "日本語"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:9
+#: .\hearth_shop\templates\base.html:10 .\hearth_shop\templates\base.html:28
 msgid "Hearth Shop"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:48
+#: .\hearth_shop\templates\base.html:13
+msgid ""
+"HEARTH Design. Discover illustrations and creative collections celebrating "
+"kindness, acceptance, imagination, and the values that help people feel at "
+"home in the world."
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:29
+msgid ""
+"Discover illustrations and creative collections celebrating kindness, "
+"acceptance, imagination, and feeling at home in the world."
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:65
 msgid "Shop"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:49
+#: .\hearth_shop\templates\base.html:66
 msgid "[ SHOP ]"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:85
+#: .\hearth_shop\templates\base.html:99
 msgid "Close modal"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:104
+#: .\hearth_shop\templates\base.html:118
 msgid "Quantity:"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:106
+#: .\hearth_shop\templates\base.html:120
 msgid "Add to Cart"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:111
+#: .\hearth_shop\templates\base.html:125
 msgid "Gallery controls"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:112
+#: .\hearth_shop\templates\base.html:126
 msgid "Previous image"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:115
+#: .\hearth_shop\templates\base.html:129
 msgid "Next image"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:126
+#: .\hearth_shop\templates\base.html:137
 msgid "Back to top"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:133
+#: .\hearth_shop\templates\base.html:144
 msgid "Footer navigation"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:134 .\shop\templates\shop\contact.html:4
+#: .\hearth_shop\templates\base.html:145 .\shop\templates\shop\contact.html:4
 #: .\shop\templates\shop\contact.html:8
 msgid "Contact Us"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:135
+#: .\hearth_shop\templates\base.html:146
 #: .\shop\templates\shop\privacy_policy.html:6
 #: .\shop\templates\shop\privacy_policy.html:10
 msgid "Privacy Policy"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:136 .\shop\templates\shop\terms.html:4
+#: .\hearth_shop\templates\base.html:147 .\shop\templates\shop\terms.html:4
 #: .\shop\templates\shop\terms.html:8
 msgid "Terms of Service"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:141
+#: .\hearth_shop\templates\base.html:152
 msgid "All rights reserved."
 msgstr ""
 
@@ -139,7 +152,7 @@ msgid "Upload"
 msgstr ""
 
 #: .\hearth_shop\templates\includes\navbar.html:56
-#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:182
+#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:187
 msgid "Cart"
 msgstr ""
 
@@ -200,72 +213,108 @@ msgstr ""
 msgid "I would like to receive updates about new art, offers, and newsletters"
 msgstr ""
 
-#: .\shop\models.py:22
+#: .\shop\models.py:28
+msgid "Info"
+msgstr ""
+
+#: .\shop\models.py:29 .\shop\models.py:139
+msgid "Print"
+msgstr ""
+
+#: .\shop\models.py:30
+msgid "Blog"
+msgstr ""
+
+#: .\shop\models.py:31
 msgid "General"
 msgstr ""
 
-#: .\shop\models.py:81
+#: .\shop\models.py:60
+msgid "Category"
+msgstr ""
+
+#: .\shop\models.py:61
+msgid "Categories"
+msgstr ""
+
+#: .\shop\models.py:90
 msgid "Theme"
 msgstr ""
 
-#: .\shop\models.py:82
+#: .\shop\models.py:91
 msgid "Themes"
 msgstr ""
 
-#: .\shop\models.py:96
+#: .\shop\models.py:105
 msgid "Photography"
 msgstr ""
 
-#: .\shop\models.py:97
+#: .\shop\models.py:106
 msgid "Illustration"
 msgstr ""
 
-#: .\shop\models.py:100
+#: .\shop\models.py:109
 msgid "Metal Print"
 msgstr ""
 
-#: .\shop\models.py:101
+#: .\shop\models.py:110
 msgid "Wood Print"
 msgstr ""
 
-#: .\shop\models.py:102
+#: .\shop\models.py:111
 msgid "Paper Print"
 msgstr ""
 
-#: .\shop\models.py:183
+#: .\shop\models.py:140
+msgid "Prints"
+msgstr ""
+
+#: .\shop\models.py:188
 msgid "Carts"
 msgstr ""
 
-#: .\shop\models.py:203
+#: .\shop\models.py:206
 msgid "Cart Item"
 msgstr ""
 
-#: .\shop\models.py:204
+#: .\shop\models.py:207
 msgid "Cart Items"
 msgstr ""
 
-#: .\shop\models.py:239
+#: .\shop\models.py:245
 msgid "Order"
 msgstr ""
 
-#: .\shop\models.py:240
+#: .\shop\models.py:246
 msgid "Orders"
 msgstr ""
 
-#: .\shop\models.py:254
+#: .\shop\models.py:266
 msgid "Order Item"
 msgstr ""
 
-#: .\shop\models.py:255
+#: .\shop\models.py:267
 msgid "Order Items"
 msgstr ""
 
-#: .\shop\models.py:272
+#: .\shop\models.py:284
 msgid "Contact Submission"
 msgstr ""
 
-#: .\shop\models.py:273
+#: .\shop\models.py:285
 msgid "Contact Submissions"
+msgstr ""
+
+#: .\shop\models.py:306
+msgid "Review"
+msgstr ""
+
+#: .\shop\models.py:307
+msgid "Reviews"
+msgstr ""
+
+#: .\shop\models.py:310
+msgid "Anonymous"
 msgstr ""
 
 #: .\shop\templates\registration\logged_out.html:5
@@ -431,30 +480,108 @@ msgstr ""
 msgid "Send Message"
 msgstr ""
 
-#: .\shop\templates\shop\homepage.html:4
-#: .\shop\templates\shop\illustration_gallery.html:4
-#: .\shop\templates\shop\photography_gallery.html:4
+#: .\shop\templates\shop\homepage.html:4 .\shop\templates\shop\homepage.html:8
 msgid "Welcome to HEARTH Shop"
 msgstr ""
 
-#: .\shop\templates\shop\homepage.html:7
+#: .\shop\templates\shop\homepage.html:10
+msgid ""
+"A nature, family, and kid-friendly selection of illustrations and "
+"photographs made to bring calm and warmth into everyday spaces. Feel free to "
+"browse through the collections at your own pace."
+msgstr ""
+
+#: .\shop\templates\shop\homepage.html:20
+msgid "Discover Our Art — read the story behind HEARTH"
+msgstr ""
+
+#: .\shop\templates\shop\homepage.html:21
 msgid "Discover Our Art"
 msgstr ""
 
-#: .\shop\templates\shop\homepage.html:8
-msgid ""
-"Browse themed prints, illustrations, and photographs curated for every taste."
+#: .\shop\templates\shop\homepage.html:32
+msgid "A place for art between the earth and the heart."
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:65
-#: .\shop\templates\shop\photography_gallery.html:66
+#: .\shop\templates\shop\homepage.html:35
+msgid ""
+"While a hearth already carries its own quiet meaning, HEARTH is also a "
+"gentle wordplay on two values behind our work: heart and earth."
+msgstr ""
+
+#: .\shop\templates\shop\homepage.html:39
+msgid ""
+"“Whoever wants to know something about me—as an artist, which alone is "
+"significant—should look attentively at my pictures and there seek to "
+"recognize what I am and what I want.”"
+msgstr ""
+
+#: .\shop\templates\shop\homepage.html:41
+msgid "Gustav Klimt"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:4
+msgid "Illustrations — HEARTH Shop"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:10
+msgid ""
+"Laser-engraved original graphics hand-coloured with acrylic colours in A4 "
+"format. If you would like other sizes or formats, please reach out through "
+"the contact form in the navigation bar."
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:23
+msgid "Illustration gallery"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:37
+#: .\shop\templates\shop\photography_gallery.html:36
+#, python-format
+msgid "View larger preview of %(title)s (€%(price)s)"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:49
+#: .\shop\templates\shop\photography_gallery.html:48
+#, python-format
+msgid "Preview unavailable for %(title)s"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:52
+#: .\shop\templates\shop\photography_gallery.html:51
+msgid "No image available"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:68
+#: .\shop\templates\shop\photography_gallery.html:67
+#, python-format
+msgid "Price: %(price)s euros"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:78
+#: .\shop\templates\shop\photography_gallery.html:77
+#, python-format
+msgid "Average rating %(rating)s out of 5 from %(count)s reviews"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:78
+#: .\shop\templates\shop\photography_gallery.html:77
+msgid "No reviews yet"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:86
+#: .\shop\templates\shop\photography_gallery.html:85
 #: .\shop\templates\shop\themed_gallery.html:81
 msgid "No reviews"
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:74
-#: .\shop\templates\shop\photography_gallery.html:73
+#: .\shop\templates\shop\illustration_gallery.html:93
+#: .\shop\templates\shop\photography_gallery.html:92
 msgid "No prints found."
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:100
+msgid "Illustrations pagination"
 msgstr ""
 
 #: .\shop\templates\shop\order_history.html:16
@@ -469,11 +596,20 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
-#: .\shop\templates\shop\order_history.html:35
-msgid "Total:"
+#: .\shop\templates\shop\order_history.html:33
+#, python-format
+msgid "Write a review for %(title)s"
+msgstr ""
+
+#: .\shop\templates\shop\order_history.html:34
+msgid "Write a review"
 msgstr ""
 
 #: .\shop\templates\shop\order_history.html:43
+msgid "Total:"
+msgstr ""
+
+#: .\shop\templates\shop\order_history.html:51
 msgid "You have no past orders."
 msgstr ""
 
@@ -505,6 +641,24 @@ msgstr ""
 
 #: .\shop\templates\shop\payment_success.html:13
 msgid "View Orders"
+msgstr ""
+
+#: .\shop\templates\shop\photography_gallery.html:4
+msgid "Photography — HEARTH Shop"
+msgstr ""
+
+#: .\shop\templates\shop\photography_gallery.html:10
+msgid ""
+"Printed on metal in A4 format. If you would like other sizes or formats, "
+"please reach out through the contact form in the navigation bar."
+msgstr ""
+
+#: .\shop\templates\shop\photography_gallery.html:22
+msgid "Photography prints gallery"
+msgstr ""
+
+#: .\shop\templates\shop\photography_gallery.html:99
+msgid "Photography pagination"
 msgstr ""
 
 #: .\shop\templates\shop\privacy_policy.html:13
@@ -708,48 +862,48 @@ msgstr ""
 msgid "\"%(title)s\" added to your cart."
 msgstr ""
 
-#: .\shop\views.py:323
+#: .\shop\views.py:326
 #, python-format
 msgid "Quantity of \"%(title)s\" increased to %(qty)s."
 msgstr ""
 
-#: .\shop\views.py:330
+#: .\shop\views.py:333
 msgid "No additional stock is available for this item."
 msgstr ""
 
-#: .\shop\views.py:345
+#: .\shop\views.py:348
 #, python-format
 msgid "Quantity of \"%(title)s\" decreased to %(qty)s."
 msgstr ""
 
-#: .\shop\views.py:357
+#: .\shop\views.py:360
 #, python-format
 msgid "'%(title)s' has been removed from your cart."
 msgstr ""
 
-#: .\shop\views.py:376
+#: .\shop\views.py:379
 #, python-format
 msgid "\"%(title)s\" has been removed from your cart."
 msgstr ""
 
-#: .\shop\views.py:383
+#: .\shop\views.py:386
 msgid "Your cart is now empty. Browse the gallery to discover more artwork."
 msgstr ""
 
-#: .\shop\views.py:519
+#: .\shop\views.py:531
 msgid "You must agree to the Privacy Notice"
 msgstr ""
 
-#: .\shop\views.py:540
+#: .\shop\views.py:552
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
 msgstr ""
 
-#: .\shop\views.py:548
+#: .\shop\views.py:560
 msgid "Thank you for contacting Hearth Design"
 msgstr ""
 
-#: .\shop\views.py:550
+#: .\shop\views.py:562
 #, python-format
 msgid ""
 "Hi %(name)s,\n"
