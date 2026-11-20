@@ -72,10 +72,14 @@
           <!-- ===========================
                   RATING
           ============================ -->
-          <div
+                    <div
             class="rating-badge"
             role="img"
-            aria-label="{% if print.num_reviews %}{% blocktrans trimmed with rating=print.avg_rating count=print.num_reviews %}Average rating {{ rating }} out of 5 from {{ count }} reviews{% endblocktrans %}{% else %}{% trans 'No reviews yet' %}{% endif %}">
+            {% if print.num_reviews %}
+              aria-label="{% blocktranslate trimmed with rating=print.avg_rating count=print.num_reviews %}Average rating {{ rating }} out of 5 from {{ count }} reviews{% endblocktranslate %}"
+            {% else %}
+              aria-label="{% trans 'No reviews yet' %}"
+            {% endif %}>
             {{ print.avg_rating|render_stars }}
             {% if print.num_reviews %}
               <span class="review-count" aria-hidden="true">

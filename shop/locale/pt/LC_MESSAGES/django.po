@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 14:17+0100\n"
+"POT-Creation-Date: 2026-11-20 09:10+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -216,8 +216,7 @@ msgstr "Li e aceito o aviso de privacidade"
 
 #: .\shop\forms.py:51 .\shop\templates\shop\contact.html:78
 msgid "I would like to receive updates about new art, offers, and newsletters"
-msgstr ""
-"Gostaria de receber novidades sobre novas obras, ofertas e newsletters"
+msgstr "Gostaria de receber novidades sobre novas obras, ofertas e newsletters"
 
 #: .\shop\models.py:28
 msgid "Info"
@@ -347,8 +346,8 @@ msgstr "Repor a tua palavra-passe"
 msgid ""
 "Enter your email address and we'll send you a link to reset your password."
 msgstr ""
-"Introduz o teu endereço de e-mail e enviaremos uma ligação para repor a "
-"tua palavra-passe."
+"Introduz o teu endereço de e-mail e enviaremos uma ligação para repor a tua "
+"palavra-passe."
 
 #: .\shop\templates\registration\password_reset.html:10
 msgid "Send reset link"
@@ -360,8 +359,7 @@ msgstr "Reposição concluída"
 
 #: .\shop\templates\registration\password_reset_complete.html:7
 msgid "Your password has been successfully reset. You may now log in."
-msgstr ""
-"A tua palavra-passe foi reposta com sucesso. Já podes iniciar sessão."
+msgstr "A tua palavra-passe foi reposta com sucesso. Já podes iniciar sessão."
 
 #: .\shop\templates\registration\password_reset_complete.html:8
 msgid "Go to login page"
@@ -392,8 +390,7 @@ msgstr "Solicitaste a reposição da tua palavra-passe."
 
 #: .\shop\templates\registration\password_reset_email.html:6
 msgid "Please click the link below to reset your password:"
-msgstr ""
-"Clica na ligação abaixo para repor a tua palavra-passe:"
+msgstr "Clica na ligação abaixo para repor a tua palavra-passe:"
 
 #: .\shop\templates\registration\signup.html:10
 msgid "Username:"
@@ -490,8 +487,8 @@ msgid ""
 "          "
 msgstr ""
 "\n"
-"          Ao submeter este formulário, recolhemos o teu nome, endereço de "
-"e-mail e mensagem\n"
+"          Ao submeter este formulário, recolhemos o teu nome, endereço de e-"
+"mail e mensagem\n"
 "          com a finalidade exclusiva de responder ao teu pedido. Metadados "
 "técnicos\n"
 "          (como o endereço IP sob forma de hash e informações do navegador) "
@@ -500,8 +497,8 @@ msgstr ""
 "dados não serão utilizados\n"
 "          para marketing sem o teu consentimento explícito. As submissões "
 "são armazenadas em segurança\n"
-"          e eliminadas assim que deixam de ser necessárias. Tens o direito de "
-"solicitar\n"
+"          e eliminadas assim que deixam de ser necessárias. Tens o direito "
+"de solicitar\n"
 "          o acesso, a retificação ou a eliminação dos teus dados a qualquer "
 "momento.\n"
 "          "
@@ -569,9 +566,9 @@ msgid ""
 "format. If you would like other sizes or formats, please reach out through "
 "the contact form in the navigation bar."
 msgstr ""
-"Gravuras originais gravadas a laser e pintadas à mão com tintas acrílicas "
-"no formato A4. Se pretenderes outros tamanhos ou formatos, entra em "
-"contacto através do formulário na barra de navegação."
+"Gravuras originais gravadas a laser e pintadas à mão com tintas acrílicas no "
+"formato A4. Se pretenderes outros tamanhos ou formatos, entra em contacto "
+"através do formulário na barra de navegação."
 
 #: .\shop\templates\shop\illustration_gallery.html:23
 msgid "Illustration gallery"
@@ -600,29 +597,30 @@ msgstr "Sem imagem disponível"
 msgid "Price: %(price)s euros"
 msgstr "Preço: %(price)s euros"
 
-#: .\shop\templates\shop\illustration_gallery.html:78
-#: .\shop\templates\shop\photography_gallery.html:77
+#: .\shop\templates\shop\illustration_gallery.html:79
+#: .\shop\templates\shop\photography_gallery.html:78
 #, python-format
 msgid "Average rating %(rating)s out of 5 from %(count)s reviews"
-msgstr "Classificação média de %(rating)s em 5 com base em %(count)s avaliações"
+msgstr ""
+"Classificação média de %(rating)s em 5 com base em %(count)s avaliações"
 
-#: .\shop\templates\shop\illustration_gallery.html:78
-#: .\shop\templates\shop\photography_gallery.html:77
+#: .\shop\templates\shop\illustration_gallery.html:81
+#: .\shop\templates\shop\photography_gallery.html:80
 msgid "No reviews yet"
 msgstr "Ainda sem avaliações"
 
-#: .\shop\templates\shop\illustration_gallery.html:86
-#: .\shop\templates\shop\photography_gallery.html:85
+#: .\shop\templates\shop\illustration_gallery.html:90
+#: .\shop\templates\shop\photography_gallery.html:89
 #: .\shop\templates\shop\themed_gallery.html:81
 msgid "No reviews"
 msgstr "Sem avaliações"
 
-#: .\shop\templates\shop\illustration_gallery.html:93
-#: .\shop\templates\shop\photography_gallery.html:92
+#: .\shop\templates\shop\illustration_gallery.html:97
+#: .\shop\templates\shop\photography_gallery.html:96
 msgid "No prints found."
 msgstr "Nenhuma impressão encontrada."
 
-#: .\shop\templates\shop\illustration_gallery.html:100
+#: .\shop\templates\shop\illustration_gallery.html:104
 msgid "Illustrations pagination"
 msgstr "Paginação de ilustrações"
 
@@ -703,7 +701,7 @@ msgstr ""
 msgid "Photography prints gallery"
 msgstr "Galeria de fotografias"
 
-#: .\shop\templates\shop\photography_gallery.html:99
+#: .\shop\templates\shop\photography_gallery.html:103
 msgid "Photography pagination"
 msgstr "Paginação de fotografias"
 
@@ -854,8 +852,8 @@ msgid ""
 "activities that occur under the account."
 msgstr ""
 "Se criares uma conta no website, és responsável por manter a segurança da "
-"tua conta e és totalmente responsável por todas as atividades que ocorram "
-"na mesma."
+"tua conta e és totalmente responsável por todas as atividades que ocorram na "
+"mesma."
 
 #: .\shop\templates\shop\terms.html:27
 msgid "Contact Information"
@@ -919,8 +917,7 @@ msgstr "Seleção de produto inválida."
 
 #: .\shop\views.py:229
 msgid "Invalid quantity entered. Quantity has been reset to 1."
-msgstr ""
-"Quantidade introduzida inválida. A quantidade foi reposta para 1."
+msgstr "Quantidade introduzida inválida. A quantidade foi reposta para 1."
 
 #: .\shop\views.py:238
 msgid "Quantity must be greater than zero. Quantity has been reset to 1."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 14:17+0100\n"
+"POT-Creation-Date: 2026-11-20 09:10+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\hearth_shop\settings.py:225
 msgid "English"
@@ -216,8 +216,7 @@ msgstr "He leído y acepto el aviso de privacidad"
 
 #: .\shop\forms.py:51 .\shop\templates\shop\contact.html:78
 msgid "I would like to receive updates about new art, offers, and newsletters"
-msgstr ""
-"Me gustaría recibir novedades sobre nuevo arte, ofertas y boletines"
+msgstr "Me gustaría recibir novedades sobre nuevo arte, ofertas y boletines"
 
 #: .\shop\models.py:28
 msgid "Info"
@@ -392,8 +391,7 @@ msgstr "Has solicitado restablecer tu contraseña."
 
 #: .\shop\templates\registration\password_reset_email.html:6
 msgid "Please click the link below to reset your password:"
-msgstr ""
-"Haz clic en el siguiente enlace para restablecer tu contraseña:"
+msgstr "Haz clic en el siguiente enlace para restablecer tu contraseña:"
 
 #: .\shop\templates\registration\signup.html:10
 msgid "Username:"
@@ -541,8 +539,8 @@ msgid ""
 "gentle wordplay on two values behind our work: heart and earth."
 msgstr ""
 "Aunque «hearth» ya tiene su propio significado sereno, HEARTH es también un "
-"sutil juego de palabras con dos valores de nuestro trabajo: corazón "
-"(heart) y tierra (earth)."
+"sutil juego de palabras con dos valores de nuestro trabajo: corazón (heart) "
+"y tierra (earth)."
 
 #: .\shop\templates\shop\homepage.html:39
 msgid ""
@@ -550,9 +548,9 @@ msgid ""
 "significant—should look attentively at my pictures and there seek to "
 "recognize what I am and what I want.”"
 msgstr ""
-"«Quien quiera saber algo de mí —como artista, que es lo único que "
-"importa—, debe mirar atentamente mis cuadros y buscar allí reconocer lo que "
-"soy y lo que quiero.»"
+"«Quien quiera saber algo de mí —como artista, que es lo único que importa—, "
+"debe mirar atentamente mis cuadros y buscar allí reconocer lo que soy y lo "
+"que quiero.»"
 
 #: .\shop\templates\shop\homepage.html:41
 msgid "Gustav Klimt"
@@ -599,29 +597,29 @@ msgstr "Sin imagen disponible"
 msgid "Price: %(price)s euros"
 msgstr "Precio: %(price)s euros"
 
-#: .\shop\templates\shop\illustration_gallery.html:78
-#: .\shop\templates\shop\photography_gallery.html:77
+#: .\shop\templates\shop\illustration_gallery.html:79
+#: .\shop\templates\shop\photography_gallery.html:78
 #, python-format
 msgid "Average rating %(rating)s out of 5 from %(count)s reviews"
 msgstr "Valoración media de %(rating)s sobre 5 según %(count)s reseñas"
 
-#: .\shop\templates\shop\illustration_gallery.html:78
-#: .\shop\templates\shop\photography_gallery.html:77
+#: .\shop\templates\shop\illustration_gallery.html:81
+#: .\shop\templates\shop\photography_gallery.html:80
 msgid "No reviews yet"
 msgstr "Sin reseñas todavía"
 
-#: .\shop\templates\shop\illustration_gallery.html:86
-#: .\shop\templates\shop\photography_gallery.html:85
+#: .\shop\templates\shop\illustration_gallery.html:90
+#: .\shop\templates\shop\photography_gallery.html:89
 #: .\shop\templates\shop\themed_gallery.html:81
 msgid "No reviews"
 msgstr "Sin reseñas"
 
-#: .\shop\templates\shop\illustration_gallery.html:93
-#: .\shop\templates\shop\photography_gallery.html:92
+#: .\shop\templates\shop\illustration_gallery.html:97
+#: .\shop\templates\shop\photography_gallery.html:96
 msgid "No prints found."
 msgstr "No se encontraron láminas."
 
-#: .\shop\templates\shop\illustration_gallery.html:100
+#: .\shop\templates\shop\illustration_gallery.html:104
 msgid "Illustrations pagination"
 msgstr "Paginación de ilustraciones"
 
@@ -661,8 +659,7 @@ msgstr "Pago cancelado"
 
 #: .\shop\templates\shop\payment_cancel.html:9
 msgid "Your payment was cancelled or interrupted. No charges were made."
-msgstr ""
-"Tu pago se canceló o interrumpió. No se realizó ningún cargo."
+msgstr "Tu pago se canceló o interrumpió. No se realizó ningún cargo."
 
 #: .\shop\templates\shop\payment_cancel.html:12
 msgid "Return to Cart"
@@ -701,7 +698,7 @@ msgstr ""
 msgid "Photography prints gallery"
 msgstr "Galería de fotografías"
 
-#: .\shop\templates\shop\photography_gallery.html:99
+#: .\shop\templates\shop\photography_gallery.html:103
 msgid "Photography pagination"
 msgstr "Paginación de fotografía"
 
@@ -753,9 +750,9 @@ msgid ""
 "Payments are processed through trusted third-party payment providers. We do "
 "not store complete payment card information on our servers."
 msgstr ""
-"Los pagos se procesan a través de proveedores de pago terceros de "
-"confianza. No almacenamos los datos completos de tarjetas de pago en "
-"nuestros servidores."
+"Los pagos se procesan a través de proveedores de pago terceros de confianza. "
+"No almacenamos los datos completos de tarjetas de pago en nuestros "
+"servidores."
 
 #: .\shop\templates\shop\privacy_policy.html:31
 msgid "Data Storage"
@@ -919,7 +916,8 @@ msgstr "Cantidad introducida no válida. La cantidad se ha restablecido a 1."
 
 #: .\shop\views.py:238
 msgid "Quantity must be greater than zero. Quantity has been reset to 1."
-msgstr "La cantidad debe ser mayor que cero. La cantidad se ha restablecido a 1."
+msgstr ""
+"La cantidad debe ser mayor que cero. La cantidad se ha restablecido a 1."
 
 #: .\shop\views.py:247
 #, python-format

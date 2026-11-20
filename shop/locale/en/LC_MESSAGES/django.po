@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 14:17+0100\n"
+"POT-Creation-Date: 2026-11-20 09:10+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: English\n"
@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\hearth_shop\settings.py:225
 msgid "English"
@@ -558,29 +558,29 @@ msgstr ""
 msgid "Price: %(price)s euros"
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:78
-#: .\shop\templates\shop\photography_gallery.html:77
+#: .\shop\templates\shop\illustration_gallery.html:79
+#: .\shop\templates\shop\photography_gallery.html:78
 #, python-format
 msgid "Average rating %(rating)s out of 5 from %(count)s reviews"
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:78
-#: .\shop\templates\shop\photography_gallery.html:77
+#: .\shop\templates\shop\illustration_gallery.html:81
+#: .\shop\templates\shop\photography_gallery.html:80
 msgid "No reviews yet"
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:86
-#: .\shop\templates\shop\photography_gallery.html:85
+#: .\shop\templates\shop\illustration_gallery.html:90
+#: .\shop\templates\shop\photography_gallery.html:89
 #: .\shop\templates\shop\themed_gallery.html:81
 msgid "No reviews"
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:93
-#: .\shop\templates\shop\photography_gallery.html:92
+#: .\shop\templates\shop\illustration_gallery.html:97
+#: .\shop\templates\shop\photography_gallery.html:96
 msgid "No prints found."
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:100
+#: .\shop\templates\shop\illustration_gallery.html:104
 msgid "Illustrations pagination"
 msgstr ""
 
@@ -657,7 +657,7 @@ msgstr ""
 msgid "Photography prints gallery"
 msgstr ""
 
-#: .\shop\templates\shop\photography_gallery.html:99
+#: .\shop\templates\shop\photography_gallery.html:103
 msgid "Photography pagination"
 msgstr ""
 

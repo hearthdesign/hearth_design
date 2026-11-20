@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 14:17+0100\n"
+"POT-Creation-Date: 2026-11-20 09:11+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Chinese (Simplified)\n"
@@ -57,15 +57,14 @@ msgid ""
 "kindness, acceptance, imagination, and the values that help people feel at "
 "home in the world."
 msgstr ""
-"HEARTH Design。探索插画与创意系列，颂扬善意、包容、想象力，以及让人们在世界"
-"中感到自在与归属的价值理念。"
+"HEARTH Design。探索插画与创意系列，颂扬善意、包容、想象力，以及让人们在世界中"
+"感到自在与归属的价值理念。"
 
 #: .\hearth_shop\templates\base.html:29
 msgid ""
 "Discover illustrations and creative collections celebrating kindness, "
 "acceptance, imagination, and feeling at home in the world."
-msgstr ""
-"探索颂扬善意、包容、想象力以及在世界中感到归属感的插画与创意系列。"
+msgstr "探索颂扬善意、包容、想象力以及在世界中感到归属感的插画与创意系列。"
 
 #: .\hearth_shop\templates\base.html:65
 msgid "Shop"
@@ -479,12 +478,12 @@ msgid ""
 "          "
 msgstr ""
 "\n"
-"          提交此表单时，我们仅出于回复你的咨询之目的收集你的姓名、电子邮箱地址"
-"和留言。\n"
-"          为保障安全并防止滥用，还可能处理技术元数据（例如哈希形式的 IP 地址和"
-"浏览器信息）。\n"
-"          未经你的明确同意，你的数据不会被用于营销。提交内容会被安全存储，"
-"并在不再需要时删除。\n"
+"          提交此表单时，我们仅出于回复你的咨询之目的收集你的姓名、电子邮箱地"
+"址和留言。\n"
+"          为保障安全并防止滥用，还可能处理技术元数据（例如哈希形式的 IP 地址"
+"和浏览器信息）。\n"
+"          未经你的明确同意，你的数据不会被用于营销。提交内容会被安全存储，并"
+"在不再需要时删除。\n"
 "          你有权随时请求访问、更正或删除你的数据。\n"
 "          "
 
@@ -502,8 +501,8 @@ msgid ""
 "photographs made to bring calm and warmth into everyday spaces. Feel free to "
 "browse through the collections at your own pace."
 msgstr ""
-"精选亲近自然、适合家庭与儿童的插画与摄影作品，为日常空间带来宁静与温暖。"
-"欢迎按自己的节奏慢慢浏览各个系列。"
+"精选亲近自然、适合家庭与儿童的插画与摄影作品，为日常空间带来宁静与温暖。欢迎"
+"按自己的节奏慢慢浏览各个系列。"
 
 #: .\shop\templates\shop\homepage.html:20
 msgid "Discover Our Art — read the story behind HEARTH"
@@ -522,8 +521,8 @@ msgid ""
 "While a hearth already carries its own quiet meaning, HEARTH is also a "
 "gentle wordplay on two values behind our work: heart and earth."
 msgstr ""
-"虽然“hearth（炉火/壁炉）”本身已有沉静之意，但 HEARTH 也巧妙呼应了我们作品"
-"背后的两个核心价值：心（heart）与大地（earth）。"
+"虽然“hearth（炉火/壁炉）”本身已有沉静之意，但 HEARTH 也巧妙呼应了我们作品背后"
+"的两个核心价值：心（heart）与大地（earth）。"
 
 #: .\shop\templates\shop\homepage.html:39
 msgid ""
@@ -531,8 +530,8 @@ msgid ""
 "significant—should look attentively at my pictures and there seek to "
 "recognize what I am and what I want.”"
 msgstr ""
-"“凡是想了解我的人——作为一位艺术家，这是唯一重要的——都应当专注地凝视我的"
-"画作，并在其中辨认出我是谁、我追求什么。”"
+"“凡是想了解我的人——作为一位艺术家，这是唯一重要的——都应当专注地凝视我的画作，"
+"并在其中辨认出我是谁、我追求什么。”"
 
 #: .\shop\templates\shop\homepage.html:41
 msgid "Gustav Klimt"
@@ -548,8 +547,8 @@ msgid ""
 "format. If you would like other sizes or formats, please reach out through "
 "the contact form in the navigation bar."
 msgstr ""
-"A4 规格的激光雕刻原创版画，由丙烯颜料手工上色。如需其他尺寸或规格，请通过"
-"导航栏中的联系表单与我们联系。"
+"A4 规格的激光雕刻原创版画，由丙烯颜料手工上色。如需其他尺寸或规格，请通过导航"
+"栏中的联系表单与我们联系。"
 
 #: .\shop\templates\shop\illustration_gallery.html:23
 msgid "Illustration gallery"
@@ -578,29 +577,29 @@ msgstr "暂无图片"
 msgid "Price: %(price)s euros"
 msgstr "价格：%(price)s 欧元"
 
-#: .\shop\templates\shop\illustration_gallery.html:78
-#: .\shop\templates\shop\photography_gallery.html:77
+#: .\shop\templates\shop\illustration_gallery.html:79
+#: .\shop\templates\shop\photography_gallery.html:78
 #, python-format
 msgid "Average rating %(rating)s out of 5 from %(count)s reviews"
 msgstr "来自 %(count)s 条评价的平均评分：%(rating)s / 5"
 
-#: .\shop\templates\shop\illustration_gallery.html:78
-#: .\shop\templates\shop\photography_gallery.html:77
+#: .\shop\templates\shop\illustration_gallery.html:81
+#: .\shop\templates\shop\photography_gallery.html:80
 msgid "No reviews yet"
 msgstr "暂无评价"
 
-#: .\shop\templates\shop\illustration_gallery.html:86
-#: .\shop\templates\shop\photography_gallery.html:85
+#: .\shop\templates\shop\illustration_gallery.html:90
+#: .\shop\templates\shop\photography_gallery.html:89
 #: .\shop\templates\shop\themed_gallery.html:81
 msgid "No reviews"
 msgstr "无评价"
 
-#: .\shop\templates\shop\illustration_gallery.html:93
-#: .\shop\templates\shop\photography_gallery.html:92
+#: .\shop\templates\shop\illustration_gallery.html:97
+#: .\shop\templates\shop\photography_gallery.html:96
 msgid "No prints found."
 msgstr "未找到相关版画。"
 
-#: .\shop\templates\shop\illustration_gallery.html:100
+#: .\shop\templates\shop\illustration_gallery.html:104
 msgid "Illustrations pagination"
 msgstr "插画分页"
 
@@ -672,14 +671,13 @@ msgid ""
 "Printed on metal in A4 format. If you would like other sizes or formats, "
 "please reach out through the contact form in the navigation bar."
 msgstr ""
-"A4 规格金属微喷打印。如需其他尺寸或规格，请通过导航栏中的联系表单与我们"
-"联系。"
+"A4 规格金属微喷打印。如需其他尺寸或规格，请通过导航栏中的联系表单与我们联系。"
 
 #: .\shop\templates\shop\photography_gallery.html:22
 msgid "Photography prints gallery"
 msgstr "摄影版画图库"
 
-#: .\shop\templates\shop\photography_gallery.html:99
+#: .\shop\templates\shop\photography_gallery.html:103
 msgid "Photography pagination"
 msgstr "摄影分页"
 
@@ -690,8 +688,8 @@ msgid ""
 "Protection Regulation (GDPR) and applicable German and European data "
 "protection laws."
 msgstr ""
-"我们高度重视你的个人数据保护。本网站依据《通用数据保护条例》（GDPR）以及"
-"适用的德国和欧洲数据保护法律处理个人信息。"
+"我们高度重视你的个人数据保护。本网站依据《通用数据保护条例》（GDPR）以及适用"
+"的德国和欧洲数据保护法律处理个人信息。"
 
 #: .\shop\templates\shop\privacy_policy.html:16
 msgid "Data We Collect"
@@ -703,8 +701,8 @@ msgid ""
 "may collect your name, email address, billing and shipping information, and "
 "details necessary to process your request."
 msgstr ""
-"当你下单、通过表单联系我们或创建账号时，我们可能会收集你的姓名、电子邮箱"
-"地址、账单与配送信息，以及处理请求所需的详细信息。"
+"当你下单、通过表单联系我们或创建账号时，我们可能会收集你的姓名、电子邮箱地"
+"址、账单与配送信息，以及处理请求所需的详细信息。"
 
 #: .\shop\templates\shop\privacy_policy.html:21
 msgid "Purpose of Processing"
@@ -716,8 +714,7 @@ msgid ""
 "fulfilling orders, responding to inquiries, maintaining security, and "
 "complying with legal obligations."
 msgstr ""
-"个人数据的处理仅用于提供服务、履行订单、回复咨询、维护安全以及履行法律"
-"义务。"
+"个人数据的处理仅用于提供服务、履行订单、回复咨询、维护安全以及履行法律义务。"
 
 #: .\shop\templates\shop\privacy_policy.html:26
 msgid "Payments"
@@ -728,8 +725,8 @@ msgid ""
 "Payments are processed through trusted third-party payment providers. We do "
 "not store complete payment card information on our servers."
 msgstr ""
-"支付通过受信任的第三方支付服务商处理。我们不会在服务器上存储完整的支付卡"
-"信息。"
+"支付通过受信任的第三方支付服务商处理。我们不会在服务器上存储完整的支付卡信"
+"息。"
 
 #: .\shop\templates\shop\privacy_policy.html:31
 msgid "Data Storage"
@@ -740,8 +737,7 @@ msgid ""
 "Personal data is stored only for as long as necessary to fulfil contractual, "
 "legal, or operational requirements and is deleted when no longer needed."
 msgstr ""
-"个人数据仅在满足合同、法律或运营要求所必需的期限内存储，不再需要时即予"
-"删除。"
+"个人数据仅在满足合同、法律或运营要求所必需的期限内存储，不再需要时即予删除。"
 
 #: .\shop\templates\shop\privacy_policy.html:36
 msgid "Your Rights"
@@ -753,8 +749,8 @@ msgid ""
 "transfer your personal data, as well as the right to object to certain "
 "processing activities."
 msgstr ""
-"根据 GDPR，你有权访问、更正、限制处理、删除或转移你的个人数据，也有权对"
-"某些处理活动提出异议。"
+"根据 GDPR，你有权访问、更正、限制处理、删除或转移你的个人数据，也有权对某些处"
+"理活动提出异议。"
 
 #: .\shop\templates\shop\privacy_policy.html:41
 msgid "Contact"
@@ -816,8 +812,8 @@ msgid ""
 "the security of your account and you are fully responsible for all "
 "activities that occur under the account."
 msgstr ""
-"如果你在本网站创建账号，你有责任维护账号安全，并对该账号下发生的所有活动"
-"承担全部责任。"
+"如果你在本网站创建账号，你有责任维护账号安全，并对该账号下发生的所有活动承担"
+"全部责任。"
 
 #: .\shop\templates\shop\terms.html:27
 msgid "Contact Information"

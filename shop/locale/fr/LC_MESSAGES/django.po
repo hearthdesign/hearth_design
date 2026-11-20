@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 14:17+0100\n"
+"POT-Creation-Date: 2026-11-20 09:10+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: French\n"
@@ -67,8 +67,8 @@ msgid ""
 "acceptance, imagination, and feeling at home in the world."
 msgstr ""
 "Découvre des illustrations et des collections créatives qui célèbrent la "
-"bienveillance, l'accueil, l'imagination et le sentiment d'être chez soi "
-"dans le monde."
+"bienveillance, l'accueil, l'imagination et le sentiment d'être chez soi dans "
+"le monde."
 
 #: .\hearth_shop\templates\base.html:65
 msgid "Shop"
@@ -348,8 +348,8 @@ msgstr "Réinitialiser ton mot de passe"
 msgid ""
 "Enter your email address and we'll send you a link to reset your password."
 msgstr ""
-"Saisis ton adresse e-mail et nous t'enverrons un lien pour réinitialiser "
-"ton mot de passe."
+"Saisis ton adresse e-mail et nous t'enverrons un lien pour réinitialiser ton "
+"mot de passe."
 
 #: .\shop\templates\registration\password_reset.html:10
 msgid "Send reset link"
@@ -393,8 +393,7 @@ msgstr "Tu as demandé la réinitialisation de ton mot de passe."
 
 #: .\shop\templates\registration\password_reset_email.html:6
 msgid "Please click the link below to reset your password:"
-msgstr ""
-"Clique sur le lien ci-dessous pour réinitialiser ton mot de passe :"
+msgstr "Clique sur le lien ci-dessous pour réinitialiser ton mot de passe :"
 
 #: .\shop\templates\registration\signup.html:10
 msgid "Username:"
@@ -500,8 +499,8 @@ msgstr ""
 "données ne seront pas utilisées\n"
 "          à des fins marketing sans ton consentement explicite. Les messages "
 "sont conservés en sécurité\n"
-"          et supprimés dès qu'ils ne sont plus nécessaires. Tu as le droit de "
-"demander\n"
+"          et supprimés dès qu'ils ne sont plus nécessaires. Tu as le droit "
+"de demander\n"
 "          l'accès, la rectification ou la suppression de tes données à tout "
 "moment.\n"
 "          "
@@ -601,29 +600,29 @@ msgstr "Aucune image disponible"
 msgid "Price: %(price)s euros"
 msgstr "Prix : %(price)s euros"
 
-#: .\shop\templates\shop\illustration_gallery.html:78
-#: .\shop\templates\shop\photography_gallery.html:77
+#: .\shop\templates\shop\illustration_gallery.html:79
+#: .\shop\templates\shop\photography_gallery.html:78
 #, python-format
 msgid "Average rating %(rating)s out of 5 from %(count)s reviews"
 msgstr "Note moyenne de %(rating)s sur 5 d'après %(count)s avis"
 
-#: .\shop\templates\shop\illustration_gallery.html:78
-#: .\shop\templates\shop\photography_gallery.html:77
+#: .\shop\templates\shop\illustration_gallery.html:81
+#: .\shop\templates\shop\photography_gallery.html:80
 msgid "No reviews yet"
 msgstr "Aucun avis pour l'instant"
 
-#: .\shop\templates\shop\illustration_gallery.html:86
-#: .\shop\templates\shop\photography_gallery.html:85
+#: .\shop\templates\shop\illustration_gallery.html:90
+#: .\shop\templates\shop\photography_gallery.html:89
 #: .\shop\templates\shop\themed_gallery.html:81
 msgid "No reviews"
 msgstr "Aucun avis"
 
-#: .\shop\templates\shop\illustration_gallery.html:93
-#: .\shop\templates\shop\photography_gallery.html:92
+#: .\shop\templates\shop\illustration_gallery.html:97
+#: .\shop\templates\shop\photography_gallery.html:96
 msgid "No prints found."
 msgstr "Aucun tirage trouvé."
 
-#: .\shop\templates\shop\illustration_gallery.html:100
+#: .\shop\templates\shop\illustration_gallery.html:104
 msgid "Illustrations pagination"
 msgstr "Pagination des illustrations"
 
@@ -663,8 +662,7 @@ msgstr "Paiement annulé"
 
 #: .\shop\templates\shop\payment_cancel.html:9
 msgid "Your payment was cancelled or interrupted. No charges were made."
-msgstr ""
-"Ton paiement a été annulé ou interrompu. Aucun montant n'a été débité."
+msgstr "Ton paiement a été annulé ou interrompu. Aucun montant n'a été débité."
 
 #: .\shop\templates\shop\payment_cancel.html:12
 msgid "Return to Cart"
@@ -704,7 +702,7 @@ msgstr ""
 msgid "Photography prints gallery"
 msgstr "Galerie de photographies"
 
-#: .\shop\templates\shop\photography_gallery.html:99
+#: .\shop\templates\shop\photography_gallery.html:103
 msgid "Photography pagination"
 msgstr "Pagination des photographies"
 
@@ -731,9 +729,9 @@ msgid ""
 "details necessary to process your request."
 msgstr ""
 "Lorsque tu passes une commande, nous contactes via un formulaire ou crées un "
-"compte, nous pouvons collecter ton nom, ton adresse e-mail, tes "
-"informations de facturation et de livraison ainsi que les détails "
-"nécessaires au traitement de ta demande."
+"compte, nous pouvons collecter ton nom, ton adresse e-mail, tes informations "
+"de facturation et de livraison ainsi que les détails nécessaires au "
+"traitement de ta demande."
 
 #: .\shop\templates\shop\privacy_policy.html:21
 msgid "Purpose of Processing"
@@ -830,8 +828,8 @@ msgid ""
 "By accessing and using HEARTH Shop, you accept and agree to be bound by the "
 "terms and provision of this agreement."
 msgstr ""
-"En accédant à HEARTH Shop et en l'utilisant, tu acceptes d'être lié par "
-"les termes et dispositions de cet accord."
+"En accédant à HEARTH Shop et en l'utilisant, tu acceptes d'être lié par les "
+"termes et dispositions de cet accord."
 
 #: .\shop\templates\shop\terms.html:17
 msgid "Products and Orders"
@@ -925,8 +923,7 @@ msgstr "Quantité saisie invalide. La quantité a été réinitialisée à 1."
 #: .\shop\views.py:238
 msgid "Quantity must be greater than zero. Quantity has been reset to 1."
 msgstr ""
-"La quantité doit être supérieure à zéro. La quantité a été réinitialisée à "
-"1."
+"La quantité doit être supérieure à zéro. La quantité a été réinitialisée à 1."
 
 #: .\shop\views.py:247
 #, python-format
