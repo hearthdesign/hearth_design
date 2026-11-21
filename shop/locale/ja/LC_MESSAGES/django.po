@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-20 09:10+0100\n"
+"POT-Creation-Date: 2026-11-21 07:34+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Japanese\n"
@@ -133,7 +133,6 @@ msgid "HOME"
 msgstr "ホーム"
 
 #: .\hearth_shop\templates\includes\navbar.html:13
-#: .\shop\templates\shop\illustration_gallery.html:8
 msgid "ILLUSTRATION"
 msgstr "イラスト"
 
@@ -253,7 +252,7 @@ msgstr "テーマ"
 msgid "Photography"
 msgstr "写真"
 
-#: .\shop\models.py:106
+#: .\shop\models.py:106 .\shop\templates\shop\illustration_gallery.html:8
 msgid "Illustration"
 msgstr "イラスト"
 
@@ -466,22 +465,31 @@ msgid "Privacy Notice"
 msgstr "プライバシー通知"
 
 #: .\shop\templates\shop\contact.html:56
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "          When you submit this form, we collect your name, email address, "
+#| "and message\n"
+#| "          for the sole purpose of responding to your inquiry. Technical "
+#| "metadata\n"
+#| "          (such as IP address in hashed form and browser information) may "
+#| "also be\n"
+#| "          processed to ensure security and prevent abuse. Your data will "
+#| "not be used\n"
+#| "          for marketing without your explicit consent. Submissions are "
+#| "stored securely\n"
+#| "          and deleted once they are no longer needed. You have the right "
+#| "to request\n"
+#| "          access, correction, or deletion of your data at any time.\n"
+#| "          "
 msgid ""
-"\n"
-"          When you submit this form, we collect your name, email address, "
-"and message\n"
-"          for the sole purpose of responding to your inquiry. Technical "
-"metadata\n"
-"          (such as IP address in hashed form and browser information) may "
-"also be\n"
-"          processed to ensure security and prevent abuse. Your data will not "
-"be used\n"
-"          for marketing without your explicit consent. Submissions are "
-"stored securely\n"
-"          and deleted once they are no longer needed. You have the right to "
-"request\n"
-"          access, correction, or deletion of your data at any time.\n"
-"          "
+"When you submit this form, we collect your name, email address, and message "
+"for the sole purpose of responding to your inquiry. Technical metadata (such "
+"as IP address in hashed form and browser information) may also be processed "
+"to ensure security and prevent abuse. Your data will not be used for "
+"marketing without your explicit consent. Submissions are stored securely and "
+"deleted once they are no longer needed. You have the right to request "
+"access, correction, or deletion of your data at any time."
 msgstr ""
 "\n"
 "          本フォームを送信すると、お問い合わせへの回答のみを目的として、お名"
@@ -500,6 +508,7 @@ msgid "Send Message"
 msgstr "メッセージを送信"
 
 #: .\shop\templates\shop\homepage.html:4 .\shop\templates\shop\homepage.html:8
+#: .\shop\templates\shop\illustration_gallery.html:4
 msgid "Welcome to HEARTH Shop"
 msgstr "HEARTH Shopへようこそ"
 
@@ -547,10 +556,6 @@ msgstr ""
 msgid "Gustav Klimt"
 msgstr "グスタフ・クリムト"
 
-#: .\shop\templates\shop\illustration_gallery.html:4
-msgid "Illustrations — HEARTH Shop"
-msgstr "イラスト — HEARTH Shop"
-
 #: .\shop\templates\shop\illustration_gallery.html:10
 msgid ""
 "Laser-engraved original graphics hand-coloured with acrylic colours in A4 "
@@ -561,58 +566,43 @@ msgstr ""
 "彩色しています。他のサイズやフォーマットをご希望の場合は、ナビゲーションバー"
 "のお問い合わせフォームよりご連絡ください。"
 
-#: .\shop\templates\shop\illustration_gallery.html:23
+#: .\shop\templates\shop\illustration_gallery.html:21
+#: .\shop\templates\shop\photography_gallery.html:21
 msgid "Illustration gallery"
 msgstr "イラストギャラリー"
 
-#: .\shop\templates\shop\illustration_gallery.html:37
-#: .\shop\templates\shop\photography_gallery.html:36
-#, python-format
-msgid "View larger preview of %(title)s (€%(price)s)"
-msgstr "%(title)s（€%(price)s）の大きなプレビューを見る"
+#: .\shop\templates\shop\illustration_gallery.html:69
+#: .\shop\templates\shop\photography_gallery.html:70
+msgid "Average rating"
+msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:49
-#: .\shop\templates\shop\photography_gallery.html:48
-#, python-format
-msgid "Preview unavailable for %(title)s"
-msgstr "%(title)sのプレビューは利用できません"
+#: .\shop\templates\shop\illustration_gallery.html:70
+#: .\shop\templates\shop\photography_gallery.html:71
+msgid "out of 5 from"
+msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:52
-#: .\shop\templates\shop\photography_gallery.html:51
-msgid "No image available"
-msgstr "画像はありません"
+#: .\shop\templates\shop\illustration_gallery.html:71
+#: .\shop\templates\shop\photography_gallery.html:72
+#, fuzzy
+#| msgid "Reviews"
+msgid "reviews"
+msgstr "レビュー"
 
-#: .\shop\templates\shop\illustration_gallery.html:68
-#: .\shop\templates\shop\photography_gallery.html:67
-#, python-format
-msgid "Price: %(price)s euros"
-msgstr "価格: %(price)sユーロ"
-
-#: .\shop\templates\shop\illustration_gallery.html:79
-#: .\shop\templates\shop\photography_gallery.html:78
-#, python-format
-msgid "Average rating %(rating)s out of 5 from %(count)s reviews"
-msgstr "%(count)s件のレビューに基づく平均評価: 5点満点中 %(rating)s点"
-
-#: .\shop\templates\shop\illustration_gallery.html:81
-#: .\shop\templates\shop\photography_gallery.html:80
+#: .\shop\templates\shop\illustration_gallery.html:74
+#: .\shop\templates\shop\photography_gallery.html:75
 msgid "No reviews yet"
 msgstr "まだレビューはありません"
 
-#: .\shop\templates\shop\illustration_gallery.html:90
-#: .\shop\templates\shop\photography_gallery.html:89
+#: .\shop\templates\shop\illustration_gallery.html:83
+#: .\shop\templates\shop\photography_gallery.html:84
 #: .\shop\templates\shop\themed_gallery.html:81
 msgid "No reviews"
 msgstr "レビューなし"
 
-#: .\shop\templates\shop\illustration_gallery.html:97
-#: .\shop\templates\shop\photography_gallery.html:96
+#: .\shop\templates\shop\illustration_gallery.html:92
+#: .\shop\templates\shop\photography_gallery.html:93
 msgid "No prints found."
 msgstr "プリントが見つかりませんでした。"
-
-#: .\shop\templates\shop\illustration_gallery.html:104
-msgid "Illustrations pagination"
-msgstr "イラストページネーション"
 
 #: .\shop\templates\shop\order_history.html:16
 msgid "Order #"
@@ -684,14 +674,6 @@ msgid ""
 msgstr ""
 "A4サイズのメタルプリントです。他のサイズやフォーマットをご希望の場合は、ナビ"
 "ゲーションバーのお問い合わせフォームよりご連絡ください。"
-
-#: .\shop\templates\shop\photography_gallery.html:22
-msgid "Photography prints gallery"
-msgstr "写真プリントギャラリー"
-
-#: .\shop\templates\shop\photography_gallery.html:103
-msgid "Photography pagination"
-msgstr "写真ページネーション"
 
 #: .\shop\templates\shop\privacy_policy.html:13
 msgid ""
@@ -982,3 +964,34 @@ msgstr ""
 "\n"
 "よろしくお願いいたします。\n"
 "Hearth Design チーム"
+
+#~ msgid "Illustrations — HEARTH Shop"
+#~ msgstr "イラスト — HEARTH Shop"
+
+#, python-format
+#~ msgid "View larger preview of %(title)s (€%(price)s)"
+#~ msgstr "%(title)s（€%(price)s）の大きなプレビューを見る"
+
+#, python-format
+#~ msgid "Preview unavailable for %(title)s"
+#~ msgstr "%(title)sのプレビューは利用できません"
+
+#~ msgid "No image available"
+#~ msgstr "画像はありません"
+
+#, python-format
+#~ msgid "Price: %(price)s euros"
+#~ msgstr "価格: %(price)sユーロ"
+
+#, python-format
+#~ msgid "Average rating %(rating)s out of 5 from %(count)s reviews"
+#~ msgstr "%(count)s件のレビューに基づく平均評価: 5点満点中 %(rating)s点"
+
+#~ msgid "Illustrations pagination"
+#~ msgstr "イラストページネーション"
+
+#~ msgid "Photography prints gallery"
+#~ msgstr "写真プリントギャラリー"
+
+#~ msgid "Photography pagination"
+#~ msgstr "写真ページネーション"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-20 09:10+0100\n"
+"POT-Creation-Date: 2026-11-21 07:34+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: German\n"
@@ -134,7 +134,6 @@ msgid "HOME"
 msgstr "STARTSEITE"
 
 #: .\hearth_shop\templates\includes\navbar.html:13
-#: .\shop\templates\shop\illustration_gallery.html:8
 msgid "ILLUSTRATION"
 msgstr "ILLUSTRATION"
 
@@ -255,7 +254,7 @@ msgstr "Themen"
 msgid "Photography"
 msgstr "Fotografie"
 
-#: .\shop\models.py:106
+#: .\shop\models.py:106 .\shop\templates\shop\illustration_gallery.html:8
 msgid "Illustration"
 msgstr "Illustration"
 
@@ -470,22 +469,31 @@ msgid "Privacy Notice"
 msgstr "Datenschutzhinweis"
 
 #: .\shop\templates\shop\contact.html:56
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "          When you submit this form, we collect your name, email address, "
+#| "and message\n"
+#| "          for the sole purpose of responding to your inquiry. Technical "
+#| "metadata\n"
+#| "          (such as IP address in hashed form and browser information) may "
+#| "also be\n"
+#| "          processed to ensure security and prevent abuse. Your data will "
+#| "not be used\n"
+#| "          for marketing without your explicit consent. Submissions are "
+#| "stored securely\n"
+#| "          and deleted once they are no longer needed. You have the right "
+#| "to request\n"
+#| "          access, correction, or deletion of your data at any time.\n"
+#| "          "
 msgid ""
-"\n"
-"          When you submit this form, we collect your name, email address, "
-"and message\n"
-"          for the sole purpose of responding to your inquiry. Technical "
-"metadata\n"
-"          (such as IP address in hashed form and browser information) may "
-"also be\n"
-"          processed to ensure security and prevent abuse. Your data will not "
-"be used\n"
-"          for marketing without your explicit consent. Submissions are "
-"stored securely\n"
-"          and deleted once they are no longer needed. You have the right to "
-"request\n"
-"          access, correction, or deletion of your data at any time.\n"
-"          "
+"When you submit this form, we collect your name, email address, and message "
+"for the sole purpose of responding to your inquiry. Technical metadata (such "
+"as IP address in hashed form and browser information) may also be processed "
+"to ensure security and prevent abuse. Your data will not be used for "
+"marketing without your explicit consent. Submissions are stored securely and "
+"deleted once they are no longer needed. You have the right to request "
+"access, correction, or deletion of your data at any time."
 msgstr ""
 "\n"
 "          Beim Absenden dieses Formulars erfassen wir deinen Namen, deine E-"
@@ -508,6 +516,7 @@ msgid "Send Message"
 msgstr "Nachricht senden"
 
 #: .\shop\templates\shop\homepage.html:4 .\shop\templates\shop\homepage.html:8
+#: .\shop\templates\shop\illustration_gallery.html:4
 msgid "Welcome to HEARTH Shop"
 msgstr "Willkommen im HEARTH Shop"
 
@@ -555,10 +564,6 @@ msgstr ""
 msgid "Gustav Klimt"
 msgstr "Gustav Klimt"
 
-#: .\shop\templates\shop\illustration_gallery.html:4
-msgid "Illustrations — HEARTH Shop"
-msgstr "Illustrationen — HEARTH Shop"
-
 #: .\shop\templates\shop\illustration_gallery.html:10
 msgid ""
 "Laser-engraved original graphics hand-coloured with acrylic colours in A4 "
@@ -569,58 +574,43 @@ msgstr ""
 "Format. Wenn du andere Größen oder Formate wünschst, melde dich gern über "
 "das Kontaktformular in der Navigationsleiste."
 
-#: .\shop\templates\shop\illustration_gallery.html:23
+#: .\shop\templates\shop\illustration_gallery.html:21
+#: .\shop\templates\shop\photography_gallery.html:21
 msgid "Illustration gallery"
 msgstr "Illustrationsgalerie"
 
-#: .\shop\templates\shop\illustration_gallery.html:37
-#: .\shop\templates\shop\photography_gallery.html:36
-#, python-format
-msgid "View larger preview of %(title)s (€%(price)s)"
-msgstr "Größere Vorschau von %(title)s (€%(price)s) ansehen"
+#: .\shop\templates\shop\illustration_gallery.html:69
+#: .\shop\templates\shop\photography_gallery.html:70
+msgid "Average rating"
+msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:49
-#: .\shop\templates\shop\photography_gallery.html:48
-#, python-format
-msgid "Preview unavailable for %(title)s"
-msgstr "Vorschau für %(title)s nicht verfügbar"
+#: .\shop\templates\shop\illustration_gallery.html:70
+#: .\shop\templates\shop\photography_gallery.html:71
+msgid "out of 5 from"
+msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:52
-#: .\shop\templates\shop\photography_gallery.html:51
-msgid "No image available"
-msgstr "Kein Bild verfügbar"
+#: .\shop\templates\shop\illustration_gallery.html:71
+#: .\shop\templates\shop\photography_gallery.html:72
+#, fuzzy
+#| msgid "Reviews"
+msgid "reviews"
+msgstr "Bewertungen"
 
-#: .\shop\templates\shop\illustration_gallery.html:68
-#: .\shop\templates\shop\photography_gallery.html:67
-#, python-format
-msgid "Price: %(price)s euros"
-msgstr "Preis: %(price)s Euro"
-
-#: .\shop\templates\shop\illustration_gallery.html:79
-#: .\shop\templates\shop\photography_gallery.html:78
-#, python-format
-msgid "Average rating %(rating)s out of 5 from %(count)s reviews"
-msgstr "Durchschnittliche Bewertung %(rating)s von 5 aus %(count)s Bewertungen"
-
-#: .\shop\templates\shop\illustration_gallery.html:81
-#: .\shop\templates\shop\photography_gallery.html:80
+#: .\shop\templates\shop\illustration_gallery.html:74
+#: .\shop\templates\shop\photography_gallery.html:75
 msgid "No reviews yet"
 msgstr "Noch keine Bewertungen"
 
-#: .\shop\templates\shop\illustration_gallery.html:90
-#: .\shop\templates\shop\photography_gallery.html:89
+#: .\shop\templates\shop\illustration_gallery.html:83
+#: .\shop\templates\shop\photography_gallery.html:84
 #: .\shop\templates\shop\themed_gallery.html:81
 msgid "No reviews"
 msgstr "Keine Bewertungen"
 
-#: .\shop\templates\shop\illustration_gallery.html:97
-#: .\shop\templates\shop\photography_gallery.html:96
+#: .\shop\templates\shop\illustration_gallery.html:92
+#: .\shop\templates\shop\photography_gallery.html:93
 msgid "No prints found."
 msgstr "Keine Drucke gefunden."
-
-#: .\shop\templates\shop\illustration_gallery.html:104
-msgid "Illustrations pagination"
-msgstr "Seitennavigation der Illustrationsgalerie"
 
 #: .\shop\templates\shop\order_history.html:16
 msgid "Order #"
@@ -694,14 +684,6 @@ msgid ""
 msgstr ""
 "Auf Metall gedruckt im A4-Format. Wenn du andere Größen oder Formate "
 "wünschst, melde dich gern über das Kontaktformular in der Navigationsleiste."
-
-#: .\shop\templates\shop\photography_gallery.html:22
-msgid "Photography prints gallery"
-msgstr "Fotografie-Galerie"
-
-#: .\shop\templates\shop\photography_gallery.html:103
-msgid "Photography pagination"
-msgstr "Seitennavigation der Fotografie-Galerie"
 
 #: .\shop\templates\shop\privacy_policy.html:13
 msgid ""
@@ -1000,3 +982,35 @@ msgstr ""
 "\n"
 "Viele Grüße\n"
 "Dein Hearth Design Team"
+
+#~ msgid "Illustrations — HEARTH Shop"
+#~ msgstr "Illustrationen — HEARTH Shop"
+
+#, python-format
+#~ msgid "View larger preview of %(title)s (€%(price)s)"
+#~ msgstr "Größere Vorschau von %(title)s (€%(price)s) ansehen"
+
+#, python-format
+#~ msgid "Preview unavailable for %(title)s"
+#~ msgstr "Vorschau für %(title)s nicht verfügbar"
+
+#~ msgid "No image available"
+#~ msgstr "Kein Bild verfügbar"
+
+#, python-format
+#~ msgid "Price: %(price)s euros"
+#~ msgstr "Preis: %(price)s Euro"
+
+#, python-format
+#~ msgid "Average rating %(rating)s out of 5 from %(count)s reviews"
+#~ msgstr ""
+#~ "Durchschnittliche Bewertung %(rating)s von 5 aus %(count)s Bewertungen"
+
+#~ msgid "Illustrations pagination"
+#~ msgstr "Seitennavigation der Illustrationsgalerie"
+
+#~ msgid "Photography prints gallery"
+#~ msgstr "Fotografie-Galerie"
+
+#~ msgid "Photography pagination"
+#~ msgstr "Seitennavigation der Fotografie-Galerie"

@@ -448,15 +448,32 @@ form input::placeholder {
    GALLERY GRID & CARDS
 =========================== */
 
+.gallery-subtitle {
+  display: block;
+
+  width: 87%;
+  height: auto;
+  color:rgb(0, 54, 68);
+  background-color: rgb(247, 241, 225);
+  border: 1px solid rgb(20, 90, 120);
+  margin-bottom: 3.5rem;
+  margin-right: 3.5rem;
+  padding: 0.15rem 0.755rem;
+  border-radius: 0.35rem;
+}
+
 .gallery-page-container {
-    min-height: calc(100vh - 18rem);
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 18rem);
 }
 
 .gallery-grid {
-  display: grid;
+display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
-  gap: 1.25rem 1rem; /* Row gap, Column gap */
+  gap: 1.25rem 1rem;
   justify-content: space-around;
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 1rem;
@@ -757,8 +774,10 @@ border: 2px solid rgb(74, 156, 177);
 
 .pagination {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* or column if you specifically want stacked page links */
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   font-weight: bold;
   gap: 0.5rem;
   color: rgb(20, 90, 120);
@@ -767,12 +786,13 @@ border: 2px solid rgb(74, 156, 177);
 .pagination > * {
   display: inline-flex;
   align-items: center;
-  margin: 2%;
 }
 
 .pagination-wrapper {
-    margin-top: 4rem;
-    margin-left: 5%;
+  margin-top: auto;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 /* ===========================
