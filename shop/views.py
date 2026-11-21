@@ -492,12 +492,13 @@ def custom_set_language(request):
         # Activate language and set translation environment
         translation.activate(lang_code)
 
-        # Strip current language prefix from next_url if present (e.g., '/de/about/' -> '/about/')
+        # Strip current language prefix from next_url if present (e.g., '/de/
+        # about/' -> '/about/')
         # FIX: Use .lower() to match lowercase URL prefixes like '/zh-hans/'
         for lang in [lang[0] for lang in settings.LANGUAGES]:
             prefix = f"/{lang}/".lower()
             if next_url.lower().startswith(prefix):
-                next_url = next_url[len(prefix) - 1 :]  # Keeps the leading slash
+                next_url = next_url[len(prefix) - 1 :] # Keeps the leading slash
                 break
             elif next_url.lower() == f"/{lang}".lower():
                 next_url = "/"
@@ -650,7 +651,8 @@ def stripe_webhook_view(request):
 
     _event, status_code = handle_stripe_webhook(payload, sig_header)
 
-    # If the payment completed successfully, fulfill the order (clears cart & reduces stock)
+    # If the payment completed successfully, fulfill the order (clears cart 
+    # & reduces stock)
     if (
         status_code == 200
         and _event
@@ -665,14 +667,18 @@ def stripe_webhook_view(request):
 # Payment success view
 @login_required
 def payment_success(request):
-    # Optional fallback fulfillment check if user hits success URL directly before webhook fires
+    # Optional fallback fulfillment check if user hits success URL directly 
+    # before webhook fires
     session_id = request.GET.get("session_id")
     if session_id and settings.STRIPE_SECRET_KEY:
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        session = None
         try:
-            # If your stripe utility or API lets you fetch the session, you can trigger fulfillment here too
-            if session.get("payment_status") == "paid":
+            session = stripe.checkout.Session.retrieve(session_id)
+            if (
+                session
+                and session.get("payment_status") == "paid"
+                and session.get("client_reference_id") == str(request.user.id)
+            ):
                 fulfill_order_from_stripe_session(session)
         except stripe.error.StripeError:
             logger.exception(
