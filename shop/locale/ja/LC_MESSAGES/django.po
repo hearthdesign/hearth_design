@@ -202,31 +202,31 @@ msgstr "カートは空になりました。ギャラリーで他の作品もご
 
 #: .\hearth_shop\settings.py:227
 msgid "English"
-msgstr "英語"
+msgstr "English"
 
 #: .\hearth_shop\settings.py:228
 msgid "Deutsch"
-msgstr "ドイツ語"
+msgstr "Deutsch"
 
 #: .\hearth_shop\settings.py:229
 msgid "Français"
-msgstr "フランス語"
+msgstr "Français"
 
 #: .\hearth_shop\settings.py:230
 msgid "Español"
-msgstr "スペイン語"
+msgstr "Español"
 
 #: .\hearth_shop\settings.py:231
 msgid "Italiano"
-msgstr "イタリア語"
+msgstr "Italiano"
 
 #: .\hearth_shop\settings.py:232
 msgid "Português"
-msgstr "ポルトガル語"
+msgstr "Português"
 
 #: .\hearth_shop\settings.py:233
 msgid "中文"
-msgstr "中国語"
+msgstr "中文"
 
 #: .\hearth_shop\settings.py:234
 msgid "日本語"

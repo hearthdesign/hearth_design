@@ -207,7 +207,7 @@ msgstr ""
 
 #: .\hearth_shop\settings.py:227
 msgid "English"
-msgstr "Englisch"
+msgstr "English"
 
 #: .\hearth_shop\settings.py:228
 msgid "Deutsch"
@@ -215,27 +215,27 @@ msgstr "Deutsch"
 
 #: .\hearth_shop\settings.py:229
 msgid "Français"
-msgstr "Französisch"
+msgstr "Français"
 
 #: .\hearth_shop\settings.py:230
 msgid "Español"
-msgstr "Spanisch"
+msgstr "Español"
 
 #: .\hearth_shop\settings.py:231
 msgid "Italiano"
-msgstr "Italienisch"
+msgstr "Italiano"
 
 #: .\hearth_shop\settings.py:232
 msgid "Português"
-msgstr "Portugiesisch"
+msgstr "Português"
 
 #: .\hearth_shop\settings.py:233
 msgid "中文"
-msgstr "Chinesisch"
+msgstr "中文"
 
 #: .\hearth_shop\settings.py:234
 msgid "日本語"
-msgstr "Japanisch"
+msgstr "日本語"
 
 #: .\hearth_shop\templates\base.html:10 .\hearth_shop\templates\base.html:28
 msgid "Hearth Shop"
