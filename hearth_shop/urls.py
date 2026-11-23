@@ -1,7 +1,8 @@
-"""
-URL configuration for hearth_shop project.
+# ==========================================
+#        PROJECT URL CONFIGURATION
+# ==========================================
 
-The `urlpatterns` list routes URLs to views. For more information please see:
+"""The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
 Examples:
 Function views
@@ -23,13 +24,18 @@ from django.urls import include, path
 from django.views.generic import TemplateView
 
 # App imports
-from shop import views
+from shop import views as shop_views
+from checkout import views as checkout_views
 from shop.sitemaps import StaticViewSitemap
 from shop.views import custom_set_language  # Adjust import to the app
 
 sitemaps = {
     "static": StaticViewSitemap,
 }
+
+# ==========================================
+#     NON-LOCALIZED / INFRASTRUCTURE ROUTES
+# ==========================================
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -43,8 +49,8 @@ urlpatterns = [
     # Keeping this endpoint outside i18n_patterns ensures a
     # stable webhook URL and prevents 302 redirects.
     path(
-        "shop/stripe/webhook/",
-        views.stripe_webhook_view,
+        "checkout/stripe/webhook/",
+        checkout_views.stripe_webhook_view,
         name="stripe-webhook",
     ),
     # 1. Serve static sitemap.xml from hearth_shop/static/
@@ -65,47 +71,45 @@ urlpatterns = [
     ),
 ]
 
+# ==========================================
+#        LOCALIZED (i18n) ROUTES
+# ==========================================
+
 urlpatterns += i18n_patterns(
-    path("", views.homepage, name="homepage"),  # homepage view
+    # Checkout & cart app routes
+    path("", include("checkout.urls")),
+    # Catalog, galleries, accounts & informational routes
+    path("", shop_views.homepage, name="homepage"),
     path(
-        "theme-filter/", views.theme_filter, name="theme_filter"
-    ),  # Theme filter view
-    path("cart/add/", views.add_to_cart, name="add_to_cart"),
-    path("cart/", views.cart_view, name="cart_view"),
-    path("orders/", views.order_history, name="order_history"),
+        "theme-filter/", shop_views.theme_filter, name="theme_filter"
+    ),
     path(
         "gallery/illustrations/",
-        views.illustration_gallery,
+        shop_views.illustration_gallery,
         name="illustration_gallery",
     ),
     path(
         "gallery/photography/",
-        views.photography_gallery,
+        shop_views.photography_gallery,
         name="photography_gallery",
     ),
-    path("upload/", views.upload_print, name="upload_print"),
-    path("signup/", views.signup, name="signup"),  # User signup view
+    path("upload/", shop_views.upload_print, name="upload_print"),
+    path("signup/", shop_views.signup, name="signup"),
     path(
         "thank_you/",
         TemplateView.as_view(template_name="shop/thank_you.html"),
         name="thank_you",
     ),
-    path(
-        "accounts/", include("django.contrib.auth.urls")
-    ),  # for login/logout/password reset
-    path("contact/", views.contact_view, name="contact"),
-    path("terms/", views.terms_of_service, name="terms_of_service"),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("contact/", shop_views.contact_view, name="contact"),
+    path("terms/", shop_views.terms_of_service, name="terms_of_service"),
+    path("privacy-policy/", shop_views.privacy_policy, name="privacy_policy"),
     path("shop/", include("shop.urls")),
-    path("checkout/success/", views.payment_success, name="payment_success"),
-    path("checkout/cancel/", views.payment_cancel, name="payment_cancel"),
-    path("checkout/thanks/", views.checkout_thanks, name="checkout_thanks"),
-    path(
-        "privacy-policy/",
-        views.privacy_policy,
-        name="privacy_policy",
-    ),
 )
 
+# ==========================================
+#     LOCAL MEDIA & STATIC SERVING (DEBUG)
+# ==========================================
 if settings.DEBUG:
     urlpatterns += static(
         settings.STATIC_URL, document_root=settings.STATIC_ROOT

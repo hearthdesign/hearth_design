@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-21 07:34+0100\n"
+"POT-Creation-Date: 2026-11-23 00:39+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: English\n"
@@ -15,35 +15,218 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\hearth_shop\settings.py:225
-msgid "English"
+#: .\checkout\models.py:23 .\hearth_shop\templates\includes\navbar.html:56
+#: .\hearth_shop\templates\includes\navbar.html:57
+msgid "Cart"
 msgstr ""
 
-#: .\hearth_shop\settings.py:226
-msgid "Deutsch"
+#: .\checkout\models.py:24
+msgid "Carts"
+msgstr ""
+
+#: .\checkout\models.py:45
+msgid "Cart Item"
+msgstr ""
+
+#: .\checkout\models.py:46
+msgid "Cart Items"
+msgstr ""
+
+#: .\checkout\models.py:88
+msgid "Order"
+msgstr ""
+
+#: .\checkout\models.py:89
+msgid "Orders"
+msgstr ""
+
+#: .\checkout\models.py:112
+msgid "Order Item"
+msgstr ""
+
+#: .\checkout\models.py:113
+msgid "Order Items"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:47
+msgid "Your cart is currently empty."
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:56
+msgid "Secure Checkout with Stripe"
+msgstr ""
+
+#: .\checkout\templates\checkout\checkout_thanks.html:4
+#: .\shop\templates\shop\thank_you.html:4
+msgid "Thank You"
+msgstr ""
+
+#: .\checkout\templates\checkout\checkout_thanks.html:8
+msgid "Thank You!"
+msgstr ""
+
+#: .\checkout\templates\checkout\checkout_thanks.html:9
+msgid ""
+"We appreciate your support. Your submission or order has been successfully "
+"recorded."
+msgstr ""
+
+#: .\checkout\templates\checkout\checkout_thanks.html:12
+msgid "Back to Home"
+msgstr ""
+
+#: .\checkout\templates\checkout\order_history.html:3
+#: .\checkout\templates\checkout\order_history.html:7
+#: .\hearth_shop\templates\includes\navbar.html:61
+msgid "My Orders"
+msgstr ""
+
+#: .\checkout\templates\checkout\order_history.html:16
+msgid "Order #"
+msgstr ""
+
+#: .\checkout\templates\checkout\order_history.html:19
+msgid "Paid"
+msgstr ""
+
+#: .\checkout\templates\checkout\order_history.html:19
+msgid "Pending"
+msgstr ""
+
+#: .\checkout\templates\checkout\order_history.html:33
+#, python-format
+msgid "Write a review for %(title)s"
+msgstr ""
+
+#: .\checkout\templates\checkout\order_history.html:34
+msgid "Write a review"
+msgstr ""
+
+#: .\checkout\templates\checkout\order_history.html:43
+msgid "Total:"
+msgstr ""
+
+#: .\checkout\templates\checkout\order_history.html:51
+msgid "You have no past orders."
+msgstr ""
+
+#: .\checkout\templates\checkout\payment_cancel.html:4
+#: .\checkout\templates\checkout\payment_cancel.html:8
+msgid "Payment Cancelled"
+msgstr ""
+
+#: .\checkout\templates\checkout\payment_cancel.html:9
+msgid "Your payment was cancelled or interrupted. No charges were made."
+msgstr ""
+
+#: .\checkout\templates\checkout\payment_cancel.html:12
+msgid "Return to Cart"
+msgstr ""
+
+#: .\checkout\templates\checkout\payment_success.html:4
+#: .\checkout\templates\checkout\payment_success.html:8
+msgid "Payment Successful"
+msgstr ""
+
+#: .\checkout\templates\checkout\payment_success.html:9
+msgid "Thank you for your purchase."
+msgstr ""
+
+#: .\checkout\templates\checkout\payment_success.html:10
+msgid "Your order has been received and is being processed."
+msgstr ""
+
+#: .\checkout\templates\checkout\payment_success.html:13
+msgid "View Orders"
+msgstr ""
+
+#: .\checkout\views.py:44
+msgid "Invalid product selection."
+msgstr ""
+
+#: .\checkout\views.py:56
+msgid "Invalid quantity entered. Quantity has been reset to 1."
+msgstr ""
+
+#: .\checkout\views.py:65
+msgid "Quantity must be greater than zero. Quantity has been reset to 1."
+msgstr ""
+
+#: .\checkout\views.py:74
+#, python-format
+msgid "Only %(stock)s item(s) currently available."
+msgstr ""
+
+#: .\checkout\views.py:81
+msgid "This item is currently out of stock."
+msgstr ""
+
+#: .\checkout\views.py:99
+msgid "Requested quantity exceeds available stock."
+msgstr ""
+
+#: .\checkout\views.py:108
+#, python-format
+msgid "\"%(title)s\" added to your cart."
+msgstr ""
+
+#: .\checkout\views.py:153
+#, python-format
+msgid "Quantity of \"%(title)s\" increased to %(qty)s."
+msgstr ""
+
+#: .\checkout\views.py:160
+msgid "No additional stock is available for this item."
+msgstr ""
+
+#: .\checkout\views.py:175
+#, python-format
+msgid "Quantity of \"%(title)s\" decreased to %(qty)s."
+msgstr ""
+
+#: .\checkout\views.py:187
+#, python-format
+msgid "'%(title)s' has been removed from your cart."
+msgstr ""
+
+#: .\checkout\views.py:206
+#, python-format
+msgid "\"%(title)s\" has been removed from your cart."
+msgstr ""
+
+#: .\checkout\views.py:213
+msgid "Your cart is now empty. Browse the gallery to discover more artwork."
 msgstr ""
 
 #: .\hearth_shop\settings.py:227
-msgid "Français"
+msgid "English"
 msgstr ""
 
 #: .\hearth_shop\settings.py:228
-msgid "Español"
+msgid "Deutsch"
 msgstr ""
 
 #: .\hearth_shop\settings.py:229
-msgid "Italiano"
+msgid "Français"
 msgstr ""
 
 #: .\hearth_shop\settings.py:230
-msgid "Português"
+msgid "Español"
 msgstr ""
 
 #: .\hearth_shop\settings.py:231
-msgid "中文"
+msgid "Italiano"
 msgstr ""
 
 #: .\hearth_shop\settings.py:232
+msgid "Português"
+msgstr ""
+
+#: .\hearth_shop\settings.py:233
+msgid "中文"
+msgstr ""
+
+#: .\hearth_shop\settings.py:234
 msgid "日本語"
 msgstr ""
 
@@ -148,17 +331,6 @@ msgstr ""
 #: .\hearth_shop\templates\includes\navbar.html:50
 #: .\shop\templates\shop\upload.html:12
 msgid "Upload"
-msgstr ""
-
-#: .\hearth_shop\templates\includes\navbar.html:56
-#: .\hearth_shop\templates\includes\navbar.html:57 .\shop\models.py:187
-msgid "Cart"
-msgstr ""
-
-#: .\hearth_shop\templates\includes\navbar.html:61
-#: .\shop\templates\shop\order_history.html:3
-#: .\shop\templates\shop\order_history.html:7
-msgid "My Orders"
 msgstr ""
 
 #: .\hearth_shop\templates\includes\navbar.html:66
@@ -268,51 +440,23 @@ msgstr ""
 msgid "Prints"
 msgstr ""
 
-#: .\shop\models.py:188
-msgid "Carts"
-msgstr ""
-
-#: .\shop\models.py:206
-msgid "Cart Item"
-msgstr ""
-
-#: .\shop\models.py:207
-msgid "Cart Items"
-msgstr ""
-
-#: .\shop\models.py:245
-msgid "Order"
-msgstr ""
-
-#: .\shop\models.py:246
-msgid "Orders"
-msgstr ""
-
-#: .\shop\models.py:266
-msgid "Order Item"
-msgstr ""
-
-#: .\shop\models.py:267
-msgid "Order Items"
-msgstr ""
-
-#: .\shop\models.py:284
+#: .\shop\models.py:191
 msgid "Contact Submission"
 msgstr ""
 
-#: .\shop\models.py:285
+#: .\shop\models.py:192
 msgid "Contact Submissions"
 msgstr ""
 
-#: .\shop\models.py:306
+#: .\shop\models.py:213
 msgid "Review"
 msgstr ""
 
-#: .\shop\models.py:307
+#: .\shop\models.py:214
 msgid "Reviews"
 msgstr ""
 
-#: .\shop\models.py:310
+#: .\shop\models.py:217
 msgid "Anonymous"
 msgstr ""
 
@@ -415,33 +559,6 @@ msgstr ""
 #: .\shop\templates\shop\_pagination.html:21
 #: .\shop\templates\shop\_pagination.html:25
 msgid "Next"
-msgstr ""
-
-#: .\shop\templates\shop\cart.html:47
-msgid "Your cart is currently empty."
-msgstr ""
-
-#: .\shop\templates\shop\cart.html:56
-msgid "Secure Checkout with Stripe"
-msgstr ""
-
-#: .\shop\templates\shop\checkout_thanks.html:4
-#: .\shop\templates\shop\thank_you.html:4
-msgid "Thank You"
-msgstr ""
-
-#: .\shop\templates\shop\checkout_thanks.html:8
-msgid "Thank You!"
-msgstr ""
-
-#: .\shop\templates\shop\checkout_thanks.html:9
-msgid ""
-"We appreciate your support. Your submission or order has been successfully "
-"recorded."
-msgstr ""
-
-#: .\shop\templates\shop\checkout_thanks.html:12
-msgid "Back to Home"
 msgstr ""
 
 #: .\shop\templates\shop\contact.html:15
@@ -553,65 +670,6 @@ msgstr ""
 #: .\shop\templates\shop\illustration_gallery.html:92
 #: .\shop\templates\shop\photography_gallery.html:93
 msgid "No prints found."
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:16
-msgid "Order #"
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:19
-msgid "Paid"
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:19
-msgid "Pending"
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:33
-#, python-format
-msgid "Write a review for %(title)s"
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:34
-msgid "Write a review"
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:43
-msgid "Total:"
-msgstr ""
-
-#: .\shop\templates\shop\order_history.html:51
-msgid "You have no past orders."
-msgstr ""
-
-#: .\shop\templates\shop\payment_cancel.html:4
-#: .\shop\templates\shop\payment_cancel.html:8
-msgid "Payment Cancelled"
-msgstr ""
-
-#: .\shop\templates\shop\payment_cancel.html:9
-msgid "Your payment was cancelled or interrupted. No charges were made."
-msgstr ""
-
-#: .\shop\templates\shop\payment_cancel.html:12
-msgid "Return to Cart"
-msgstr ""
-
-#: .\shop\templates\shop\payment_success.html:4
-#: .\shop\templates\shop\payment_success.html:8
-msgid "Payment Successful"
-msgstr ""
-
-#: .\shop\templates\shop\payment_success.html:9
-msgid "Thank you for your purchase."
-msgstr ""
-
-#: .\shop\templates\shop\payment_success.html:10
-msgid "Your order has been received and is being processed."
-msgstr ""
-
-#: .\shop\templates\shop\payment_success.html:13
-msgid "View Orders"
 msgstr ""
 
 #: .\shop\templates\shop\photography_gallery.html:4
@@ -795,78 +853,20 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: .\shop\views.py:217
-msgid "Invalid product selection."
-msgstr ""
-
-#: .\shop\views.py:229
-msgid "Invalid quantity entered. Quantity has been reset to 1."
-msgstr ""
-
-#: .\shop\views.py:238
-msgid "Quantity must be greater than zero. Quantity has been reset to 1."
-msgstr ""
-
-#: .\shop\views.py:247
-#, python-format
-msgid "Only %(stock)s item(s) currently available."
-msgstr ""
-
-#: .\shop\views.py:254
-msgid "This item is currently out of stock."
-msgstr ""
-
-#: .\shop\views.py:272
-msgid "Requested quantity exceeds available stock."
-msgstr ""
-
-#: .\shop\views.py:281
-#, python-format
-msgid "\"%(title)s\" added to your cart."
-msgstr ""
-
-#: .\shop\views.py:326
-#, python-format
-msgid "Quantity of \"%(title)s\" increased to %(qty)s."
-msgstr ""
-
-#: .\shop\views.py:333
-msgid "No additional stock is available for this item."
-msgstr ""
-
-#: .\shop\views.py:348
-#, python-format
-msgid "Quantity of \"%(title)s\" decreased to %(qty)s."
-msgstr ""
-
-#: .\shop\views.py:360
-#, python-format
-msgid "'%(title)s' has been removed from your cart."
-msgstr ""
-
-#: .\shop\views.py:379
-#, python-format
-msgid "\"%(title)s\" has been removed from your cart."
-msgstr ""
-
-#: .\shop\views.py:386
-msgid "Your cart is now empty. Browse the gallery to discover more artwork."
-msgstr ""
-
-#: .\shop\views.py:531
+#: .\shop\views.py:287
 msgid "You must agree to the Privacy Notice"
 msgstr ""
 
-#: .\shop\views.py:552
+#: .\shop\views.py:308
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
 msgstr ""
 
-#: .\shop\views.py:560
+#: .\shop\views.py:316
 msgid "Thank you for contacting Hearth Design"
 msgstr ""
 
-#: .\shop\views.py:562
+#: .\shop\views.py:318
 #, python-format
 msgid ""
 "Hi %(name)s,\n"

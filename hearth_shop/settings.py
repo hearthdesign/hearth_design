@@ -80,12 +80,13 @@ INSTALLED_APPS = [
     "cloudinary_storage",
     "django.contrib.sitemaps",
     "pages",
+    "checkout",
 ]
 
 # -------------------------
 # AUTHENTICATION REDIRECTS
 # -------------------------
-LOGIN_REDIRECT_URL = "illustration_gallery"
+LOGIN_REDIRECT_URL = "homepage"
 LOGOUT_REDIRECT_URL = "login"
 
 # ---------------------------------------------------------
@@ -114,6 +115,7 @@ TEMPLATES = [
         "DIRS": [
             BASE_DIR / "hearth_shop" / "templates",
             BASE_DIR / "shop" / "templates",
+            BASE_DIR / "checkout" / "templates"
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -123,9 +125,9 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 # Injects cart item count
-                "shop.context_processors.cart_count",
+                "checkout.context_processors.cart_count",
                 # Injects cart total price
-                "shop.context_processors.cart_total",
+                "checkout.context_processors.cart_total",
                 # Injects user info if logged in
                 "shop.context_processors.user_profile",
                 # Injects site-wide settings like name and currency

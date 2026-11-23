@@ -2,7 +2,7 @@ import stripe
 from django.conf import settings
 from django.contrib.auth import get_user_model
 
-from shop.models import Cart, Order, OrderItem
+from checkout.models import Cart, Order, OrderItem
 
 
 def handle_stripe_webhook(payload, sig_header):
