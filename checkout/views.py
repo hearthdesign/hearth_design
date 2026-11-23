@@ -129,7 +129,7 @@ def cart_view(request):
         )
 
     total = sum(item["total"] for item in items)
-    return render(request, "shop/cart.html", {"cart_items": items, "cart_total": total})
+    return render(request, "checkout/cart.html", {"cart_items": items, "cart_total": total})
 
 
 # ==========================================
@@ -272,7 +272,7 @@ def order_history(request):
     orders = Order.objects.filter(customer_email=request.user.email).prefetch_related(
         "items__print"
     )
-    return render(request, "shop/order_history.html", {"orders": orders})
+    return render(request, "checkout/order_history.html", {"orders": orders})
 
 
 # ==========================================
@@ -357,15 +357,14 @@ def payment_success(request):
                 "Failed to retrieve Stripe checkout session %s", session_id
             )
 
-    return render(request, "shop/payment_success.html")
+    return render(request, "checkout/payment_success.html")
 
 # Payment cancel view
 @login_required
 def payment_cancel(request):
-    return render(request, "shop/payment_cancel.html")
-
+    return render(request, "checkout/payment_cancel.html")
 
 @login_required
 def checkout_thanks(request):
-    return render(request, "shop/checkout_thanks.html")
+    return render(request, "checkout/checkout_thanks.html")
 
