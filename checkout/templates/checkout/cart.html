@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
-<!-- Cart -->
+
 {% block content %}
 {% for item in cart_items %}
 <div class="cart-item">
@@ -10,52 +10,52 @@
             alt="{{ item.print.title }}"
             class="cart-thumbnail">
     {% endif %}
-    <div class="cart-details">  
+    <div class="cart-details">
         <h3>{{ item.print.title }}</h3>
-        <p><strong>Price:</strong> €{{ item.price_at_time }}</p>
-        <p><strong>Quantity:</strong></p>
+        <p><strong>{% trans "Price:" %}</strong> €{{ item.price_at_time }}</p>
+        <p><strong>{% trans "Quantity:" %}</strong></p>
         <div class="qty-stack">
             <form
                 action="{% url 'decrease_cart_quantity' item.id %}"
                 method="post">
                 {% csrf_token %}
-                <button type="submit">-</button>
+                <button type="submit" aria-label="{% trans 'Decrease quantity' %}">-</button>
             </form>
 
-            <span>{{ item.quantity }}</span>
+            <span class="qty-display">{{ item.quantity }}</span>
 
             <form
                 action="{% url 'increase_cart_quantity' item.id %}"
                 method="post">
                 {% csrf_token %}
-                <button type="submit">+</button>
+                <button type="submit" aria-label="{% trans 'Increase quantity' %}">+</button>
             </form>
         </div>
-        <p><strong>Subtotal:</strong> €{{ item.total }}</p>
+        <p><strong>{% trans "Subtotal:" %}</strong> €{{ item.total }}</p>
         <form action="{% url 'remove_from_cart' item.id %}" method="post">
             {% csrf_token %}
             <button type="submit" class="remove-btn">
-                Remove Item
+                {% trans "Remove Item" %}
             </button>
         </form>
     </div>
-
 </div>
-<div class="cart-summary">
 {% endfor %}
+
+<div class="cart-summary">
     {% if not cart_items %}
-    <p>{% trans "Your cart is currently empty." %}</p>
-{% endif %}
+        <p>{% trans "Your cart is currently empty." %}</p>
+    {% endif %}
 
-<p><strong>Cart Total: €{{ cart_total }}</strong></p>
+    <p><strong>{% trans "Cart Total:" %} €{{ cart_total }}</strong></p>
 
-{% if cart_items %}
-<form action="{% url 'create_checkout_session' %}" method="post">
-    {% csrf_token %}
-    <button type="submit" class="checkout-btn">
-        {% trans "Secure Checkout with Stripe" %}
-    </button>
-</form>
-{% endif %}
+    {% if cart_items %}
+    <form action="{% url 'create_checkout_session' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="checkout-btn">
+            {% trans "Secure Checkout with Stripe" %}
+        </button>
+    </form>
+    {% endif %}
 </div>
 {% endblock %}

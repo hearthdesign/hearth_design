@@ -6,12 +6,26 @@
 {% block content %}
 <section class="gallery-page-container" aria-labelledby="photography-heading">
   <h1 id="photography-heading">{% trans "PHOTOGRAPHY" %}</h1>
-  <p class="gallery-subtitle">
-    {% blocktranslate trimmed %}
-    Printed on metal in A4 format. If you would like other sizes or formats, please
-    reach out through the contact form in the navigation bar.
-    {% endblocktranslate %}
-  </p>
+<div class="gallery-info-wrap">
+  <button
+    type="button"
+    class="gallery-info-trigger"
+    aria-expanded="false"
+    aria-controls="photography-format-info"
+  >
+    {% trans "Print & Format Info" %}
+    <span class="discover-cue" aria-hidden="true">▾</span>
+  </button>
+
+  <div id="photography-format-info" class="gallery-subtitle" hidden>
+    <p>
+      {% blocktranslate trimmed %}
+      Printed on metal in A4 format. If you would like other sizes or formats, please
+      reach out through the contact form in the navigation bar.
+      {% endblocktranslate %}
+    </p>
+  </div>
+</div>
 
   <!-- ===========================
           GALLERY GRID

@@ -94,7 +94,6 @@ if (themeSelect && themeForm) {
     });
 }
 
-
   // ===============================
   // NAVBAR: Language Switcher
   // ===============================
@@ -118,6 +117,23 @@ if (themeSelect && themeForm) {
   // ===============================
   const galleryLinks = Array.from(document.querySelectorAll('.thumbnail a'));
   let currentIndex = 0;
+
+/* ===============================================
+    COLLAPSIBLE INFO SECTION (prints formats)
+=============================================== */
+document.querySelectorAll(".gallery-info-trigger").forEach((btn) => {
+  const panelId = btn.getAttribute("aria-controls");
+  const panel = panelId ? document.getElementById(panelId) : null;
+  if (!panel) return;
+
+  btn.addEventListener("click", () => {
+    const isExpanded = btn.getAttribute("aria-expanded") === "true";
+    const nextState = !isExpanded;
+    btn.setAttribute("aria-expanded", String(nextState));
+    btn.classList.toggle("is-open", nextState);
+    panel.hidden = !nextState;
+  });
+});
 
   // =============================================
 // Attach click listeners to all gallery items
@@ -165,6 +181,7 @@ galleryLinks.forEach((link, index) => {
   });
 
 });
+
   // =======================================
   // Preload Images for Smoother Navigation
   // ======================================

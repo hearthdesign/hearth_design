@@ -6,13 +6,27 @@
 {% block content %}
 <section class="gallery-page-container" aria-labelledby="illustrations-heading">
   <h1 id="illustrations-heading">{% trans "Illustration" %}</h1>
-  <p class="gallery-subtitle">
-    {% blocktranslate trimmed %}
-    Laser-engraved original graphics hand-coloured with acrylic colours in A4
-    format. If you would like other sizes or formats, please reach out through
-    the contact form in the navigation bar.
-    {% endblocktranslate %}
-  </p> 
+<div class="gallery-info-wrap">
+  <button
+    type="button"
+    class="gallery-info-trigger"
+    aria-expanded="false"
+    aria-controls="illustration-format-info"
+  >
+    {% trans "Print & Format Info" %}
+    <span class="discover-cue" aria-hidden="true">▾</span>
+  </button>
+
+  <div id="illustration-format-info" class="gallery-subtitle" hidden>
+    <p>
+      {% blocktranslate trimmed %}
+      Laser-engraved original graphics hand-coloured with acrylic colours in A4
+      format. If you would like other sizes or formats, please reach out through
+      the contact form in the navigation bar.
+      {% endblocktranslate %}
+    </p>
+  </div>
+</div>
   <!-- ===========================
           GALLERY GRID
   ============================ -->
