@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="creamBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faf6f0" />
+      <stop offset="100%" stop-color="#efe3d3" />
+    </linearGradient>
+  </defs>
+
+  
+  <rect width="600" height="600" fill="url(#creamBg)" />
+
+  
+  <rect x="28" y="28" width="544" height="544" rx="24" fill="none" stroke="#dfd2c0" stroke-width="3" />
+
+  
+  <circle cx="300" cy="275" r="120" fill="#f7f1e1" stroke="#b89f82" stroke-width="2" stroke-dasharray="6 6" />
+
+  
+  <g transform="translate(215, 200)" fill="none" stroke="rgb(5, 73, 90)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="170" height="145" rx="14" fill="#ffffff" fill-opacity="0.65" />
+    <circle cx="52" cy="46" r="14" fill="#ffcf7d" stroke="rgb(5, 73, 90)" stroke-width="6" />
+    <path d="M16 122 L62 76 L98 110 L124 86 L154 122" fill="rgba(74, 156, 177, 0.25)" />
+  </g>
+</svg>
