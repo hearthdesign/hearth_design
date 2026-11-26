@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-23 00:39+0100\n"
+"POT-Creation-Date: 2026-11-26 02:42+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: English\n"
@@ -48,11 +48,71 @@ msgstr ""
 msgid "Order Items"
 msgstr ""
 
-#: .\checkout\templates\checkout\cart.html:47
+#: .\checkout\templates\checkout\cart.html:4
+msgid "Shopping Cart"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:4
+msgid "HEARTH Shop"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:8
+msgid "Your Shopping Cart"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:20
+#: .\shop\templates\shop\illustration_gallery.html:62
+#: .\shop\templates\shop\photography_gallery.html:62
+#: .\shop\templates\shop\themed_gallery.html:58
+msgid "No image available"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:26
+msgid "Price:"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:27
+#: .\hearth_shop\templates\base.html:118
+msgid "Quantity:"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:36
+#, python-format
+msgid "Decrease quantity of %(title)s"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:41
+#, python-format
+msgid "Quantity: %(qty)s"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:51
+#, python-format
+msgid "Increase quantity of %(title)s"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:57
+msgid "Subtotal:"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:64
+#, python-format
+msgid "Remove %(title)s from cart"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:65
+msgid "Remove Item"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:74
 msgid "Your cart is currently empty."
 msgstr ""
 
-#: .\checkout\templates\checkout\cart.html:56
+#: .\checkout\templates\checkout\cart.html:77
+msgid "Cart Total:"
+msgstr ""
+
+#: .\checkout\templates\checkout\cart.html:83
 msgid "Secure Checkout with Stripe"
 msgstr ""
 
@@ -259,10 +319,6 @@ msgstr ""
 msgid "Close modal"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:118
-msgid "Quantity:"
-msgstr ""
-
 #: .\hearth_shop\templates\base.html:120
 msgid "Add to Cart"
 msgstr ""
@@ -283,27 +339,55 @@ msgstr ""
 msgid "Back to top"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:144
+#: .\hearth_shop\templates\base.html:144 .\hearth_shop\templates\base.html:158
+msgid "Newsletter"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:154
+msgid "Newsletter signup form"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:162
+msgid "Required information"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:167
+msgid "Email address"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:175
+msgid "Enter your email"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:199
+msgid "Subscribe"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:208
+msgid "Intuit Mailchimp"
+msgstr ""
+
+#: .\hearth_shop\templates\base.html:231
 msgid "Footer navigation"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:145 .\shop\templates\shop\contact.html:4
+#: .\hearth_shop\templates\base.html:232 .\shop\templates\shop\contact.html:4
 #: .\shop\templates\shop\contact.html:8
 msgid "Contact Us"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:146
+#: .\hearth_shop\templates\base.html:234
 #: .\shop\templates\shop\privacy_policy.html:6
 #: .\shop\templates\shop\privacy_policy.html:10
 msgid "Privacy Policy"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:147 .\shop\templates\shop\terms.html:4
+#: .\hearth_shop\templates\base.html:236 .\shop\templates\shop\terms.html:4
 #: .\shop\templates\shop\terms.html:8
 msgid "Terms of Service"
 msgstr ""
 
-#: .\hearth_shop\templates\base.html:152
+#: .\hearth_shop\templates\base.html:241
 msgid "All rights reserved."
 msgstr ""
 
@@ -629,46 +713,54 @@ msgstr ""
 msgid "Gustav Klimt"
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:10
+#: .\shop\templates\shop\illustration_gallery.html:16
+#: .\shop\templates\shop\photography_gallery.html:16
+msgid "Print & Format Info"
+msgstr ""
+
+#: .\shop\templates\shop\illustration_gallery.html:22
 msgid ""
 "Laser-engraved original graphics hand-coloured with acrylic colours in A4 "
 "format. If you would like other sizes or formats, please reach out through "
 "the contact form in the navigation bar."
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:21
-#: .\shop\templates\shop\photography_gallery.html:21
+#: .\shop\templates\shop\illustration_gallery.html:35
 msgid "Illustration gallery"
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:69
-#: .\shop\templates\shop\photography_gallery.html:70
+#: .\shop\templates\shop\illustration_gallery.html:86
+#: .\shop\templates\shop\photography_gallery.html:87
+#: .\shop\templates\shop\themed_gallery.html:83
 msgid "Average rating"
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:70
-#: .\shop\templates\shop\photography_gallery.html:71
+#: .\shop\templates\shop\illustration_gallery.html:87
+#: .\shop\templates\shop\photography_gallery.html:88
+#: .\shop\templates\shop\themed_gallery.html:84
 msgid "out of 5 from"
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:71
-#: .\shop\templates\shop\photography_gallery.html:72
+#: .\shop\templates\shop\illustration_gallery.html:88
+#: .\shop\templates\shop\photography_gallery.html:89
+#: .\shop\templates\shop\themed_gallery.html:85
 msgid "reviews"
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:74
-#: .\shop\templates\shop\photography_gallery.html:75
+#: .\shop\templates\shop\illustration_gallery.html:91
+#: .\shop\templates\shop\photography_gallery.html:92
+#: .\shop\templates\shop\themed_gallery.html:88
 msgid "No reviews yet"
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:83
-#: .\shop\templates\shop\photography_gallery.html:84
-#: .\shop\templates\shop\themed_gallery.html:81
+#: .\shop\templates\shop\illustration_gallery.html:100
+#: .\shop\templates\shop\photography_gallery.html:101
+#: .\shop\templates\shop\themed_gallery.html:97
 msgid "No reviews"
 msgstr ""
 
-#: .\shop\templates\shop\illustration_gallery.html:92
-#: .\shop\templates\shop\photography_gallery.html:93
+#: .\shop\templates\shop\illustration_gallery.html:109
+#: .\shop\templates\shop\photography_gallery.html:110
 msgid "No prints found."
 msgstr ""
 
@@ -676,10 +768,14 @@ msgstr ""
 msgid "Photography — HEARTH Shop"
 msgstr ""
 
-#: .\shop\templates\shop\photography_gallery.html:10
+#: .\shop\templates\shop\photography_gallery.html:22
 msgid ""
 "Printed on metal in A4 format. If you would like other sizes or formats, "
 "please reach out through the contact form in the navigation bar."
+msgstr ""
+
+#: .\shop\templates\shop\photography_gallery.html:35
+msgid "Photography gallery"
 msgstr ""
 
 #: .\shop\templates\shop\privacy_policy.html:13
@@ -828,20 +924,31 @@ msgstr ""
 msgid "Return to Homepage"
 msgstr ""
 
-#: .\shop\templates\shop\themed_gallery.html:7
+#: .\shop\templates\shop\themed_gallery.html:6
 #, python-format
-msgid ""
-"\n"
-"      %(theme_name)s Gallery\n"
-"    "
+msgid "%(theme_name)s Gallery"
 msgstr ""
 
-#: .\shop\templates\shop\themed_gallery.html:11
-#: .\shop\templates\shop\themed_gallery.html:23
+#: .\shop\templates\shop\themed_gallery.html:8
+#: .\shop\templates\shop\themed_gallery.html:21
 msgid "Themed Gallery"
 msgstr ""
 
-#: .\shop\templates\shop\themed_gallery.html:90
+#: .\shop\templates\shop\themed_gallery.html:30
+#, python-format
+msgid "%(theme_name)s gallery"
+msgstr ""
+
+#: .\shop\templates\shop\themed_gallery.html:30
+#, python-format
+msgid "%(cat_name)s gallery"
+msgstr ""
+
+#: .\shop\templates\shop\themed_gallery.html:30
+msgid "Themed gallery"
+msgstr ""
+
+#: .\shop\templates\shop\themed_gallery.html:105
 msgid "No prints found for this theme."
 msgstr ""
 

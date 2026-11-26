@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-23 00:39+0100\n"
+"POT-Creation-Date: 2026-11-26 02:42+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -48,11 +48,71 @@ msgstr "Artículo del pedido"
 msgid "Order Items"
 msgstr "Artículos del pedido"
 
-#: .\checkout\templates\checkout\cart.html:47
-msgid "Your cart is currently empty."
-msgstr "Tu carrito está vacío por ahora."
+#: .\checkout\templates\checkout\cart.html:4
+msgid "Shopping Cart"
+msgstr "Carrito de compras"
 
-#: .\checkout\templates\checkout\cart.html:56
+#: .\checkout\templates\checkout\cart.html:4
+msgid "HEARTH Shop"
+msgstr "HEARTH Shop"
+
+#: .\checkout\templates\checkout\cart.html:8
+msgid "Your Shopping Cart"
+msgstr "Tu carrito de compras"
+
+#: .\checkout\templates\checkout\cart.html:20
+#: .\shop\templates\shop\illustration_gallery.html:62
+#: .\shop\templates\shop\photography_gallery.html:62
+#: .\shop\templates\shop\themed_gallery.html:58
+msgid "No image available"
+msgstr "No hay imagen disponible"
+
+#: .\checkout\templates\checkout\cart.html:26
+msgid "Price:"
+msgstr "Precio:"
+
+#: .\checkout\templates\checkout\cart.html:27
+#: .\hearth_shop\templates\base.html:118
+msgid "Quantity:"
+msgstr "Cantidad:"
+
+#: .\checkout\templates\checkout\cart.html:36
+#, python-format
+msgid "Decrease quantity of %(title)s"
+msgstr "Reducir la cantidad de %(title)s"
+
+#: .\checkout\templates\checkout\cart.html:41
+#, python-format
+msgid "Quantity: %(qty)s"
+msgstr "Cantidad: %(qty)s"
+
+#: .\checkout\templates\checkout\cart.html:51
+#, python-format
+msgid "Increase quantity of %(title)s"
+msgstr "Aumentar la cantidad de %(title)s"
+
+#: .\checkout\templates\checkout\cart.html:57
+msgid "Subtotal:"
+msgstr "Subtotal:"
+
+#: .\checkout\templates\checkout\cart.html:64
+#, python-format
+msgid "Remove %(title)s from cart"
+msgstr "Eliminar %(title)s del carrito"
+
+#: .\checkout\templates\checkout\cart.html:65
+msgid "Remove Item"
+msgstr "Eliminar artículo"
+
+#: .\checkout\templates\checkout\cart.html:74
+msgid "Your cart is currently empty."
+msgstr "Tu carrito está vacío en este momento."
+
+#: .\checkout\templates\checkout\cart.html:77
+msgid "Cart Total:"
+msgstr "Total del carrito:"
+
+#: .\checkout\templates\checkout\cart.html:83
 msgid "Secure Checkout with Stripe"
 msgstr "Pago seguro con Stripe"
 
@@ -70,7 +130,7 @@ msgid ""
 "We appreciate your support. Your submission or order has been successfully "
 "recorded."
 msgstr ""
-"Agradecemos tu apoyo. Tu mensaje o pedido se ha registrado correctamente."
+"Agradecemos tu apoyo. Tu envío o pedido se ha registrado correctamente."
 
 #: .\checkout\templates\checkout\checkout_thanks.html:12
 msgid "Back to Home"
@@ -84,7 +144,7 @@ msgstr "Mis pedidos"
 
 #: .\checkout\templates\checkout\order_history.html:16
 msgid "Order #"
-msgstr "Pedido n.º"
+msgstr "Pedido #"
 
 #: .\checkout\templates\checkout\order_history.html:19
 msgid "Paid"
@@ -118,7 +178,8 @@ msgstr "Pago cancelado"
 
 #: .\checkout\templates\checkout\payment_cancel.html:9
 msgid "Your payment was cancelled or interrupted. No charges were made."
-msgstr "Tu pago se canceló o interrumpió. No se realizó ningún cargo."
+msgstr ""
+"Tu pago fue cancelado o interrumpido. No se realizó ningún cargo."
 
 #: .\checkout\templates\checkout\payment_cancel.html:12
 msgid "Return to Cart"
@@ -127,7 +188,7 @@ msgstr "Volver al carrito"
 #: .\checkout\templates\checkout\payment_success.html:4
 #: .\checkout\templates\checkout\payment_success.html:8
 msgid "Payment Successful"
-msgstr "Pago completado"
+msgstr "Pago realizado con éxito"
 
 #: .\checkout\templates\checkout\payment_success.html:9
 msgid "Thank you for your purchase."
@@ -135,7 +196,7 @@ msgstr "Gracias por tu compra."
 
 #: .\checkout\templates\checkout\payment_success.html:10
 msgid "Your order has been received and is being processed."
-msgstr "Tu pedido se ha recibido y se está procesando."
+msgstr "Hemos recibido tu pedido y se está procesando."
 
 #: .\checkout\templates\checkout\payment_success.html:13
 msgid "View Orders"
@@ -157,7 +218,7 @@ msgstr ""
 #: .\checkout\views.py:74
 #, python-format
 msgid "Only %(stock)s item(s) currently available."
-msgstr "Solo hay %(stock)s unidad(es) disponible(s) en este momento."
+msgstr "Solo hay %(stock)s artículo(s) disponible(s) en este momento."
 
 #: .\checkout\views.py:81
 msgid "This item is currently out of stock."
@@ -165,17 +226,17 @@ msgstr "Este artículo está agotado en este momento."
 
 #: .\checkout\views.py:99
 msgid "Requested quantity exceeds available stock."
-msgstr "La cantidad solicitada supera la disponibilidad."
+msgstr "La cantidad solicitada supera el stock disponible."
 
 #: .\checkout\views.py:108
 #, python-format
 msgid "\"%(title)s\" added to your cart."
-msgstr "Se añadió «%(title)s» a tu carrito."
+msgstr "\"%(title)s\" añadido a tu carrito."
 
 #: .\checkout\views.py:153
 #, python-format
 msgid "Quantity of \"%(title)s\" increased to %(qty)s."
-msgstr "La cantidad de «%(title)s» aumentó a %(qty)s."
+msgstr "Cantidad de \"%(title)s\" aumentada a %(qty)s."
 
 #: .\checkout\views.py:160
 msgid "No additional stock is available for this item."
@@ -184,22 +245,22 @@ msgstr "No hay stock adicional disponible para este artículo."
 #: .\checkout\views.py:175
 #, python-format
 msgid "Quantity of \"%(title)s\" decreased to %(qty)s."
-msgstr "La cantidad de «%(title)s» se redujo a %(qty)s."
+msgstr "Cantidad de \"%(title)s\" reducida a %(qty)s."
 
 #: .\checkout\views.py:187
 #, python-format
 msgid "'%(title)s' has been removed from your cart."
-msgstr "Se eliminó «%(title)s» de tu carrito."
+msgstr "'%(title)s' se ha eliminado de tu carrito."
 
 #: .\checkout\views.py:206
 #, python-format
 msgid "\"%(title)s\" has been removed from your cart."
-msgstr "Se eliminó «%(title)s» de tu carrito."
+msgstr "\"%(title)s\" se ha eliminado de tu carrito."
 
 #: .\checkout\views.py:213
 msgid "Your cart is now empty. Browse the gallery to discover more artwork."
 msgstr ""
-"Tu carrito ahora está vacío. Explora la galería para descubrir más obras."
+"Tu carrito está ahora vacío. Explora la galería para descubrir más obras."
 
 #: .\hearth_shop\settings.py:227
 msgid "English"
@@ -244,7 +305,7 @@ msgid ""
 "home in the world."
 msgstr ""
 "HEARTH Design. Descubre ilustraciones y colecciones creativas que celebran "
-"la amabilidad, la acogida, la imaginación y los valores que ayudan a "
+"la amabilidad, la aceptación, la imaginación y los valores que ayudan a "
 "sentirse en casa en el mundo."
 
 #: .\hearth_shop\templates\base.html:29
@@ -253,7 +314,7 @@ msgid ""
 "acceptance, imagination, and feeling at home in the world."
 msgstr ""
 "Descubre ilustraciones y colecciones creativas que celebran la amabilidad, "
-"la acogida, la imaginación y el sentirse en casa en el mundo."
+"la aceptación, la imaginación y la sensación de estar en casa en el mundo."
 
 #: .\hearth_shop\templates\base.html:65
 msgid "Shop"
@@ -266,10 +327,6 @@ msgstr "[ TIENDA ]"
 #: .\hearth_shop\templates\base.html:99
 msgid "Close modal"
 msgstr "Cerrar ventana"
-
-#: .\hearth_shop\templates\base.html:118
-msgid "Quantity:"
-msgstr "Cantidad:"
 
 #: .\hearth_shop\templates\base.html:120
 msgid "Add to Cart"
@@ -285,33 +342,61 @@ msgstr "Imagen anterior"
 
 #: .\hearth_shop\templates\base.html:129
 msgid "Next image"
-msgstr "Siguiente imagen"
+msgstr "Imagen siguiente"
 
 #: .\hearth_shop\templates\base.html:137
 msgid "Back to top"
 msgstr "Volver arriba"
 
-#: .\hearth_shop\templates\base.html:144
+#: .\hearth_shop\templates\base.html:144 .\hearth_shop\templates\base.html:158
+msgid "Newsletter"
+msgstr "Boletín"
+
+#: .\hearth_shop\templates\base.html:154
+msgid "Newsletter signup form"
+msgstr "Formulario de suscripción al boletín"
+
+#: .\hearth_shop\templates\base.html:162
+msgid "Required information"
+msgstr "Información obligatoria"
+
+#: .\hearth_shop\templates\base.html:167
+msgid "Email address"
+msgstr "Correo electrónico"
+
+#: .\hearth_shop\templates\base.html:175
+msgid "Enter your email"
+msgstr "Introduce tu correo electrónico"
+
+#: .\hearth_shop\templates\base.html:199
+msgid "Subscribe"
+msgstr "Suscribirse"
+
+#: .\hearth_shop\templates\base.html:208
+msgid "Intuit Mailchimp"
+msgstr "Intuit Mailchimp"
+
+#: .\hearth_shop\templates\base.html:231
 msgid "Footer navigation"
 msgstr "Navegación del pie de página"
 
-#: .\hearth_shop\templates\base.html:145 .\shop\templates\shop\contact.html:4
+#: .\hearth_shop\templates\base.html:232 .\shop\templates\shop\contact.html:4
 #: .\shop\templates\shop\contact.html:8
 msgid "Contact Us"
 msgstr "Contáctanos"
 
-#: .\hearth_shop\templates\base.html:146
+#: .\hearth_shop\templates\base.html:234
 #: .\shop\templates\shop\privacy_policy.html:6
 #: .\shop\templates\shop\privacy_policy.html:10
 msgid "Privacy Policy"
 msgstr "Política de privacidad"
 
-#: .\hearth_shop\templates\base.html:147 .\shop\templates\shop\terms.html:4
+#: .\hearth_shop\templates\base.html:236 .\shop\templates\shop\terms.html:4
 #: .\shop\templates\shop\terms.html:8
 msgid "Terms of Service"
 msgstr "Términos del servicio"
 
-#: .\hearth_shop\templates\base.html:152
+#: .\hearth_shop\templates\base.html:241
 msgid "All rights reserved."
 msgstr "Todos los derechos reservados."
 
@@ -390,7 +475,8 @@ msgstr "He leído y acepto el aviso de privacidad"
 
 #: .\shop\forms.py:51 .\shop\templates\shop\contact.html:78
 msgid "I would like to receive updates about new art, offers, and newsletters"
-msgstr "Me gustaría recibir novedades sobre nuevo arte, ofertas y boletines"
+msgstr ""
+"Me gustaría recibir novedades sobre nuevas obras, ofertas y boletines"
 
 #: .\shop\models.py:28
 msgid "Info"
@@ -478,7 +564,7 @@ msgstr "Tu contraseña se ha cambiado correctamente."
 
 #: .\shop\templates\registration\password_change_form.html:5
 msgid "Change your password"
-msgstr "Cambia tu contraseña"
+msgstr "Cambiar tu contraseña"
 
 #: .\shop\templates\registration\password_change_form.html:9
 msgid "Change password"
@@ -486,7 +572,7 @@ msgstr "Cambiar contraseña"
 
 #: .\shop\templates\registration\password_reset.html:5
 msgid "Reset your password"
-msgstr "Restablece tu contraseña"
+msgstr "Restablecer tu contraseña"
 
 #: .\shop\templates\registration\password_reset.html:6
 msgid ""
@@ -501,7 +587,7 @@ msgstr "Enviar enlace de restablecimiento"
 
 #: .\shop\templates\registration\password_reset_complete.html:6
 msgid "Password reset complete"
-msgstr "Restablecimiento completado"
+msgstr "Restablecimiento de contraseña completado"
 
 #: .\shop\templates\registration\password_reset_complete.html:7
 msgid "Your password has been successfully reset. You may now log in."
@@ -528,7 +614,7 @@ msgstr "Correo de restablecimiento enviado"
 #: .\shop\templates\registration\password_reset_done.html:6
 msgid "Check your inbox for a link to reset your password."
 msgstr ""
-"Revisa tu bandeja de entrada para encontrar un enlace y restablecer tu "
+"Revisa tu bandeja de entrada para encontrar un enlace para restablecer tu "
 "contraseña."
 
 #: .\shop\templates\registration\password_reset_email.html:5
@@ -599,8 +685,8 @@ msgstr ""
 "Al enviar este formulario, recopilamos tu nombre, correo electrónico y "
 "mensaje con el único propósito de responder a tu consulta. Los metadatos "
 "técnicos (como la dirección IP con hash y la información del navegador) "
-"también pueden procesarse para garantizar la seguridad y prevenir abusos. "
-"Tus datos no se utilizarán con fines de marketing sin tu consentimiento "
+"también pueden procesarse para garantizar la seguridad y prevenir abusos. Tus "
+"datos no se utilizarán con fines de marketing sin tu consentimiento "
 "explícito. Los envíos se almacenan de forma segura y se eliminan cuando ya "
 "no son necesarios. Tienes derecho a solicitar el acceso, la rectificación o "
 "la eliminación de tus datos en cualquier momento."
@@ -620,9 +706,9 @@ msgid ""
 "photographs made to bring calm and warmth into everyday spaces. Feel free to "
 "browse through the collections at your own pace."
 msgstr ""
-"Una selección de ilustraciones y fotografías cercana a la naturaleza, "
-"familiar y apta para niños, pensada para aportar calma y calidez a los "
-"espacios cotidianos. Explora las colecciones a tu ritmo."
+"Una selección de ilustraciones y fotografías inspiradas en la naturaleza, "
+"apta para familias y niños, pensada para aportar calma y calidez a los "
+"espacios cotidianos. Explora las colecciones a tu propio ritmo."
 
 #: .\shop\templates\shop\homepage.html:20
 msgid "Discover Our Art — read the story behind HEARTH"
@@ -641,9 +727,9 @@ msgid ""
 "While a hearth already carries its own quiet meaning, HEARTH is also a "
 "gentle wordplay on two values behind our work: heart and earth."
 msgstr ""
-"Aunque «hearth» ya tiene su propio significado sereno, HEARTH es también un "
-"sutil juego de palabras con dos valores de nuestro trabajo: corazón (heart) "
-"y tierra (earth)."
+"Aunque un hogar ya tiene su propio significado sereno, HEARTH es también un "
+"sutil juego de palabras entre dos valores de nuestro trabajo: corazón "
+"(heart) y tierra (earth)."
 
 #: .\shop\templates\shop\homepage.html:39
 msgid ""
@@ -651,57 +737,65 @@ msgid ""
 "significant—should look attentively at my pictures and there seek to "
 "recognize what I am and what I want.”"
 msgstr ""
-"«Quien quiera saber algo de mí —como artista, que es lo único que importa—, "
-"debe mirar atentamente mis cuadros y buscar allí reconocer lo que soy y lo "
-"que quiero.»"
+"«Quien quiera saber algo sobre mí —como artista, que es lo único que "
+"importa— debe mirar con atención mis cuadros y buscar allí reconocer lo que "
+"soy y lo que quiero»."
 
 #: .\shop\templates\shop\homepage.html:41
 msgid "Gustav Klimt"
 msgstr "Gustav Klimt"
 
-#: .\shop\templates\shop\illustration_gallery.html:10
+#: .\shop\templates\shop\illustration_gallery.html:16
+#: .\shop\templates\shop\photography_gallery.html:16
+msgid "Print & Format Info"
+msgstr "Información de impresión y formato"
+
+#: .\shop\templates\shop\illustration_gallery.html:22
 msgid ""
 "Laser-engraved original graphics hand-coloured with acrylic colours in A4 "
 "format. If you would like other sizes or formats, please reach out through "
 "the contact form in the navigation bar."
 msgstr ""
-"Gráficos originales grabados con láser y coloreados a mano con acrílicos en "
-"formato A4. Si deseas otros tamaños o formatos, escríbenos a través del "
-"formulario de contacto en la barra de navegación."
+"Obras gráficas originales grabadas con láser y coloreadas a mano con "
+"pinturas acrílicas en formato A4. Si deseas otros tamaños o formatos, "
+"escríbenos a través del formulario de contacto en la barra de navegación."
 
-#: .\shop\templates\shop\illustration_gallery.html:21
-#: .\shop\templates\shop\photography_gallery.html:21
+#: .\shop\templates\shop\illustration_gallery.html:35
 msgid "Illustration gallery"
 msgstr "Galería de ilustraciones"
 
-#: .\shop\templates\shop\illustration_gallery.html:69
-#: .\shop\templates\shop\photography_gallery.html:70
+#: .\shop\templates\shop\illustration_gallery.html:86
+#: .\shop\templates\shop\photography_gallery.html:87
+#: .\shop\templates\shop\themed_gallery.html:83
 msgid "Average rating"
 msgstr "Valoración media"
 
-#: .\shop\templates\shop\illustration_gallery.html:70
-#: .\shop\templates\shop\photography_gallery.html:71
+#: .\shop\templates\shop\illustration_gallery.html:87
+#: .\shop\templates\shop\photography_gallery.html:88
+#: .\shop\templates\shop\themed_gallery.html:84
 msgid "out of 5 from"
-msgstr "sobre 5 a partir de"
+msgstr "de 5 según"
 
-#: .\shop\templates\shop\illustration_gallery.html:71
-#: .\shop\templates\shop\photography_gallery.html:72
+#: .\shop\templates\shop\illustration_gallery.html:88
+#: .\shop\templates\shop\photography_gallery.html:89
+#: .\shop\templates\shop\themed_gallery.html:85
 msgid "reviews"
 msgstr "reseñas"
 
-#: .\shop\templates\shop\illustration_gallery.html:74
-#: .\shop\templates\shop\photography_gallery.html:75
+#: .\shop\templates\shop\illustration_gallery.html:91
+#: .\shop\templates\shop\photography_gallery.html:92
+#: .\shop\templates\shop\themed_gallery.html:88
 msgid "No reviews yet"
-msgstr "Sin reseñas todavía"
+msgstr "Aún no hay reseñas"
 
-#: .\shop\templates\shop\illustration_gallery.html:83
-#: .\shop\templates\shop\photography_gallery.html:84
-#: .\shop\templates\shop\themed_gallery.html:81
+#: .\shop\templates\shop\illustration_gallery.html:100
+#: .\shop\templates\shop\photography_gallery.html:101
+#: .\shop\templates\shop\themed_gallery.html:97
 msgid "No reviews"
 msgstr "Sin reseñas"
 
-#: .\shop\templates\shop\illustration_gallery.html:92
-#: .\shop\templates\shop\photography_gallery.html:93
+#: .\shop\templates\shop\illustration_gallery.html:109
+#: .\shop\templates\shop\photography_gallery.html:110
 msgid "No prints found."
 msgstr "No se encontraron láminas."
 
@@ -709,13 +803,17 @@ msgstr "No se encontraron láminas."
 msgid "Photography — HEARTH Shop"
 msgstr "Fotografía — HEARTH Shop"
 
-#: .\shop\templates\shop\photography_gallery.html:10
+#: .\shop\templates\shop\photography_gallery.html:22
 msgid ""
 "Printed on metal in A4 format. If you would like other sizes or formats, "
 "please reach out through the contact form in the navigation bar."
 msgstr ""
-"Impresas en metal en formato A4. Si deseas otros tamaños o formatos, "
-"contáctanos a través del formulario en la barra de navegación."
+"Impreso sobre metal en formato A4. Si deseas otros tamaños o formatos, "
+"escríbenos a través del formulario de contacto en la barra de navegación."
+
+#: .\shop\templates\shop\photography_gallery.html:35
+msgid "Photography gallery"
+msgstr "Galería de fotografías"
 
 #: .\shop\templates\shop\privacy_policy.html:13
 msgid ""
@@ -726,7 +824,8 @@ msgid ""
 msgstr ""
 "Nos tomamos muy en serio la protección de tus datos personales. Este sitio "
 "web trata la información personal de acuerdo con el Reglamento General de "
-"Protección de Datos (RGPD) y las leyes alemanas y europeas aplicables."
+"Protección de Datos (RGPD) y las leyes alemanas y europeas de protección de "
+"datos aplicables."
 
 #: .\shop\templates\shop\privacy_policy.html:16
 msgid "Data We Collect"
@@ -738,9 +837,9 @@ msgid ""
 "may collect your name, email address, billing and shipping information, and "
 "details necessary to process your request."
 msgstr ""
-"Cuando realizas un pedido, nos contactas mediante un formulario o creas una "
-"cuenta, podemos recopilar tu nombre, correo electrónico, información de "
-"facturación y envío y los datos necesarios para procesar tu solicitud."
+"Cuando realizas un pedido, nos contactas a través de un formulario o creas "
+"una cuenta, podemos recopilar tu nombre, correo electrónico, información de "
+"facturación y envío, y los datos necesarios para procesar tu solicitud."
 
 #: .\shop\templates\shop\privacy_policy.html:21
 msgid "Purpose of Processing"
@@ -753,8 +852,8 @@ msgid ""
 "complying with legal obligations."
 msgstr ""
 "Los datos personales se tratan únicamente con el fin de prestar nuestros "
-"servicios, cumplir con los pedidos, responder consultas, mantener la "
-"seguridad y cumplir con obligaciones legales."
+"servicios, gestionar pedidos, responder consultas, mantener la seguridad y "
+"cumplir con obligaciones legales."
 
 #: .\shop\templates\shop\privacy_policy.html:26
 msgid "Payments"
@@ -765,22 +864,22 @@ msgid ""
 "Payments are processed through trusted third-party payment providers. We do "
 "not store complete payment card information on our servers."
 msgstr ""
-"Los pagos se procesan a través de proveedores de pago terceros de confianza. "
-"No almacenamos los datos completos de tarjetas de pago en nuestros "
-"servidores."
+"Los pagos se procesan a través de proveedores de pago externos de "
+"confianza. No almacenamos información completa de tarjetas de pago en "
+"nuestros servidores."
 
 #: .\shop\templates\shop\privacy_policy.html:31
 msgid "Data Storage"
-msgstr "Conservación de datos"
+msgstr "Almacenamiento de datos"
 
 #: .\shop\templates\shop\privacy_policy.html:33
 msgid ""
 "Personal data is stored only for as long as necessary to fulfil contractual, "
 "legal, or operational requirements and is deleted when no longer needed."
 msgstr ""
-"Los datos personales se conservan solo durante el tiempo necesario para "
-"cumplir con requisitos contractuales, legales u operativos y se eliminan "
-"cuando ya no son necesarios."
+"Los datos personales se conservan únicamente durante el tiempo necesario "
+"para cumplir con requisitos contractuales, legales u operativos, y se "
+"eliminan cuando ya no son necesarios."
 
 #: .\shop\templates\shop\privacy_policy.html:36
 msgid "Your Rights"
@@ -792,9 +891,9 @@ msgid ""
 "transfer your personal data, as well as the right to object to certain "
 "processing activities."
 msgstr ""
-"Según el RGPD, tienes derecho a acceder, rectificar, limitar, eliminar o "
-"transferir tus datos personales, así como a oponerte a ciertas actividades "
-"de tratamiento."
+"Según el RGPD, tienes derecho a acceder, rectificar, limitar, suprimir o "
+"transferir tus datos personales, así como a oponerte a determinadas "
+"actividades de tratamiento."
 
 #: .\shop\templates\shop\privacy_policy.html:41
 msgid "Contact"
@@ -837,8 +936,8 @@ msgid ""
 "By accessing and using HEARTH Shop, you accept and agree to be bound by the "
 "terms and provision of this agreement."
 msgstr ""
-"Accediendo y utilizando HEARTH Shop, accedes a quedar vinculado por los "
-"términos y disposiciones de este acuerdo."
+"Al acceder y utilizar HEARTH Shop, aceptas y te comprometes a cumplir con "
+"los términos y disposiciones de este acuerdo."
 
 #: .\shop\templates\shop\terms.html:17
 msgid "Products and Orders"
@@ -849,8 +948,8 @@ msgid ""
 "All orders are subject to availability and confirmation of the order price. "
 "We reserve the right to refuse any order placed with us."
 msgstr ""
-"Todos los pedidos están sujetos a disponibilidad y confirmación del precio. "
-"Nos reservamos el derecho de rechazar cualquier pedido."
+"Todos los pedidos están sujetos a disponibilidad y a la confirmación del "
+"precio. Nos reservamos el derecho de rechazar cualquier pedido realizado."
 
 #: .\shop\templates\shop\terms.html:22
 msgid "User Accounts"
@@ -879,37 +978,45 @@ msgstr ""
 
 #: .\shop\templates\shop\thank_you.html:8
 msgid "Thank You for Reaching Out!"
-msgstr "¡Gracias por escribirnos!"
+msgstr "¡Gracias por ponerte en contacto!"
 
 #: .\shop\templates\shop\thank_you.html:10
 msgid ""
 "We have received your message and will get back to you as soon as possible. "
 "Usually, this takes within 24 to 48 hours."
 msgstr ""
-"Hemos recibido tu mensaje y te responderemos lo antes posible. Por lo "
-"general, tardamos entre 24 y 48 horas."
+"Hemos recibido tu mensaje y nos pondremos en contacto contigo lo antes "
+"posible. Por lo general, esto tarda entre 24 y 48 horas."
 
 #: .\shop\templates\shop\thank_you.html:13
 msgid "Return to Homepage"
-msgstr "Volver al inicio"
+msgstr "Volver a la página de inicio"
 
-#: .\shop\templates\shop\themed_gallery.html:7
+#: .\shop\templates\shop\themed_gallery.html:6
 #, python-format
-msgid ""
-"\n"
-"      %(theme_name)s Gallery\n"
-"    "
-msgstr ""
-"\n"
-"      Galería de %(theme_name)s\n"
-"    "
+msgid "%(theme_name)s Gallery"
+msgstr "Galería de %(theme_name)s"
 
-#: .\shop\templates\shop\themed_gallery.html:11
-#: .\shop\templates\shop\themed_gallery.html:23
+#: .\shop\templates\shop\themed_gallery.html:8
+#: .\shop\templates\shop\themed_gallery.html:21
 msgid "Themed Gallery"
 msgstr "Galería temática"
 
-#: .\shop\templates\shop\themed_gallery.html:90
+#: .\shop\templates\shop\themed_gallery.html:30
+#, python-format
+msgid "%(theme_name)s gallery"
+msgstr "Galería de %(theme_name)s"
+
+#: .\shop\templates\shop\themed_gallery.html:30
+#, python-format
+msgid "%(cat_name)s gallery"
+msgstr "Galería de %(cat_name)s"
+
+#: .\shop\templates\shop\themed_gallery.html:30
+msgid "Themed gallery"
+msgstr "Galería temática"
+
+#: .\shop\templates\shop\themed_gallery.html:105
 msgid "No prints found for this theme."
 msgstr "No se encontraron láminas para este tema."
 
@@ -928,7 +1035,7 @@ msgstr "Debes aceptar el aviso de privacidad"
 #: .\shop\views.py:308
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
-msgstr "Nuevo mensaje de contacto de %(name)s"
+msgstr "Nuevo envío del formulario de contacto de %(name)s"
 
 #: .\shop\views.py:316
 msgid "Thank you for contacting Hearth Design"
@@ -947,8 +1054,8 @@ msgid ""
 msgstr ""
 "Hola %(name)s,\n"
 "\n"
-"gracias por escribirnos. Hemos recibido tu mensaje y nos pondremos en "
-"contacto contigo pronto.\n"
+"Gracias por ponerte en contacto con nosotros. Hemos recibido tu mensaje y te "
+"responderemos en breve.\n"
 "\n"
-"Un saludo,\n"
+"Saludos cordiales,\n"
 "El equipo de Hearth Design"
