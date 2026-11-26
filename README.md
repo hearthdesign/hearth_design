@@ -13,9 +13,10 @@ The platform includes artwork browsing, theme-based filtering, shopping cart fun
 - [Target Audience](#target-audience)
 - [Value Proposition](#value-proposition)
 - [Design, UX & Technical Architecture](#design-ux--technical-architecture)
-  - [Responsive Mockups, Wireframes & Device Testing](#responsive-mockups-wireframes--device-testing)
+- [Responsive Mockups, Wireframes & Device Testing](#responsive-mockups-wireframes--device-testing)
 - [User Stories](#user-stories)
 - [Features](#features)
+- [Newsletter & Social Channels](#newsletter--social-channels)
 - [Project Structure](#project-structure)
 - [Core Data Model](#core-data-model)
 - [Artwork Classification](#artwork-classification)
@@ -231,6 +232,13 @@ Real-device and browser viewport tests verify that **Cloudinary**-hosted artwork
 
 ### Customer
 
+Customer
+   |
+   +--> Browse Prints
+   +--> Filter Themes
+   +--> Contact Artist
+   +--> Purchase Print
+
 As a customer, I can:
 
   - Browse available prints and artwork collections.
@@ -242,6 +250,12 @@ As a customer, I can:
   - Switch between supported languages.
 
 ### Shop Administrator
+
+Administrator
+   |
+   +--> Manage Prints
+   +--> Manage Themes
+   +--> Manage Orders
 
 As a shop administrator, I can:
 
@@ -331,6 +345,29 @@ Cloudinary is used for:
 
 - **Reusable Templates**  
   Shared `_gallery_grid.html` and `_pagination.html` snippets, plus `base_gallery.html`.
+
+---
+
+### Newsletter & Social Channels
+
+### Newsletter & Social Channels
+
+- **Mailchimp Newsletter Signup:** Integrated into the site footer (`base.html`) so visitors can subscribe to updates on new illustrations, prints, and shop releases via Mailchimp (including a hidden honeypot field to deter bots).
+```text
+Browser
+   |
+Django
+   |
+PostgreSQL
+
+Cloudinary <-- Images
+
+Mailchimp <-- Newsletter
+```
+
+- **Facebook Link Omitted:** No live Facebook link is included in the storefront UI; social links are intentionally left out until an official public page is active.
+
+![alt text](docs\readme\image_facebook.png)
 
 ---
 

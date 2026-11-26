@@ -140,10 +140,97 @@
 
     <footer class="site-footer">
       <div class="footer-content">
+        <!-- Newsletter & Social Mockup -->
+        <section class="footer-community" aria-label="{% trans 'Newsletter' %}">
+          <div id="mc_embed_shell" class="footer-mc-shell">
+            <div id="mc_embed_signup" class="footer-mc-card">
+              <form
+                action="https://herokuapp.us6.list-manage.com/subscribe/post?u=fd157e32afefd8bf280c9b034&amp;id=ec61f3df4d&amp;f_id=00b75be3f0" method="post" 
+                id="mc-embedded-subscribe-form" 
+                name="mc-embedded-subscribe-form" 
+                class="validate footer-mc-form" 
+                target="_blank"
+                novalidate
+                aria-label="{% trans 'Newsletter signup form' %}"
+              >
+              <div id="mc_embed_signup_scroll">
+                <h2 class="footer-heading">
+                  {% trans "Newsletter" %}
+                </h2>
+                <div class="indicates-required">
+                  <span class="asterisk" aria-hidden="true">*</span>
+                  {% trans "Required information" %}
+                </div>
+
+                <div class="mc-field-group">
+                  <label for="mce-EMAIL">
+                    {% trans "Email address" %}
+                    <span class="asterisk" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="EMAIL"
+                    class="required email footer-mc-input"
+                    id="mce-EMAIL"
+                    placeholder="{% trans 'Enter your email' %}"
+                    required>
+                  </div>
+                  
+                  <div id="mce-responses" class="clear foot" aria-live="polite">
+                      <div class="response" id="mce-error-response" style="display: none;"></div>
+                      <div class="response" id="mce-success-response" style="display: none;"></div>
+                  </div>
+                  <!-- Mailchimp honeypot field; to keep hidden from users and screen readers -->
+                  <div class="mc-honeypot" aria-hidden="true">
+                  {% comment %} 
+                  real people should not fill this in and expect good things - do not remove this or risk form bot signups 
+                  {% endcomment %}
+                    <input type="text" name="b_fd157e32afefd8bf280c9b034_ec61f3df4d" tabindex="-1" value="">
+                  </div>
+
+                  <div class="optionalParent">
+                    <div class="clear foot footer-mc-actions">
+                        <input 
+                          type="submit"
+                          name="subscribe"
+                          id="mc-embedded-subscribe"
+                          class="button mailchimp_btn footer-mc-btn"
+                          value="{% trans 'Subscribe' %}"
+                        />
+
+                          <p>
+                            {% comment %} <a href="http://eepurl.com/UC4Fu1Bi6B" title="{% trans 'Mailchimp - Email marketing made easy and fast' %}"> {% endcomment %}
+                              <img
+                                class="refferal_badge"
+                                src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
+                                alt="{% trans 'Intuit Mailchimp' %}"
+                              />
+                            </a>
+                          </p>
+                      </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+            <script>
+              (function($) {
+                  window.fnames = [];
+                  window.ftypes = [];
+              
+                  fnames[0] = 'EMAIL';
+                  ftypes[0] = 'email';
+              }(jQuery));
+              var $mcj = jQuery.noConflict(true);
+            </script>
+          </section>
         <!-- Footer Navigation Links -->
-        <nav class="footer-links" aria-label="{% trans 'Footer navigation' %}">
+        <div class="footer-links">
+        <nav aria-label="{% trans 'Footer navigation' %}">
           <a href="{% url 'contact' %}">{% trans "Contact Us" %}</a>
+          <p> </p>
           <a href="{% url 'privacy_policy' %}">{% trans "Privacy Policy" %}</a>
+          <p> </p>
           <a href="{% url 'terms_of_service' %}">{% trans "Terms of Service" %}</a>
         </nav>
 
@@ -152,8 +239,9 @@
           &copy; 2026 HEARTH DESIGN Shop. {% trans "All rights reserved." %}
         </p>
       </div>
+      </div>
     </footer>
 
     {% block extra_scripts %}{% endblock %}
-</body>
+  </body>
 </html>

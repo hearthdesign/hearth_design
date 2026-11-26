@@ -1,3 +1,15 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -38,6 +50,16 @@ p {
 main {
   min-height: 70vh;
   width: 100%;
+}
+
+main,
+.cart-page,
+.footer-content,
+.footer-community,
+.footer-newsletter,
+.footer-newsletter-form {
+  max-width: 100%;
+  min-width: 0;
 }
 
 /* ===========================
@@ -898,6 +920,7 @@ img {
 
 .cart-item {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 15%;
   margin-top: 1rem;
@@ -1189,30 +1212,175 @@ img {
      FOOTER STYLING
    ====================== */
 
+/* ======================
+     FOOTER STYLING
+   ====================== */
+
 .site-footer {
   background-color: #f9f3eb;
   color: rgb(20, 90, 120);
-  padding: 2.5rem 1rem;
+  padding: 2.5rem 1.5rem;
   width: 100%;
   margin-top: 4rem;
   border-top: 1px solid rgba(74, 156, 177, 0.2);
   box-sizing: border-box;
 }
 
+/* Mobile-first: stacked & centered */
 .footer-content {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.75rem;
   text-align: center;
 }
 
+/* Wide screens: side-by-side balanced layout */
+@media (min-width: 768px) {
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    column-gap: 3rem;
+    row-gap: 0.75rem;
+    text-align: right;
+  }
+
+  .footer-community {
+    grid-area: newsletter;
+    justify-self: start;
+    width: 100%;
+  }
+
+  .footer-links {
+    grid-area: links;
+    justify-content: flex-end;
+    align-self: end;
+  }
+
+  .footer-copy {
+    grid-area: copy;
+    justify-self: end;
+    align-self: start;
+  }
+}
+
+/* Newsletter */
+.footer-community,
+.footer-mc-shell,
+.footer-mc-shell #mc_embed_signup,
+.footer-mc-shell #mc_embed_signup form.footer-mc-form {
+  width: 100%;
+  max-width: 400px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.footer-mc-shell #mc_embed_signup {
+  background-color: #ffffff;
+  color: rgb(5, 73, 90);
+  border: 1px solid rgba(74, 156, 177, 0.35);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+.footer-mc-shell #mc_embed_signup .footer-heading {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  color: rgb(5, 73, 90);
+}
+
+.footer-mc-shell #mc_embed_signup .indicates-required {
+  font-size: 0.78rem;
+  color: rgb(20, 90, 120);
+  margin-bottom: 0.65rem;
+}
+
+.footer-mc-shell #mc_embed_signup .mc-field-group {
+  width: 100%;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.footer-mc-shell #mc_embed_signup .mc-field-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: rgb(20, 90, 120);
+  font-size: 0.9rem;
+}
+
+.footer-mc-shell #mc_embed_signup input.footer-mc-input[type="email"] {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.5rem 0.75rem;
+  border: 1.5px solid rgba(74, 156, 177, 0.85);
+  border-radius: 0.4rem;
+  background-color: #ffffff;
+  color: rgb(5, 73, 90);
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+.footer-mc-shell #mc_embed_signup .footer-mc-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.footer-mc-shell #mc_embed_signup input.mailchimp_btn[type="submit"] {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.55rem 1rem;
+  background-color: rgb(247, 241, 225);
+  color: rgb(5, 73, 90);
+  border: 1.7px solid rgba(74, 156, 177, 0.9);
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.footer-mc-shell #mc_embed_signup input.mailchimp_btn[type="submit"]:hover {
+  background-color: rgb(5, 73, 88);
+  color: #ffffff;
+}
+
+/* Fix oversized Mailchimp referral badge regardless of wrapper tags */
+.footer-mc-shell #mc_embed_signup .footer-mc-actions p {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-mc-shell #mc_embed_signup img.refferal_badge {
+  display: block;
+  width: 140px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.footer-mc-shell .mc-honeypot {
+  position: absolute;
+  left: -5000px;
+}
+
+/* Footer Navigation & Copyright */
 .footer-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space space-between;
+  align-items: right;
   gap: 2rem;
 }
 
@@ -1226,7 +1394,7 @@ img {
 }
 
 .site-footer a:hover {
-  color: rgb(20, 90, 120);
+  color: rgb(5, 73, 90);
   text-decoration: underline;
 }
 
@@ -1234,7 +1402,8 @@ img {
   font-size: 0.85rem;
   color: rgb(20, 90, 120);
   margin: 0;
-}
+}  
+
 
 /* ======================
      PRIVACY DROPDOWN
@@ -1501,6 +1670,18 @@ input[name="website"] {
     min-width: auto;
     padding: 0.25rem 0.5rem;
     font-size: 0.8rem;
+  }
+
+  .footer-community {
+    gap: 1.5rem;
+  }
+
+  .footer-newsletter-form {
+    flex-wrap: wrap;
+  }
+
+  .footer-newsletter-btn {
+    width: 100%;
   }
 }
 
