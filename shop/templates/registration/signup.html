@@ -1,37 +1,81 @@
 {% extends "base.html" %}
 {% load i18n %}
+
 <!-- Sign up page -->
+{% block title %}{% trans "Sign Up" %} - {% trans "HEARTH Shop" %}{% endblock %}
+
 {% block content %}
-<div class="signup-container">
-  <h2>{% trans "Sign Up" %}</h2>
-  <form method="post" class="signup-form">
+<section class="signup-container" aria-labelledby="signup-heading">
+  <h2 id="signup-heading">{% trans "Sign Up" %}</h2>
+
+  <form method="post" class="signup-form" novalidate aria-label="{% trans 'Create new account form' %}">
     {% csrf_token %}
 
-    <label for="id_username">{% trans "Username:" %}</label>
-    {{ form.username }}
-    {% if form.username.errors %}
-      <div class="error">{{ form.username.errors.0 }}</div>
+    {# Non-field registration errors #}
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger" role="alert" aria-live="polite">
+        {{ form.non_field_errors }}
+      </div>
     {% endif %}
 
-    <label for="id_email">{% trans "Email:" %}</label>
-    {{ form.email }}
-    {% if form.email.errors %}
-      <div class="error">{{ form.email.errors.0 }}</div>
-    {% endif %}
+    <div class="form-field">
+      <label for="id_username">{% trans "Username:" %}</label>
+      {{ form.username }}
+      {% if form.username.help_text %}
+        <small id="id_username_helptext" class="field-help">{{ form.username.help_text }}</small>
+      {% endif %}
+      {% if form.username.errors %}
+        <div id="id_username_error" class="error field-error" role="alert" aria-live="polite">
+          {{ form.username.errors.0 }}
+        </div>
+      {% endif %}
+    </div>
 
-    <label for="id_password1">{% trans "Password:" %}</label>
-    {{ form.password1 }}
-    {% if form.password1.errors %}
-      <div class="error">{{ form.password1.errors.0 }}</div>
-    {% endif %}
+    <div class="form-field">
+      <label for="id_email">{% trans "Email:" %}</label>
+      {{ form.email }}
+      {% if form.email.help_text %}
+        <small id="id_email_helptext" class="field-help">{{ form.email.help_text }}</small>
+      {% endif %}
+      {% if form.email.errors %}
+        <div id="id_email_error" class="error field-error" role="alert" aria-live="polite">
+          {{ form.email.errors.0 }}
+        </div>
+      {% endif %}
+    </div>
 
-    <label for="id_password2">{% trans "Confirm Password:" %}</label>
-    {{ form.password2 }}
-    {% if form.password2.errors %}
-      <div class="error">{{ form.password2.errors.0 }}</div>
-    {% endif %}
+    <div class="form-field">
+      <label for="id_password1">{% trans "Password:" %}</label>
+      {{ form.password1 }}
+      {% if form.password1.help_text %}
+        <small id="id_password1_helptext" class="field-help">{{ form.password1.help_text }}</small>
+      {% endif %}
+      {% if form.password1.errors %}
+        <div id="id_password1_error" class="error field-error" role="alert" aria-live="polite">
+          {{ form.password1.errors.0 }}
+        </div>
+      {% endif %}
+    </div>
 
-    <button type="submit" id="create-btn">{% trans "Create Account" %}</button>
+    <div class="form-field">
+      <label for="id_password2">{% trans "Confirm Password:" %}</label>
+      {{ form.password2 }}
+      {% if form.password2.help_text %}
+        <small id="id_password2_helptext" class="field-help">{{ form.password2.help_text }}</small>
+      {% endif %}
+      {% if form.password2.errors %}
+        <div id="id_password2_error" class="error field-error" role="alert" aria-live="polite">
+          {{ form.password2.errors.0 }}
+        </div>
+      {% endif %}
+    </div>
+
+    <button
+      type="submit"
+      id="create-btn"
+      aria-label="{% trans 'Create Account' %}">
+      {% trans "Create Account" %}
+    </button>
   </form>
-  </div>
+</section>
 {% endblock %}

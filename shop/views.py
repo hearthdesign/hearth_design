@@ -16,10 +16,14 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, translate_url
 from django.utils import timezone, translation
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.views.generic import TemplateView
+
+from urllib.parse import urlsplit
+
 
 from .forms import (
     ContactForm,
@@ -257,38 +261,78 @@ def add_review(request, print_id):
 # ==========================================
 #              SET LANGUAGE
 # ==========================================
+# ==========================================
+#              SET LANGUAGE
+# ==========================================
 def custom_set_language(request):
     """
-    Custom language switcher view that safely handles i18n URL prefixes
-    and prevents redirect loops.
+    Custom language switcher view that safely handles i18n URL prefixes,
+    cookie persistence, query strings, and open-redirect checks.
     """
-    next_url = request.POST.get("next", request.GET.get("next", "/"))
-    lang_code = request.POST.get("language", request.GET.get("language"))
+    # Read target redirect path from POST or GET, defaulting to root "/"
+    raw_next = request.POST.get("next") or request.GET.get("next") or "/"
 
-    if lang_code and lang_code in [lang[0] for lang in settings.LANGUAGES]:
-        # Activate language and set translation environment
+    # Reject external or unsafe redirect targets to prevent open redirects
+    if not url_has_allowed_host_and_scheme(
+        url=raw_next,
+        allowed_hosts={request.get_host()},
+        require_https=request.is_secure(),
+    ):
+        raw_next = "/"
+
+    lang_code = request.POST.get("language") or request.GET.get("language")
+    valid_langs = [lang[0] for lang in settings.LANGUAGES]
+
+    if lang_code in valid_langs:
+        # Activate the requested language for the current request/response cycle
         translation.activate(lang_code)
 
-        # Strip current language prefix from next_url if present (e.g., '/de/
-        # about/' -> '/about/')
-        # FIX: Use .lower() to match lowercase URL prefixes like '/zh-hans/'
-        for lang in [lang[0] for lang in settings.LANGUAGES]:
-            prefix = f"/{lang}/".lower()
-            if next_url.lower().startswith(prefix):
-                next_url = next_url[len(prefix) - 1 :] # Keeps the leading slash
+        # Split path and query string so prefix stripping only inspects the path
+        split_url = urlsplit(raw_next)
+        path_only = split_url.path or "/"
+
+        # Strip any existing language prefix case-insensitively (e.g., '/ja/', '/zh-hans/')
+        for lang in valid_langs:
+            prefix = f"/{lang.lower()}/"
+            if path_only.lower().startswith(prefix):
+                path_only = "/" + path_only[len(prefix):]
                 break
-            elif next_url.lower() == f"/{lang}".lower():
-                next_url = "/"
+            if path_only.lower() == f"/{lang.lower()}":
+                path_only = "/"
                 break
 
-        # Translate the URL into the new language prefix pattern
-        translated_url = translate_url(next_url, lang_code)
+        # Translate the stripped path into the target language's URL pattern
+        translated_path = translate_url(path_only, lang_code)
+        url_lang_prefix = lang_code.lower()
+        clean_tail = path_only if path_only != "/" else "/"
 
-        # Create response and set the official Django language cookie
-        response = HttpResponseRedirect(translated_url)
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
+        if not translated_path:
+            translated_path = f"/{url_lang_prefix}{clean_tail}"
+        elif translated_path == "/" and lang_code != settings.LANGUAGE_CODE:
+            translated_path = f"/{url_lang_prefix}{clean_tail}"
+
+        # Reattach original query parameters if present
+        redirect_to = (
+            f"{translated_path}?{split_url.query}"
+            if split_url.query
+            else translated_path
+        )
+
+        # Persist language in the official Django cookie using project cookie settings
+        response = HttpResponseRedirect(redirect_to)
+        response.set_cookie(
+            settings.LANGUAGE_COOKIE_NAME,
+            lang_code,
+            max_age=settings.LANGUAGE_COOKIE_AGE,
+            path=settings.LANGUAGE_COOKIE_PATH,
+            domain=settings.LANGUAGE_COOKIE_DOMAIN,
+            secure=settings.LANGUAGE_COOKIE_SECURE,
+            httponly=settings.LANGUAGE_COOKIE_HTTPONLY,
+            samesite=settings.LANGUAGE_COOKIE_SAMESITE,
+        )
         return response
 
+    # Fallback redirect if no valid language code was submitted
     return HttpResponseRedirect("/")
 
 

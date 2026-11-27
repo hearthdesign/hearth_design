@@ -1,33 +1,45 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
+{% comment %}
+  Terms of Service page: outlines acceptance of terms, order availability and
+  confirmation, user account responsibilities, and contact details.
+{% endcomment %}
 {% block title %}{% trans "Terms of Service" %}{% endblock %}
 
 {% block content %}
-<div class="legal-container">
-  <h2>{% trans "Terms of Service" %}</h2>
-  <p class="last-updated">{% trans "Last updated: November 2026" %}</p>
+<article class="legal-container" aria-labelledby="terms-heading">
+  <h2 id="terms-heading">{% trans "Terms of Service" %}</h2>
+  <time class="last-updated" datetime="2026-11">{% trans "Last updated: November 2026" %}</time>
 
   <div class="legal-content">
-    <h3>1. {% trans "Acceptance of Terms" %}</h3>
-    <p>
-      {% trans "By accessing and using HEARTH Shop, you accept and agree to be bound by the terms and provision of this agreement." %}
-    </p>
+    <section aria-labelledby="terms-acceptance-heading">
+      <h3 id="terms-acceptance-heading">1. {% trans "Acceptance of Terms" %}</h3>
+      <p>
+        {% trans "By accessing and using HEARTH Shop, you accept and agree to be bound by the terms and provision of this agreement." %}
+      </p>
+    </section>
 
-    <h3>2. {% trans "Products and Orders" %}</h3>
-    <p>
-      {% trans "All orders are subject to availability and confirmation of the order price. We reserve the right to refuse any order placed with us." %}
-    </p>
+    <section aria-labelledby="terms-products-heading">
+      <h3 id="terms-products-heading">2. {% trans "Products and Orders" %}</h3>
+      <p>
+        {% trans "All orders are subject to availability and confirmation of the order price. We reserve the right to refuse any order placed with us." %}
+      </p>
+    </section>
 
-    <h3>3. {% trans "User Accounts" %}</h3>
-    <p>
-      {% trans "If you create an account on the website, you are responsible for maintaining the security of your account and you are fully responsible for all activities that occur under the account." %}
-    </p>
+    <section aria-labelledby="terms-accounts-heading">
+      <h3 id="terms-accounts-heading">3. {% trans "User Accounts" %}</h3>
+      <p>
+        {% trans "If you create an account on the website, you are responsible for maintaining the security of your account and you are fully responsible for all activities that occur under the account." %}
+      </p>
+    </section>
 
-    <h3>4. {% trans "Contact Information" %}</h3>
-    <p>
-      {% trans "If you have any questions about these Terms, please contact us via our contact page." %}
-    </p>
+    <section aria-labelledby="terms-contact-heading">
+      <h3 id="terms-contact-heading">4. {% trans "Contact Information" %}</h3>
+      <p>
+        {% trans "If you have any questions about these Terms, please contact us via our contact page." %}
+      </p>
+    </section>
   </div>
-</div>
+</article>
 {% endblock %}

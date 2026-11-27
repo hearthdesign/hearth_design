@@ -1,16 +1,44 @@
 {% extends 'base.html' %}
 {% load i18n %}
+
 <!-- Upload form -->
 {% block title %}{% trans "Upload a New Print" %}{% endblock %}
-{% block content %}
 
-<h2>{% trans "Upload a New Print" %}</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div class="form-actions">
-        <button type="submit" class="btn-primary">{% trans "Upload" %}</button>
-        <a href="javascript:history.back()" class="btn-secondary">{% trans "Cancel" %}</a>
-    </div>
-</form>
+{% block content %}
+<section class="upload-container" aria-labelledby="upload-print-heading">
+    <h2 id="upload-print-heading">{% trans "Upload a New Print" %}</h2>
+
+    <form
+        method="post"
+        enctype="multipart/form-data"
+        class="upload-form"
+        novalidate
+        aria-label="{% trans 'Upload a New Print' %}">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert" aria-live="polite">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        {{ form.as_p }}
+
+        <div class="form-actions" role="group" aria-label="{% trans 'Upload actions' %}">
+            <button
+                type="submit"
+                class="btn-primary"
+                aria-label="{% trans 'Upload' %}">
+                {% trans "Upload" %}
+            </button>
+            <a
+                href="javascript:history.back()"
+                class="btn-secondary"
+                role="button"
+                aria-label="{% trans 'Cancel' %}">
+                {% trans "Cancel" %}
+            </a>
+        </div>
+    </form>
+</section>
 {% endblock %}

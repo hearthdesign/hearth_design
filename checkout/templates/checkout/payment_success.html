@@ -1,16 +1,46 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}{% trans "Payment Successful" %}{% endblock %}
+{% comment %}
+  Read-only payment result page: displays order confirmation or pending status
+  based strictly on database state set by the verified Stripe webhook.
+{% endcomment %}
+{% block title %}{% trans "Payment Status" %} - {% trans "HEARTH Shop" %}{% endblock %}
 
 {% block content %}
-<div class="status-container">
-    <h1>{% trans "Payment Successful" %}</h1>
-    <p>{% trans "Thank you for your purchase." %}</p>
-    <p>{% trans "Your order has been received and is being processed." %}</p>
-    
-    <a href="{% url 'order_history' %}" class="status-btn">
-        {% trans "View Orders" %}
-    </a>
-</div>
+<section class="status-container" aria-labelledby="payment-status-heading">
+    <h1 id="payment-status-heading">{% trans "Payment Status" %}</h1>
+
+    <div role="status" aria-live="polite">
+        {% if order and order.is_paid %}
+            {# Order is confirmed paid in the database #}
+            <p class="order-status status-paid" aria-label="{% trans 'Payment status: Paid' %}">
+                {% trans "Paid" %}
+            </p>
+            <p>{% trans "Thank you for your purchase. Your payment has been confirmed." %}</p>
+            <p>
+                {% blocktrans with order_id=order.id %}Order #{{ order_id }} has been recorded.{% endblocktrans %}
+            </p>
+        {% elif order %}
+            {# Checkout session exists, waiting on webhook payment confirmation #}
+            <p class="order-status status-pending" aria-label="{% trans 'Payment status: Pending' %}">
+                {% trans "Pending" %}
+            </p>
+            <p>{% trans "We received your checkout session and payment confirmation is still in progress." %}</p>
+            <p>{% trans "Your order status will update automatically once payment is confirmed." %}</p>
+        {% else %}
+            {# No matching order for this user/session yet, or unknown/unowned session_id #}
+            <p>{% trans "If you completed a checkout, your order status will appear in your orders once payment is confirmed." %}</p>
+        {% endif %}
+    </div>
+
+    <nav class="status-actions" aria-label="{% trans 'Payment result actions' %}">
+        <a href="{% url 'order_history' %}" class="status-btn" aria-label="{% trans 'View your order history' %}">
+            {% trans "View Orders" %}
+        </a>
+        <a href="{% url 'home' %}" class="status-btn" aria-label="{% trans 'Return to the homepage' %}">
+            {% trans "Back to Home" %}
+        </a>
+    </nav>
+</section>
 {% endblock %}

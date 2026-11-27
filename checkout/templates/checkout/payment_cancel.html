@@ -1,15 +1,24 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% comment %}
+  Read-only cancellation page: informs the user that checkout was cancelled
+  and no order was marked paid or stock decremented.
+{% endcomment %}
 {% block title %}{% trans "Payment Cancelled" %}{% endblock %}
 
 {% block content %}
-<div class="status-container">
-    <h1>{% trans "Payment Cancelled" %}</h1>
-    <p>{% trans "Your payment was cancelled or interrupted. No charges were made." %}</p>
-    
-    <a href="{% url 'cart_view' %}" class="status-btn">
-        {% trans "Return to Cart" %}
-    </a>
-</div>
+<section class="status-container" aria-labelledby="payment-cancel-heading">
+    <h1 id="payment-cancel-heading">{% trans "Payment Cancelled" %}</h1>
+
+    <div role="status" aria-live="polite">
+        <p>{% trans "Your payment was cancelled or interrupted. No charges were made." %}</p>
+    </div>
+
+    <nav class="status-actions" aria-label="{% trans 'Payment cancellation actions' %}">
+        <a href="{% url 'cart_view' %}" class="status-btn" aria-label="{% trans 'Return to your shopping cart' %}">
+            {% trans "Return to Cart" %}
+        </a>
+    </nav>
+</section>
 {% endblock %}

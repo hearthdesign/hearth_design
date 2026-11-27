@@ -1,116 +1,75 @@
 {% extends 'base.html' %}
-{% load i18n static cloudinary rating_tags %}
-<!-- Themed gallery -->
+{% load i18n %}
+
+{% comment %}
+  Themed gallery page: displays curated artworks or items for a selected theme
+  with accessible headings, card links, and empty-state feedback.
+{% endcomment %}
 {% block title %}
-  {% if theme %}
-    {% blocktrans with theme_name=theme.name trimmed %}{{ theme_name }} Gallery{% endblocktrans %}
+  {% if theme_name %}
+    {% blocktrans %}{{ theme_name }} Gallery{% endblocktrans %}
   {% else %}
     {% trans "Themed Gallery" %}
   {% endif %}
 {% endblock %}
 
 {% block content %}
-<section class="gallery-page-container" aria-labelledby="themed-gallery-heading">
-  <h1 id="themed-gallery-heading">
-    {% if theme %}
-      {{ theme.name }}
+<section class="gallery-container" aria-labelledby="gallery-heading">
+  <header class="gallery-header">
+    <h1 id="gallery-heading">
+      {% if theme_name %}
+        {% blocktrans %}{{ theme_name }} Gallery{% endblocktrans %}
+      {% else %}
+        {% trans "Themed Gallery" %}
+      {% endif %}
+    </h1>
+    {% if theme_description %}
+      <p class="gallery-description">{{ theme_description }}</p>
     {% endif %}
-    {% if category %}
-      {{ category|title }}
+  </header>
+
+  {% with gallery_items=artworks|default:items %}
+    {% if gallery_items %}
+      <div class="gallery-grid" role="list" aria-label="{% trans 'Gallery items' %}">
+        {% for item in gallery_items %}
+          <article class="gallery-card" role="listitem">
+            {% if item.image %}
+              <div class="gallery-media">
+                <img
+                  src="{{ item.image.url }}"
+                  alt="{{ item.title }}"
+                  loading="lazy">
+              </div>
+            {% endif %}
+
+            <div class="gallery-card-body">
+              <h2 class="gallery-card-title">{{ item.title }}</h2>
+              {% if item.price is not None %}
+                <p class="gallery-price" aria-label="{% trans 'Price' %}">{{ item.price }}</p>
+              {% endif %}
+
+              {% if item.get_absolute_url %}
+                <a
+                  href="{{ item.get_absolute_url }}"
+                  class="gallery-link"
+                  aria-label="{% blocktrans with title=item.title %}View {{ title }}{% endblocktrans %}">
+                  {% trans "View Details" %}
+                </a>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="status-container" role="status" aria-live="polite">
+        <p>{% trans "No artworks are currently available in this theme." %}</p>
+        <nav class="status-actions" aria-label="{% trans 'Gallery navigation' %}">
+          <a href="{% url 'homepage' %}" class="status-btn">
+            {% trans "Return to Homepage" %}
+          </a>
+        </nav>
+      </div>
     {% endif %}
-    {% trans "Themed Gallery" %}
-  </h1>
-
-  <!-- ===========================
-          GALLERY GRID
-  ============================ -->
-  <div
-    class="gallery-grid"
-    role="list"
-    aria-label="{% if theme %}{% blocktrans with theme_name=theme.name trimmed %}{{ theme_name }} gallery{% endblocktrans %}{% elif category %}{% blocktrans with cat_name=category trimmed %}{{ cat_name }} gallery{% endblocktrans %}{% else %}{% trans 'Themed gallery' %}{% endif %}">
-    {% for print in page_obj %}
-    <!-- Parent wrapper to stack image and text vertically -->
-    <div class="gallery-card" role="listitem">
-
-      <!-- ===========================
-               THUMBNAIL
-      ============================ -->
-      <div class="thumbnail">
-        {% if print.image %}
-          <a
-            href="#"
-            data-image="{{ print.modal_url }}"
-            data-id="{{ print.id }}"
-            data-title="{{ print.title }}"
-            data-price="{{ print.price }}">
-            <img
-              src="{{ print.thumbnail_url }}"
-              alt="{{ print.title }}"
-              loading="lazy"
-              decoding="async"
-              width="150"
-              height="150">
-          </a>
-        {% else %}
-          <a href="#">
-            <img
-              src="{% static 'img/placeholder.svg' %}"
-              alt="{% trans 'No image available' %}"
-              width="150"
-              height="150">
-          </a>
-        {% endif %}
-      </div>
-
-      <!-- ===========================
-            CARD INFORMATION
-      ============================ -->
-      <div class="card-info">
-        <h2 class="print-title">
-          {{ print.title }}
-        </h2>
-        <p class="print-price">
-          €{{ print.price }}
-        </p>
-
-        <!-- ===========================
-                     RATING
-        ============================ -->
-        <div
-          class="rating-badge"
-          role="img"
-          {% if print.num_reviews %}
-            {% translate "Average rating" as avg_label %}
-            {% translate "out of 5 from" as out_of_label %}
-            {% translate "reviews" as reviews_label %}
-            aria-label="{{ avg_label }} {{ print.avg_rating }} {{ out_of_label }} {{ print.num_reviews }} {{ reviews_label }}"
-          {% else %}
-            aria-label="{% translate 'No reviews yet' %}"
-          {% endif %}>
-          {{ print.avg_rating|render_stars }}
-          {% if print.num_reviews %}
-            <span class="review-count" aria-hidden="true">
-              ({{ print.num_reviews }})
-            </span>
-          {% else %}
-            <span class="no-reviews" aria-hidden="true">
-              {% trans "No reviews" %}
-            </span>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-    {% empty %}
-      <p>
-        {% trans "No prints found for this theme." %}
-      </p>
-    {% endfor %}
-  </div>
-
-  {% block pagination %}
-    <div class="pagination-wrapper">
-      {% include "shop/_pagination.html" %}
-    </div>
-  {% endblock %}
+  {% endwith %}
 </section>
 {% endblock %}

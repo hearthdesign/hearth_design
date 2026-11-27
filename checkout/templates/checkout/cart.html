@@ -1,77 +1,90 @@
 {% extends 'base.html' %}
 {% load i18n static %}
 
+{% comment %}
+  Shopping cart page: displays items from the user's persistent Cart model,
+  supports quantity adjustments and item removal via POST, and initiates a
+  Stripe Checkout session without mutating order or stock state yet.
+{% endcomment %}
 {% block title %}{% trans "Shopping Cart" %} | {% trans "HEARTH Shop" %}{% endblock %}
 
 {% block content %}
 <section class="cart-page" aria-labelledby="cart-heading">
   <h1 id="cart-heading">{% trans "Your Shopping Cart" %}</h1>
 
-  {% for item in cart_items %}
-  <div class="cart-item">
-      {% if item.print.image %}
-          <img
-              src="{{ item.print.image.url }}"
-              alt="{{ item.print.title }}"
-              class="cart-thumbnail">
-      {% else %}
-          <img
-              src="{% static 'img/placeholder.jpg' %}"
-              alt="{% trans 'No image available' %}"
-              class="cart-thumbnail">
-      {% endif %}
+  {% if cart_items %}
+    <div class="cart-items-list" role="list" aria-label="{% trans 'Shopping cart items' %}">
+      {% for item in cart_items %}
+        <article class="cart-item" role="listitem" aria-label="{{ item.print.title }}">
+          {% if item.print.image %}
+              <img
+                  src="{{ item.print.image.url }}"
+                  alt="{{ item.print.title }}"
+                  class="cart-thumbnail">
+          {% else %}
+              <img
+                  src="{% static 'img/placeholder.jpg' %}"
+                  alt="{% trans 'No image available' %}"
+                  class="cart-thumbnail">
+          {% endif %}
 
-      <div class="cart-details">
-          <h3>{{ item.print.title }}</h3>
-          <p><strong>{% trans "Price:" %}</strong> €{{ item.price_at_time }}</p>
-          <p><strong>{% trans "Quantity:" %}</strong></p>
+          <div class="cart-details">
+              <h3>{{ item.print.title }}</h3>
+              <p><strong>{% trans "Price:" %}</strong> €{{ item.price_at_time }}</p>
+              <p><strong>{% trans "Quantity:" %}</strong></p>
 
-          <div class="qty-stack">
-              <form
-                  action="{% url 'decrease_cart_quantity' item.id %}"
-                  method="post">
+              <div class="qty-stack">
+                  <form
+                      action="{% url 'decrease_cart_quantity' item.id %}"
+                      method="post">
+                      {% csrf_token %}
+                      <button
+                          type="submit"
+                          aria-label="{% blocktrans with title=item.print.title %}Decrease quantity of {{ title }}{% endblocktrans %}">
+                          -
+                      </button>
+                  </form>
+
+                  <span
+                      class="qty-display"
+                      role="status"
+                      aria-live="polite"
+                      aria-label="{% blocktrans with qty=item.quantity %}Quantity: {{ qty }}{% endblocktrans %}">
+                      {{ item.quantity }}
+                  </span>
+
+                  <form
+                      action="{% url 'increase_cart_quantity' item.id %}"
+                      method="post">
+                      {% csrf_token %}
+                      <button
+                          type="submit"
+                          aria-label="{% blocktrans with title=item.print.title %}Increase quantity of {{ title }}{% endblocktrans %}">
+                          +
+                      </button>
+                  </form>
+              </div>
+
+              <p><strong>{% trans "Subtotal:" %}</strong> €{{ item.total }}</p>
+
+              <form action="{% url 'remove_from_cart' item.id %}" method="post">
                   {% csrf_token %}
                   <button
                       type="submit"
-                      aria-label="{% blocktrans with title=item.print.title %}Decrease quantity of {{ title }}{% endblocktrans %}">
-                      -
-                  </button>
-              </form>
-
-              <span class="qty-display" aria-label="{% blocktrans with qty=item.quantity %}Quantity: {{ qty }}{% endblocktrans %}">
-                  {{ item.quantity }}
-              </span>
-
-              <form
-                  action="{% url 'increase_cart_quantity' item.id %}"
-                  method="post">
-                  {% csrf_token %}
-                  <button
-                      type="submit"
-                      aria-label="{% blocktrans with title=item.print.title %}Increase quantity of {{ title }}{% endblocktrans %}">
-                      +
+                      class="remove-btn"
+                      aria-label="{% blocktrans with title=item.print.title %}Remove {{ title }} from cart{% endblocktrans %}">
+                      {% trans "Remove Item" %}
                   </button>
               </form>
           </div>
+        </article>
+      {% endfor %}
+    </div>
+  {% endif %}
 
-          <p><strong>{% trans "Subtotal:" %}</strong> €{{ item.total }}</p>
-
-          <form action="{% url 'remove_from_cart' item.id %}" method="post">
-              {% csrf_token %}
-              <button
-                  type="submit"
-                  class="remove-btn"
-                  aria-label="{% blocktrans with title=item.print.title %}Remove {{ title }} from cart{% endblocktrans %}">
-                  {% trans "Remove Item" %}
-              </button>
-          </form>
-      </div>
-  </div>
-  {% endfor %}
-
-  <div class="cart-summary">
+  <div class="cart-summary" aria-label="{% trans 'Cart summary' %}">
       {% if not cart_items %}
-          <p>{% trans "Your cart is currently empty." %}</p>
+          <p role="status" aria-live="polite">{% trans "Your cart is currently empty." %}</p>
       {% endif %}
 
       <p><strong>{% trans "Cart Total:" %} €{{ cart_total }}</strong></p>
@@ -79,7 +92,10 @@
       {% if cart_items %}
       <form action="{% url 'create_checkout_session' %}" method="post">
           {% csrf_token %}
-          <button type="submit" class="checkout-btn">
+          <button
+              type="submit"
+              class="checkout-btn"
+              aria-label="{% trans 'Secure Checkout with Stripe' %}">
               {% trans "Secure Checkout with Stripe" %}
           </button>
       </form>

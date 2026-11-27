@@ -1,16 +1,26 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
+{% comment %}
+  Contact thank-you page: confirms receipt of a contact form inquiry without
+  mutating application or order state.
+{% endcomment %}
 {% block title %}{% trans "Thank You" %}{% endblock %}
 
 {% block content %}
-<div class="status-container">
-    <h1>{% trans "Thank You for Reaching Out!" %}</h1>
-    <p>
-        {% trans "We have received your message and will get back to you as soon as possible. Usually, this takes within 24 to 48 hours." %}
-    </p>
-    <a href="{% url 'homepage' %}" class="status-btn">
-        {% trans "Return to Homepage" %}
-    </a>
-</div>
+<section class="status-container" aria-labelledby="contact-thank-you-heading">
+    <h1 id="contact-thank-you-heading">{% trans "Thank You for Reaching Out!" %}</h1>
+
+    <div role="status" aria-live="polite">
+        <p>
+            {% trans "We have received your message and will get back to you as soon as possible. Usually, this takes within 24 to 48 hours." %}
+        </p>
+    </div>
+
+    <nav class="status-actions" aria-label="{% trans 'Contact confirmation actions' %}">
+        <a href="{% url 'homepage' %}" class="status-btn" aria-label="{% trans 'Return to Homepage' %}">
+            {% trans "Return to Homepage" %}
+        </a>
+    </nav>
+</section>
 {% endblock %}

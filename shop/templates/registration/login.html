@@ -1,13 +1,45 @@
 {% extends 'base.html' %}
 {% load i18n %}
+
 <!-- Login form -->
+{% block title %}{% trans "Login" %} - {% trans "HEARTH Shop" %}{% endblock %}
+
 {% block content %}
-  <div class="login-container">
-  <h2>{% trans "Login" %}</h2>
-  <form method="post" class="login-form">
+<section class="login-container" aria-labelledby="login-heading">
+  <h2 id="login-heading">{% trans "Login" %}</h2>
+
+  <form method="post" class="login-form" novalidate aria-label="{% trans 'Account login form' %}">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" id="login-btn">{% trans "Login" %}</button>
+
+    {# Non-field authentication errors (such as invalid credentials) #}
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger" role="alert" aria-live="polite">
+        {{ form.non_field_errors }}
+      </div>
+    {% endif %}
+
+    {# Render each form field with accessible labels and field-level error alerts #}
+    {% for field in form %}
+      <div class="form-field">
+        {{ field.label_tag }}
+        {{ field }}
+        {% if field.help_text %}
+          <small class="field-help">{{ field.help_text }}</small>
+        {% endif %}
+        {% if field.errors %}
+          <div class="field-error" role="alert" aria-live="polite">
+            {{ field.errors }}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <button
+      type="submit"
+      id="login-btn"
+      aria-label="{% trans 'Submit login form' %}">
+      {% trans "Login" %}
+    </button>
   </form>
-  </div>
+</section>
 {% endblock %}

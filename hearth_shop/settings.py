@@ -240,6 +240,7 @@ LANGUAGE_COOKIE_USE_SESSION = False
 
 LOCALE_PATHS = [
     BASE_DIR / "shop" / "locale",
+    BASE_DIR / "locale",
 ]
 
 # ---------------------------------------------------------

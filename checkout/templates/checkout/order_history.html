@@ -1,27 +1,45 @@
 {% extends 'base.html' %}
 {% load i18n %}
+
+{% comment %}
+  Order history page: displays orders belonging to the authenticated user (and
+  legacy unlinked orders matching their email), with paid vs. pending status
+  determined strictly by database state from webhook fulfillment.
+{% endcomment %}
 {% block title %}{% trans "My Orders" %}{% endblock %}
 
 {% block content %}
-<div class="orders-container">
-  <h2>{% trans "My Orders" %}</h2>
-  
+<section class="orders-container" aria-labelledby="orders-heading">
+  <h2 id="orders-heading">{% trans "My Orders" %}</h2>
+
   {% if orders %}
-    <div class="orders-list">
+    <div class="orders-list" role="list" aria-label="{% trans 'Past orders list' %}">
       {% for order in orders %}
-        <div class="order-card">
-          
+        <article class="order-card" role="listitem" aria-label="{% blocktrans with order_id=order.id %}Order #{{ order_id }}{% endblocktrans %}">
+
           <!-- Order Meta Header -->
           <div class="order-header">
             <span class="order-id"><strong>{% trans "Order #" %}{{ order.id }}</strong></span>
-            <span class="order-date">{{ order.created_at|date:"Y-m-d H:i" }}</span>
-            <span class="order-status {% if order.is_paid %}status-paid{% else %}status-pending{% endif %}">
-              {% if order.is_paid %}{% trans "Paid" %}{% else %}{% trans "Pending" %}{% endif %}
-            </span>
+            <time class="order-date" datetime="{{ order.created_at|date:'c' }}">
+              {{ order.created_at|date:"Y-m-d H:i" }}
+            </time>
+            {% if order.is_paid %}
+              <span
+                class="order-status status-paid"
+                aria-label="{% trans 'Order status: Paid' %}">
+                {% trans "Paid" %}
+              </span>
+            {% else %}
+              <span
+                class="order-status status-pending"
+                aria-label="{% trans 'Order status: Pending' %}">
+                {% trans "Pending" %}
+              </span>
+            {% endif %}
           </div>
 
           <!-- Order Items List -->
-          <ul class="order-items-list">
+          <ul class="order-items-list" aria-label="{% blocktrans with order_id=order.id %}Items in Order #{{ order_id }}{% endblocktrans %}">
             {% for item in order.items.all %}
               <li class="order-item-row">
                 <span class="item-desc">{{ item.quantity }}x {{ item.print.title }}</span>
@@ -44,11 +62,11 @@
             <strong class="order-total">{{ order.total_price }} €</strong>
           </div>
 
-        </div>
+        </article>
       {% endfor %}
     </div>
   {% else %}
-    <p class="no-orders">{% trans "You have no past orders." %}</p>
+    <p class="no-orders" role="status" aria-live="polite">{% trans "You have no past orders." %}</p>
   {% endif %}
-</div>
+</section>
 {% endblock %}

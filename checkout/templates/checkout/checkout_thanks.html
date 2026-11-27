@@ -1,15 +1,24 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% comment %}
+  Thank-you page: displays an informational confirmation message without
+  mutating order, stock, or cart state.
+{% endcomment %}
 {% block title %}{% trans "Thank You" %}{% endblock %}
 
 {% block content %}
-<div class="status-container">
-    <h1>{% trans "Thank You!" %}</h1>
-    <p>{% trans "We appreciate your support. Your submission or order has been successfully recorded." %}</p>
-    
-    <a href="{% url 'shop_home' %}" class="status-btn">
-        {% trans "Back to Home" %}
-    </a>
-</div>
+<section class="status-container" aria-labelledby="checkout-thanks-heading">
+    <h1 id="checkout-thanks-heading">{% trans "Thank You!" %}</h1>
+
+    <div role="status" aria-live="polite">
+        <p>{% trans "We appreciate your support. Your submission or order has been successfully recorded." %}</p>
+    </div>
+
+    <nav class="status-actions" aria-label="{% trans 'Thank you page actions' %}">
+        <a href="{% url 'shop_home' %}" class="status-btn" aria-label="{% trans 'Return to the shop homepage' %}">
+            {% trans "Back to Home" %}
+        </a>
+    </nav>
+</section>
 {% endblock %}

@@ -1,14 +1,29 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
+{% comment %}
+  Contact page: allows visitors to submit inquiries with spam honeypot protection,
+  explicit privacy notice acknowledgment, and optional marketing consent.
+{% endcomment %}
 {% block title %}{% trans "Contact Us" %}{% endblock %}
 
 {% block content %}
-<div class="contact-container">
-  <h2>{% trans "Contact Us" %}</h2>
-  
-  <form method="POST" class="contact-form">
+<section class="contact-container" aria-labelledby="contact-heading">
+  <h2 id="contact-heading">{% trans "Contact Us" %}</h2>
+
+  <form
+    method="POST"
+    class="contact-form"
+    novalidate
+    aria-label="{% trans 'Contact us form' %}">
     {% csrf_token %}
+
+    {# Non-field form errors #}
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger" role="alert" aria-live="polite">
+        {{ form.non_field_errors }}
+      </div>
+    {% endif %}
 
     <!-- Name -->
     <div class="form-group">
@@ -16,7 +31,7 @@
       {{ form.name }}
       {% if form.name.errors %}
         {% for error in form.name.errors %}
-          <div class="error-msg">{{ error }}</div>
+          <div class="error-msg" role="alert" aria-live="polite">{{ error }}</div>
         {% endfor %}
       {% endif %}
     </div>
@@ -27,7 +42,7 @@
       {{ form.email }}
       {% if form.email.errors %}
         {% for error in form.email.errors %}
-          <div class="error-msg">{{ error }}</div>
+          <div class="error-msg" role="alert" aria-live="polite">{{ error }}</div>
         {% endfor %}
       {% endif %}
     </div>
@@ -38,13 +53,13 @@
       {{ form.message }}
       {% if form.message.errors %}
         {% for error in form.message.errors %}
-          <div class="error-msg">{{ error }}</div>
+          <div class="error-msg" role="alert" aria-live="polite">{{ error }}</div>
         {% endfor %}
       {% endif %}
     </div>
 
     <!-- Honeypot field (hidden from users, visible to bots) -->
-    <div style="display:none;">
+    <div style="display:none;" aria-hidden="true">
       {{ form.website }}
     </div>
 
@@ -78,11 +93,16 @@
       <span>{% trans "I would like to receive updates about new art, offers, and newsletters" %}</span>
     </label>
 
-    <button type="submit" class="contact-submit-btn">{% trans "Send Message" %}</button>
+    <button
+      type="submit"
+      class="contact-submit-btn"
+      aria-label="{% trans 'Send Message' %}">
+      {% trans "Send Message" %}
+    </button>
   </form>
 
   {% if success_message %}
-    <p class="success_message">{{ success_message }}</p>
+    <p class="success_message" role="status" aria-live="polite">{{ success_message }}</p>
   {% endif %}
-</div>
+</section>
 {% endblock %}

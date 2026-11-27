@@ -1,7 +1,24 @@
 {% extends 'base.html' %}
 {% load i18n %}
-<!-- Logged out page -->
-{% block content %}
-  <p>{% trans "You have been logged out." %}</p>
-{% endblock %}
 
+<!-- Logged out page -->
+{% block title %}{% trans "Logged Out" %} - {% trans "HEARTH Shop" %}{% endblock %}
+
+{% block content %}
+<section class="status-container" aria-labelledby="logged-out-heading">
+  <h1 id="logged-out-heading">{% trans "Logged Out" %}</h1>
+
+  <div role="status" aria-live="polite">
+    <p>{% trans "You have been logged out." %}</p>
+  </div>
+
+  <nav class="status-actions" aria-label="{% trans 'Logged out actions' %}">
+    <a href="{% url 'login' %}" class="status-btn" aria-label="{% trans 'Log in to your account' %}">
+      {% trans "Log In" %}
+    </a>
+    <a href="{% url 'shop_home' %}" class="status-btn" aria-label="{% trans 'Return to the shop homepage' %}">
+      {% trans "Back to Home" %}
+    </a>
+  </nav>
+</section>
+{% endblock %}

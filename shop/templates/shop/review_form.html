@@ -1,25 +1,55 @@
 {% load i18n %}
 
-<form method="POST" class="review-form">
+{% comment %}
+  Product review submission partial: allows eligible buyers to submit a rating
+  and review comment with hidden honeypot bot protection.
+{% endcomment %}
+<form
+    method="POST"
+    class="review-form"
+    novalidate
+    aria-label="{% trans 'Write a review form' %}">
     {% csrf_token %}
-    
+
+    {# Non-field review form errors #}
+    {% if form.non_field_errors %}
+        <div class="alert alert-danger" role="alert" aria-live="polite">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+
     <!-- Rating Field -->
     <div class="form-group">
         <label for="{{ form.rating.id_for_label }}">{% trans "Rating:" %}</label>
         {{ form.rating }}
+        {% if form.rating.errors %}
+            <div class="field-error" role="alert" aria-live="polite">
+                {{ form.rating.errors }}
+            </div>
+        {% endif %}
     </div>
 
     <!-- Comment Field -->
     <div class="form-group">
         <label for="{{ form.comment.id_for_label }}">{% trans "Your Review:" %}</label>
         {{ form.comment }}
+        {% if form.comment.errors %}
+            <div class="field-error" role="alert" aria-live="polite">
+                {{ form.comment.errors }}
+            </div>
+        {% endif %}
     </div>
 
     <!-- Honeypot Spam Trap (Hidden via CSS) -->
     <div aria-hidden="true" style="opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1;">
-        <label for="{{ form.website.id_for_label }}">Website</label>
+        <label for="{{ form.website.id_for_label }}" tabindex="-1">Website</label>
         {{ form.website }}
     </div>
 
-    <button type="submit" class="cta-button">{% trans "Post Review" %}</button>
+    <button
+        type="submit"
+        class="cta-button"
+        aria-label="{% trans 'Post Review' %}">
+        {% trans "Post Review" %}
+    </button>
 </form>
