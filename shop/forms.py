@@ -85,3 +85,52 @@ class CustomSignupForm(UserCreationForm):
     class Meta:
         model = User
         fields = ("username", "email", "password1", "password2")
+
+
+from django import forms
+from django.utils.translation import gettext_lazy as _
+
+
+class AccountDeleteForm(forms.Form):
+    current_password = forms.CharField(
+        label=_("Current Password"),
+        widget=forms.PasswordInput(
+            attrs={
+                "class": "form-control",
+                "autocomplete": "current-password",
+                "placeholder": _("Enter your current password"),
+            }
+        ),
+    )
+    confirm_deletion = forms.BooleanField(
+        label=_(
+            "I understand that deleting my account is permanent and cannot be undone."
+        ),
+        required=True,
+        widget=forms.CheckboxInput(attrs={"class": "form-check-input"}),
+    )
+
+    def __init__(self, *args, user=None, **kwargs):
+        self.user = user
+        super().__init__(*args, **kwargs)
+        if self.is_bound:
+            if self["current_password"].errors:
+                self.fields["current_password"].widget.attrs.update(
+                    {
+                        "aria-invalid": "true",
+                        "aria-describedby": "current-password-error",
+                    }
+                )
+            if self["confirm_deletion"].errors:
+                self.fields["confirm_deletion"].widget.attrs.update(
+                    {
+                        "aria-invalid": "true",
+                        "aria-describedby": "confirm-deletion-error",
+                    }
+                )
+
+    def clean_current_password(self):
+        password = self.cleaned_data.get("current_password")
+        if not self.user or not self.user.check_password(password):
+            raise forms.ValidationError(_("Incorrect password."))
+        return password

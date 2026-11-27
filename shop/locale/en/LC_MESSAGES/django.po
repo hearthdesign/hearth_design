@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 02:42+0100\n"
+"POT-Creation-Date: 2026-11-27 01:30+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: English\n"
@@ -291,6 +291,7 @@ msgid "日本語"
 msgstr ""
 
 #: .\hearth_shop\templates\base.html:10 .\hearth_shop\templates\base.html:28
+#: .\shop\templates\registration\delete_account.html:4
 msgid "Hearth Shop"
 msgstr ""
 
@@ -391,6 +392,10 @@ msgstr ""
 msgid "All rights reserved."
 msgstr ""
 
+#: .\hearth_shop\templates\includes\navbar.html:4
+msgid "Main navigation"
+msgstr ""
+
 #: .\hearth_shop\templates\includes\navbar.html:10
 msgid "HOME"
 msgstr ""
@@ -417,22 +422,32 @@ msgstr ""
 msgid "Upload"
 msgstr ""
 
-#: .\hearth_shop\templates\includes\navbar.html:66
-msgid "Logout"
+#: .\hearth_shop\templates\includes\navbar.html:64
+#: .\hearth_shop\templates\includes\navbar.html:65
+#: .\shop\templates\registration\delete_account.html:4
+msgid "Delete Account"
+msgstr ""
+
+#: .\hearth_shop\templates\includes\navbar.html:69
+msgid "Log out of your account"
 msgstr ""
 
 #: .\hearth_shop\templates\includes\navbar.html:71
+msgid "Logout"
+msgstr ""
+
+#: .\hearth_shop\templates\includes\navbar.html:76
 #: .\shop\templates\registration\login.html:6
 #: .\shop\templates\registration\login.html:10
 msgid "Login"
 msgstr ""
 
-#: .\hearth_shop\templates\includes\navbar.html:74
+#: .\hearth_shop\templates\includes\navbar.html:79
 #: .\shop\templates\registration\signup.html:6
 msgid "Sign Up"
 msgstr ""
 
-#: .\hearth_shop\templates\includes\navbar.html:87
+#: .\hearth_shop\templates\includes\navbar.html:92
 msgid "Select Language"
 msgstr ""
 
@@ -466,6 +481,23 @@ msgstr ""
 
 #: .\shop\forms.py:51 .\shop\templates\shop\contact.html:78
 msgid "I would like to receive updates about new art, offers, and newsletters"
+msgstr ""
+
+#: .\shop\forms.py:96
+msgid "Current Password"
+msgstr ""
+
+#: .\shop\forms.py:101
+msgid "Enter your current password"
+msgstr ""
+
+#: .\shop\forms.py:107
+msgid ""
+"I understand that deleting my account is permanent and cannot be undone."
+msgstr ""
+
+#: .\shop\forms.py:135
+msgid "Incorrect password."
 msgstr ""
 
 #: .\shop\models.py:28
@@ -542,6 +574,31 @@ msgstr ""
 
 #: .\shop\models.py:217
 msgid "Anonymous"
+msgstr ""
+
+#: .\shop\templates\registration\delete_account.html:8
+msgid "Delete Your Account"
+msgstr ""
+
+#: .\shop\templates\registration\delete_account.html:12
+msgid ""
+"Deleting your account will permanently remove your login credentials, "
+"profile, and active shopping cart."
+msgstr ""
+
+#: .\shop\templates\registration\delete_account.html:15
+msgid ""
+"Previously placed orders are retained for record-keeping without your "
+"account link, and any reviews you wrote will remain visible as Anonymous."
+msgstr ""
+
+#: .\shop\templates\registration\delete_account.html:54
+msgid "Permanently Delete Account"
+msgstr ""
+
+#: .\shop\templates\registration\delete_account.html:57
+#: .\shop\templates\shop\upload.html:13
+msgid "Cancel"
 msgstr ""
 
 #: .\shop\templates\registration\logged_out.html:5
@@ -956,24 +1013,20 @@ msgstr ""
 msgid "Upload a New Print"
 msgstr ""
 
-#: .\shop\templates\shop\upload.html:13
-msgid "Cancel"
-msgstr ""
-
-#: .\shop\views.py:287
+#: .\shop\views.py:309
 msgid "You must agree to the Privacy Notice"
 msgstr ""
 
-#: .\shop\views.py:308
+#: .\shop\views.py:330
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
 msgstr ""
 
-#: .\shop\views.py:316
+#: .\shop\views.py:338
 msgid "Thank you for contacting Hearth Design"
 msgstr ""
 
-#: .\shop\views.py:318
+#: .\shop\views.py:340
 #, python-format
 msgid ""
 "Hi %(name)s,\n"
@@ -983,4 +1036,19 @@ msgid ""
 "\n"
 "Best regards,\n"
 "Hearth Design Team"
+msgstr ""
+
+#: .\shop\views.py:390
+msgid ""
+"Staff and administrator accounts cannot be deleted through this self-service "
+"form."
+msgstr ""
+
+#: .\shop\views.py:403
+msgid ""
+"Too many account deletion attempts. Please wait a few minutes and try again."
+msgstr ""
+
+#: .\shop\views.py:431
+msgid "Your account has been permanently deleted."
 msgstr ""

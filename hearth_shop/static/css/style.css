@@ -1209,8 +1209,181 @@ img {
 }
 
 /* ======================
-     FOOTER STYLING
-   ====================== */
+     DELETE ACCOUNT
+====================== */
+
+.container_delete {
+  display:flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin: 5%;
+}
+
+/* Account Deletion Form Styling */
+.delete-account-section {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.delete-account-form .form-group {
+  margin-bottom: 1.25rem;
+}
+
+.delete-account-form .form-label,
+.delete-account-form label[for="id_current_password"] {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+  color: #2b2623;
+  min-width: 235px;
+  padding: 0.75rem;
+}
+
+.delete-account-form input[type="password"],
+.delete-account-form .form-control {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #2b2623;
+  background-color: #fffdf9;
+  border: 1.5px solid #c5b8a8;
+  border-radius: 6px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.delete-account-form input[type="password"]::placeholder,
+.delete-account-form .form-control::placeholder {
+  color: #7c7268;
+}
+
+.delete-account-form input[type="password"]:focus,
+.delete-account-form .form-control:focus {
+  outline: none;
+  border-color: #8c4a27;
+  box-shadow: 0 0 0 3px rgba(140, 74, 39, 0.18);
+}
+
+.delete-account-form input[aria-invalid="true"],
+.delete-account-form .form-control[aria-invalid="true"] {
+  border-color: #b42318;
+  background-color: #fff8f7;
+}
+
+.delete-account-form input[aria-invalid="true"]:focus,
+.delete-account-form .form-control[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.18);
+}
+
+/* Confirmation Checkbox Row */
+.delete-account-form .delete-confirm-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.85rem 1rem;
+  background-color: #faf6f0;
+  border: 1px solid #e3d8c8;
+  border-radius: 6px;
+}
+
+.delete-account-form input[type="checkbox"],
+.delete-account-form .form-check-input {
+  flex: 0 0 auto;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.15rem;
+  accent-color: #b42318;
+  cursor: pointer;
+}
+
+.delete-account-form .form-check-label {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #2b2623;
+  cursor: pointer;
+}
+
+/* Field Error Messages */
+.delete-account-form .field-error,
+.delete-account-form .text-danger {
+  margin-top: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #b42318;
+}
+
+.delete-account-form .field-error ul,
+.delete-account-form .text-danger ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Action Buttons */
+.delete-account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-danger-delete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.25rem;
+  font-size: 0.975rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #ffffff;
+  background-color: #b42318;
+  border: 1.5px solid #b42318;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-danger-delete:hover {
+  background-color: #911b12;
+  border-color: #911b12;
+}
+
+.btn-danger-delete:focus-visible {
+  outline: 3px solid rgba(180, 35, 24, 0.35);
+  outline-offset: 2px;
+}
+
+.btn-cancel-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.975rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #2b2623;
+  background-color: #f3ede4;
+  border: 1.5px solid #c5b8a8;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-cancel-action:hover {
+  background-color: #e7dfd2;
+  border-color: #ad9e8c;
+}
+
+.btn-cancel-action:focus-visible {
+  outline: 3px solid rgba(140, 74, 39, 0.3);
+  outline-offset: 2px;
+}
+
+
 
 /* ======================
      FOOTER STYLING

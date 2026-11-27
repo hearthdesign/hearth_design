@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-26 02:42+0100\n"
+"POT-Creation-Date: 2026-11-27 01:30+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Chinese (Simplified)\n"
@@ -58,7 +58,7 @@ msgstr "HEARTH Shop"
 
 #: .\checkout\templates\checkout\cart.html:8
 msgid "Your Shopping Cart"
-msgstr "你的购物车"
+msgstr "您的购物车"
 
 #: .\checkout\templates\checkout\cart.html:20
 #: .\shop\templates\shop\illustration_gallery.html:62
@@ -106,7 +106,7 @@ msgstr "移除商品"
 
 #: .\checkout\templates\checkout\cart.html:74
 msgid "Your cart is currently empty."
-msgstr "你的购物车目前为空。"
+msgstr "您的购物车目前为空。"
 
 #: .\checkout\templates\checkout\cart.html:77
 msgid "Cart Total:"
@@ -123,13 +123,13 @@ msgstr "谢谢"
 
 #: .\checkout\templates\checkout\checkout_thanks.html:8
 msgid "Thank You!"
-msgstr "谢谢！"
+msgstr "谢谢您！"
 
 #: .\checkout\templates\checkout\checkout_thanks.html:9
 msgid ""
 "We appreciate your support. Your submission or order has been successfully "
 "recorded."
-msgstr "感谢你的支持。你的提交或订单已成功记录。"
+msgstr "感谢您的支持。您的提交或订单已成功记录。"
 
 #: .\checkout\templates\checkout\checkout_thanks.html:12
 msgid "Back to Home"
@@ -143,7 +143,7 @@ msgstr "我的订单"
 
 #: .\checkout\templates\checkout\order_history.html:16
 msgid "Order #"
-msgstr "订单号 #"
+msgstr "订单编号"
 
 #: .\checkout\templates\checkout\order_history.html:19
 msgid "Paid"
@@ -168,7 +168,7 @@ msgstr "总计："
 
 #: .\checkout\templates\checkout\order_history.html:51
 msgid "You have no past orders."
-msgstr "你还没有历史订单。"
+msgstr "您暂无历史订单。"
 
 #: .\checkout\templates\checkout\payment_cancel.html:4
 #: .\checkout\templates\checkout\payment_cancel.html:8
@@ -177,7 +177,7 @@ msgstr "支付已取消"
 
 #: .\checkout\templates\checkout\payment_cancel.html:9
 msgid "Your payment was cancelled or interrupted. No charges were made."
-msgstr "你的支付已取消或中断，未产生任何扣款。"
+msgstr "您的支付已取消或中断，未产生任何扣款。"
 
 #: .\checkout\templates\checkout\payment_cancel.html:12
 msgid "Return to Cart"
@@ -190,11 +190,11 @@ msgstr "支付成功"
 
 #: .\checkout\templates\checkout\payment_success.html:9
 msgid "Thank you for your purchase."
-msgstr "感谢你的购买。"
+msgstr "感谢您的购买。"
 
 #: .\checkout\templates\checkout\payment_success.html:10
 msgid "Your order has been received and is being processed."
-msgstr "我们已收到你的订单，正在处理中。"
+msgstr "我们已收到您的订单，正在处理中。"
 
 #: .\checkout\templates\checkout\payment_success.html:13
 msgid "View Orders"
@@ -202,15 +202,15 @@ msgstr "查看订单"
 
 #: .\checkout\views.py:44
 msgid "Invalid product selection."
-msgstr "所选商品无效。"
+msgstr "无效的商品选择。"
 
 #: .\checkout\views.py:56
 msgid "Invalid quantity entered. Quantity has been reset to 1."
-msgstr "输入的数量无效，已将数量重置为 1。"
+msgstr "输入的数量无效，数量已重置为 1。"
 
 #: .\checkout\views.py:65
 msgid "Quantity must be greater than zero. Quantity has been reset to 1."
-msgstr "数量必须大于零，已将数量重置为 1。"
+msgstr "数量必须大于零，数量已重置为 1。"
 
 #: .\checkout\views.py:74
 #, python-format
@@ -223,17 +223,17 @@ msgstr "该商品目前缺货。"
 
 #: .\checkout\views.py:99
 msgid "Requested quantity exceeds available stock."
-msgstr "所需数量超过现有库存。"
+msgstr "所选数量超出可用库存。"
 
 #: .\checkout\views.py:108
 #, python-format
 msgid "\"%(title)s\" added to your cart."
-msgstr "已将“%(title)s”加入购物车。"
+msgstr "“%(title)s”已加入您的购物车。"
 
 #: .\checkout\views.py:153
 #, python-format
 msgid "Quantity of \"%(title)s\" increased to %(qty)s."
-msgstr "已将“%(title)s”的数量增加至 %(qty)s。"
+msgstr "“%(title)s”的数量已增加至 %(qty)s。"
 
 #: .\checkout\views.py:160
 msgid "No additional stock is available for this item."
@@ -242,21 +242,21 @@ msgstr "该商品暂无更多库存。"
 #: .\checkout\views.py:175
 #, python-format
 msgid "Quantity of \"%(title)s\" decreased to %(qty)s."
-msgstr "已将“%(title)s”的数量减少至 %(qty)s。"
+msgstr "“%(title)s”的数量已减少至 %(qty)s。"
 
 #: .\checkout\views.py:187
 #, python-format
 msgid "'%(title)s' has been removed from your cart."
-msgstr "已从购物车移除“%(title)s”。"
+msgstr "“%(title)s”已从您的购物车中移除。"
 
 #: .\checkout\views.py:206
 #, python-format
 msgid "\"%(title)s\" has been removed from your cart."
-msgstr "已从购物车移除“%(title)s”。"
+msgstr "“%(title)s”已从您的购物车中移除。"
 
 #: .\checkout\views.py:213
 msgid "Your cart is now empty. Browse the gallery to discover more artwork."
-msgstr "你的购物车现已为空。浏览画廊探索更多艺术作品。"
+msgstr "您的购物车现已清空。浏览画廊以发现更多艺术作品。"
 
 #: .\hearth_shop\settings.py:227
 msgid "English"
@@ -291,6 +291,7 @@ msgid "日本語"
 msgstr "日本語"
 
 #: .\hearth_shop\templates\base.html:10 .\hearth_shop\templates\base.html:28
+#: .\shop\templates\registration\delete_account.html:4
 msgid "Hearth Shop"
 msgstr "Hearth Shop"
 
@@ -300,15 +301,14 @@ msgid ""
 "kindness, acceptance, imagination, and the values that help people feel at "
 "home in the world."
 msgstr ""
-"HEARTH Design。探索插画与创意系列，颂扬善意、包容、想象力，以及让人在"
-"世界中感受到归属感与温暖的价值。"
+"HEARTH Design。探索颂扬善良、包容、想象力以及让人们在世界中找到归属感的插画与创意作品系列。"
 
 #: .\hearth_shop\templates\base.html:29
 msgid ""
 "Discover illustrations and creative collections celebrating kindness, "
 "acceptance, imagination, and feeling at home in the world."
 msgstr ""
-"探索插画与创意系列，颂扬善意、包容、想象力，以及在世界中感受到归属感。"
+"探索颂扬善良、包容、想象力与归属感的插画和创意作品系列。"
 
 #: .\hearth_shop\templates\base.html:65
 msgid "Shop"
@@ -320,7 +320,7 @@ msgstr "[ 商店 ]"
 
 #: .\hearth_shop\templates\base.html:99
 msgid "Close modal"
-msgstr "关闭窗口"
+msgstr "关闭弹窗"
 
 #: .\hearth_shop\templates\base.html:120
 msgid "Add to Cart"
@@ -344,11 +344,11 @@ msgstr "返回顶部"
 
 #: .\hearth_shop\templates\base.html:144 .\hearth_shop\templates\base.html:158
 msgid "Newsletter"
-msgstr "电子报"
+msgstr "电子简报"
 
 #: .\hearth_shop\templates\base.html:154
 msgid "Newsletter signup form"
-msgstr "电子报订阅表单"
+msgstr "电子简报订阅表单"
 
 #: .\hearth_shop\templates\base.html:162
 msgid "Required information"
@@ -356,11 +356,11 @@ msgstr "必填信息"
 
 #: .\hearth_shop\templates\base.html:167
 msgid "Email address"
-msgstr "电子邮箱"
+msgstr "电子邮箱地址"
 
 #: .\hearth_shop\templates\base.html:175
 msgid "Enter your email"
-msgstr "输入你的电子邮箱"
+msgstr "输入您的电子邮箱"
 
 #: .\hearth_shop\templates\base.html:199
 msgid "Subscribe"
@@ -392,7 +392,11 @@ msgstr "服务条款"
 
 #: .\hearth_shop\templates\base.html:241
 msgid "All rights reserved."
-msgstr "版权所有。"
+msgstr "保留所有权利。"
+
+#: .\hearth_shop\templates\includes\navbar.html:4
+msgid "Main navigation"
+msgstr "主导航"
 
 #: .\hearth_shop\templates\includes\navbar.html:10
 msgid "HOME"
@@ -420,22 +424,32 @@ msgstr "全部主题"
 msgid "Upload"
 msgstr "上传"
 
-#: .\hearth_shop\templates\includes\navbar.html:66
+#: .\hearth_shop\templates\includes\navbar.html:64
+#: .\hearth_shop\templates\includes\navbar.html:65
+#: .\shop\templates\registration\delete_account.html:4
+msgid "Delete Account"
+msgstr "删除账户"
+
+#: .\hearth_shop\templates\includes\navbar.html:69
+msgid "Log out of your account"
+msgstr "退出您的账户"
+
+#: .\hearth_shop\templates\includes\navbar.html:71
 msgid "Logout"
 msgstr "退出登录"
 
-#: .\hearth_shop\templates\includes\navbar.html:71
+#: .\hearth_shop\templates\includes\navbar.html:76
 #: .\shop\templates\registration\login.html:6
 #: .\shop\templates\registration\login.html:10
 msgid "Login"
 msgstr "登录"
 
-#: .\hearth_shop\templates\includes\navbar.html:74
+#: .\hearth_shop\templates\includes\navbar.html:79
 #: .\shop\templates\registration\signup.html:6
 msgid "Sign Up"
 msgstr "注册"
 
-#: .\hearth_shop\templates\includes\navbar.html:87
+#: .\hearth_shop\templates\includes\navbar.html:92
 msgid "Select Language"
 msgstr "选择语言"
 
@@ -445,15 +459,15 @@ msgstr "姓名"
 
 #: .\shop\forms.py:30
 msgid "Your name"
-msgstr "你的姓名"
+msgstr "您的姓名"
 
 #: .\shop\forms.py:34
 msgid "Email"
-msgstr "邮箱"
+msgstr "电子邮箱"
 
 #: .\shop\forms.py:36
 msgid "Your email"
-msgstr "你的邮箱"
+msgstr "您的电子邮箱"
 
 #: .\shop\forms.py:40
 msgid "Message"
@@ -461,7 +475,7 @@ msgstr "留言"
 
 #: .\shop\forms.py:42
 msgid "Your message"
-msgstr "你的留言"
+msgstr "您的留言内容"
 
 #: .\shop\forms.py:47 .\shop\templates\shop\contact.html:72
 msgid "I have read and agree to the Privacy Notice"
@@ -469,7 +483,24 @@ msgstr "我已阅读并同意隐私声明"
 
 #: .\shop\forms.py:51 .\shop\templates\shop\contact.html:78
 msgid "I would like to receive updates about new art, offers, and newsletters"
-msgstr "我希望接收关于新作品、优惠和电子报的最新消息"
+msgstr "我希望接收有关新作品、优惠活动及电子简报的更新"
+
+#: .\shop\forms.py:96
+msgid "Current Password"
+msgstr "当前密码"
+
+#: .\shop\forms.py:101
+msgid "Enter your current password"
+msgstr "请输入您的当前密码"
+
+#: .\shop\forms.py:107
+msgid ""
+"I understand that deleting my account is permanent and cannot be undone."
+msgstr "我理解删除账户是永久性操作，且无法撤销。"
+
+#: .\shop\forms.py:135
+msgid "Incorrect password."
+msgstr "密码不正确。"
 
 #: .\shop\models.py:28
 msgid "Info"
@@ -517,7 +548,7 @@ msgstr "金属版画"
 
 #: .\shop\models.py:110
 msgid "Wood Print"
-msgstr "木质版画"
+msgstr "木版画"
 
 #: .\shop\models.py:111
 msgid "Paper Print"
@@ -529,11 +560,11 @@ msgstr "版画"
 
 #: .\shop\models.py:191
 msgid "Contact Submission"
-msgstr "联系提交"
+msgstr "联系表单提交"
 
 #: .\shop\models.py:192
 msgid "Contact Submissions"
-msgstr "联系提交列表"
+msgstr "联系表单提交"
 
 #: .\shop\models.py:213
 msgid "Review"
@@ -545,19 +576,45 @@ msgstr "评价"
 
 #: .\shop\models.py:217
 msgid "Anonymous"
-msgstr "匿名"
+msgstr "匿名用户"
+
+#: .\shop\templates\registration\delete_account.html:8
+msgid "Delete Your Account"
+msgstr "删除您的账户"
+
+#: .\shop\templates\registration\delete_account.html:12
+msgid ""
+"Deleting your account will permanently remove your login credentials, "
+"profile, and active shopping cart."
+msgstr "删除账户将永久移除您的登录凭据、个人资料以及当前购物车中的商品。"
+
+#: .\shop\templates\registration\delete_account.html:15
+msgid ""
+"Previously placed orders are retained for record-keeping without your "
+"account link, and any reviews you wrote will remain visible as Anonymous."
+msgstr ""
+"您此前提交的订单将解除与账户的关联后保留以作记录，您撰写的所有评价也将以“匿名用户”的身份继续保留显示。"
+
+#: .\shop\templates\registration\delete_account.html:54
+msgid "Permanently Delete Account"
+msgstr "永久删除账户"
+
+#: .\shop\templates\registration\delete_account.html:57
+#: .\shop\templates\shop\upload.html:13
+msgid "Cancel"
+msgstr "取消"
 
 #: .\shop\templates\registration\logged_out.html:5
 msgid "You have been logged out."
-msgstr "你已退出登录。"
+msgstr "您已退出登录。"
 
 #: .\shop\templates\registration\password_change_done.html:6
 msgid "Your password has been changed successfully."
-msgstr "你的密码已成功修改。"
+msgstr "您的密码已成功修改。"
 
 #: .\shop\templates\registration\password_change_form.html:5
 msgid "Change your password"
-msgstr "修改密码"
+msgstr "修改您的密码"
 
 #: .\shop\templates\registration\password_change_form.html:9
 msgid "Change password"
@@ -565,12 +622,12 @@ msgstr "修改密码"
 
 #: .\shop\templates\registration\password_reset.html:5
 msgid "Reset your password"
-msgstr "重置密码"
+msgstr "重置您的密码"
 
 #: .\shop\templates\registration\password_reset.html:6
 msgid ""
 "Enter your email address and we'll send you a link to reset your password."
-msgstr "输入你的电子邮箱，我们将向你发送重置密码的链接。"
+msgstr "请输入您的电子邮箱地址，我们将向您发送重置密码的链接。"
 
 #: .\shop\templates\registration\password_reset.html:10
 msgid "Send reset link"
@@ -582,7 +639,7 @@ msgstr "密码重置完成"
 
 #: .\shop\templates\registration\password_reset_complete.html:7
 msgid "Your password has been successfully reset. You may now log in."
-msgstr "你的密码已成功重置，现在可以登录了。"
+msgstr "您的密码已成功重置，现在可以登录了。"
 
 #: .\shop\templates\registration\password_reset_complete.html:8
 msgid "Go to login page"
@@ -603,15 +660,15 @@ msgstr "密码重置邮件已发送"
 
 #: .\shop\templates\registration\password_reset_done.html:6
 msgid "Check your inbox for a link to reset your password."
-msgstr "请查收你的收件箱，点击密码重置链接。"
+msgstr "请查看您的收件箱，获取重置密码的链接。"
 
 #: .\shop\templates\registration\password_reset_email.html:5
 msgid "You have requested a password reset."
-msgstr "你已请求重置密码。"
+msgstr "您已申请重置密码。"
 
 #: .\shop\templates\registration\password_reset_email.html:6
 msgid "Please click the link below to reset your password:"
-msgstr "请点击下方链接重置你的密码："
+msgstr "请点击下方链接重置您的密码："
 
 #: .\shop\templates\registration\signup.html:10
 msgid "Username:"
@@ -620,7 +677,7 @@ msgstr "用户名："
 #: .\shop\templates\registration\signup.html:16
 #: .\shop\templates\shop\contact.html:26
 msgid "Email:"
-msgstr "邮箱："
+msgstr "电子邮箱："
 
 #: .\shop\templates\registration\signup.html:22
 msgid "Password:"
@@ -632,7 +689,7 @@ msgstr "确认密码："
 
 #: .\shop\templates\registration\signup.html:34
 msgid "Create Account"
-msgstr "创建账号"
+msgstr "创建账户"
 
 #: .\shop\templates\shop\_pagination.html:7
 #: .\shop\templates\shop\_pagination.html:11
@@ -641,7 +698,7 @@ msgstr "上一页"
 
 #: .\shop\templates\shop\_pagination.html:16
 msgid "Page"
-msgstr "第"
+msgstr "页码"
 
 #: .\shop\templates\shop\_pagination.html:21
 #: .\shop\templates\shop\_pagination.html:25
@@ -670,10 +727,7 @@ msgid ""
 "deleted once they are no longer needed. You have the right to request "
 "access, correction, or deletion of your data at any time."
 msgstr ""
-"提交此表单时，我们收集你的姓名、电子邮箱和留言，仅用于回复你的咨询。为"
-"保障安全与防止滥用，系统还可能处理技术元数据（如哈希处理后的 IP 地址和"
-"浏览器信息）。未经你的明确同意，你的数据不会用于营销。提交内容将安全"
-"保存，并在不再需要时删除。你有权随时请求访问、更正或删除你的数据。"
+"当您提交此表单时，我们仅出于回复您咨询的目的收集您的姓名、电子邮箱地址和留言内容。为保障安全并防止滥用，我们也可能会处理技术元数据（例如经哈希处理的 IP 地址和浏览器信息）。未经您的明确同意，您的数据不会用于营销用途。提交内容将被安全存储，并在不再需要时予以删除。您有权随时申请访问、更正或删除您的个人数据。"
 
 #: .\shop\templates\shop\contact.html:81
 msgid "Send Message"
@@ -690,12 +744,11 @@ msgid ""
 "photographs made to bring calm and warmth into everyday spaces. Feel free to "
 "browse through the collections at your own pace."
 msgstr ""
-"精选自然主题、适合家庭与孩子的插画与摄影作品，为日常生活空间带来宁静"
-"与温暖。欢迎按自己的节奏浏览各个系列。"
+"精选自然、家庭与儿童友好的插画和摄影作品，为日常空间带来宁静与温暖。欢迎按自己的节奏随意浏览各个系列。"
 
 #: .\shop\templates\shop\homepage.html:20
 msgid "Discover Our Art — read the story behind HEARTH"
-msgstr "探索我们的艺术 — 了解 HEARTH 背后的故事"
+msgstr "探索我们的艺术 —— 阅读 HEARTH 背后的故事"
 
 #: .\shop\templates\shop\homepage.html:21
 msgid "Discover Our Art"
@@ -703,15 +756,14 @@ msgstr "探索我们的艺术"
 
 #: .\shop\templates\shop\homepage.html:32
 msgid "A place for art between the earth and the heart."
-msgstr "一处位于大地与心灵之间的艺术空间。"
+msgstr "大地与心灵之间的艺术栖息地。"
 
 #: .\shop\templates\shop\homepage.html:35
 msgid ""
 "While a hearth already carries its own quiet meaning, HEARTH is also a "
 "gentle wordplay on two values behind our work: heart and earth."
 msgstr ""
-"“炉火（hearth）”本身就带有沉静的意蕴，而 HEARTH 也巧妙呼应了我们作品"
-"背后的两个核心价值：心灵（heart）与大地（earth）。"
+"“hearth”（壁炉）本身便蕴含着宁静温暖的意蕴，而 HEARTH 同时也是对我们创作背后两大核心价值的温柔双关：“heart”（心灵）与“earth”（大地）。"
 
 #: .\shop\templates\shop\homepage.html:39
 msgid ""
@@ -719,8 +771,7 @@ msgid ""
 "significant—should look attentively at my pictures and there seek to "
 "recognize what I am and what I want.”"
 msgstr ""
-"“凡是想了解我——作为一名艺术家，这才是唯一重要的——的人，都应该仔细"
-"端详我的画作，并在其中去辨认我是谁、我想要什么。”"
+"“任何想了解我的人——作为一个艺术家，这才是我唯一重要的身份——都应当仔细端详我的画作，并从中去领悟我是谁、我想表达什么。”"
 
 #: .\shop\templates\shop\homepage.html:41
 msgid "Gustav Klimt"
@@ -729,7 +780,7 @@ msgstr "古斯塔夫·克里姆特"
 #: .\shop\templates\shop\illustration_gallery.html:16
 #: .\shop\templates\shop\photography_gallery.html:16
 msgid "Print & Format Info"
-msgstr "印制与规格说明"
+msgstr "印制与尺寸信息"
 
 #: .\shop\templates\shop\illustration_gallery.html:22
 msgid ""
@@ -737,8 +788,7 @@ msgid ""
 "format. If you would like other sizes or formats, please reach out through "
 "the contact form in the navigation bar."
 msgstr ""
-"A4 规格的激光雕刻原创版画，并以丙烯颜料手工上色。如需其他尺寸或规格，"
-"请通过导航栏中的联系表单与我们联系。"
+"A4 规格激光雕刻原创版画，并由手工以丙烯颜料上色。如果您需要其他尺寸或规格，请通过导航栏中的联系表单与我们沟通。"
 
 #: .\shop\templates\shop\illustration_gallery.html:35
 msgid "Illustration gallery"
@@ -754,13 +804,13 @@ msgstr "平均评分"
 #: .\shop\templates\shop\photography_gallery.html:88
 #: .\shop\templates\shop\themed_gallery.html:84
 msgid "out of 5 from"
-msgstr "（满分 5 分，基于"
+msgstr "满分 5 分，共"
 
 #: .\shop\templates\shop\illustration_gallery.html:88
 #: .\shop\templates\shop\photography_gallery.html:89
 #: .\shop\templates\shop\themed_gallery.html:85
 msgid "reviews"
-msgstr "条评价）"
+msgstr "条评价"
 
 #: .\shop\templates\shop\illustration_gallery.html:91
 #: .\shop\templates\shop\photography_gallery.html:92
@@ -772,7 +822,7 @@ msgstr "暂无评价"
 #: .\shop\templates\shop\photography_gallery.html:101
 #: .\shop\templates\shop\themed_gallery.html:97
 msgid "No reviews"
-msgstr "无评价"
+msgstr "暂无评价"
 
 #: .\shop\templates\shop\illustration_gallery.html:109
 #: .\shop\templates\shop\photography_gallery.html:110
@@ -788,8 +838,7 @@ msgid ""
 "Printed on metal in A4 format. If you would like other sizes or formats, "
 "please reach out through the contact form in the navigation bar."
 msgstr ""
-"A4 规格金属材质印制。如需其他尺寸或规格，请通过导航栏中的联系表单与我"
-"们联系。"
+"A4 规格金属印制作品。如果您需要其他尺寸或规格，请通过导航栏中的联系表单与我们沟通。"
 
 #: .\shop\templates\shop\photography_gallery.html:35
 msgid "Photography gallery"
@@ -802,8 +851,7 @@ msgid ""
 "Protection Regulation (GDPR) and applicable German and European data "
 "protection laws."
 msgstr ""
-"我们高度重视你的个人数据保护。本网站依据《通用数据保护条例》（GDPR）"
-"以及适用的德国和欧洲数据保护法律法规处理个人信息。"
+"我们高度重视对您个人数据的保护。本网站依据《通用数据保护条例》（GDPR）以及适用的德国和欧洲数据保护法律处理个人信息。"
 
 #: .\shop\templates\shop\privacy_policy.html:16
 msgid "Data We Collect"
@@ -815,12 +863,11 @@ msgid ""
 "may collect your name, email address, billing and shipping information, and "
 "details necessary to process your request."
 msgstr ""
-"当你下单、通过表单联系我们或创建账号时，我们可能会收集你的姓名、电子邮"
-"箱、账单与收货信息，以及处理你的请求所必需的详细信息。"
+"当您下单、通过表单联系我们或创建账户时，我们可能会收集您的姓名、电子邮箱地址、账单与收货信息，以及处理您请求所需的必要详情。"
 
 #: .\shop\templates\shop\privacy_policy.html:21
 msgid "Purpose of Processing"
-msgstr "处理目的"
+msgstr "数据处理目的"
 
 #: .\shop\templates\shop\privacy_policy.html:23
 msgid ""
@@ -828,20 +875,18 @@ msgid ""
 "fulfilling orders, responding to inquiries, maintaining security, and "
 "complying with legal obligations."
 msgstr ""
-"个人数据的处理仅用于提供服务、履行订单、回复咨询、维护安全以及遵守法"
-"律义务。"
+"个人数据仅用于提供我们的服务、履行订单、回复咨询、维护网站安全以及履行法定义务。"
 
 #: .\shop\templates\shop\privacy_policy.html:26
 msgid "Payments"
-msgstr "支付"
+msgstr "支付处理"
 
 #: .\shop\templates\shop\privacy_policy.html:28
 msgid ""
 "Payments are processed through trusted third-party payment providers. We do "
 "not store complete payment card information on our servers."
 msgstr ""
-"支付通过受信任的第三方支付服务商处理。我们不会在服务器上存储完整的支"
-"付卡信息。"
+"支付通过受信任的第三方支付服务提供商进行处理。我们不会在自己的服务器上存储完整的支付卡信息。"
 
 #: .\shop\templates\shop\privacy_policy.html:31
 msgid "Data Storage"
@@ -852,12 +897,11 @@ msgid ""
 "Personal data is stored only for as long as necessary to fulfil contractual, "
 "legal, or operational requirements and is deleted when no longer needed."
 msgstr ""
-"个人数据仅在履行合同、法律或运营要求所必需的期限内存储，不再需要时将"
-"被删除。"
+"个人数据仅在履行合同、法律或运营要求所需的期限内保存，并在不再需要时予以删除。"
 
 #: .\shop\templates\shop\privacy_policy.html:36
 msgid "Your Rights"
-msgstr "你的权利"
+msgstr "您的权利"
 
 #: .\shop\templates\shop\privacy_policy.html:38
 msgid ""
@@ -865,8 +909,7 @@ msgid ""
 "transfer your personal data, as well as the right to object to certain "
 "processing activities."
 msgstr ""
-"根据 GDPR，你有权访问、更正、限制、删除或转移你的个人数据，也有权对某"
-"些处理活动提出异议。"
+"根据 GDPR，您有权访问、更正、限制处理、删除或导出您的个人数据，并有权反对特定数据处理活动。"
 
 #: .\shop\templates\shop\privacy_policy.html:41
 msgid "Contact"
@@ -888,25 +931,25 @@ msgstr "评分："
 
 #: .\shop\templates\shop\review_form.html:14
 msgid "Your Review:"
-msgstr "你的评价："
+msgstr "您的评价："
 
 #: .\shop\templates\shop\review_form.html:24
 msgid "Post Review"
-msgstr "发布评价"
+msgstr "提交评价"
 
 #: .\shop\templates\shop\terms.html:9
 msgid "Last updated: November 2026"
-msgstr "最后更新：2026 年 11 月"
+msgstr "最后更新：2026年11月"
 
 #: .\shop\templates\shop\terms.html:12
 msgid "Acceptance of Terms"
-msgstr "接受条款"
+msgstr "条款接受"
 
 #: .\shop\templates\shop\terms.html:14
 msgid ""
 "By accessing and using HEARTH Shop, you accept and agree to be bound by the "
 "terms and provision of this agreement."
-msgstr "访问和使用 HEARTH Shop 即表示你接受并同意受本协议条款与细则的约束。"
+msgstr "访问并使用 HEARTH Shop 即表示您接受并同意受本协议各项条款与规定的约束。"
 
 #: .\shop\templates\shop\terms.html:17
 msgid "Products and Orders"
@@ -916,12 +959,11 @@ msgstr "商品与订单"
 msgid ""
 "All orders are subject to availability and confirmation of the order price. "
 "We reserve the right to refuse any order placed with us."
-msgstr ""
-"所有订单均视库存情况及订单价格确认而定。我们保留拒绝任何订单的权利。"
+msgstr "所有订单均视库存情况及订单价格确认而定。我们保留拒绝任何订单的权利。"
 
 #: .\shop\templates\shop\terms.html:22
 msgid "User Accounts"
-msgstr "用户账号"
+msgstr "用户账户"
 
 #: .\shop\templates\shop\terms.html:24
 msgid ""
@@ -929,8 +971,7 @@ msgid ""
 "the security of your account and you are fully responsible for all "
 "activities that occur under the account."
 msgstr ""
-"如果你在本网站创建账号，你有责任维护账号安全，并对该账号下发生的所有"
-"活动承担全部责任。"
+"如果您在本网站创建账户，您有责任维护账户安全，并对该账户下发生的所有活动承担全部责任。"
 
 #: .\shop\templates\shop\terms.html:27
 msgid "Contact Information"
@@ -940,18 +981,17 @@ msgstr "联系信息"
 msgid ""
 "If you have any questions about these Terms, please contact us via our "
 "contact page."
-msgstr "如对本条款有任何疑问，请通过我们的联系页面与我们联系。"
+msgstr "如果您对本服务条款有任何疑问，请通过我们的联系页面与我们取得联系。"
 
 #: .\shop\templates\shop\thank_you.html:8
 msgid "Thank You for Reaching Out!"
-msgstr "感谢你的联系！"
+msgstr "感谢您的来信！"
 
 #: .\shop\templates\shop\thank_you.html:10
 msgid ""
 "We have received your message and will get back to you as soon as possible. "
 "Usually, this takes within 24 to 48 hours."
-msgstr ""
-"我们已收到你的留言，并将尽快与你联系。通常会在 24 至 48 小时内回复。"
+msgstr "我们已收到您的留言，并将尽快回复您。通常会在 24 至 48 小时内处理。"
 
 #: .\shop\templates\shop\thank_you.html:13
 msgid "Return to Homepage"
@@ -960,7 +1000,7 @@ msgstr "返回首页"
 #: .\shop\templates\shop\themed_gallery.html:6
 #, python-format
 msgid "%(theme_name)s Gallery"
-msgstr "%(theme_name)s 画廊"
+msgstr "%(theme_name)s 主题画廊"
 
 #: .\shop\templates\shop\themed_gallery.html:8
 #: .\shop\templates\shop\themed_gallery.html:21
@@ -970,12 +1010,12 @@ msgstr "主题画廊"
 #: .\shop\templates\shop\themed_gallery.html:30
 #, python-format
 msgid "%(theme_name)s gallery"
-msgstr "%(theme_name)s 画廊"
+msgstr "%(theme_name)s 主题画廊"
 
 #: .\shop\templates\shop\themed_gallery.html:30
 #, python-format
 msgid "%(cat_name)s gallery"
-msgstr "%(cat_name)s 画廊"
+msgstr "%(cat_name)s 分类画廊"
 
 #: .\shop\templates\shop\themed_gallery.html:30
 msgid "Themed gallery"
@@ -983,30 +1023,26 @@ msgstr "主题画廊"
 
 #: .\shop\templates\shop\themed_gallery.html:105
 msgid "No prints found for this theme."
-msgstr "未找到该主题下的版画。"
+msgstr "未找到该主题下的版画作品。"
 
 #: .\shop\templates\shop\upload.html:4 .\shop\templates\shop\upload.html:7
 msgid "Upload a New Print"
 msgstr "上传新版画"
 
-#: .\shop\templates\shop\upload.html:13
-msgid "Cancel"
-msgstr "取消"
-
-#: .\shop\views.py:287
+#: .\shop\views.py:309
 msgid "You must agree to the Privacy Notice"
-msgstr "你必须同意隐私声明"
+msgstr "您必须同意隐私声明"
 
-#: .\shop\views.py:308
+#: .\shop\views.py:330
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
 msgstr "来自 %(name)s 的新联系表单提交"
 
-#: .\shop\views.py:316
+#: .\shop\views.py:338
 msgid "Thank you for contacting Hearth Design"
-msgstr "感谢你联系 Hearth Design"
+msgstr "感谢您联系 Hearth Design"
 
-#: .\shop\views.py:318
+#: .\shop\views.py:340
 #, python-format
 msgid ""
 "Hi %(name)s,\n"
@@ -1017,9 +1053,24 @@ msgid ""
 "Best regards,\n"
 "Hearth Design Team"
 msgstr ""
-"%(name)s 你好：\n"
+"您好 %(name)s：\n"
 "\n"
-"感谢你联系我们。我们已收到你的留言，并将尽快回复你。\n"
+"感谢您与我们联系。我们已收到您的留言，并将尽快给您回复。\n"
 "\n"
-"顺祝商祺，\n"
+"此致\n"
 "Hearth Design 团队"
+
+#: .\shop\views.py:390
+msgid ""
+"Staff and administrator accounts cannot be deleted through this self-service "
+"form."
+msgstr "工作人员和管理员账户无法通过此自助表单删除。"
+
+#: .\shop\views.py:403
+msgid ""
+"Too many account deletion attempts. Please wait a few minutes and try again."
+msgstr "账户删除尝试次数过多，请等待几分钟后再试。"
+
+#: .\shop\views.py:431
+msgid "Your account has been permanently deleted."
+msgstr "您的账户已被永久删除。"

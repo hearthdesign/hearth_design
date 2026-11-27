@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Delete Account" %} — {% trans "Hearth Shop" %}{% endblock %}
+
+{% block content %}
+<section class="container_delete" style="max-width: 600px;" aria-labelledby="delete-account-heading">
+    <h1 id="delete-account-heading" class="mb-3">{% trans "Delete Your Account" %}</h1>
+
+    <div id="delete-account-warning" class="alert alert-warning" role="alert">
+        <p class="mb-2">
+            {% trans "Deleting your account will permanently remove your login credentials, profile, and active shopping cart." %}
+        </p>
+        <p class="mb-0">
+            {% trans "Previously placed orders are retained for record-keeping without your account link, and any reviews you wrote will remain visible as Anonymous." %}
+        </p>
+    </div>
+
+    <form method="post" novalidate aria-describedby="delete-account-warning" class="delete-account-form">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="{{ form.current_password.id_for_label }}" class="form-label">
+                {{ form.current_password.label }}
+            </label>
+            {{ form.current_password }}
+            {% if form.current_password.errors %}
+                <div id="current-password-error" class="field-error" role="alert">
+                    {{ form.current_password.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="delete-confirm-group">
+            {{ form.confirm_deletion }}
+            <label for="{{ form.confirm_deletion.id_for_label }}" class="form-check-label">
+                {{ form.confirm_deletion.label }}
+            </label>
+            {% if form.confirm_deletion.errors %}
+                <div id="confirm-deletion-error" class="field-error" role="alert">
+                    {{ form.confirm_deletion.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="delete-account-actions">
+            <button type="submit" class="btn-danger-delete">
+                {% trans "Permanently Delete Account" %}
+            </button>
+            <a href="{% url 'homepage' %}" class="btn-cancel-action">
+                {% trans "Cancel" %}
+            </a>
+        </div>
+    </form>
+</section>
+{% endblock %}

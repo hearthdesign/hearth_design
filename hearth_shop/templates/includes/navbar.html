@@ -1,7 +1,7 @@
 {% load i18n %}
 
 <!-- Navbar -->
-<nav class="navbar">
+<nav class="navbar" aria-label="{% trans 'Main navigation' %}">
   <div class="nav-links" id="nav-links">
     <!-- Left group -->
     <ul class="nav-group">
@@ -61,7 +61,12 @@
           <a href="{% url 'order_history' %}" class="nav-btn">{% trans "My Orders" %}</a>
         </li>
         <li>
-          <form method="post" action="{% url 'logout' %}" style="display:inline;">
+          <a href="{% url 'delete_account' %}" class="nav-btn" aria-label="{% trans 'Delete Account' %}">
+            {% trans "Delete Account" %}
+          </a>
+        </li>
+        <li>
+          <form method="post" action="{% url 'logout' %}" style="display:inline;" aria-label="{% trans 'Log out of your account' %}">
             {% csrf_token %}
             <button type="submit" class="nav-btn">{% trans "Logout" %}</button>
           </form>

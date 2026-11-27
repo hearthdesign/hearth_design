@@ -6,8 +6,10 @@ import logging
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from django.core.exceptions import ImproperlyConfigured
 from django.core.mail import send_mail
+from django.core.cache import cache
 from django.core.paginator import Paginator  # For pagination
 from django.db import transaction
 from django.http import HttpResponse, HttpResponseRedirect
@@ -16,12 +18,31 @@ from django.urls import reverse, translate_url
 from django.utils import timezone, translation
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
 from django.views.generic import TemplateView
 
-from .forms import ContactForm, CustomSignupForm, PrintForm, ReviewForm
+from .forms import (
+    ContactForm,
+    CustomSignupForm,
+    PrintForm,
+    ReviewForm,
+    AccountDeleteForm)
 
 # Import all models
 from .models import ContactSubmission, Print, Theme
+from checkout.models import Cart
+
+logger = logging.getLogger(__name__)
+
+DELETE_ATTEMPT_LIMIT = 5
+DELETE_ATTEMPT_WINDOW_SECONDS = 900  # 15 minutes
+
+def _get_client_ip(request):
+    forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
+    if forwarded_for:
+        return forwarded_for.split(",")[0].strip()
+    return request.META.get("REMOTE_ADDR", "unknown")
+
 
 # ==========================================
 #               HOMEPAGE
@@ -145,6 +166,7 @@ def photography_gallery(request):
             "theme": None,
         },
     )
+
 
 # ==========================================
 #          THEME FILTER
@@ -355,9 +377,75 @@ def signup(request):
     return render(request, "registration/signup.html", {"form": form})
 
 
+# ==========================================
+#              DELETE ACCOUNT
+# ==========================================
+@login_required
+@require_http_methods(["GET", "POST"])
+def delete_account(request):
+    if request.user.is_staff or request.user.is_superuser:
+        messages.error(
+            request,
+            _(
+                "Staff and administrator accounts cannot be deleted through this self-service form."
+            ),
+        )
+        return redirect("homepage")
+
+    cache_key = f"delete_account_attempts:user:{request.user.pk}"
+    attempts = cache.get(cache_key, 0)
+
+    if request.method == "POST":
+        if attempts >= DELETE_ATTEMPT_LIMIT:
+            messages.error(
+                request,
+                _(
+                    "Too many account deletion attempts. Please wait a few minutes and try again."
+                ),
+            )
+            return render(
+                request,
+                "shop/delete_account.html",
+                {"form": AccountDeleteForm(user=request.user)},
+            )
+
+        form = AccountDeleteForm(request.POST, user=request.user)
+        if form.is_valid():
+            user = request.user
+            deleted_user_id = user.pk
+            client_ip = _get_client_ip(request)
+
+            with transaction.atomic():
+                Cart.objects.filter(user=user).delete()
+                logout(request)
+                user.delete()
+
+            cache.delete(cache_key)
+            logger.info(
+                "Account deleted: user_id=%s ip=%s",
+                deleted_user_id,
+                client_ip,
+            )
+            messages.success(
+                request,
+                _("Your account has been permanently deleted."),
+            )
+            return redirect("homepage")
+
+        cache.set(cache_key, attempts + 1, timeout=DELETE_ATTEMPT_WINDOW_SECONDS)
+    else:
+        form = AccountDeleteForm(user=request.user)
+
+    return render(request, "registration/delete_account.html", {"form": form})
+
+
+# ==========================================
+#          CONTACT RESPONSE
+# ==========================================
 @login_required
 def thank_you(request):
     return render(request, "shop/thank_you.html")
+
 
 # ==========================================
 #          FOOTER LINKS

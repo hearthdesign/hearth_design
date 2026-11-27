@@ -2,7 +2,6 @@
 #             SHOP APP URL ROUTES
 # ==========================================
 from django.urls import path
-
 from . import views
 
 # ==========================================
@@ -32,6 +31,7 @@ urlpatterns = [
     #       ACCOUNT, CONTACT & LEGAL PAGES
     # ==========================================
     path("signup/", views.signup, name="signup"),
+    path("account/delete/", views.delete_account, name="delete_account"),
     path("thank-you/", views.thank_you, name="thank_you"),
     path("contact/", views.contact_view, name="contact"),
     path("terms/", views.terms_of_service, name="terms_of_service"),

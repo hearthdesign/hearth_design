@@ -373,8 +373,8 @@ Mailchimp <-- Newsletter
 
 ## Project Structure
 
-```text
-# Project Structure
+### ERD
+![alt text](docs\readme\hearth_erd1.png)
 
 ```text
 hearth_design/
@@ -391,6 +391,7 @@ hearth_design/
 ├── media/
 ├── static/
 ├── staticfiles/
+├── checkout
 ├── hearth_shop/
 ├── shop/
 └── hvenv/
