@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-27 15:04+0100\n"
+"POT-Creation-Date: 2026-11-28 03:42+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: Spanish\n"
@@ -78,6 +78,7 @@ msgstr "Artículos del carrito de compras"
 #: .\checkout\templates\checkout\cart.html:27
 #: .\shop\templates\shop\illustration_gallery.html:62
 #: .\shop\templates\shop\photography_gallery.html:62
+#: .\shop\templates\shop\themed_gallery.html:68
 msgid "No image available"
 msgstr "No hay imagen disponible"
 
@@ -135,94 +136,95 @@ msgstr "Total del carrito:"
 msgid "Secure Checkout with Stripe"
 msgstr "Pago seguro con Stripe"
 
-#: .\checkout\templates\checkout\checkout_thanks.html:4
+#: .\checkout\templates\checkout\checkout_thanks.html:8
 #: .\shop\templates\shop\thank_you.html:8
 msgid "Thank You"
 msgstr "Gracias"
 
-#: .\checkout\templates\checkout\checkout_thanks.html:8
+#: .\checkout\templates\checkout\checkout_thanks.html:12
 msgid "Thank You!"
 msgstr "¡Gracias!"
 
-#: .\checkout\templates\checkout\checkout_thanks.html:9
+#: .\checkout\templates\checkout\checkout_thanks.html:15
 msgid ""
 "We appreciate your support. Your submission or order has been successfully "
 "recorded."
 msgstr ""
 "Agradecemos tu apoyo. Tu envío o pedido se ha registrado correctamente."
 
-#: .\checkout\templates\checkout\checkout_thanks.html:12
+#: .\checkout\templates\checkout\checkout_thanks.html:18
+msgid "Thank you page actions"
+msgstr ""
+
+#: .\checkout\templates\checkout\checkout_thanks.html:19
+#: .\shop\templates\registration\logged_out.html:19
+#: .\shop\templates\registration\password_change_done.html:17
+msgid "Return to the shop homepage"
+msgstr "Volver a la página principal de la tienda"
+
+#: .\checkout\templates\checkout\checkout_thanks.html:20
 #: .\checkout\templates\checkout\payment_success.html:42
 #: .\shop\templates\registration\logged_out.html:20
 #: .\shop\templates\registration\password_change_done.html:18
 msgid "Back to Home"
 msgstr "Volver al inicio"
 
-#: .\checkout\templates\checkout\order_history.html:3
-#: .\checkout\templates\checkout\order_history.html:7
-#: .\checkout\templates\checkout\order_history.html:18
-#: .\checkout\templates\checkout\order_history.html:22
+#: .\checkout\templates\checkout\order_history.html:9
+#: .\checkout\templates\checkout\order_history.html:13
 #: .\hearth_shop\templates\includes\navbar.html:61
 msgid "My Orders"
 msgstr "Mis pedidos"
 
-#: .\checkout\templates\checkout\order_history.html:25
+#: .\checkout\templates\checkout\order_history.html:16
 msgid "Past orders list"
 msgstr "Lista de pedidos anteriores"
 
-#: .\checkout\templates\checkout\order_history.html:27
+#: .\checkout\templates\checkout\order_history.html:18
 #, python-format
 msgid "Order #%(order_id)s"
 msgstr "Pedido #%(order_id)s"
 
-#: .\checkout\templates\checkout\order_history.html:31
-#: .\checkout\templates\checkout\order_history.html:87
+#: .\checkout\templates\checkout\order_history.html:22
 msgid "Order #"
 msgstr "Pedido #"
 
-#: .\checkout\templates\checkout\order_history.html:38
+#: .\checkout\templates\checkout\order_history.html:29
 msgid "Order status: Paid"
 msgstr "Estado del pedido: Pagado"
 
-#: .\checkout\templates\checkout\order_history.html:39
-#: .\checkout\templates\checkout\order_history.html:90
+#: .\checkout\templates\checkout\order_history.html:30
 #: .\checkout\templates\checkout\payment_success.html:18
 msgid "Paid"
 msgstr "Pagado"
 
-#: .\checkout\templates\checkout\order_history.html:44
+#: .\checkout\templates\checkout\order_history.html:35
 msgid "Order status: Pending"
 msgstr "Estado del pedido: Pendiente"
 
-#: .\checkout\templates\checkout\order_history.html:45
-#: .\checkout\templates\checkout\order_history.html:90
+#: .\checkout\templates\checkout\order_history.html:36
 #: .\checkout\templates\checkout\payment_success.html:27
 msgid "Pending"
 msgstr "Pendiente"
 
-#: .\checkout\templates\checkout\order_history.html:51
+#: .\checkout\templates\checkout\order_history.html:42
 #, python-format
 msgid "Items in Order #%(order_id)s"
 msgstr "Artículos del pedido #%(order_id)s"
 
-#: .\checkout\templates\checkout\order_history.html:60
-#: .\checkout\templates\checkout\order_history.html:104
+#: .\checkout\templates\checkout\order_history.html:51
 #, python-format
 msgid "Write a review for %(title)s"
 msgstr "Escribir una reseña para %(title)s"
 
-#: .\checkout\templates\checkout\order_history.html:61
-#: .\checkout\templates\checkout\order_history.html:105
+#: .\checkout\templates\checkout\order_history.html:52
 msgid "Write a review"
 msgstr "Escribir reseña"
 
-#: .\checkout\templates\checkout\order_history.html:70
-#: .\checkout\templates\checkout\order_history.html:114
+#: .\checkout\templates\checkout\order_history.html:61
 msgid "Total:"
 msgstr "Total:"
 
-#: .\checkout\templates\checkout\order_history.html:78
-#: .\checkout\templates\checkout\order_history.html:122
+#: .\checkout\templates\checkout\order_history.html:69
 msgid "You have no past orders."
 msgstr "No tienes pedidos anteriores."
 
@@ -361,35 +363,35 @@ msgid "Your cart is now empty. Browse the gallery to discover more artwork."
 msgstr ""
 "Tu carrito ahora está vacío. Explora la galería para descubrir más obras."
 
-#: .\hearth_shop\settings.py:227
+#: .\hearth_shop\settings.py:224
 msgid "English"
 msgstr "English"
 
-#: .\hearth_shop\settings.py:228
+#: .\hearth_shop\settings.py:225
 msgid "Deutsch"
 msgstr "Deutsch"
 
-#: .\hearth_shop\settings.py:229
+#: .\hearth_shop\settings.py:226
 msgid "Français"
 msgstr "Français"
 
-#: .\hearth_shop\settings.py:230
+#: .\hearth_shop\settings.py:227
 msgid "Español"
 msgstr "Español"
 
-#: .\hearth_shop\settings.py:231
+#: .\hearth_shop\settings.py:228
 msgid "Italiano"
 msgstr "Italiano"
 
-#: .\hearth_shop\settings.py:232
+#: .\hearth_shop\settings.py:229
 msgid "Português"
 msgstr "Português"
 
-#: .\hearth_shop\settings.py:233
+#: .\hearth_shop\settings.py:230
 msgid "中文"
 msgstr "中文"
 
-#: .\hearth_shop\settings.py:234
+#: .\hearth_shop\settings.py:231
 msgid "日本語"
 msgstr "日本語"
 
@@ -599,8 +601,7 @@ msgstr "He leído y acepto el Aviso de privacidad"
 
 #: .\shop\forms.py:51 .\shop\templates\shop\contact.html:93
 msgid "I would like to receive updates about new art, offers, and newsletters"
-msgstr ""
-"Me gustaría recibir novedades sobre nuevas obras, ofertas y boletines"
+msgstr "Me gustaría recibir novedades sobre nuevas obras, ofertas y boletines"
 
 #: .\shop\forms.py:96
 msgid "Current Password"
@@ -613,8 +614,7 @@ msgstr "Introduce tu contraseña actual"
 #: .\shop\forms.py:107
 msgid ""
 "I understand that deleting my account is permanent and cannot be undone."
-msgstr ""
-"Entiendo que eliminar mi cuenta es permanente y no se puede deshacer."
+msgstr "Entiendo que eliminar mi cuenta es permanente y no se puede deshacer."
 
 #: .\shop\forms.py:135
 msgid "Incorrect password."
@@ -752,11 +752,6 @@ msgstr "Inicia sesión en tu cuenta"
 msgid "Log In"
 msgstr "Iniciar sesión"
 
-#: .\shop\templates\registration\logged_out.html:19
-#: .\shop\templates\registration\password_change_done.html:17
-msgid "Return to the shop homepage"
-msgstr "Volver a la página principal de la tienda"
-
 #: .\shop\templates\registration\login.html:11
 msgid "Account login form"
 msgstr "Formulario de inicio de sesión"
@@ -892,8 +887,7 @@ msgstr "Has solicitado restablecer tu contraseña."
 
 #: .\shop\templates\registration\password_reset_email.html:13
 msgid "Please click the link below to reset your password:"
-msgstr ""
-"Haz clic en el siguiente enlace para restablecer tu contraseña:"
+msgstr "Haz clic en el siguiente enlace para restablecer tu contraseña:"
 
 #: .\shop\templates\registration\password_reset_email.html:20
 msgid "Reset password using your recovery link"
@@ -1020,9 +1014,9 @@ msgid ""
 "significant—should look attentively at my pictures and there seek to "
 "recognize what I am and what I want.”"
 msgstr ""
-"“Quien quiera saber algo sobre mí —como artista, que es lo único que "
-"importa— debe mirar con atención mis cuadros y buscar en ellos reconocer lo "
-"que soy y lo que quiero.”"
+"“Quien quiera saber algo sobre mí —como artista, que es lo único que importa"
+"— debe mirar con atención mis cuadros y buscar en ellos reconocer lo que soy "
+"y lo que quiero.”"
 
 #: .\shop\templates\shop\homepage.html:41
 msgid "Gustav Klimt"
@@ -1049,26 +1043,31 @@ msgstr "Galería de ilustración"
 
 #: .\shop\templates\shop\illustration_gallery.html:86
 #: .\shop\templates\shop\photography_gallery.html:87
+#: .\shop\templates\shop\themed_gallery.html:95
 msgid "Average rating"
 msgstr "Valoración media"
 
 #: .\shop\templates\shop\illustration_gallery.html:87
 #: .\shop\templates\shop\photography_gallery.html:88
+#: .\shop\templates\shop\themed_gallery.html:96
 msgid "out of 5 from"
 msgstr "sobre 5 a partir de"
 
 #: .\shop\templates\shop\illustration_gallery.html:88
 #: .\shop\templates\shop\photography_gallery.html:89
+#: .\shop\templates\shop\themed_gallery.html:97
 msgid "reviews"
 msgstr "reseñas"
 
 #: .\shop\templates\shop\illustration_gallery.html:91
 #: .\shop\templates\shop\photography_gallery.html:92
+#: .\shop\templates\shop\themed_gallery.html:100
 msgid "No reviews yet"
 msgstr "Aún no hay reseñas"
 
 #: .\shop\templates\shop\illustration_gallery.html:100
 #: .\shop\templates\shop\photography_gallery.html:101
+#: .\shop\templates\shop\themed_gallery.html:109
 msgid "No reviews"
 msgstr "Sin reseñas"
 
@@ -1101,8 +1100,8 @@ msgid ""
 "protection laws."
 msgstr ""
 "Nos tomamos muy en serio la protección de tus datos personales. Este sitio "
-"web trata la información personal de conformidad con el Reglamento General de "
-"Protección de Datos (RGPD) y las leyes alemanas y europeas aplicables en "
+"web trata la información personal de conformidad con el Reglamento General "
+"de Protección de Datos (RGPD) y las leyes alemanas y europeas aplicables en "
 "materia de protección de datos."
 
 #: .\shop\templates\shop\privacy_policy.html:17
@@ -1142,9 +1141,9 @@ msgid ""
 "Payments are processed through trusted third-party payment providers. We do "
 "not store complete payment card information on our servers."
 msgstr ""
-"Los pagos se procesan a través de proveedores de pago terceros de "
-"confianza. No almacenamos los datos completos de tarjetas de pago en "
-"nuestros servidores."
+"Los pagos se procesan a través de proveedores de pago terceros de confianza. "
+"No almacenamos los datos completos de tarjetas de pago en nuestros "
+"servidores."
 
 #: .\shop\templates\shop\privacy_policy.html:38
 msgid "Data Storage"
@@ -1170,8 +1169,8 @@ msgid ""
 "processing activities."
 msgstr ""
 "Según el RGPD, tienes derecho a acceder, rectificar, limitar, suprimir o "
-"portar tus datos personales, así como a oponerte a determinadas actividades de "
-"tratamiento."
+"portar tus datos personales, así como a oponerte a determinadas actividades "
+"de tratamiento."
 
 #: .\shop\templates\shop\privacy_policy.html:52
 msgid "Contact"
@@ -1279,43 +1278,66 @@ msgstr "Acciones de confirmación de contacto"
 
 #: .\shop\templates\shop\thank_you.html:21
 #: .\shop\templates\shop\thank_you.html:22
-#: .\shop\templates\shop\themed_gallery.html:68
+#: .\shop\templates\shop\themed_gallery.html:138
 msgid "Return to Homepage"
 msgstr "Volver a la página principal"
 
-#: .\shop\templates\shop\themed_gallery.html:10
-#: .\shop\templates\shop\themed_gallery.html:21
+#: .\shop\templates\shop\themed_gallery.html:6
 #, python-format
 msgid "%(theme_name)s Gallery"
 msgstr "Galería %(theme_name)s"
 
-#: .\shop\templates\shop\themed_gallery.html:12
-#: .\shop\templates\shop\themed_gallery.html:23
+#: .\shop\templates\shop\themed_gallery.html:8
+#, fuzzy, python-format
+#| msgid "%(theme_name)s Gallery"
+msgid "%(name)s Gallery"
+msgstr "Galería %(theme_name)s"
+
+#: .\shop\templates\shop\themed_gallery.html:10
+#: .\shop\templates\shop\themed_gallery.html:26
 msgid "Themed Gallery"
 msgstr "Galería temática"
 
-#: .\shop\templates\shop\themed_gallery.html:33
+#: .\shop\templates\shop\themed_gallery.html:40
+#, fuzzy, python-format
+#| msgid "%(theme_name)s Gallery"
+msgid "%(theme_name)s gallery"
+msgstr "Galería %(theme_name)s"
+
+#: .\shop\templates\shop\themed_gallery.html:40
+#, fuzzy, python-format
+#| msgid "%(theme_name)s Gallery"
+msgid "%(cat_name)s gallery"
+msgstr "Galería %(theme_name)s"
+
+#: .\shop\templates\shop\themed_gallery.html:40
 msgid "Gallery items"
 msgstr "Elementos de la galería"
 
-#: .\shop\templates\shop\themed_gallery.html:48
+#: .\shop\templates\shop\themed_gallery.html:83
 msgid "Price"
 msgstr "Precio"
 
-#: .\shop\templates\shop\themed_gallery.html:55
+#: .\shop\templates\shop\themed_gallery.html:118
 #, python-format
 msgid "View %(title)s"
 msgstr "Ver %(title)s"
 
-#: .\shop\templates\shop\themed_gallery.html:56
+#: .\shop\templates\shop\themed_gallery.html:119
 msgid "View Details"
 msgstr "Ver detalles"
 
-#: .\shop\templates\shop\themed_gallery.html:65
+#: .\shop\templates\shop\themed_gallery.html:134
+#, fuzzy
+#| msgid "No prints found."
+msgid "No prints found for this theme."
+msgstr "No se encontraron láminas."
+
+#: .\shop\templates\shop\themed_gallery.html:135
 msgid "No artworks are currently available in this theme."
 msgstr "No hay obras disponibles en este tema en este momento."
 
-#: .\shop\templates\shop\themed_gallery.html:66
+#: .\shop\templates\shop\themed_gallery.html:136
 msgid "Gallery navigation"
 msgstr "Navegación de la galería"
 
@@ -1328,20 +1350,20 @@ msgstr "Subir una nueva lámina"
 msgid "Upload actions"
 msgstr "Acciones de subida"
 
-#: .\shop\views.py:309
+#: .\shop\views.py:354
 msgid "You must agree to the Privacy Notice"
 msgstr "Debes aceptar el Aviso de privacidad"
 
-#: .\shop\views.py:330
+#: .\shop\views.py:375
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
 msgstr "Nuevo envío del formulario de contacto de %(name)s"
 
-#: .\shop\views.py:338
+#: .\shop\views.py:383
 msgid "Thank you for contacting Hearth Design"
 msgstr "Gracias por contactar con Hearth Design"
 
-#: .\shop\views.py:340
+#: .\shop\views.py:385
 #, python-format
 msgid ""
 "Hi %(name)s,\n"
@@ -1360,7 +1382,7 @@ msgstr ""
 "Saludos cordiales,\n"
 "Equipo de Hearth Design"
 
-#: .\shop\views.py:390
+#: .\shop\views.py:435
 msgid ""
 "Staff and administrator accounts cannot be deleted through this self-service "
 "form."
@@ -1368,13 +1390,13 @@ msgstr ""
 "Las cuentas del personal y de administradores no pueden eliminarse mediante "
 "este formulario de autoservicio."
 
-#: .\shop\views.py:403
+#: .\shop\views.py:448
 msgid ""
 "Too many account deletion attempts. Please wait a few minutes and try again."
 msgstr ""
-"Demasiados intentos de eliminación de cuenta. Espera unos minutos e inténtalo "
-"de nuevo."
+"Demasiados intentos de eliminación de cuenta. Espera unos minutos e "
+"inténtalo de nuevo."
 
-#: .\shop\views.py:431
+#: .\shop\views.py:476
 msgid "Your account has been permanently deleted."
 msgstr "Tu cuenta se ha eliminado de forma permanente."

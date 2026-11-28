@@ -307,7 +307,8 @@ def custom_set_language(request):
         clean_tail = path_only if path_only != "/" else "/"
 
         if not translated_path:
-            translated_path = f"/{url_lang_prefix}{clean_tail}"
+            # Avoid guessing an unverified prefixed sub-path like /en/shop/
+            translated_path = f"/{url_lang_prefix}/" if lang_code != settings.LANGUAGE_CODE else "/"
         elif translated_path == "/" and lang_code != settings.LANGUAGE_CODE:
             translated_path = f"/{url_lang_prefix}{clean_tail}"
 

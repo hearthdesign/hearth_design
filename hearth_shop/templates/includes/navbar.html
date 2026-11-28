@@ -92,16 +92,16 @@
               {% trans "Select Language" %}
             </label>
 
-            <select name="language" id="language-select" class="nav-control" onchange="this.form.submit()">
-              {% get_current_language as LANGUAGE_CODE %}
+            <select name="language" class="nav-control" id="language-select" onchange="this.form.submit()">
+              {% get_current_language as CURRENT_LANG %}
               {% get_available_languages as LANGUAGES %}
 
               {% for lang, lang_name in LANGUAGES %}
-              <option value="{{ lang }}" {% if lang == LANGUAGE_CODE %}selected{% endif %}>
-                {{ lang_name }}
-              </option>
-            {% endfor %}
-          </select>
+                <option value="{{ lang }}" {% if lang|lower == CURRENT_LANG|lower %}selected{% endif %}>
+                  {{ lang_name }}
+                </option>
+              {% endfor %}
+            <select>
         </form>
       </li>
     </ul>

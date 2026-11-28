@@ -39,9 +39,6 @@ SECRET_KEY = config("SECRET_KEY")
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_SSL_REDIRECT = not DEBUG
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
@@ -151,8 +148,8 @@ else:
         "ALLOWED_HOSTS", default="hearth-design-044ecd91e469.herokuapp.com"
     ).split(",")
     # Secure cookies for production (Heroku uses HTTPS)
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = not DEBUG
+    CSRF_COOKIE_SECURE = not DEBUG
 
 # -------------------------
 # DATABASES
@@ -240,7 +237,6 @@ LANGUAGE_COOKIE_USE_SESSION = False
 
 LOCALE_PATHS = [
     BASE_DIR / "shop" / "locale",
-    BASE_DIR / "locale",
 ]
 
 # ---------------------------------------------------------

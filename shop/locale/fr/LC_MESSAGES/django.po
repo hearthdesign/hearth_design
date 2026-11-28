@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hearth_design\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-27 15:04+0100\n"
+"POT-Creation-Date: 2026-11-28 03:42+0100\n"
 "PO-Revision-Date: 2026-11-11 00:00+0000\n"
 "Last-Translator: Silvio Streddi <1.space.channel.1@gmail.com>\n"
 "Language-Team: French\n"
@@ -78,6 +78,7 @@ msgstr "Articles du panier"
 #: .\checkout\templates\checkout\cart.html:27
 #: .\shop\templates\shop\illustration_gallery.html:62
 #: .\shop\templates\shop\photography_gallery.html:62
+#: .\shop\templates\shop\themed_gallery.html:68
 msgid "No image available"
 msgstr "Aucune image disponible"
 
@@ -135,16 +136,16 @@ msgstr "Total du panier :"
 msgid "Secure Checkout with Stripe"
 msgstr "Paiement sécurisé avec Stripe"
 
-#: .\checkout\templates\checkout\checkout_thanks.html:4
+#: .\checkout\templates\checkout\checkout_thanks.html:8
 #: .\shop\templates\shop\thank_you.html:8
 msgid "Thank You"
 msgstr "Merci"
 
-#: .\checkout\templates\checkout\checkout_thanks.html:8
+#: .\checkout\templates\checkout\checkout_thanks.html:12
 msgid "Thank You!"
 msgstr "Merci !"
 
-#: .\checkout\templates\checkout\checkout_thanks.html:9
+#: .\checkout\templates\checkout\checkout_thanks.html:15
 msgid ""
 "We appreciate your support. Your submission or order has been successfully "
 "recorded."
@@ -152,78 +153,79 @@ msgstr ""
 "Nous apprécions votre soutien. Votre message ou commande a bien été "
 "enregistré."
 
-#: .\checkout\templates\checkout\checkout_thanks.html:12
+#: .\checkout\templates\checkout\checkout_thanks.html:18
+msgid "Thank you page actions"
+msgstr ""
+
+#: .\checkout\templates\checkout\checkout_thanks.html:19
+#: .\shop\templates\registration\logged_out.html:19
+#: .\shop\templates\registration\password_change_done.html:17
+msgid "Return to the shop homepage"
+msgstr "Retourner à l'accueil de la boutique"
+
+#: .\checkout\templates\checkout\checkout_thanks.html:20
 #: .\checkout\templates\checkout\payment_success.html:42
 #: .\shop\templates\registration\logged_out.html:20
 #: .\shop\templates\registration\password_change_done.html:18
 msgid "Back to Home"
 msgstr "Retour à l'accueil"
 
-#: .\checkout\templates\checkout\order_history.html:3
-#: .\checkout\templates\checkout\order_history.html:7
-#: .\checkout\templates\checkout\order_history.html:18
-#: .\checkout\templates\checkout\order_history.html:22
+#: .\checkout\templates\checkout\order_history.html:9
+#: .\checkout\templates\checkout\order_history.html:13
 #: .\hearth_shop\templates\includes\navbar.html:61
 msgid "My Orders"
 msgstr "Mes commandes"
 
-#: .\checkout\templates\checkout\order_history.html:25
+#: .\checkout\templates\checkout\order_history.html:16
 msgid "Past orders list"
 msgstr "Liste des commandes passées"
 
-#: .\checkout\templates\checkout\order_history.html:27
+#: .\checkout\templates\checkout\order_history.html:18
 #, python-format
 msgid "Order #%(order_id)s"
 msgstr "Commande n° %(order_id)s"
 
-#: .\checkout\templates\checkout\order_history.html:31
-#: .\checkout\templates\checkout\order_history.html:87
+#: .\checkout\templates\checkout\order_history.html:22
 msgid "Order #"
 msgstr "Commande n°"
 
-#: .\checkout\templates\checkout\order_history.html:38
+#: .\checkout\templates\checkout\order_history.html:29
 msgid "Order status: Paid"
 msgstr "Statut de la commande : Payée"
 
-#: .\checkout\templates\checkout\order_history.html:39
-#: .\checkout\templates\checkout\order_history.html:90
+#: .\checkout\templates\checkout\order_history.html:30
 #: .\checkout\templates\checkout\payment_success.html:18
 msgid "Paid"
 msgstr "Payée"
 
-#: .\checkout\templates\checkout\order_history.html:44
+#: .\checkout\templates\checkout\order_history.html:35
 msgid "Order status: Pending"
 msgstr "Statut de la commande : En attente"
 
-#: .\checkout\templates\checkout\order_history.html:45
-#: .\checkout\templates\checkout\order_history.html:90
+#: .\checkout\templates\checkout\order_history.html:36
 #: .\checkout\templates\checkout\payment_success.html:27
 msgid "Pending"
 msgstr "En attente"
 
-#: .\checkout\templates\checkout\order_history.html:51
+#: .\checkout\templates\checkout\order_history.html:42
 #, python-format
 msgid "Items in Order #%(order_id)s"
 msgstr "Articles de la commande n° %(order_id)s"
 
-#: .\checkout\templates\checkout\order_history.html:60
-#: .\checkout\templates\checkout\order_history.html:104
+#: .\checkout\templates\checkout\order_history.html:51
 #, python-format
 msgid "Write a review for %(title)s"
 msgstr "Écrire un avis sur %(title)s"
 
-#: .\checkout\templates\checkout\order_history.html:61
-#: .\checkout\templates\checkout\order_history.html:105
+#: .\checkout\templates\checkout\order_history.html:52
 msgid "Write a review"
 msgstr "Écrire un avis"
 
-#: .\checkout\templates\checkout\order_history.html:70
-#: .\checkout\templates\checkout\order_history.html:114
+#: .\checkout\templates\checkout\order_history.html:61
 msgid "Total:"
 msgstr "Total :"
 
-#: .\checkout\templates\checkout\order_history.html:78
-#: .\checkout\templates\checkout\order_history.html:122
+#: .\checkout\templates\checkout\order_history.html:69
 msgid "You have no past orders."
 msgstr "Vous n'avez aucune commande passée."
 
@@ -319,7 +321,8 @@ msgstr "Quantité saisie invalide. La quantité a été réinitialisée à 1."
 
 #: .\checkout\views.py:68
 msgid "Quantity must be greater than zero. Quantity has been reset to 1."
-msgstr "La quantité doit être supérieure à zéro. La quantité a été réinitialisée à 1."
+msgstr ""
+"La quantité doit être supérieure à zéro. La quantité a été réinitialisée à 1."
 
 #: .\checkout\views.py:76
 #, python-format
@@ -364,35 +367,35 @@ msgstr ""
 "Votre panier est désormais vide. Parcourez la galerie pour découvrir "
 "d'autres œuvres."
 
-#: .\hearth_shop\settings.py:227
+#: .\hearth_shop\settings.py:224
 msgid "English"
 msgstr "English"
 
-#: .\hearth_shop\settings.py:228
+#: .\hearth_shop\settings.py:225
 msgid "Deutsch"
 msgstr "Deutsch"
 
-#: .\hearth_shop\settings.py:229
+#: .\hearth_shop\settings.py:226
 msgid "Français"
 msgstr "Français"
 
-#: .\hearth_shop\settings.py:230
+#: .\hearth_shop\settings.py:227
 msgid "Español"
 msgstr "Español"
 
-#: .\hearth_shop\settings.py:231
+#: .\hearth_shop\settings.py:228
 msgid "Italiano"
 msgstr "Italiano"
 
-#: .\hearth_shop\settings.py:232
+#: .\hearth_shop\settings.py:229
 msgid "Português"
 msgstr "Português"
 
-#: .\hearth_shop\settings.py:233
+#: .\hearth_shop\settings.py:230
 msgid "中文"
 msgstr "中文"
 
-#: .\hearth_shop\settings.py:234
+#: .\hearth_shop\settings.py:231
 msgid "日本語"
 msgstr "日本語"
 
@@ -619,8 +622,7 @@ msgstr "Saisissez votre mot de passe actuel"
 msgid ""
 "I understand that deleting my account is permanent and cannot be undone."
 msgstr ""
-"Je comprends que la suppression de mon compte est définitive et "
-"irréversible."
+"Je comprends que la suppression de mon compte est définitive et irréversible."
 
 #: .\shop\forms.py:135
 msgid "Incorrect password."
@@ -757,11 +759,6 @@ msgstr "Se connecter à votre compte"
 #: .\shop\templates\registration\logged_out.html:17
 msgid "Log In"
 msgstr "Se connecter"
-
-#: .\shop\templates\registration\logged_out.html:19
-#: .\shop\templates\registration\password_change_done.html:17
-msgid "Return to the shop homepage"
-msgstr "Retourner à l'accueil de la boutique"
 
 #: .\shop\templates\registration\login.html:11
 msgid "Account login form"
@@ -1060,26 +1057,31 @@ msgstr "Galerie d'illustrations"
 
 #: .\shop\templates\shop\illustration_gallery.html:86
 #: .\shop\templates\shop\photography_gallery.html:87
+#: .\shop\templates\shop\themed_gallery.html:95
 msgid "Average rating"
 msgstr "Note moyenne"
 
 #: .\shop\templates\shop\illustration_gallery.html:87
 #: .\shop\templates\shop\photography_gallery.html:88
+#: .\shop\templates\shop\themed_gallery.html:96
 msgid "out of 5 from"
 msgstr "sur 5 à partir de"
 
 #: .\shop\templates\shop\illustration_gallery.html:88
 #: .\shop\templates\shop\photography_gallery.html:89
+#: .\shop\templates\shop\themed_gallery.html:97
 msgid "reviews"
 msgstr "avis"
 
 #: .\shop\templates\shop\illustration_gallery.html:91
 #: .\shop\templates\shop\photography_gallery.html:92
+#: .\shop\templates\shop\themed_gallery.html:100
 msgid "No reviews yet"
 msgstr "Aucun avis pour le moment"
 
 #: .\shop\templates\shop\illustration_gallery.html:100
 #: .\shop\templates\shop\photography_gallery.html:101
+#: .\shop\templates\shop\themed_gallery.html:109
 msgid "No reviews"
 msgstr "Aucun avis"
 
@@ -1243,8 +1245,9 @@ msgid ""
 "All orders are subject to availability and confirmation of the order price. "
 "We reserve the right to refuse any order placed with us."
 msgstr ""
-"Toutes les commandes sont soumises à disponibilité et à confirmation du prix. "
-"Nous nous réservons le droit de refuser toute commande passée auprès de nous."
+"Toutes les commandes sont soumises à disponibilité et à confirmation du "
+"prix. Nous nous réservons le droit de refuser toute commande passée auprès "
+"de nous."
 
 #: .\shop\templates\shop\terms.html:31
 msgid "User Accounts"
@@ -1290,43 +1293,66 @@ msgstr "Actions de confirmation de contact"
 
 #: .\shop\templates\shop\thank_you.html:21
 #: .\shop\templates\shop\thank_you.html:22
-#: .\shop\templates\shop\themed_gallery.html:68
+#: .\shop\templates\shop\themed_gallery.html:138
 msgid "Return to Homepage"
 msgstr "Retourner à l'accueil"
 
-#: .\shop\templates\shop\themed_gallery.html:10
-#: .\shop\templates\shop\themed_gallery.html:21
+#: .\shop\templates\shop\themed_gallery.html:6
 #, python-format
 msgid "%(theme_name)s Gallery"
 msgstr "Galerie %(theme_name)s"
 
-#: .\shop\templates\shop\themed_gallery.html:12
-#: .\shop\templates\shop\themed_gallery.html:23
+#: .\shop\templates\shop\themed_gallery.html:8
+#, fuzzy, python-format
+#| msgid "%(theme_name)s Gallery"
+msgid "%(name)s Gallery"
+msgstr "Galerie %(theme_name)s"
+
+#: .\shop\templates\shop\themed_gallery.html:10
+#: .\shop\templates\shop\themed_gallery.html:26
 msgid "Themed Gallery"
 msgstr "Galerie thématique"
 
-#: .\shop\templates\shop\themed_gallery.html:33
+#: .\shop\templates\shop\themed_gallery.html:40
+#, fuzzy, python-format
+#| msgid "%(theme_name)s Gallery"
+msgid "%(theme_name)s gallery"
+msgstr "Galerie %(theme_name)s"
+
+#: .\shop\templates\shop\themed_gallery.html:40
+#, fuzzy, python-format
+#| msgid "%(theme_name)s Gallery"
+msgid "%(cat_name)s gallery"
+msgstr "Galerie %(theme_name)s"
+
+#: .\shop\templates\shop\themed_gallery.html:40
 msgid "Gallery items"
 msgstr "Éléments de la galerie"
 
-#: .\shop\templates\shop\themed_gallery.html:48
+#: .\shop\templates\shop\themed_gallery.html:83
 msgid "Price"
 msgstr "Prix"
 
-#: .\shop\templates\shop\themed_gallery.html:55
+#: .\shop\templates\shop\themed_gallery.html:118
 #, python-format
 msgid "View %(title)s"
 msgstr "Voir %(title)s"
 
-#: .\shop\templates\shop\themed_gallery.html:56
+#: .\shop\templates\shop\themed_gallery.html:119
 msgid "View Details"
 msgstr "Voir les détails"
 
-#: .\shop\templates\shop\themed_gallery.html:65
+#: .\shop\templates\shop\themed_gallery.html:134
+#, fuzzy
+#| msgid "No prints found."
+msgid "No prints found for this theme."
+msgstr "Aucune impression trouvée."
+
+#: .\shop\templates\shop\themed_gallery.html:135
 msgid "No artworks are currently available in this theme."
 msgstr "Aucune œuvre n'est actuellement disponible dans ce thème."
 
-#: .\shop\templates\shop\themed_gallery.html:66
+#: .\shop\templates\shop\themed_gallery.html:136
 msgid "Gallery navigation"
 msgstr "Navigation de la galerie"
 
@@ -1339,20 +1365,20 @@ msgstr "Téléverser une nouvelle impression"
 msgid "Upload actions"
 msgstr "Actions de téléversement"
 
-#: .\shop\views.py:309
+#: .\shop\views.py:354
 msgid "You must agree to the Privacy Notice"
 msgstr "Vous devez accepter la notice de confidentialité"
 
-#: .\shop\views.py:330
+#: .\shop\views.py:375
 #, python-format
 msgid "New Contact Form Submission from %(name)s"
 msgstr "Nouveau message via le formulaire de contact de %(name)s"
 
-#: .\shop\views.py:338
+#: .\shop\views.py:383
 msgid "Thank you for contacting Hearth Design"
 msgstr "Merci d'avoir contacté Hearth Design"
 
-#: .\shop\views.py:340
+#: .\shop\views.py:385
 #, python-format
 msgid ""
 "Hi %(name)s,\n"
@@ -1371,7 +1397,7 @@ msgstr ""
 "Cordialement,\n"
 "L'équipe Hearth Design"
 
-#: .\shop\views.py:390
+#: .\shop\views.py:435
 msgid ""
 "Staff and administrator accounts cannot be deleted through this self-service "
 "form."
@@ -1379,13 +1405,13 @@ msgstr ""
 "Les comptes du personnel et des administrateurs ne peuvent pas être "
 "supprimés via ce formulaire en libre-service."
 
-#: .\shop\views.py:403
+#: .\shop\views.py:448
 msgid ""
 "Too many account deletion attempts. Please wait a few minutes and try again."
 msgstr ""
 "Trop de tentatives de suppression de compte. Veuillez patienter quelques "
 "minutes et réessayer."
 
-#: .\shop\views.py:431
+#: .\shop\views.py:476
 msgid "Your account has been permanently deleted."
 msgstr "Votre compte a été définitivement supprimé."

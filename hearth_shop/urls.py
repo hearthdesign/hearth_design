@@ -27,7 +27,6 @@ from django.views.generic import TemplateView
 from shop import views as shop_views
 from checkout import views as checkout_views
 from shop.sitemaps import StaticViewSitemap
-from shop.views import custom_set_language  # Adjust import to the app
 
 sitemaps = {
     "static": StaticViewSitemap,
@@ -38,9 +37,10 @@ sitemaps = {
 # ==========================================
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
     path(
-        "i18n/setlang/", custom_set_language, name="custom_set_language"
+        "i18n/setlang/",
+        shop_views.custom_set_language,
+        name="custom_set_language"
     ),  # enables set_language
     # Stripe webhook: no language prefix
     # Stripe webhooks must use a language-independent URL.
@@ -57,7 +57,8 @@ urlpatterns = [
     path(
         "sitemap.xml",
         TemplateView.as_view(
-            template_name="sitemap.xml", content_type="application/xml"
+            template_name="sitemap.xml",
+            content_type="application/xml"
         ),
         name="sitemap",
     ),
@@ -65,7 +66,8 @@ urlpatterns = [
     path(
         "robots.txt",
         TemplateView.as_view(
-            template_name="robots.txt", content_type="text/plain"
+            template_name="robots.txt",
+            content_type="text/plain"
         ),
         name="robots",
     ),
@@ -76,36 +78,50 @@ urlpatterns = [
 # ==========================================
 
 urlpatterns += i18n_patterns(
+    path("admin/", admin.site.urls),
     # Checkout & cart app routes
     path("", include("checkout.urls")),
-    # Catalog, galleries, accounts & informational routes
-    path("", shop_views.homepage, name="homepage"),
-    path(
-        "theme-filter/", shop_views.theme_filter, name="theme_filter"
-    ),
-    path(
-        "gallery/illustrations/",
-        shop_views.illustration_gallery,
-        name="illustration_gallery",
-    ),
-    path(
-        "gallery/photography/",
-        shop_views.photography_gallery,
-        name="photography_gallery",
-    ),
-    path("upload/", shop_views.upload_print, name="upload_print"),
-    path("signup/", shop_views.signup, name="signup"),
+    path("", include("shop.urls")),
+
+    path("accounts/", include("django.contrib.auth.urls")),
     path(
         "thank_you/",
         TemplateView.as_view(template_name="shop/thank_you.html"),
-        name="thank_you",
+        name="thank_you_legacy",
     ),
-    path("accounts/", include("django.contrib.auth.urls")),
-    path("contact/", shop_views.contact_view, name="contact"),
-    path("terms/", shop_views.terms_of_service, name="terms_of_service"),
-    path("privacy-policy/", shop_views.privacy_policy, name="privacy_policy"),
-    path("shop/", include("shop.urls")),
+    prefix_default_language=True,
 )
+
+
+    # Catalog, galleries, accounts & informational routes
+    # path("", shop_views.homepage, name="homepage"),
+    # path(
+    #     "theme-filter/", shop_views.theme_filter, name="theme_filter"
+    # ),
+    # path(
+    #     "gallery/illustrations/",
+    #     shop_views.illustration_gallery,
+    #     name="illustration_gallery",
+    # ),
+    # path(
+    #     "gallery/photography/",
+    #     shop_views.photography_gallery,
+    #     name="photography_gallery",
+    # ),
+    # path("upload/", shop_views.upload_print, name="upload_print"),
+    # path("signup/", shop_views.signup, name="signup"),
+    # path(
+    #     "thank_you/",
+    #     TemplateView.as_view(template_name="shop/thank_you.html"),
+    #     name="thank_you",
+    # ),
+    # path("accounts/", include("django.contrib.auth.urls")),
+    # path("contact/", shop_views.contact_view, name="contact"),
+    # path("terms/", shop_views.terms_of_service, name="terms_of_service"),
+    # path("privacy-policy/", shop_views.privacy_policy, name="privacy_policy"),
+    # path("", include("shop.urls")),
+    # prefix_default_language=True,
+
 
 # ==========================================
 #     LOCAL MEDIA & STATIC SERVING (DEBUG)
